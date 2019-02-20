@@ -18,7 +18,7 @@ class RestaurantViewController: UIViewController {
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     private var zoomLevel: Float = 15.0
-    private var optionButtonSelected : UIButton? = nil
+    private var optionButtonSelected : ThemeButton? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,33 +69,24 @@ class RestaurantViewController: UIViewController {
         let topSpacing = 5
         var totalWidth = 5
         for option in Options.allCases {
-            let button = UIButton.init(type: .custom)
-            button.frame = CGRect(x: leftSpacing, y: topSpacing, width: 100, height: 35)
-            button.layer.cornerRadius = 18
-            button.layer.borderColor = Colors.themeGreen.cgColor
-            button.layer.borderWidth = 2.0
-            button.backgroundColor = UIColor.white
-            button.clipsToBounds = true
-            button.setTitle(option.rawValue, for: .normal)
-            button.setTitleColor(Colors.themeGreen, for: .normal)
-            button.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 7, right: 12)
+            let button = ThemeButton.init(frame: CGRect(x: leftSpacing, y: topSpacing, width: 100, height: 40),
+                                          title: option.rawValue)
             
-            button.sizeToFit()
             button.addTarget(self, action: #selector(optionPressed), for: .touchUpInside)
             
             self.optionScrollView.addSubview(button)
             leftSpacing += Int(button.frame.width + 5)
             totalWidth += Int(button.frame.width + 5)
         }
-        self.optionScrollView.contentSize = CGSize(width: totalWidth, height: 45)
+        print("\(self.view.frame.width)")
+        print("\(totalWidth)")
+        self.optionScrollView.contentSize = CGSize(width: totalWidth, height: 50)
     }
     
-    @objc private func optionPressed(sender: UIButton) {
-        self.optionButtonSelected?.backgroundColor = UIColor.white
-        self.optionButtonSelected?.setTitleColor(Colors.themeGreen, for: .normal)
+    @objc private func optionPressed(sender: ThemeButton) {
+        self.optionButtonSelected?.deactivate()
         self.optionButtonSelected = sender
-        sender.backgroundColor = Colors.themeGreen
-        sender.setTitleColor(UIColor.white, for: .normal)
+        sender.activate()
     }
 }
 

@@ -62,23 +62,11 @@
                                     <constraint firstItem="dHf-ue-Omw" firstAttribute="centerX" secondItem="OuG-x8-oLE" secondAttribute="centerX" id="v0a-A2-V9A"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TC-eC-9xL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TC-eC-9xL">
                                 <rect key="frame" x="0.0" y="100" width="768" height="50"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhc-Np-gRK">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="Fhc-Np-gRK" firstAttribute="leading" secondItem="6TC-eC-9xL" secondAttribute="leading" id="6ih-dT-yKP"/>
-                                    <constraint firstItem="Fhc-Np-gRK" firstAttribute="centerX" secondItem="6TC-eC-9xL" secondAttribute="centerX" id="CE2-89-HE1"/>
-                                    <constraint firstItem="Fhc-Np-gRK" firstAttribute="centerY" secondItem="6TC-eC-9xL" secondAttribute="centerY" id="hEL-Z5-c0w"/>
-                                    <constraint firstItem="Fhc-Np-gRK" firstAttribute="top" secondItem="6TC-eC-9xL" secondAttribute="top" id="jmt-C4-CqK"/>
                                     <constraint firstAttribute="height" constant="50" id="pwU-Az-8t0"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fhc-Np-gRK" secondAttribute="trailing" id="roq-zo-Xeo"/>
-                                    <constraint firstAttribute="bottom" secondItem="Fhc-Np-gRK" secondAttribute="bottom" id="uOD-sz-tgs"/>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgn-h2-Qwx" userLabel="MapView" customClass="GMSMapView">
