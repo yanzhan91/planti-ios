@@ -12,36 +12,90 @@ import GoogleMaps
 class RestaurantViewController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var optionScrollView: UIScrollView!
     
-    var locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
-    var zoomLevel: Float = 15.0
+    private var locationManager = CLLocationManager()
+    private var currentLocation: CLLocation?
+    private var zoomLevel: Float = 15.0
+    private var optionButtonSelected : UIButton? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: zoomLevel)
-        self.mapView.camera = camera
-        self.mapView.delegate = self
-        self.mapView.isMyLocationEnabled = true
-        self.mapView.settings.compassButton = true;
-        self.mapView.settings.myLocationButton = true;
-        self.mapView.settings.zoomGestures = true;
-//        self.mapView.setMinZoom(15, maxZoom: 20);
-
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
-//        marker.map = mapView
+//        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: zoomLevel)
+//        self.mapView.camera = camera
+//        self.mapView.delegate = self
+//        self.mapView.isMyLocationEnabled = true
+//        self.mapView.settings.compassButton = true;
+//        self.mapView.settings.myLocationButton = true;
+//        self.mapView.settings.zoomGestures = true;
+//
+//        locationManager = CLLocationManager()
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.distanceFilter = 50
+//        locationManager.startUpdatingLocation()
+//        locationManager.delegate = self
+        
+        setupOptionScrollView()
         
         
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.distanceFilter = 50
-        locationManager.startUpdatingLocation()
-        locationManager.delegate = self
+        let searchButton = UIButton.init(type: .custom)
+        searchButton.setImage(UIImage(named: "search_icon"), for: .normal)
+        searchButton.frame = CGRect(x: 0, y: 0, width: 21, height: 16)
+        searchButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        self.searchField.leftView = searchButton
+        self.searchField.leftViewMode = .always
+        
+        let filterButton = UIButton.init(type: .custom)
+        filterButton.setImage(UIImage(named: "filter_icon"), for: .normal)
+        filterButton.frame = CGRect(x: 0, y: 0, width: 21, height: 16)
+        filterButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        self.searchField.rightView = filterButton
+        self.searchField.rightViewMode = .always
+    }
+    
+    @IBAction func openMenu(_ sender: Any) {
+        
+    }
+    
+    @IBAction func switchToList(_ sender: Any) {
+        
+    }
+    
+    private func setupOptionScrollView() {
+        var leftSpacing = 5
+        let topSpacing = 5
+        var totalWidth = 5
+        for option in Options.allCases {
+            let button = UIButton.init(type: .custom)
+            button.frame = CGRect(x: leftSpacing, y: topSpacing, width: 100, height: 35)
+            button.layer.cornerRadius = 18
+            button.layer.borderColor = Colors.themeGreen.cgColor
+            button.layer.borderWidth = 2.0
+            button.backgroundColor = UIColor.white
+            button.clipsToBounds = true
+            button.setTitle(option.rawValue, for: .normal)
+            button.setTitleColor(Colors.themeGreen, for: .normal)
+            button.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 7, right: 12)
+            
+            button.sizeToFit()
+            button.addTarget(self, action: #selector(optionPressed), for: .touchUpInside)
+            
+            self.optionScrollView.addSubview(button)
+            leftSpacing += Int(button.frame.width + 5)
+            totalWidth += Int(button.frame.width + 5)
+        }
+        self.optionScrollView.contentSize = CGSize(width: totalWidth, height: 45)
+    }
+    
+    @objc private func optionPressed(sender: UIButton) {
+        self.optionButtonSelected?.backgroundColor = UIColor.white
+        self.optionButtonSelected?.setTitleColor(Colors.themeGreen, for: .normal)
+        self.optionButtonSelected = sender
+        sender.backgroundColor = Colors.themeGreen
+        sender.setTitleColor(UIColor.white, for: .normal)
     }
 }
 
