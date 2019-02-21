@@ -26,7 +26,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dog-d3-870" userLabel="list">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dog-d3-870" userLabel="ViewButton">
                                         <rect key="frame" x="331" y="56" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="dT2-Bw-BpP"/>
@@ -34,7 +34,7 @@
                                         </constraints>
                                         <state key="normal" image="list_icon"/>
                                         <connections>
-                                            <action selector="switchToList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ftc-oi-986"/>
+                                            <action selector="switchView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1kM-yh-ENR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaK-sh-WdX" userLabel="menu">
@@ -284,6 +284,7 @@
                         <outlet property="mapView" destination="vgn-h2-Qwx" id="BOF-S5-i92"/>
                         <outlet property="optionScrollView" destination="6TC-eC-9xL" id="MFh-mq-ffn"/>
                         <outlet property="searchField" destination="dHf-ue-Omw" id="PCr-JB-Vs1"/>
+                        <outlet property="viewButton" destination="Dog-d3-870" id="ls9-56-6kk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -15,6 +15,7 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var optionScrollView: UIScrollView!
     @IBOutlet weak var listView: UITableView!
+    @IBOutlet weak var viewButton: UIButton!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
@@ -24,6 +25,8 @@ class RestaurantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.mapView.isHidden = false
+        self.listView.isHidden = true
 //        setupMapView()
         setupListView()
         setupOptionScrollView()
@@ -34,8 +37,18 @@ class RestaurantViewController: UIViewController {
         
     }
     
-    @IBAction func switchToList(_ sender: Any) {
+    @IBAction func switchView(_ sender: Any) {
+        let mapHidden = !self.mapView.isHidden || self.listView.isHidden
+        let listHidden = self.mapView.isHidden && !self.listView.isHidden
         
+        self.mapView.isHidden = mapHidden
+        self.listView.isHidden = listHidden
+        
+        if (self.mapView.isHidden) {
+            self.viewButton.setImage(UIImage.init(named: "map_icon"), for: .normal)
+        } else {
+            self.viewButton.setImage(UIImage.init(named: "list_icon"), for: .normal)
+        }
     }
     
     fileprivate func setupSearchBar() {
