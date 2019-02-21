@@ -31,6 +31,13 @@ class ListViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setAllTextColors() {
+        self.restaurantName.textColor = Colors.themeGreen
+        self.restaurantAddress.textColor = Colors.themeGreen
+        self.reviewNumbers.textColor = Colors.themeGreen
+        self.distance.textColor = Colors.themeGreen
+    }
 
     @IBAction func navigate(_ sender: Any) {
     }

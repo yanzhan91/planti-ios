@@ -160,7 +160,7 @@ extension RestaurantViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListViewCell") as! ListViewCell
         cell.restaurantImage.imageFromURL(urlString: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png")
         cell.restaurantName.text = "Test Restaurant"
-        cell.restaurantAddress.text = "Restaurant Address"
+        cell.restaurantAddress.text = "500 W. Madison St, Chicago, IL 60601"
         cell.distance.text = "2.1 miles"
         cell.star1.image = UIImage.init(named: "full_star_icon")
         cell.star2.image = UIImage.init(named: "full_star_icon")
@@ -168,6 +168,7 @@ extension RestaurantViewController : UITableViewDataSource {
         cell.star4.image = UIImage.init(named: "full_star_icon")
         cell.star5.image = UIImage.init(named: "empty_star_icon")
         cell.reviewNumbers.text = "108"
+        cell.setAllTextColors()
         return cell
     }
     
