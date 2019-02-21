@@ -14,6 +14,7 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var optionScrollView: UIScrollView!
+    @IBOutlet weak var listView: UITableView!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
@@ -23,24 +24,21 @@ class RestaurantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: zoomLevel)
-//        self.mapView.camera = camera
-//        self.mapView.delegate = self
-//        self.mapView.isMyLocationEnabled = true
-//        self.mapView.settings.compassButton = true;
-//        self.mapView.settings.myLocationButton = true;
-//        self.mapView.settings.zoomGestures = true;
-//
-//        locationManager = CLLocationManager()
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.distanceFilter = 50
-//        locationManager.startUpdatingLocation()
-//        locationManager.delegate = self
-        
+//        setupMapView()
+        setupListView()
         setupOptionScrollView()
+        setupSearchBar()
+    }
+    
+    @IBAction func openMenu(_ sender: Any) {
         
+    }
+    
+    @IBAction func switchToList(_ sender: Any) {
         
+    }
+    
+    fileprivate func setupSearchBar() {
         let searchButton = UIButton.init(type: .custom)
         searchButton.setImage(UIImage(named: "search_icon"), for: .normal)
         searchButton.frame = CGRect(x: 0, y: 0, width: 21, height: 16)
@@ -56,12 +54,26 @@ class RestaurantViewController: UIViewController {
         self.searchField.rightViewMode = .always
     }
     
-    @IBAction func openMenu(_ sender: Any) {
+    fileprivate func setupMapView() {
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: zoomLevel)
+        self.mapView.camera = camera
+        self.mapView.delegate = self
+        self.mapView.isMyLocationEnabled = true
+        self.mapView.settings.compassButton = true;
+        self.mapView.settings.myLocationButton = true;
+        self.mapView.settings.zoomGestures = true;
         
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
     }
     
-    @IBAction func switchToList(_ sender: Any) {
-        
+    fileprivate func setupListView() {
+        self.listView.delegate = self
+        self.listView.dataSource = self
     }
     
     private func setupOptionScrollView() {
@@ -78,8 +90,6 @@ class RestaurantViewController: UIViewController {
             leftSpacing += Int(button.frame.width + 5)
             totalWidth += Int(button.frame.width + 5)
         }
-        print("\(self.view.frame.width)")
-        print("\(totalWidth)")
         self.optionScrollView.contentSize = CGSize(width: totalWidth, height: 50)
     }
     
@@ -141,6 +151,39 @@ extension RestaurantViewController : GMSMapViewDelegate {
     }
 }
 
+extension RestaurantViewController : UITableViewDelegate {
+    
+}
+
+extension RestaurantViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListViewCell") as! ListViewCell
+        cell.restaurantImage.imageFromURL(urlString: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png")
+        cell.restaurantName.text = "Test Restaurant"
+        cell.restaurantAddress.text = "Restaurant Address"
+        cell.distance.text = "2.1 miles"
+        cell.star1.image = UIImage.init(named: "full_star_icon")
+        cell.star2.image = UIImage.init(named: "full_star_icon")
+        cell.star3.image = UIImage.init(named: "full_star_icon")
+        cell.star4.image = UIImage.init(named: "full_star_icon")
+        cell.star5.image = UIImage.init(named: "empty_star_icon")
+        cell.reviewNumbers.text = "108"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+}
+
 extension GMSMapView {
     func getCenterCoordinate() -> CLLocationCoordinate2D {
         let centerPoint = self.center
@@ -162,6 +205,34 @@ extension GMSMapView {
         let topCenterLocation = CLLocation(latitude: topCenterCoordinate.latitude, longitude: topCenterCoordinate.longitude)
         let radius = CLLocationDistance(centerLocation.distance(from: topCenterLocation))
         return round(radius) // meters
+    }
+}
+
+extension UIImageView {
+    func imageFromURL(urlString: String) {
+        
+        self.contentMode = .scaleAspectFit
+        
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        if self.image == nil{
+            activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+            activityIndicator.startAnimating()
+            self.addSubview(activityIndicator)
+        }
+        
+        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+            
+            if error != nil {
+                print(error ?? "No Error")
+                return
+            }
+            DispatchQueue.main.async(execute: { () -> Void in
+                let image = UIImage(data: data!)
+                activityIndicator.removeFromSuperview()
+                self.image = image
+            })
+            
+        }).resume()
     }
 }
 
