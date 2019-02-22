@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import SideMenu
 
 class RestaurantViewController: UIViewController {
 
@@ -29,6 +30,8 @@ class RestaurantViewController: UIViewController {
         
         self.mapView.isHidden = false
         self.listView.isHidden = true
+        
+        SideMenuManager.default.menuFadeStatusBar = false
         
         setupOptionBlackOutView()
 //        setupMapView()

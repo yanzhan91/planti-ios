@@ -7,5 +7,6 @@ target 'planti' do
 
   # Pods for planti
   pod 'GoogleMaps', '~> 3.0.2'
+  pod 'SideMenu'
 
 end
