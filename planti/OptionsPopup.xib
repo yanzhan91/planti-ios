@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OptionsPopupView" customModule="planti" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="aSs-za-Ciu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="451" height="572"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8c-pl-4c9" userLabel="VeganView">
+                    <rect key="frame" x="20" y="20" width="411" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfp-gA-ZTZ">
+                            <rect key="frame" x="0.0" y="0.0" width="89" height="36"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSc-YD-r0a" userLabel="GreenLine">
+                            <rect key="frame" x="0.0" y="44" width="411" height="1"/>
+                            <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="0DY-zV-RVI"/>
+                            </constraints>
+                        </view>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="A plant based diet with no animal products. No meat, fish, eggs or dairy products" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vC-hf-uEN" userLabel="VeganText">
+                            <rect key="frame" x="0.0" y="45" width="411" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBz-kF-F4y" userLabel="VeganSwitch">
+                            <rect key="frame" x="362" y="2.5" width="51" height="31"/>
+                            <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="veganSwitch:" destination="-1" eventType="valueChanged" id="Agu-Xa-GZg"/>
+                            </connections>
+                        </switch>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Kfp-gA-ZTZ" firstAttribute="leading" secondItem="F8c-pl-4c9" secondAttribute="leading" id="099-fw-1S8"/>
+                        <constraint firstItem="hSc-YD-r0a" firstAttribute="leading" secondItem="F8c-pl-4c9" secondAttribute="leading" id="5Hq-Wf-lWI"/>
+                        <constraint firstAttribute="bottom" secondItem="0vC-hf-uEN" secondAttribute="bottom" id="8sB-gU-J6n"/>
+                        <constraint firstAttribute="trailing" secondItem="0vC-hf-uEN" secondAttribute="trailing" id="Aky-68-0px"/>
+                        <constraint firstItem="0vC-hf-uEN" firstAttribute="leading" secondItem="F8c-pl-4c9" secondAttribute="leading" id="BI9-VZ-xNL"/>
+                        <constraint firstItem="Kfp-gA-ZTZ" firstAttribute="top" secondItem="F8c-pl-4c9" secondAttribute="top" id="GHj-Pb-gP3"/>
+                        <constraint firstItem="hSc-YD-r0a" firstAttribute="top" secondItem="Kfp-gA-ZTZ" secondAttribute="bottom" constant="8" id="Ihk-fl-Wng"/>
+                        <constraint firstAttribute="width" constant="411" id="Tjz-DU-cNu"/>
+                        <constraint firstAttribute="height" constant="100" id="X0o-5e-2Dv"/>
+                        <constraint firstItem="0vC-hf-uEN" firstAttribute="top" secondItem="hSc-YD-r0a" secondAttribute="bottom" id="dFY-eq-YxV"/>
+                        <constraint firstAttribute="trailing" secondItem="hSc-YD-r0a" secondAttribute="trailing" id="fdh-b4-IVw"/>
+                        <constraint firstAttribute="trailing" secondItem="uBz-kF-F4y" secondAttribute="trailing" id="hzb-FO-FFb"/>
+                        <constraint firstItem="uBz-kF-F4y" firstAttribute="centerY" secondItem="Kfp-gA-ZTZ" secondAttribute="centerY" id="saB-cV-6sW"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rqm-Jx-xWX" userLabel="OvoView">
+                    <rect key="frame" x="20" y="128" width="411" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ovo-Vegetarian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9n-hX-TVD">
+                            <rect key="frame" x="0.0" y="0.0" width="221" height="36"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0q-vq-6lk" userLabel="GreenLine">
+                            <rect key="frame" x="0.0" y="44" width="411" height="1"/>
+                            <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Pas-fa-qVJ"/>
+                            </constraints>
+                        </view>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Eat mostly plants in addition to eggs. No dairy products, meat or fish." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syV-bn-Pos" userLabel="VeganText">
+                            <rect key="frame" x="0.0" y="45" width="411" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZlW-Jl-COR" userLabel="VeganSwitch">
+                            <rect key="frame" x="362" y="2.5" width="51" height="31"/>
+                            <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="ovoSwitch:" destination="-1" eventType="valueChanged" id="KKA-Kd-dIa"/>
+                            </connections>
+                        </switch>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="411" id="7aR-zw-obY"/>
+                        <constraint firstAttribute="bottom" secondItem="syV-bn-Pos" secondAttribute="bottom" id="CeL-It-sD2"/>
+                        <constraint firstAttribute="trailing" secondItem="k0q-vq-6lk" secondAttribute="trailing" id="EiX-lY-IAo"/>
+                        <constraint firstItem="ZlW-Jl-COR" firstAttribute="centerY" secondItem="X9n-hX-TVD" secondAttribute="centerY" id="G5M-CK-Eid"/>
+                        <constraint firstItem="k0q-vq-6lk" firstAttribute="top" secondItem="X9n-hX-TVD" secondAttribute="bottom" constant="8" id="L5u-FT-dZK"/>
+                        <constraint firstItem="X9n-hX-TVD" firstAttribute="leading" secondItem="Rqm-Jx-xWX" secondAttribute="leading" id="ODF-l0-SbC"/>
+                        <constraint firstItem="k0q-vq-6lk" firstAttribute="leading" secondItem="Rqm-Jx-xWX" secondAttribute="leading" id="cIP-be-e5e"/>
+                        <constraint firstAttribute="trailing" secondItem="ZlW-Jl-COR" secondAttribute="trailing" id="d2w-HB-1e0"/>
+                        <constraint firstItem="syV-bn-Pos" firstAttribute="top" secondItem="k0q-vq-6lk" secondAttribute="bottom" id="hmM-p3-IKi"/>
+                        <constraint firstItem="X9n-hX-TVD" firstAttribute="top" secondItem="Rqm-Jx-xWX" secondAttribute="top" id="jtn-WP-qdu"/>
+                        <constraint firstItem="syV-bn-Pos" firstAttribute="leading" secondItem="Rqm-Jx-xWX" secondAttribute="leading" id="o22-Zb-Yxd"/>
+                        <constraint firstAttribute="trailing" secondItem="syV-bn-Pos" secondAttribute="trailing" id="pbM-mw-i9v"/>
+                        <constraint firstAttribute="height" constant="100" id="qtQ-Vg-oBo"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaK-PS-s8W" userLabel="LactoView">
+                    <rect key="frame" x="20" y="236" width="411" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lacto-Vegetarian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmv-Ai-d5P">
+                            <rect key="frame" x="0.0" y="0.0" width="244" height="36"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPk-xS-uEs" userLabel="GreenLine">
+                            <rect key="frame" x="0.0" y="44" width="411" height="1"/>
+                            <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="71h-fe-aA5"/>
+                            </constraints>
+                        </view>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Eat mostly plants in addition to dairy products. No eggs, meat or fish." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ec-Lo-hKG" userLabel="VeganText">
+                            <rect key="frame" x="0.0" y="45" width="411" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-G1-5hi" userLabel="VeganSwitch">
+                            <rect key="frame" x="362" y="2.5" width="51" height="31"/>
+                            <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="lactoSwitch:" destination="-1" eventType="valueChanged" id="RWx-Ez-pHf"/>
+                            </connections>
+                        </switch>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="1ka-G1-5hi" firstAttribute="centerY" secondItem="Lmv-Ai-d5P" secondAttribute="centerY" id="185-AE-EeU"/>
+                        <constraint firstItem="Lmv-Ai-d5P" firstAttribute="top" secondItem="jaK-PS-s8W" secondAttribute="top" id="1cs-Yy-et6"/>
+                        <constraint firstItem="qPk-xS-uEs" firstAttribute="leading" secondItem="jaK-PS-s8W" secondAttribute="leading" id="Mwi-NO-URd"/>
+                        <constraint firstAttribute="width" constant="411" id="a4k-jR-Cdx"/>
+                        <constraint firstItem="8ec-Lo-hKG" firstAttribute="top" secondItem="qPk-xS-uEs" secondAttribute="bottom" id="aTU-y4-hRD"/>
+                        <constraint firstItem="8ec-Lo-hKG" firstAttribute="leading" secondItem="jaK-PS-s8W" secondAttribute="leading" id="bMt-Uu-jxg"/>
+                        <constraint firstItem="qPk-xS-uEs" firstAttribute="top" secondItem="Lmv-Ai-d5P" secondAttribute="bottom" constant="8" id="etg-Ka-u4t"/>
+                        <constraint firstAttribute="bottom" secondItem="8ec-Lo-hKG" secondAttribute="bottom" id="hlj-Fw-Mas"/>
+                        <constraint firstAttribute="trailing" secondItem="qPk-xS-uEs" secondAttribute="trailing" id="u0a-rY-jPu"/>
+                        <constraint firstAttribute="trailing" secondItem="1ka-G1-5hi" secondAttribute="trailing" id="uAi-1D-mAT"/>
+                        <constraint firstAttribute="trailing" secondItem="8ec-Lo-hKG" secondAttribute="trailing" id="ubR-az-Ft6"/>
+                        <constraint firstAttribute="height" constant="100" id="zt0-WL-KYl"/>
+                        <constraint firstItem="Lmv-Ai-d5P" firstAttribute="leading" secondItem="jaK-PS-s8W" secondAttribute="leading" id="zzQ-PK-JgA"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryV-Mj-9q2" userLabel="LactoOvoView">
+                    <rect key="frame" x="20" y="344" width="411" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lacto-Ovo Vegetarian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hz9-Je-PDA">
+                            <rect key="frame" x="0.0" y="0.0" width="307" height="36"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3M-gF-g3B" userLabel="GreenLine">
+                            <rect key="frame" x="0.0" y="44" width="411" height="1"/>
+                            <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="bUo-cQ-QGd"/>
+                            </constraints>
+                        </view>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Eat mostly plants with to dairy products and eggs. No meat or fish." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y89-HA-MdQ" userLabel="VeganText">
+                            <rect key="frame" x="0.0" y="45" width="411" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gpC-ZU-6eN" userLabel="VeganSwitch">
+                            <rect key="frame" x="362" y="2.5" width="51" height="31"/>
+                            <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="lactoOvoSwitch:" destination="-1" eventType="valueChanged" id="gcE-J5-zri"/>
+                            </connections>
+                        </switch>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Y89-HA-MdQ" firstAttribute="leading" secondItem="ryV-Mj-9q2" secondAttribute="leading" id="06J-ls-7ew"/>
+                        <constraint firstAttribute="width" constant="411" id="53d-0u-uym"/>
+                        <constraint firstAttribute="bottom" secondItem="Y89-HA-MdQ" secondAttribute="bottom" id="7QM-wg-Kif"/>
+                        <constraint firstItem="hz9-Je-PDA" firstAttribute="top" secondItem="ryV-Mj-9q2" secondAttribute="top" id="9yX-zq-ivO"/>
+                        <constraint firstItem="O3M-gF-g3B" firstAttribute="leading" secondItem="ryV-Mj-9q2" secondAttribute="leading" id="AFW-gT-SyH"/>
+                        <constraint firstAttribute="trailing" secondItem="Y89-HA-MdQ" secondAttribute="trailing" id="JhO-GM-moB"/>
+                        <constraint firstAttribute="trailing" secondItem="gpC-ZU-6eN" secondAttribute="trailing" id="KxU-y7-Y3f"/>
+                        <constraint firstItem="Y89-HA-MdQ" firstAttribute="top" secondItem="O3M-gF-g3B" secondAttribute="bottom" id="LP4-2v-gN8"/>
+                        <constraint firstAttribute="height" constant="100" id="WMP-d3-YyL"/>
+                        <constraint firstItem="gpC-ZU-6eN" firstAttribute="centerY" secondItem="hz9-Je-PDA" secondAttribute="centerY" id="eO7-cI-rHQ"/>
+                        <constraint firstItem="hz9-Je-PDA" firstAttribute="leading" secondItem="ryV-Mj-9q2" secondAttribute="leading" id="jr9-tL-u2J"/>
+                        <constraint firstAttribute="trailing" secondItem="O3M-gF-g3B" secondAttribute="trailing" id="kEg-In-0LP"/>
+                        <constraint firstItem="O3M-gF-g3B" firstAttribute="top" secondItem="hz9-Je-PDA" secondAttribute="bottom" constant="8" id="swq-eu-jvc"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8h3-8q-l7a" userLabel="PescetarianView">
+                    <rect key="frame" x="20" y="452" width="411" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pescetarian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdU-CD-5qm">
+                            <rect key="frame" x="0.0" y="0.0" width="166" height="36"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDJ-gX-Ys3" userLabel="GreenLine">
+                            <rect key="frame" x="0.0" y="44" width="411" height="1"/>
+                            <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="eI3-zp-9sH"/>
+                            </constraints>
+                        </view>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Eat mostly plants including fish, diary, and egg. They do not eat meat." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m0-ij-aen" userLabel="VeganText">
+                            <rect key="frame" x="0.0" y="45" width="411" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Khi-wA-XvH" userLabel="VeganSwitch">
+                            <rect key="frame" x="362" y="2.5" width="51" height="31"/>
+                            <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="pesSwitch:" destination="-1" eventType="valueChanged" id="gtJ-2z-mXp"/>
+                            </connections>
+                        </switch>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="2m0-ij-aen" firstAttribute="leading" secondItem="8h3-8q-l7a" secondAttribute="leading" id="DJM-Ox-ZwB"/>
+                        <constraint firstAttribute="height" constant="100" id="Ock-La-QTh"/>
+                        <constraint firstAttribute="bottom" secondItem="2m0-ij-aen" secondAttribute="bottom" id="ZKH-SJ-cRb"/>
+                        <constraint firstItem="bDJ-gX-Ys3" firstAttribute="leading" secondItem="8h3-8q-l7a" secondAttribute="leading" id="b4X-zn-Xhh"/>
+                        <constraint firstAttribute="trailing" secondItem="Khi-wA-XvH" secondAttribute="trailing" id="bIm-XB-mdj"/>
+                        <constraint firstItem="Khi-wA-XvH" firstAttribute="centerY" secondItem="MdU-CD-5qm" secondAttribute="centerY" id="fMr-zR-TtX"/>
+                        <constraint firstAttribute="width" constant="411" id="gTf-pO-j6c"/>
+                        <constraint firstAttribute="trailing" secondItem="bDJ-gX-Ys3" secondAttribute="trailing" id="gqf-Cl-cDF"/>
+                        <constraint firstItem="bDJ-gX-Ys3" firstAttribute="top" secondItem="MdU-CD-5qm" secondAttribute="bottom" constant="8" id="meh-ud-3X9"/>
+                        <constraint firstItem="MdU-CD-5qm" firstAttribute="top" secondItem="8h3-8q-l7a" secondAttribute="top" id="oFk-WM-7qh"/>
+                        <constraint firstItem="MdU-CD-5qm" firstAttribute="leading" secondItem="8h3-8q-l7a" secondAttribute="leading" id="uWK-VL-rBR"/>
+                        <constraint firstAttribute="trailing" secondItem="2m0-ij-aen" secondAttribute="trailing" id="vvv-Mu-RPP"/>
+                        <constraint firstItem="2m0-ij-aen" firstAttribute="top" secondItem="bDJ-gX-Ys3" secondAttribute="bottom" id="x0a-fl-OzR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="F8c-pl-4c9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2Ik-UJ-aEN"/>
+                <constraint firstItem="jaK-PS-s8W" firstAttribute="centerX" secondItem="F8c-pl-4c9" secondAttribute="centerX" id="8ub-11-DpV"/>
+                <constraint firstItem="F8c-pl-4c9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AL1-Kp-fGi"/>
+                <constraint firstItem="8h3-8q-l7a" firstAttribute="centerX" secondItem="F8c-pl-4c9" secondAttribute="centerX" id="Af4-pq-TYN"/>
+                <constraint firstItem="ryV-Mj-9q2" firstAttribute="centerX" secondItem="F8c-pl-4c9" secondAttribute="centerX" id="OCv-7e-DpG"/>
+                <constraint firstItem="8h3-8q-l7a" firstAttribute="top" secondItem="ryV-Mj-9q2" secondAttribute="bottom" constant="8" id="XMI-xV-s2c"/>
+                <constraint firstItem="jaK-PS-s8W" firstAttribute="top" secondItem="Rqm-Jx-xWX" secondAttribute="bottom" constant="8" id="kgB-ui-5le"/>
+                <constraint firstItem="Rqm-Jx-xWX" firstAttribute="top" secondItem="F8c-pl-4c9" secondAttribute="bottom" constant="8" id="ntR-P7-bvB"/>
+                <constraint firstItem="ryV-Mj-9q2" firstAttribute="top" secondItem="jaK-PS-s8W" secondAttribute="bottom" constant="8" id="qjz-Ek-kvH"/>
+                <constraint firstItem="Rqm-Jx-xWX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ual-qI-Ajd"/>
+                <constraint firstItem="Rqm-Jx-xWX" firstAttribute="centerX" secondItem="F8c-pl-4c9" secondAttribute="centerX" id="ypA-wX-VSi"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-260" y="205.09745127436284"/>
+        </view>
+    </objects>
+</document>

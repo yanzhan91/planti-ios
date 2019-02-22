@@ -111,6 +111,10 @@ class RestaurantViewController: UIViewController {
         self.optionButtonSelected = sender
         sender.activate()
     }
+    
+    @IBAction func post(_ sender: Any) {
+    }
+    
 }
 
 extension RestaurantViewController : CLLocationManagerDelegate {
