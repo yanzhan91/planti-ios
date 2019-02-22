@@ -11,6 +11,11 @@ import UIKit
 class OptionsPopupView: UIView {
     
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var veganSwitch: UISwitch!
+    @IBOutlet weak var ovoSwitch: UISwitch!
+    @IBOutlet weak var lactoSwitch: UISwitch!
+    @IBOutlet weak var lactoOvoSwitch: UISwitch!
+    @IBOutlet weak var pescSwitch: UISwitch!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,20 +31,5 @@ class OptionsPopupView: UIView {
         Bundle.main.loadNibNamed("OptionsPopup", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
-    }
-    
-    @IBAction func veganSwitch(_ sender: Any) {
-    }
-    
-    @IBAction func ovoSwitch(_ sender: Any) {
-    }
-    
-    @IBAction func lactoSwitch(_ sender: Any) {
-    }
-    
-    @IBAction func lactoOvoSwitch(_ sender: Any) {
-    }
-    
-    @IBAction func pesSwitch(_ sender: Any) {
     }
 }

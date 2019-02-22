@@ -22,6 +22,7 @@ class RestaurantViewController: UIViewController {
     private var currentLocation: CLLocation?
     private var zoomLevel: Float = 15.0
     private var optionButtonSelected : ThemeButton? = nil
+    private var menuSwitchSelected : UISwitch? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,17 @@ class RestaurantViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(blackoutTap))
         tap.delegate = self
         self.optionBlackOutView.addGestureRecognizer(tap)
+        
+        if (self.optionBlackOutView.subviews.count > 0) {
+            let menuView = self.optionBlackOutView.subviews[0] as! OptionsPopupView
+            self.menuSwitchSelected = menuView.veganSwitch
+            self.menuSwitchSelected?.isOn = true
+            menuView.veganSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
+            menuView.ovoSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
+            menuView.lactoSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
+            menuView.lactoOvoSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
+            menuView.pescSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
+        }
     }
     
     fileprivate func setupSearchBar() {
@@ -126,6 +138,15 @@ class RestaurantViewController: UIViewController {
     
     @objc private func blackoutTap() {
         self.optionBlackOutView.isHidden = true
+    }
+    
+    @objc private func menuSwitchPressed(sender: UISwitch) {
+        if (sender != self.menuSwitchSelected) {
+            self.menuSwitchSelected?.setOn(false, animated: true)
+        }
+    
+        sender.setOn(true, animated: true)
+        self.menuSwitchSelected = sender
     }
     
     @objc private func optionPressed(sender: ThemeButton) {

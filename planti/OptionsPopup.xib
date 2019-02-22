@@ -11,6 +11,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OptionsPopupView" customModule="planti" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="aSs-za-Ciu"/>
+                <outlet property="lactoOvoSwitch" destination="gpC-ZU-6eN" id="gLq-Ei-Knk"/>
+                <outlet property="lactoSwitch" destination="1ka-G1-5hi" id="S9h-rN-Vme"/>
+                <outlet property="ovoSwitch" destination="ZlW-Jl-COR" id="aGL-pT-mIo"/>
+                <outlet property="pescSwitch" destination="Khi-wA-XvH" id="Veb-GX-4HH"/>
+                <outlet property="veganSwitch" destination="uBz-kF-F4y" id="oUD-uW-0YJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -44,9 +49,6 @@
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBz-kF-F4y" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="veganSwitch:" destination="-1" eventType="valueChanged" id="Agu-Xa-GZg"/>
-                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,9 +94,6 @@
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZlW-Jl-COR" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="ovoSwitch:" destination="-1" eventType="valueChanged" id="KKA-Kd-dIa"/>
-                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,9 +139,6 @@
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-G1-5hi" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="lactoSwitch:" destination="-1" eventType="valueChanged" id="RWx-Ez-pHf"/>
-                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -188,9 +184,6 @@
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gpC-ZU-6eN" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="lactoOvoSwitch:" destination="-1" eventType="valueChanged" id="gcE-J5-zri"/>
-                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -236,9 +229,6 @@
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Khi-wA-XvH" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="pesSwitch:" destination="-1" eventType="valueChanged" id="gtJ-2z-mXp"/>
-                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
