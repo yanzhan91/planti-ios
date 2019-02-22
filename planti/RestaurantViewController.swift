@@ -16,6 +16,7 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var optionScrollView: UIScrollView!
     @IBOutlet weak var listView: UITableView!
     @IBOutlet weak var viewButton: UIButton!
+    @IBOutlet weak var optionBlackOutView: UIView!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
@@ -27,6 +28,8 @@ class RestaurantViewController: UIViewController {
         
         self.mapView.isHidden = false
         self.listView.isHidden = true
+        
+        setupOptionBlackOutView()
 //        setupMapView()
         setupListView()
         setupOptionScrollView()
@@ -51,6 +54,16 @@ class RestaurantViewController: UIViewController {
         }
     }
     
+    fileprivate func setupOptionBlackOutView() {
+        self.optionBlackOutView.backgroundColor =
+            UIColor.black.withAlphaComponent(0.7)
+        self.optionBlackOutView.isHidden = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(blackoutTap))
+        tap.delegate = self
+        self.optionBlackOutView.addGestureRecognizer(tap)
+    }
+    
     fileprivate func setupSearchBar() {
         let searchButton = UIButton.init(type: .custom)
         searchButton.setImage(UIImage(named: "search_icon"), for: .normal)
@@ -63,6 +76,7 @@ class RestaurantViewController: UIViewController {
         filterButton.setImage(UIImage(named: "filter_icon"), for: .normal)
         filterButton.frame = CGRect(x: 0, y: 0, width: 21, height: 16)
         filterButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        filterButton.addTarget(self, action: #selector(filter), for: .touchUpInside)
         self.searchField.rightView = filterButton
         self.searchField.rightViewMode = .always
     }
@@ -72,9 +86,9 @@ class RestaurantViewController: UIViewController {
         self.mapView.camera = camera
         self.mapView.delegate = self
         self.mapView.isMyLocationEnabled = true
-        self.mapView.settings.compassButton = true;
-        self.mapView.settings.myLocationButton = true;
-        self.mapView.settings.zoomGestures = true;
+        self.mapView.settings.compassButton = true
+        self.mapView.settings.myLocationButton = true
+        self.mapView.settings.zoomGestures = true
         
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -104,6 +118,14 @@ class RestaurantViewController: UIViewController {
             totalWidth += Int(button.frame.width + 5)
         }
         self.optionScrollView.contentSize = CGSize(width: totalWidth, height: 50)
+    }
+    
+    @objc private func filter() {
+        self.optionBlackOutView.isHidden = false
+    }
+    
+    @objc private func blackoutTap() {
+        self.optionBlackOutView.isHidden = true
     }
     
     @objc private func optionPressed(sender: ThemeButton) {
@@ -170,6 +192,15 @@ extension RestaurantViewController : GMSMapViewDelegate {
 
 extension RestaurantViewController : UITableViewDelegate {
     
+}
+
+extension RestaurantViewController : UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (self.optionBlackOutView.subviews.count == 0) {
+            return true;
+        }
+        return !touch.view!.isDescendant(of: self.optionBlackOutView.subviews[0])
+    }
 }
 
 extension RestaurantViewController : UITableViewDataSource {

@@ -269,16 +269,38 @@
                                     <action selector="post:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BIx-Ow-4aQ"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvh-NN-Jaq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R61-fl-0D1" customClass="OptionsPopupView" customModule="planti" customModuleProvider="target">
+                                        <rect key="frame" x="37.666666666666657" y="80" width="300" height="522"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="K2e-RQ-nZC"/>
+                                            <constraint firstAttribute="height" constant="522" id="eOj-id-ov1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="R61-fl-0D1" firstAttribute="centerX" secondItem="Wvh-NN-Jaq" secondAttribute="centerX" id="NuF-EH-rwd"/>
+                                    <constraint firstItem="R61-fl-0D1" firstAttribute="top" secondItem="Wvh-NN-Jaq" secondAttribute="top" constant="80" id="y0U-As-EKz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="pES-lF-zIu" firstAttribute="trailing" secondItem="vgn-h2-Qwx" secondAttribute="trailing" id="0Cj-PV-dIK"/>
+                            <constraint firstItem="Wvh-NN-Jaq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="B8s-bB-fAh"/>
                             <constraint firstAttribute="bottom" secondItem="xLi-MS-yr5" secondAttribute="bottom" constant="25" id="HMJ-G0-LlF"/>
                             <constraint firstItem="pES-lF-zIu" firstAttribute="leading" secondItem="vgn-h2-Qwx" secondAttribute="leading" id="Kag-lh-JKb"/>
                             <constraint firstItem="vgn-h2-Qwx" firstAttribute="leading" secondItem="MEb-W4-oT5" secondAttribute="leading" id="NLt-6U-5f0"/>
+                            <constraint firstAttribute="trailing" secondItem="Wvh-NN-Jaq" secondAttribute="trailing" id="NP5-RI-Gbc"/>
                             <constraint firstItem="pES-lF-zIu" firstAttribute="bottom" secondItem="vgn-h2-Qwx" secondAttribute="bottom" id="SLn-QA-9Dx"/>
+                            <constraint firstItem="Wvh-NN-Jaq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wch-vU-bxg"/>
                             <constraint firstItem="OuG-x8-oLE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Zkj-Og-mSK"/>
                             <constraint firstItem="6TC-eC-9xL" firstAttribute="leading" secondItem="vgn-h2-Qwx" secondAttribute="leading" id="aaf-d4-cob"/>
+                            <constraint firstAttribute="bottom" secondItem="Wvh-NN-Jaq" secondAttribute="bottom" id="bIT-AB-zkd"/>
                             <constraint firstItem="vgn-h2-Qwx" firstAttribute="top" secondItem="6TC-eC-9xL" secondAttribute="bottom" id="cfb-7Y-UGs"/>
                             <constraint firstItem="6TC-eC-9xL" firstAttribute="leading" secondItem="MEb-W4-oT5" secondAttribute="leading" id="g4h-vQ-uMh"/>
                             <constraint firstItem="OuG-x8-oLE" firstAttribute="leading" secondItem="MEb-W4-oT5" secondAttribute="leading" id="hwp-Nx-bgZ"/>
@@ -295,6 +317,7 @@
                     <connections>
                         <outlet property="listView" destination="pES-lF-zIu" id="eFX-ab-nam"/>
                         <outlet property="mapView" destination="vgn-h2-Qwx" id="BOF-S5-i92"/>
+                        <outlet property="optionBlackOutView" destination="Wvh-NN-Jaq" id="Sas-EQ-4z5"/>
                         <outlet property="optionScrollView" destination="6TC-eC-9xL" id="MFh-mq-ffn"/>
                         <outlet property="searchField" destination="dHf-ue-Omw" id="PCr-JB-Vs1"/>
                         <outlet property="viewButton" destination="Dog-d3-870" id="ls9-56-6kk"/>

@@ -26,7 +26,6 @@ class OptionsPopupView: UIView {
         Bundle.main.loadNibNamed("OptionsPopup", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight]
     }
     
     @IBAction func veganSwitch(_ sender: Any) {
