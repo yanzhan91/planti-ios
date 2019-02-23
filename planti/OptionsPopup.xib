@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OptionsPopupView" customModule="planti" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="ZY4-Kv-xjd" id="aKh-c2-Nct"/>
+                <outlet property="changeButton" destination="OWm-GU-Ohn" id="zsM-Bi-XdR"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="aSs-za-Ciu"/>
                 <outlet property="lactoOvoSwitch" destination="gpC-ZU-6eN" id="gLq-Ei-Knk"/>
                 <outlet property="lactoSwitch" destination="1ka-G1-5hi" id="S9h-rN-Vme"/>
@@ -20,7 +22,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="522"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="570"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8c-pl-4c9" userLabel="VeganView">
@@ -248,26 +250,45 @@
                         <constraint firstItem="2m0-ij-aen" firstAttribute="top" secondItem="bDJ-gX-Ys3" secondAttribute="bottom" id="x0a-fl-OzR"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8k-Ag-XvY">
+                    <rect key="frame" x="10" y="515" width="280" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWm-GU-Ohn" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
+                            <rect key="frame" x="202" y="5" width="70" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Change"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZY4-Kv-xjd" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
+                            <rect key="frame" x="124" y="5" width="70" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Cancel"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="k8k-Ag-XvY" firstAttribute="top" secondItem="8h3-8q-l7a" secondAttribute="bottom" constant="8" id="2SW-bV-kPU"/>
+                <constraint firstAttribute="trailing" secondItem="k8k-Ag-XvY" secondAttribute="trailing" constant="10" id="4Sl-Z7-atF"/>
+                <constraint firstItem="k8k-Ag-XvY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="5fg-4b-Mxk"/>
                 <constraint firstItem="jaK-PS-s8W" firstAttribute="centerX" secondItem="F8c-pl-4c9" secondAttribute="centerX" id="8ub-11-DpV"/>
                 <constraint firstItem="F8c-pl-4c9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AL1-Kp-fGi"/>
                 <constraint firstItem="8h3-8q-l7a" firstAttribute="centerX" secondItem="F8c-pl-4c9" secondAttribute="centerX" id="Af4-pq-TYN"/>
-                <constraint firstAttribute="bottom" secondItem="8h3-8q-l7a" secondAttribute="bottom" constant="15" id="D9m-yD-rqs"/>
                 <constraint firstItem="F8c-pl-4c9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="GYn-HC-Ox0"/>
                 <constraint firstItem="ryV-Mj-9q2" firstAttribute="centerX" secondItem="F8c-pl-4c9" secondAttribute="centerX" id="OCv-7e-DpG"/>
                 <constraint firstItem="8h3-8q-l7a" firstAttribute="top" secondItem="ryV-Mj-9q2" secondAttribute="bottom" constant="8" id="XMI-xV-s2c"/>
                 <constraint firstItem="jaK-PS-s8W" firstAttribute="top" secondItem="Rqm-Jx-xWX" secondAttribute="bottom" constant="8" id="kgB-ui-5le"/>
                 <constraint firstItem="Rqm-Jx-xWX" firstAttribute="top" secondItem="F8c-pl-4c9" secondAttribute="bottom" constant="8" id="ntR-P7-bvB"/>
                 <constraint firstItem="ryV-Mj-9q2" firstAttribute="top" secondItem="jaK-PS-s8W" secondAttribute="bottom" constant="8" id="qjz-Ek-kvH"/>
+                <constraint firstAttribute="bottom" secondItem="k8k-Ag-XvY" secondAttribute="bottom" constant="15" id="sHF-Qs-gwf"/>
                 <constraint firstItem="Rqm-Jx-xWX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ual-qI-Ajd"/>
                 <constraint firstItem="Rqm-Jx-xWX" firstAttribute="centerX" secondItem="F8c-pl-4c9" secondAttribute="centerX" id="ypA-wX-VSi"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-411" y="130"/>
+            <point key="canvasLocation" x="-411.19999999999999" y="136.73163418290855"/>
         </view>
     </objects>
 </document>

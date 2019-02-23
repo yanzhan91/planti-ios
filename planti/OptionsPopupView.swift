@@ -16,6 +16,8 @@ class OptionsPopupView: UIView {
     @IBOutlet weak var lactoSwitch: UISwitch!
     @IBOutlet weak var lactoOvoSwitch: UISwitch!
     @IBOutlet weak var pescSwitch: UISwitch!
+    @IBOutlet weak var changeButton: ThemeButton!
+    @IBOutlet weak var cancelButton: ThemeButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +32,8 @@ class OptionsPopupView: UIView {
     private func initialize() {
         Bundle.main.loadNibNamed("OptionsPopup", owner: self, options: nil)
         addSubview(contentView)
+        self.changeButton.activate()
+        self.cancelButton.deactivate()
         contentView.frame = self.bounds
     }
 }

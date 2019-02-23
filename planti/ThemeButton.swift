@@ -12,20 +12,26 @@ class ThemeButton: UIButton {
     
     required init(frame: CGRect, title: String) {
         super.init(frame: frame)
-        
-        self.layer.cornerRadius = 18
-        self.layer.borderWidth = 2.0
-        self.layer.borderColor = Colors.themeGreen.cgColor
-        self.backgroundColor = UIColor.white
-        self.clipsToBounds = true
-        self.setTitle(title, for: .normal)
-        deactivate()
-        self.contentEdgeInsets = UIEdgeInsets(top: 9, left: 12, bottom: 9, right: 12)
-        self.sizeToFit()
+        initalize(title: title)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        initalize(title: nil)
+    }
+    
+    private func initalize(title: String?) {
+        self.layer.cornerRadius = 18
+        self.layer.borderWidth = 1.5
+        self.layer.borderColor = Colors.themeGreen.cgColor
+        self.backgroundColor = UIColor.white
+        self.clipsToBounds = true
+        if (title != nil) {
+            self.setTitle(title, for: .normal)
+        }
+        deactivate()
+        self.contentEdgeInsets = UIEdgeInsets(top: 9, left: 12, bottom: 9, right: 12)
+        self.sizeToFit()
     }
     
     public func activate() {
