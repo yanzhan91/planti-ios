@@ -40,10 +40,6 @@ class RestaurantViewController: UIViewController {
         setupSearchBar()
     }
     
-    @IBAction func openMenu(_ sender: Any) {
-        
-    }
-    
     @IBAction func switchView(_ sender: Any) {
         let mapHidden = !self.mapView.isHidden || self.listView.isHidden
         let listHidden = self.mapView.isHidden && !self.listView.isHidden

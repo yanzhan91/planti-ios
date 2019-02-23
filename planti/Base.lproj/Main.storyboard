@@ -235,7 +235,6 @@
                                         </constraints>
                                         <state key="normal" image="menu_icon"/>
                                         <connections>
-                                            <action selector="openMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HFJ-Th-mVv"/>
                                             <segue destination="otJ-TK-gp3" kind="presentation" id="gPd-Nx-xlT"/>
                                         </connections>
                                     </button>
