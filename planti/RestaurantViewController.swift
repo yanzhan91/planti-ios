@@ -17,13 +17,13 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var optionScrollView: UIScrollView!
     @IBOutlet weak var listView: UITableView!
     @IBOutlet weak var viewButton: UIButton!
-    @IBOutlet weak var optionBlackOutView: UIView!
+    @IBOutlet weak var preferenceBlackOutView: UIView!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     private var zoomLevel: Float = 15.0
     private var optionButtonSelected : ThemeButton? = nil
-    private var menuSwitchSelected : UISwitch? = nil
+    private var preferenceSwitchSelected : UISwitch? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,23 +59,23 @@ class RestaurantViewController: UIViewController {
     }
     
     fileprivate func setupOptionBlackOutView() {
-        self.optionBlackOutView.backgroundColor =
+        self.preferenceBlackOutView.backgroundColor =
             UIColor.black.withAlphaComponent(0.7)
-        self.optionBlackOutView.isHidden = true
+        self.preferenceBlackOutView.isHidden = true
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(blackoutTap))
         tap.delegate = self
-        self.optionBlackOutView.addGestureRecognizer(tap)
+        self.preferenceBlackOutView.addGestureRecognizer(tap)
         
-        if (self.optionBlackOutView.subviews.count > 0) {
-            let menuView = self.optionBlackOutView.subviews[0] as! OptionsPopupView
-            self.menuSwitchSelected = menuView.veganSwitch
-            self.menuSwitchSelected?.isOn = true
-            menuView.veganSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
-            menuView.ovoSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
-            menuView.lactoSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
-            menuView.lactoOvoSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
-            menuView.pescSwitch.addTarget(self, action: #selector(menuSwitchPressed(sender:)), for: .valueChanged)
+        if (self.preferenceBlackOutView.subviews.count > 0) {
+            let menuView = self.preferenceBlackOutView.subviews[0] as! OptionsPopupView
+            self.preferenceSwitchSelected = menuView.veganSwitch
+            self.preferenceSwitchSelected?.isOn = true
+            menuView.veganSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
+            menuView.ovoSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
+            menuView.lactoSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
+            menuView.lactoOvoSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
+            menuView.pescSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
         }
     }
     
@@ -136,21 +136,23 @@ class RestaurantViewController: UIViewController {
     }
     
     @objc private func filter() {
-        self.optionBlackOutView.isHidden = false
+        self.preferenceBlackOutView.isHidden = false
     }
     
     @objc private func blackoutTap() {
-        self.optionBlackOutView.isHidden = true
+        self.preferenceBlackOutView.isHidden = true
     }
     
-    @objc private func menuSwitchPressed(sender: UISwitch) {
-        if (sender != self.menuSwitchSelected) {
-            self.menuSwitchSelected?.setOn(false, animated: true)
+    @objc private func preferenceSwitchPressed(sender: UISwitch) {
+        if (sender != self.preferenceSwitchSelected) {
+            self.preferenceSwitchSelected?.setOn(false, animated: true)
         }
     
         sender.setOn(true, animated: true)
-        self.menuSwitchSelected = sender
+        self.preferenceSwitchSelected = sender
     }
+    
+    
     
     @objc private func optionPressed(sender: ThemeButton) {
         self.optionButtonSelected?.deactivate()
@@ -220,10 +222,10 @@ extension RestaurantViewController : UITableViewDelegate {
 
 extension RestaurantViewController : UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if (self.optionBlackOutView.subviews.count == 0) {
+        if (self.preferenceBlackOutView.subviews.count == 0) {
             return true;
         }
-        return !touch.view!.isDescendant(of: self.optionBlackOutView.subviews[0])
+        return !touch.view!.isDescendant(of: self.preferenceBlackOutView.subviews[0])
     }
 }
 
