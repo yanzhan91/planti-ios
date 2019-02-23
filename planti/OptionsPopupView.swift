@@ -20,6 +20,9 @@ class OptionsPopupView: UIView {
     @IBOutlet weak var changeButton: ThemeButton!
     @IBOutlet weak var cancelButton: ThemeButton!
     
+    private var oldOption : Options = Options.vegan
+    private var changingSwitches : Bool = false
+    
     private var optionSelected : Options = Options.vegan
     private var optionsSwitchesDictionary : Dictionary = [Options: UISwitch]()
     private var SwitchesOptionsDictionary : Dictionary = [UISwitch: Options]()
@@ -56,6 +59,11 @@ class OptionsPopupView: UIView {
     }
     
     @IBAction func switchPressed(_ sender: Any) {
+        if (!self.changingSwitches) {
+            self.changingSwitches = true
+            self.oldOption = self.optionSelected
+        }
+        
         setPreference(option: self.SwitchesOptionsDictionary[sender as! UISwitch]!)
     }
     
@@ -68,11 +76,19 @@ class OptionsPopupView: UIView {
         self.optionsSwitchesDictionary[option]?.setOn(true, animated: true)
     }
     
+    public func resetPreference() {
+        self.changingSwitches = false;
+        setPreference(option: self.oldOption)
+    }
+    
     @IBAction func changePressed(_ sender: Any) {
+        self.changingSwitches = false;
         NotificationCenter.default.post(name: NSNotification.Name("preferencePopupChange"), object: nil, userInfo: ["option": self.optionSelected])
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
+        self.changingSwitches = false;
+        resetPreference()
         NotificationCenter.default.post(name: NSNotification.Name("preferencePopupCancel"), object: nil)
     }
 }

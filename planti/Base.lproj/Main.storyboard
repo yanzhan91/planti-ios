@@ -507,8 +507,9 @@
                     <connections>
                         <outlet property="listView" destination="pES-lF-zIu" id="eFX-ab-nam"/>
                         <outlet property="mapView" destination="vgn-h2-Qwx" id="BOF-S5-i92"/>
+                        <outlet property="optionPopupView" destination="R61-fl-0D1" id="rhb-GW-RF5"/>
                         <outlet property="optionScrollView" destination="6TC-eC-9xL" id="MFh-mq-ffn"/>
-                        <outlet property="preferenceBlackOutView" destination="Wvh-NN-Jaq" id="Sas-EQ-4z5"/>
+                        <outlet property="optionsBlackOutView" destination="Wvh-NN-Jaq" id="Sas-EQ-4z5"/>
                         <outlet property="searchField" destination="dHf-ue-Omw" id="PCr-JB-Vs1"/>
                         <outlet property="viewButton" destination="Dog-d3-870" id="ls9-56-6kk"/>
                     </connections>

@@ -17,8 +17,9 @@ class RestaurantViewController: UIViewController {
 //    @IBOutlet weak var optionScrollView: UIScrollView!
     @IBOutlet weak var listView: UITableView!
     @IBOutlet weak var viewButton: UIButton!
-    @IBOutlet weak var preferenceBlackOutView: UIView!
+    @IBOutlet weak var optionsBlackOutView: UIView!
     @IBOutlet weak var optionScrollView: OptionsScrollView!
+    @IBOutlet weak var optionPopupView: OptionsPopupView!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
@@ -38,8 +39,7 @@ class RestaurantViewController: UIViewController {
         setupOptionScrollView()
         setupSearchBar()
         
-        let optionsPopupView = self.preferenceBlackOutView.subviews[0] as! OptionsPopupView
-        optionsPopupView.setPreference(option: .vegan)
+        self.optionPopupView.setPreference(option: .vegan)
         self.optionScrollView.setPreference(option: .vegan)
     }
     
@@ -58,13 +58,13 @@ class RestaurantViewController: UIViewController {
     }
     
     fileprivate func setupPreferenceOptionBlackOutView() {
-        self.preferenceBlackOutView.backgroundColor =
+        self.optionsBlackOutView.backgroundColor =
             UIColor.black.withAlphaComponent(0.7)
-        self.preferenceBlackOutView.isHidden = true
+        self.optionsBlackOutView.isHidden = true
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(blackoutTap))
         tap.delegate = self
-        self.preferenceBlackOutView.addGestureRecognizer(tap)
+        self.optionsBlackOutView.addGestureRecognizer(tap)
         
         NotificationCenter.default.addObserver(self, selector: #selector(optionPopupChange(_:)), name: NSNotification.Name("preferencePopupChange"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(blackoutTap), name: NSNotification.Name("preferencePopupCancel"), object: nil)
@@ -114,23 +114,23 @@ class RestaurantViewController: UIViewController {
     }
     
     @objc private func filter() {
-        self.preferenceBlackOutView.isHidden = false
+        self.optionsBlackOutView.isHidden = false
     }
     
     @objc private func blackoutTap() {
-        self.preferenceBlackOutView.isHidden = true
+        self.optionPopupView.resetPreference()
+        self.optionsBlackOutView.isHidden = true
     }
     
     @objc private func optionButtonPressed(_ notification: Notification) {
         // Call api
-        let optionsPopupView = self.preferenceBlackOutView.subviews[0] as! OptionsPopupView
-        optionsPopupView.setPreference(option: notification.userInfo?["option"] as! Options)
+        self.optionPopupView.setPreference(option: notification.userInfo?["option"] as! Options)
     }
     
     @objc private func optionPopupChange(_ notification: Notification) {
         // Call api
         self.optionScrollView.setPreference(option: notification.userInfo?["option"] as! Options)
-        blackoutTap()
+        self.optionsBlackOutView.isHidden = true
     }
     
     @IBAction func post(_ sender: Any) {
@@ -195,10 +195,10 @@ extension RestaurantViewController : UITableViewDelegate {
 
 extension RestaurantViewController : UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if (self.preferenceBlackOutView.subviews.count == 0) {
+        if (self.optionsBlackOutView.subviews.count == 0) {
             return true;
         }
-        return !touch.view!.isDescendant(of: self.preferenceBlackOutView.subviews[0])
+        return !touch.view!.isDescendant(of: self.optionsBlackOutView.subviews[0])
     }
 }
 
