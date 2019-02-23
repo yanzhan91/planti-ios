@@ -16,8 +16,13 @@ class OptionsPopupView: UIView {
     @IBOutlet weak var lactoSwitch: UISwitch!
     @IBOutlet weak var lactoOvoSwitch: UISwitch!
     @IBOutlet weak var pescSwitch: UISwitch!
+    
     @IBOutlet weak var changeButton: ThemeButton!
     @IBOutlet weak var cancelButton: ThemeButton!
+    
+    private var optionSelected : Options = Options.vegan
+    private var optionsSwitchesDictionary : Dictionary = [Options: UISwitch]()
+    private var SwitchesOptionsDictionary : Dictionary = [UISwitch: Options]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +39,40 @@ class OptionsPopupView: UIView {
         addSubview(contentView)
         self.changeButton.activate()
         self.cancelButton.deactivate()
+        
+        self.optionsSwitchesDictionary[.vegan] = self.veganSwitch
+        self.optionsSwitchesDictionary[.ovoVegetarian] = self.ovoSwitch
+        self.optionsSwitchesDictionary[.lactoVegetarian] = self.lactoSwitch
+        self.optionsSwitchesDictionary[.lactoOvoVegetarian] = self.lactoOvoSwitch
+        self.optionsSwitchesDictionary[.pescetarians] = self.pescSwitch
+        
+        self.SwitchesOptionsDictionary[self.veganSwitch] = .vegan
+        self.SwitchesOptionsDictionary[self.ovoSwitch] = .ovoVegetarian
+        self.SwitchesOptionsDictionary[self.lactoSwitch] = .lactoVegetarian
+        self.SwitchesOptionsDictionary[self.lactoOvoSwitch] = .lactoOvoVegetarian
+        self.SwitchesOptionsDictionary[self.pescSwitch] = .pescetarians
+        
         contentView.frame = self.bounds
+    }
+    
+    @IBAction func switchPressed(_ sender: Any) {
+        setPreference(option: self.SwitchesOptionsDictionary[sender as! UISwitch]!)
+    }
+    
+    public func setPreference(option: Options) {
+        if (self.optionSelected != option) {
+            self.optionsSwitchesDictionary[self.optionSelected]?.setOn(false, animated: true)
+            self.optionSelected = option
+        }
+        
+        self.optionsSwitchesDictionary[option]?.setOn(true, animated: true)
+    }
+    
+    @IBAction func changePressed(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("preferencePopupChange"), object: nil, userInfo: ["option": self.optionSelected])
+    }
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("preferencePopupCancel"), object: nil)
     }
 }

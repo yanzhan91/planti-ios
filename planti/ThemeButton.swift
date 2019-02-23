@@ -43,5 +43,4 @@ class ThemeButton: UIButton {
         self.backgroundColor = UIColor.white
         self.setTitleColor(Colors.themeGreen, for: .normal)
     }
-    
 }

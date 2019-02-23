@@ -13,11 +13,11 @@
                 <outlet property="cancelButton" destination="ZY4-Kv-xjd" id="aKh-c2-Nct"/>
                 <outlet property="changeButton" destination="OWm-GU-Ohn" id="zsM-Bi-XdR"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="aSs-za-Ciu"/>
-                <outlet property="lactoOvoSwitch" destination="gpC-ZU-6eN" id="gLq-Ei-Knk"/>
-                <outlet property="lactoSwitch" destination="1ka-G1-5hi" id="S9h-rN-Vme"/>
-                <outlet property="ovoSwitch" destination="ZlW-Jl-COR" id="aGL-pT-mIo"/>
-                <outlet property="pescSwitch" destination="Khi-wA-XvH" id="Veb-GX-4HH"/>
-                <outlet property="veganSwitch" destination="uBz-kF-F4y" id="oUD-uW-0YJ"/>
+                <outlet property="lactoOvoSwitch" destination="gpC-ZU-6eN" id="ogA-RC-AIb"/>
+                <outlet property="lactoSwitch" destination="1ka-G1-5hi" id="d4w-2q-eYN"/>
+                <outlet property="ovoSwitch" destination="ZlW-Jl-COR" id="8VQ-pN-7hm"/>
+                <outlet property="pescSwitch" destination="Khi-wA-XvH" id="QwL-21-rOd"/>
+                <outlet property="veganSwitch" destination="uBz-kF-F4y" id="gI7-mq-xOm"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -48,9 +48,12 @@
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBz-kF-F4y" userLabel="VeganSwitch">
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uBz-kF-F4y" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchPressed:" destination="-1" eventType="valueChanged" id="QhN-BE-3dz"/>
+                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,6 +99,9 @@
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZlW-Jl-COR" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchPressed:" destination="-1" eventType="valueChanged" id="H7B-5I-r2p"/>
+                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,6 +147,9 @@
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-G1-5hi" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchPressed:" destination="-1" eventType="valueChanged" id="ouL-ov-jtn"/>
+                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -186,6 +195,9 @@
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gpC-ZU-6eN" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchPressed:" destination="-1" eventType="valueChanged" id="ski-Qx-dyk"/>
+                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -231,6 +243,9 @@
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Khi-wA-XvH" userLabel="VeganSwitch">
                             <rect key="frame" x="231" y="-3.5" width="51" height="31"/>
                             <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchPressed:" destination="-1" eventType="valueChanged" id="lxx-xH-aqL"/>
+                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -257,11 +272,17 @@
                             <rect key="frame" x="202" y="5" width="70" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Change"/>
+                            <connections>
+                                <action selector="changePressed:" destination="-1" eventType="touchUpInside" id="Cus-ud-SNs"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZY4-Kv-xjd" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
                             <rect key="frame" x="124" y="5" width="70" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Cancel"/>
+                            <connections>
+                                <action selector="cancelPressed:" destination="-1" eventType="touchUpInside" id="MTm-Mx-Srl"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -14,16 +14,15 @@ class RestaurantViewController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var searchField: UITextField!
-    @IBOutlet weak var optionScrollView: UIScrollView!
+//    @IBOutlet weak var optionScrollView: UIScrollView!
     @IBOutlet weak var listView: UITableView!
     @IBOutlet weak var viewButton: UIButton!
     @IBOutlet weak var preferenceBlackOutView: UIView!
+    @IBOutlet weak var optionScrollView: OptionsScrollView!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     private var zoomLevel: Float = 15.0
-    private var optionButtonSelected : ThemeButton? = nil
-    private var preferenceSwitchSelected : UISwitch? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +32,15 @@ class RestaurantViewController: UIViewController {
         
         SideMenuManager.default.menuFadeStatusBar = false
         
-        setupOptionBlackOutView()
+        setupPreferenceOptionBlackOutView()
 //        setupMapView()
         setupListView()
         setupOptionScrollView()
         setupSearchBar()
+        
+        let optionsPopupView = self.preferenceBlackOutView.subviews[0] as! OptionsPopupView
+        optionsPopupView.setPreference(option: .vegan)
+        self.optionScrollView.setPreference(option: .vegan)
     }
     
     @IBAction func switchView(_ sender: Any) {
@@ -54,7 +57,7 @@ class RestaurantViewController: UIViewController {
         }
     }
     
-    fileprivate func setupOptionBlackOutView() {
+    fileprivate func setupPreferenceOptionBlackOutView() {
         self.preferenceBlackOutView.backgroundColor =
             UIColor.black.withAlphaComponent(0.7)
         self.preferenceBlackOutView.isHidden = true
@@ -63,16 +66,8 @@ class RestaurantViewController: UIViewController {
         tap.delegate = self
         self.preferenceBlackOutView.addGestureRecognizer(tap)
         
-        if (self.preferenceBlackOutView.subviews.count > 0) {
-            let menuView = self.preferenceBlackOutView.subviews[0] as! OptionsPopupView
-            self.preferenceSwitchSelected = menuView.veganSwitch
-            self.preferenceSwitchSelected?.isOn = true
-            menuView.veganSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
-            menuView.ovoSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
-            menuView.lactoSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
-            menuView.lactoOvoSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
-            menuView.pescSwitch.addTarget(self, action: #selector(preferenceSwitchPressed(sender:)), for: .valueChanged)
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(optionPopupChange(_:)), name: NSNotification.Name("preferencePopupChange"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(blackoutTap), name: NSNotification.Name("preferencePopupCancel"), object: nil)
     }
     
     fileprivate func setupSearchBar() {
@@ -115,20 +110,7 @@ class RestaurantViewController: UIViewController {
     }
     
     private func setupOptionScrollView() {
-        var leftSpacing = 5
-        let topSpacing = 5
-        var totalWidth = 5
-        for option in Options.allCases {
-            let button = ThemeButton.init(frame: CGRect(x: leftSpacing, y: topSpacing, width: 100, height: 40),
-                                          title: option.rawValue)
-            
-            button.addTarget(self, action: #selector(optionPressed), for: .touchUpInside)
-            
-            self.optionScrollView.addSubview(button)
-            leftSpacing += Int(button.frame.width + 5)
-            totalWidth += Int(button.frame.width + 5)
-        }
-        self.optionScrollView.contentSize = CGSize(width: totalWidth, height: 50)
+        NotificationCenter.default.addObserver(self, selector: #selector(optionButtonPressed(_:)), name: NSNotification.Name("preferenceButtonChange"), object: nil)
     }
     
     @objc private func filter() {
@@ -139,21 +121,16 @@ class RestaurantViewController: UIViewController {
         self.preferenceBlackOutView.isHidden = true
     }
     
-    @objc private func preferenceSwitchPressed(sender: UISwitch) {
-        if (sender != self.preferenceSwitchSelected) {
-            self.preferenceSwitchSelected?.setOn(false, animated: true)
-        }
-    
-        sender.setOn(true, animated: true)
-        self.preferenceSwitchSelected = sender
+    @objc private func optionButtonPressed(_ notification: Notification) {
+        // Call api
+        let optionsPopupView = self.preferenceBlackOutView.subviews[0] as! OptionsPopupView
+        optionsPopupView.setPreference(option: notification.userInfo?["option"] as! Options)
     }
     
-    
-    
-    @objc private func optionPressed(sender: ThemeButton) {
-        self.optionButtonSelected?.deactivate()
-        self.optionButtonSelected = sender
-        sender.activate()
+    @objc private func optionPopupChange(_ notification: Notification) {
+        // Call api
+        self.optionScrollView.setPreference(option: notification.userInfo?["option"] as! Options)
+        blackoutTap()
     }
     
     @IBAction func post(_ sender: Any) {
