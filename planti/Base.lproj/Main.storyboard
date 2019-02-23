@@ -518,10 +518,10 @@
             </objects>
             <point key="canvasLocation" x="-276" y="82.019704433497537"/>
         </scene>
-        <!--View Controller-->
+        <!--Post View Controller-->
         <scene sceneID="pVa-7a-CRc">
             <objects>
-                <viewController id="1ns-Xo-Q4d" sceneMemberID="viewController">
+                <viewController id="1ns-Xo-Q4d" customClass="PostViewController" customModule="planti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="85c-wc-JXc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -700,6 +700,32 @@
                                     <constraint firstItem="NfP-U1-da6" firstAttribute="leading" secondItem="SwX-w2-P6R" secondAttribute="centerX" id="zsD-1F-kob"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yk-FL-Cmj">
+                                <rect key="frame" x="16" y="454" width="343" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Optional Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmF-51-4E3">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8j-ni-Qch" customClass="CameraUploadView" customModule="planti" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="30" width="327" height="162"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="MmF-51-4E3" firstAttribute="top" secondItem="0yk-FL-Cmj" secondAttribute="top" id="6ei-s3-Cih"/>
+                                    <constraint firstAttribute="height" constant="200" id="gTC-Tr-uSv"/>
+                                    <constraint firstItem="MmF-51-4E3" firstAttribute="leading" secondItem="0yk-FL-Cmj" secondAttribute="leading" id="l4K-o5-ySK"/>
+                                    <constraint firstAttribute="trailing" secondItem="W8j-ni-Qch" secondAttribute="trailing" constant="8" id="rrd-QH-17j"/>
+                                    <constraint firstAttribute="bottom" secondItem="W8j-ni-Qch" secondAttribute="bottom" constant="8" id="sUx-0g-a4x"/>
+                                    <constraint firstItem="W8j-ni-Qch" firstAttribute="top" secondItem="MmF-51-4E3" secondAttribute="bottom" constant="8" id="uKk-Zr-vFf"/>
+                                    <constraint firstItem="W8j-ni-Qch" firstAttribute="leading" secondItem="0yk-FL-Cmj" secondAttribute="leading" constant="8" id="wEP-WS-EDT"/>
+                                    <constraint firstAttribute="trailing" secondItem="MmF-51-4E3" secondAttribute="trailing" id="xZt-A5-Dkc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -708,8 +734,11 @@
                             <constraint firstItem="LbX-Pv-9hN" firstAttribute="leading" secondItem="kec-za-uwr" secondAttribute="leading" constant="16" id="Ch6-k0-Xwt"/>
                             <constraint firstItem="SwX-w2-P6R" firstAttribute="top" secondItem="3cg-bV-ge9" secondAttribute="bottom" constant="10" id="DAN-Ak-389"/>
                             <constraint firstItem="kec-za-uwr" firstAttribute="trailing" secondItem="3cg-bV-ge9" secondAttribute="trailing" constant="16" id="H9o-x9-rcc"/>
+                            <constraint firstItem="0yk-FL-Cmj" firstAttribute="leading" secondItem="kec-za-uwr" secondAttribute="leading" constant="16" id="P4W-09-Bm8"/>
+                            <constraint firstItem="0yk-FL-Cmj" firstAttribute="top" secondItem="SwX-w2-P6R" secondAttribute="bottom" constant="10" id="Qhj-0R-NkZ"/>
                             <constraint firstItem="kec-za-uwr" firstAttribute="trailing" secondItem="IQM-mL-2DM" secondAttribute="trailing" constant="16" id="RNb-pv-IRU"/>
                             <constraint firstItem="kec-za-uwr" firstAttribute="trailing" secondItem="SwX-w2-P6R" secondAttribute="trailing" constant="16" id="SBm-Wu-6jl"/>
+                            <constraint firstAttribute="trailing" secondItem="0yk-FL-Cmj" secondAttribute="trailing" constant="16" id="SZk-fr-pUY"/>
                             <constraint firstItem="0Lt-Dp-pt4" firstAttribute="leading" secondItem="kec-za-uwr" secondAttribute="leading" id="VIC-sd-Rfh"/>
                             <constraint firstItem="3cg-bV-ge9" firstAttribute="top" secondItem="LbX-Pv-9hN" secondAttribute="bottom" constant="8" id="Z5r-ca-QGJ"/>
                             <constraint firstItem="3cg-bV-ge9" firstAttribute="leading" secondItem="kec-za-uwr" secondAttribute="leading" constant="16" id="gsZ-Wu-rRO"/>
@@ -722,6 +751,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kec-za-uwr"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraUploadView" destination="W8j-ni-Qch" id="e9O-6o-h1g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PkB-j7-tXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
