@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ALCameraViewController
 
 class PostViewController: UIViewController {
 
@@ -14,17 +15,20 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        addDashedBorder()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(cameraPresed), name: NSNotification.Name("postCamera"), object: nil)
     }
     
-    private func addDashedBorder() {
-        let border = CAShapeLayer()
-        border.strokeColor = Colors.themeGreen.cgColor
-        border.lineDashPattern = [2, 2]
-        border.frame = self.cameraUploadView.bounds
-        border.fillColor = nil
-        border.path = UIBezierPath(rect: self.cameraUploadView.bounds).cgPath
-        self.cameraUploadView.layer.addSublayer(border)
+    @objc private func cameraPresed() {
+        let cameraViewController = CameraViewController { [weak self] image, asset in
+            // Do something with your image here.
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
+        present(cameraViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ALCameraViewController
 
 class CameraUploadView: UIView {
     
@@ -24,6 +25,13 @@ class CameraUploadView: UIView {
     
     private func initialize() {
         Bundle.main.loadNibNamed("CameraUploadView", owner: self, options: nil)
-        addSubview(contentView)
+        self.contentView.frame = self.bounds
+        self.contentView.layer.borderWidth = 1.0
+        self.contentView.layer.borderColor = Colors.themeGreen.cgColor
+        addSubview(self.contentView)
+    }
+    
+    @IBAction func cameraPressed(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("postCamera"), object: nil)
     }
 }

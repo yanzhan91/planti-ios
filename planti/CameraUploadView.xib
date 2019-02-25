@@ -16,19 +16,22 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="327" height="162"/>
+            <rect key="frame" x="0.0" y="0.0" width="571" height="209"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjr-1f-pfB">
-                    <rect key="frame" x="131.5" y="49" width="64" height="64"/>
+                    <rect key="frame" x="253.5" y="72.5" width="64" height="64"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="64" id="1Cc-x3-5g6"/>
                         <constraint firstAttribute="height" constant="64" id="Tlm-WM-F9L"/>
                     </constraints>
                     <state key="normal" image="camera_icon"/>
+                    <connections>
+                        <action selector="cameraPressed:" destination="-1" eventType="touchUpInside" id="IkS-jO-yyu"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Vjr-1f-pfB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BCF-Kh-7Ck"/>
                 <constraint firstItem="Vjr-1f-pfB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P16-tl-9lk"/>
@@ -37,7 +40,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="53.600000000000001" y="76.46176911544228"/>
+            <point key="canvasLocation" x="-172" y="151"/>
         </view>
     </objects>
     <resources>
