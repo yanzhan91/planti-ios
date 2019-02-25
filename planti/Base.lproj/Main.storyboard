@@ -512,6 +512,7 @@
                         <outlet property="optionsBlackOutView" destination="Wvh-NN-Jaq" id="Sas-EQ-4z5"/>
                         <outlet property="searchField" destination="dHf-ue-Omw" id="PCr-JB-Vs1"/>
                         <outlet property="viewButton" destination="Dog-d3-870" id="ls9-56-6kk"/>
+                        <segue destination="Y9C-r0-1fq" kind="presentation" identifier="openRestaurantMenu" id="Yyx-2q-RiT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -822,6 +823,7 @@
                                         <state key="normal" image="back_icon"/>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="1ns-Xo-Q4d" eventType="touchUpInside" id="0G9-n9-Iu4"/>
+                                            <action selector="backButtonPressed:" destination="Y9C-r0-1fq" eventType="touchUpInside" id="7TW-rd-N5n"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -871,6 +873,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E8a-Po-Khb"/>
                     </view>
+                    <connections>
+                        <outlet property="restaurantNameLabel" destination="rBz-uf-Df5" id="LnI-5S-HYa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RnZ-Iy-R9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

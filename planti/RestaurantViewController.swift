@@ -190,7 +190,19 @@ extension RestaurantViewController : GMSMapViewDelegate {
 }
 
 extension RestaurantViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ListViewCell
+        performSegue(withIdentifier: "openRestaurantMenu", sender: cell.restaurantName.text)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination is RestaurantMenuViewController) {
+            let dest = segue.destination as! RestaurantMenuViewController
+            print("\(sender is UITableView)")
+            print("\(sender is String)")
+            dest.restaurantName = sender as! String
+        }
+    }
 }
 
 extension RestaurantViewController : UIGestureRecognizerDelegate {
