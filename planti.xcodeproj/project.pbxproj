@@ -12,6 +12,7 @@
 		B52706E2221F9D790040DF6A /* OptionsPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52706E1221F9D790040DF6A /* OptionsPopup.xib */; };
 		B52706E4221FB74B0040DF6A /* OptionsPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52706E3221FB74B0040DF6A /* OptionsPopupView.swift */; };
 		B53381A4222649BA0007FFDD /* EntreeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381A3222649BA0007FFDD /* EntreeCell.swift */; };
+		B53381A6222661470007FFDD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381A5222661470007FFDD /* LoginViewController.swift */; };
 		B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */; };
 		B5C6A6B92222032A007DE260 /* CameraUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6A6B82222032A007DE260 /* CameraUploadView.swift */; };
 		B5C6A6BB22220389007DE260 /* CameraUploadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5C6A6BA22220389007DE260 /* CameraUploadView.xib */; };
@@ -37,6 +38,7 @@
 		B52706E1221F9D790040DF6A /* OptionsPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsPopup.xib; sourceTree = "<group>"; };
 		B52706E3221FB74B0040DF6A /* OptionsPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPopupView.swift; sourceTree = "<group>"; };
 		B53381A3222649BA0007FFDD /* EntreeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntreeCell.swift; sourceTree = "<group>"; };
+		B53381A5222661470007FFDD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScrollView.swift; sourceTree = "<group>"; };
 		B5C6A6B82222032A007DE260 /* CameraUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUploadView.swift; sourceTree = "<group>"; };
 		B5C6A6BA22220389007DE260 /* CameraUploadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraUploadView.xib; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				B5C6A6B82222032A007DE260 /* CameraUploadView.swift */,
 				B51307772223D0FB00029F7F /* RestaurantMenuViewController.swift */,
 				B53381A3222649BA0007FFDD /* EntreeCell.swift */,
+				B53381A5222661470007FFDD /* LoginViewController.swift */,
 			);
 			path = planti;
 			sourceTree = "<group>";
@@ -234,6 +237,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-planti/Pods-planti-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 			);
@@ -242,6 +247,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALCameraViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 			);
@@ -260,12 +267,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-planti/Pods-planti-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -282,6 +291,7 @@
 				B5C6A6BD22220B24007DE260 /* PostViewController.swift in Sources */,
 				B5F61845221888110032FF86 /* Restaurant.swift in Sources */,
 				B53381A4222649BA0007FFDD /* EntreeCell.swift in Sources */,
+				B53381A6222661470007FFDD /* LoginViewController.swift in Sources */,
 				B5EAC3E22217F1900080858E /* RestaurantViewController.swift in Sources */,
 				B5F6087D221D376E001989B6 /* ThemeButton.swift in Sources */,
 				B52706E4221FB74B0040DF6A /* OptionsPopupView.swift in Sources */,

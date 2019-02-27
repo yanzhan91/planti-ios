@@ -8,17 +8,18 @@
 
 import UIKit
 import GoogleMaps
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         GMSServices.provideAPIKey("AIzaSyA2PTAme6Oglw6NApySkjEdYU1iMKQQudA")
+        GIDSignIn.sharedInstance().clientID = "970071006987-9cjk3spcikso0d6b7lvjooohansvmpq5.apps.googleusercontent.com"
         
         return true
     }

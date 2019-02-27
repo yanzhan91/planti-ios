@@ -10,5 +10,6 @@ target 'planti' do
   pod 'SideMenu'
   pod 'ALCameraViewController'
   pod 'TextFieldEffects'
+  pod 'GoogleSignIn'
 
 end
