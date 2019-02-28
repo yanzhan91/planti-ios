@@ -202,6 +202,7 @@
         <!--Login View Controller-->
         <scene sceneID="p4L-2M-A76">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O3q-AA-vPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="NGt-cI-tnP" customClass="LoginViewController" customModule="planti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5dF-Fd-uFy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -218,10 +219,9 @@
                     </view>
                     <connections>
                         <outlet property="googleLoginButton" destination="buA-AJ-JgJ" id="2ZS-rk-xk8"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="signedIn" id="PiS-Qj-d6t"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="SignedIn" id="PiS-Qj-d6t"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O3q-AA-vPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1374" y="-693"/>
         </scene>

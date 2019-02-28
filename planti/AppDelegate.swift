@@ -11,8 +11,8 @@ import GoogleMaps
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyA2PTAme6Oglw6NApySkjEdYU1iMKQQudA")
         GIDSignIn.sharedInstance().clientID = "970071006987-9cjk3spcikso0d6b7lvjooohansvmpq5.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().delegate = self
         
         return true
     }
@@ -46,6 +47,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("\(error.localizedDescription)")
+        } else {
+            UserDefaults.standard.set(user.userID, forKey: "userId")
+            UserDefaults.standard.set(user.profile.name, forKey: "fullName")
+            UserDefaults.standard.set(user.profile.email, forKey: "email")
+            
+            NotificationCenter.default.post(
+                name: Notification.Name(rawValue: "Login"),
+                object: nil)
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("\(error.localizedDescription)")
+        } else {
+            UserDefaults.standard.removeObject(forKey: "userid")
+            UserDefaults.standard.removeObject(forKey: "fullName")
+            UserDefaults.standard.removeObject(forKey: "email")
+        }
+    }
 }
 

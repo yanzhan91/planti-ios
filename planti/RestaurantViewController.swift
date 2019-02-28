@@ -14,7 +14,6 @@ class RestaurantViewController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var searchField: UITextField!
-//    @IBOutlet weak var optionScrollView: UIScrollView!
     @IBOutlet weak var listView: UITableView!
     @IBOutlet weak var viewButton: UIButton!
     @IBOutlet weak var optionsBlackOutView: UIView!
@@ -133,9 +132,14 @@ class RestaurantViewController: UIViewController {
         self.optionsBlackOutView.isHidden = true
     }
     
-    @IBAction func post(_ sender: Any) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination is RestaurantMenuViewController) {
+            let dest = segue.destination as! RestaurantMenuViewController
+            print("\(sender is UITableView)")
+            print("\(sender is String)")
+            dest.restaurantName = sender as! String
+        }
     }
-    
 }
 
 extension RestaurantViewController : CLLocationManagerDelegate {
@@ -193,15 +197,6 @@ extension RestaurantViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ListViewCell
         performSegue(withIdentifier: "openRestaurantMenu", sender: cell.restaurantName.text)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.destination is RestaurantMenuViewController) {
-            let dest = segue.destination as! RestaurantMenuViewController
-            print("\(sender is UITableView)")
-            print("\(sender is String)")
-            dest.restaurantName = sender as! String
-        }
     }
 }
 

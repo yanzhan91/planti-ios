@@ -9,7 +9,7 @@
 import UIKit
 import GoogleSignIn
 
-class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var googleLoginButton: GIDSignInButton!
     
@@ -17,33 +17,18 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         super.viewDidLoad()
 
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().delegate = self
         self.googleLoginButton.style = .wide
-    }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print("\(error.localizedDescription)")
+        GIDSignIn.sharedInstance().signInSilently()
+        
+        if (UserDefaults.standard.string(forKey: "userId") != nil) {
+            performSegue(withIdentifier: "SignedIn", sender: self)
         } else {
-            UserDefaults.standard.set("userId", forKey: user.userID)
-            UserDefaults.standard.set("fullName", forKey: user.profile.name)
-            UserDefaults.standard.set("email", forKey: user.profile.email)
-            performSegue(withIdentifier: "signedIn", sender: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(login(_:)), name: NSNotification.Name(rawValue: "Login"), object: nil)
         }
     }
     
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print("\(error.localizedDescription)")
-        } else {
-            UserDefaults.standard.removeObject(forKey: "userid")
-            UserDefaults.standard.removeObject(forKey: "fullName")
-            UserDefaults.standard.removeObject(forKey: "email")
-        }
+    @objc private func login(_ notification: NSNotification) {
+        performSegue(withIdentifier: "SignedIn", sender: self)
     }
 }
