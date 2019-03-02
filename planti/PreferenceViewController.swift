@@ -23,6 +23,8 @@ class PreferenceViewController: UIViewController {
         self.optionsPopupView.layer.borderColor = Colors.themeGreen.cgColor
         self.optionsPopupView.layer.borderWidth = 2.0
         
+        self.optionsPopupView.setPreference(option: .vegan)
+        
         if (isPreferenceView) {
             self.optionsPopupView.changeButton.setTitle("Join", for: .normal)
             self.optionsPopupView.cancelButton.setTitle("Logout", for: .normal)
@@ -33,7 +35,7 @@ class PreferenceViewController: UIViewController {
     }
     
     @objc func join(_ notification: Notification) {
-        UserDefaults.standard.set(notification.userInfo?["option"] as! Options, forKey: DefaultsKeys.PREFERENCE)
+        UserDefaults.standard.set((notification.userInfo?["option"] as! Options).rawValue, forKey: DefaultsKeys.PREFERENCE)
         performSegue(withIdentifier: "SignedIn", sender: self)
     }
     

@@ -33,7 +33,7 @@ class RestaurantViewController: UIViewController {
         SideMenuManager.default.menuFadeStatusBar = false
         
         setupPreferenceOptionBlackOutView()
-//        setupMapView()
+        setupMapView()
         setupListView()
         setupOptionScrollView()
         setupSearchBar()
@@ -43,8 +43,8 @@ class RestaurantViewController: UIViewController {
             self.optionPopupView.setPreference(option: .vegan)
             self.optionScrollView.setPreference(option: .vegan)
         } else {
-            self.optionPopupView.setPreference(option: preference as! Options)
-            self.optionScrollView.setPreference(option: preference as! Options)
+            self.optionPopupView.setPreference(option: Options(rawValue: preference as! String)!)
+            self.optionScrollView.setPreference(option: Options(rawValue: preference as! String)!)
         }
     }
     

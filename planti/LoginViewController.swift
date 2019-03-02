@@ -26,7 +26,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         print("User Id: \(UserDefaults.standard.string(forKey: "userId"))")
         if (UserDefaults.standard.string(forKey: DefaultsKeys.USER_ID) != nil) {
 //            performSegue(withIdentifier: "SignedIn", sender: self)
-            performSegue(withIdentifier: "SignedIn", sender: self)
+            performSegue(withIdentifier: "ChoosePreference", sender: self)
         } else {
             NotificationCenter.default.addObserver(self, selector: #selector(login(_:)), name: NSNotification.Name(rawValue: "Login"), object: nil)
         }
