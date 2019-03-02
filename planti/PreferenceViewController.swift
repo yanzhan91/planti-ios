@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class PreferenceViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var optionsPopupView: OptionsPopupView!
+    var isPreferenceView: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +22,24 @@ class PreferenceViewController: UIViewController {
         
         self.optionsPopupView.layer.borderColor = Colors.themeGreen.cgColor
         self.optionsPopupView.layer.borderWidth = 2.0
+        
+        if (isPreferenceView) {
+            self.optionsPopupView.changeButton.setTitle("Join", for: .normal)
+            self.optionsPopupView.cancelButton.setTitle("Logout", for: .normal)
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(join(_:)), name: NSNotification.Name("preferencePopupChange"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(logout), name: NSNotification.Name("preferencePopupCancel"), object: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        print("User Id: \(UserDefaults.standard.string(forKey: "userId"))")
-//        if (UserDefaults.standard.string(forKey: "userId") != nil) {
-//            //            performSegue(withIdentifier: "SignedIn", sender: self)
-//            performSegue(withIdentifier: "ChoosePreference", sender: self)
-//        } else {
-//            NotificationCenter.default.addObserver(self, selector: #selector(login(_:)), name: NSNotification.Name(rawValue: "Login"), object: nil)
-//        }
+    @objc func join(_ notification: Notification) {
+        UserDefaults.standard.set(notification.userInfo?["option"] as! Options, forKey: DefaultsKeys.PREFERENCE)
+        performSegue(withIdentifier: "SignedIn", sender: self)
+    }
+    
+    @objc func logout() {
+        GIDSignIn.sharedInstance()?.disconnect()
+        dismiss(animated: true, completion: nil)
     }
     
     private func getScrollViewContentSize(scrollView: UIScrollView) -> CGSize {
@@ -40,7 +50,6 @@ class PreferenceViewController: UIViewController {
         }
         
         contentRect.size.height += 30
-        
         return contentRect.size
     }
 }

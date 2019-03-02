@@ -24,9 +24,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         print("User Id: \(UserDefaults.standard.string(forKey: "userId"))")
-        if (UserDefaults.standard.string(forKey: "userId") != nil) {
+        if (UserDefaults.standard.string(forKey: DefaultsKeys.USER_ID) != nil) {
 //            performSegue(withIdentifier: "SignedIn", sender: self)
-            performSegue(withIdentifier: "ChoosePreference", sender: self)
+            performSegue(withIdentifier: "SignedIn", sender: self)
         } else {
             NotificationCenter.default.addObserver(self, selector: #selector(login(_:)), name: NSNotification.Name(rawValue: "Login"), object: nil)
         }
@@ -34,5 +34,14 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @objc private func login(_ notification: NSNotification) {
         performSegue(withIdentifier: "ChoosePreference", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination is PreferenceViewController) {
+            let vc = segue.destination as! PreferenceViewController
+            vc.isPreferenceView = true
+        } else if (segue.destination is RestaurantViewController) {
+            
+        }
     }
 }

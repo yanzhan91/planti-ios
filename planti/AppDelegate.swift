@@ -56,9 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if let error = error {
             print("\(error.localizedDescription)")
         } else {
-            UserDefaults.standard.set(user.userID, forKey: "userId")
-            UserDefaults.standard.set(user.profile.name, forKey: "fullName")
-            UserDefaults.standard.set(user.profile.email, forKey: "email")
+            UserDefaults.standard.set(user.userID, forKey: DefaultsKeys.USER_ID)
+            UserDefaults.standard.set(user.profile.name, forKey: DefaultsKeys.FULL_NAME)
+            UserDefaults.standard.set(user.profile.email, forKey: DefaultsKeys.EMAIL)
             
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: "Login"),
@@ -70,9 +70,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if let error = error {
             print("\(error.localizedDescription)")
         } else {
-            UserDefaults.standard.removeObject(forKey: "userid")
-            UserDefaults.standard.removeObject(forKey: "fullName")
-            UserDefaults.standard.removeObject(forKey: "email")
+            UserDefaults.standard.removeObject(forKey: DefaultsKeys.USER_ID)
+            UserDefaults.standard.removeObject(forKey: DefaultsKeys.FULL_NAME)
+            UserDefaults.standard.removeObject(forKey: DefaultsKeys.EMAIL)
+            UserDefaults.standard.removeObject(forKey: DefaultsKeys.PREFERENCE)
         }
     }
 }

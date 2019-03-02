@@ -38,8 +38,14 @@ class RestaurantViewController: UIViewController {
         setupOptionScrollView()
         setupSearchBar()
         
-        self.optionPopupView.setPreference(option: .vegan)
-        self.optionScrollView.setPreference(option: .vegan)
+        let preference = UserDefaults.standard.object(forKey: DefaultsKeys.PREFERENCE)
+        if (preference == nil) {
+            self.optionPopupView.setPreference(option: .vegan)
+            self.optionScrollView.setPreference(option: .vegan)
+        } else {
+            self.optionPopupView.setPreference(option: preference as! Options)
+            self.optionScrollView.setPreference(option: preference as! Options)
+        }
     }
     
     @IBAction func switchView(_ sender: Any) {
