@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextDialog" customModule="planti" customModuleProvider="target">
+            <connections>
+                <outlet property="closeButton" destination="n8o-uK-tzf" id="6Ho-qM-Xg5"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="8vt-7R-Heg"/>
+                <outlet property="text" destination="dy9-5Z-X2W" id="41x-05-hG1"/>
+                <outlet property="title" destination="7e9-2q-t5f" id="zhQ-eP-5fn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fL-Xf-DAf">
+                    <rect key="frame" x="16" y="49" width="268" height="1"/>
+                    <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="268" id="Ci9-Mx-eQT"/>
+                    </constraints>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy9-5Z-X2W">
+                    <rect key="frame" x="16" y="58" width="268" height="284"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="268" id="hhI-Gc-Bym"/>
+                        <constraint firstAttribute="height" constant="284" id="lAL-ee-fmU"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8o-uK-tzf" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
+                    <rect key="frame" x="238" y="350" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7e9-2q-t5f">
+                    <rect key="frame" x="16" y="20" width="268" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="268" id="kg9-Pi-er0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7e9-2q-t5f" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="3Jv-hO-euR"/>
+                <constraint firstItem="n8o-uK-tzf" firstAttribute="top" secondItem="dy9-5Z-X2W" secondAttribute="bottom" constant="8" id="6zh-8F-tXP"/>
+                <constraint firstItem="dy9-5Z-X2W" firstAttribute="top" secondItem="8fL-Xf-DAf" secondAttribute="bottom" constant="8" id="E7N-Xx-h0D"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7e9-2q-t5f" secondAttribute="trailing" constant="16" id="Fps-fa-ymQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="n8o-uK-tzf" secondAttribute="trailing" constant="16" id="M2g-q7-IQW"/>
+                <constraint firstItem="8fL-Xf-DAf" firstAttribute="centerX" secondItem="7e9-2q-t5f" secondAttribute="centerX" id="MIH-MD-tcY"/>
+                <constraint firstItem="8fL-Xf-DAf" firstAttribute="top" secondItem="7e9-2q-t5f" secondAttribute="bottom" constant="5" id="itZ-Dm-3JQ"/>
+                <constraint firstItem="7e9-2q-t5f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="k6p-Ch-sUI"/>
+                <constraint firstItem="dy9-5Z-X2W" firstAttribute="centerX" secondItem="7e9-2q-t5f" secondAttribute="centerX" id="vv4-qZ-ZdA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="n8o-uK-tzf" secondAttribute="bottom" constant="20" id="vwJ-8e-Wqm"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.59999999999999" y="291.45427286356824"/>
+        </view>
+    </objects>
+</document>
