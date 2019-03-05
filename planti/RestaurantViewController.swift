@@ -18,7 +18,6 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var viewButton: UIButton!
     @IBOutlet weak var optionsBlackOutView: UIView!
     @IBOutlet weak var optionScrollView: OptionsScrollView!
-    @IBOutlet weak var optionPopupView: OptionsPopupView!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
@@ -35,15 +34,14 @@ class RestaurantViewController: UIViewController {
         setupPreferenceOptionBlackOutView()
         setupMapView()
         setupListView()
-        setupOptionScrollView()
         setupSearchBar()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(openMneuOption(_:)), name: NSNotification.Name("menuSelected"), object: nil)
         
         let preference = UserDefaults.standard.object(forKey: DefaultsKeys.PREFERENCE)
         if (preference == nil) {
-            self.optionPopupView.setPreference(option: .vegan)
             self.optionScrollView.setPreference(option: .vegan)
         } else {
-            self.optionPopupView.setPreference(option: Options(rawValue: preference as! String)!)
             self.optionScrollView.setPreference(option: Options(rawValue: preference as! String)!)
         }
     }
@@ -114,28 +112,71 @@ class RestaurantViewController: UIViewController {
         self.listView.dataSource = self
     }
     
-    private func setupOptionScrollView() {
-        NotificationCenter.default.addObserver(self, selector: #selector(optionButtonPressed(_:)), name: NSNotification.Name("preferenceButtonChange"), object: nil)
+    @objc private func openMneuOption(_ notification: Notification) {
+        self.optionsBlackOutView.isHidden = false
+        SideMenuManager.default.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
+        switch notification.userInfo!["menuOption"] as! Int {
+        case 1:
+            print("1")
+            break;
+        case 2:
+            print("2")
+            self.optionsBlackOutView.isHidden = false
+            let frame = self.optionsBlackOutView.frame
+            let x = Int((frame.width - 300) / 2)
+            let y = 100
+            let width = 300
+            let height = 570
+            let textDialog = TextDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
+            textDialog.title.text = "Terms of Service"
+            textDialog.text.text = "This is a test terms of services. Bala, please complete."
+            textDialog.closeButton.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
+            textDialog.closeButton.setTitle("Close", for: .normal)
+            self.optionsBlackOutView.addSubview(textDialog)
+            break;
+        case 3:
+            print("3")
+            self.optionsBlackOutView.isHidden = false
+            let frame = self.optionsBlackOutView.frame
+            let x = Int((frame.width - 300) / 2)
+            let y = 100
+            let width = 300
+            let height = 570
+            let textDialog = TextDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
+            textDialog.title.text = "Privacy Policy"
+            textDialog.text.text = "This is a test privacy policy. Bala, please complete."
+            textDialog.closeButton.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
+            textDialog.closeButton.setTitle("Close", for: .normal)
+            self.optionsBlackOutView.addSubview(textDialog)
+            break;
+        default:
+            break;
+        }
     }
     
     @objc private func filter() {
         self.optionsBlackOutView.isHidden = false
+        let frame = self.optionsBlackOutView.frame
+        let x = Int((frame.width - 300) / 2)
+        let y = 100
+        let width = 300
+        let height = 570
+        let optionsPopup = OptionsPopupView.init(frame: CGRect(x: x, y: y, width: width, height: height))
+        optionsPopup.setPreference(option: self.optionScrollView.getPreference())
+        self.optionsBlackOutView.addSubview(optionsPopup)
     }
     
     @objc private func blackoutTap() {
-        self.optionPopupView.resetPreference()
         self.optionsBlackOutView.isHidden = true
-    }
-    
-    @objc private func optionButtonPressed(_ notification: Notification) {
-        // Call api
-        self.optionPopupView.setPreference(option: notification.userInfo?["option"] as! Options)
+        for subview in self.optionsBlackOutView.subviews {
+            subview.removeFromSuperview()
+        }
     }
     
     @objc private func optionPopupChange(_ notification: Notification) {
         // Call api
         self.optionScrollView.setPreference(option: notification.userInfo?["option"] as! Options)
-        self.optionsBlackOutView.isHidden = true
+        blackoutTap()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

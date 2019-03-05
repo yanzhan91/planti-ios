@@ -63,9 +63,12 @@ class OptionsScrollView: UIScrollView {
         if (button != self.selected) {
             self.selected?.deactivate()
             button!.activate()
-            self.selected = button
+            self.selected = button!
         }
-        
         self.setContentOffset(CGPoint.init(x: button!.frame.origin.x - 5, y: 0), animated: true)
+    }
+    
+    public func getPreference() -> Options {
+        return self.buttonsOptionsDictionary[self.selected!]!
     }
 }
