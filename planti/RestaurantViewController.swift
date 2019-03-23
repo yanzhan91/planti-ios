@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import SideMenu
+import GoogleSignIn
 
 class RestaurantViewController: UIViewController {
 
@@ -115,15 +116,23 @@ class RestaurantViewController: UIViewController {
     @objc private func openMneuOption(_ notification: Notification) {
         self.optionsBlackOutView.isHidden = false
         SideMenuManager.default.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
+        self.optionsBlackOutView.isHidden = false
+        
+        let frame = self.optionsBlackOutView.frame
+        let x = Int((frame.width - 300) / 2)
+        
         switch notification.userInfo!["menuOption"] as! Int {
         case 1:
             print("1")
+            let y = 100
+            let width = 300
+            let height = 570
+            let settingsDialog = SettingsDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
+            settingsDialog.newMenuItems.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
+            self.optionsBlackOutView.addSubview(settingsDialog)
             break;
         case 2:
             print("2")
-            self.optionsBlackOutView.isHidden = false
-            let frame = self.optionsBlackOutView.frame
-            let x = Int((frame.width - 300) / 2)
             let y = 100
             let width = 300
             let height = 570
@@ -136,9 +145,6 @@ class RestaurantViewController: UIViewController {
             break;
         case 3:
             print("3")
-            self.optionsBlackOutView.isHidden = false
-            let frame = self.optionsBlackOutView.frame
-            let x = Int((frame.width - 300) / 2)
             let y = 100
             let width = 300
             let height = 570
@@ -149,9 +155,25 @@ class RestaurantViewController: UIViewController {
             textDialog.closeButton.setTitle("Close", for: .normal)
             self.optionsBlackOutView.addSubview(textDialog)
             break;
+        case 4:
+            print("4")
+            let y = 100
+            let width = 300
+            let height = 570
+            let logoutDialog = LogoutDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
+            logoutDialog.cancelButton.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
+            logoutDialog.logoutButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
+            self.optionsBlackOutView.addSubview(logoutDialog)
+            break;
         default:
             break;
         }
+    }
+    
+    @objc func logout() {
+        GIDSignIn.sharedInstance()?.disconnect()
+        dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "unwindToLogin", sender:self)
     }
     
     @objc private func filter() {

@@ -591,9 +591,11 @@
                         <outlet property="searchField" destination="dHf-ue-Omw" id="PCr-JB-Vs1"/>
                         <outlet property="viewButton" destination="Dog-d3-870" id="ls9-56-6kk"/>
                         <segue destination="Y9C-r0-1fq" kind="presentation" identifier="openRestaurantMenu" id="Yyx-2q-RiT"/>
+                        <segue destination="Kvf-LE-gQv" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindWithSegue:" id="Rqw-kc-blj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Kvf-LE-gQv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-276" y="82.019704433497537"/>
         </scene>
@@ -1033,6 +1035,6 @@
         <image name="vertical_menu_icon" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ymT-ay-vVL"/>
+        <segue reference="djo-Wn-zAf"/>
     </inferredMetricsTieBreakers>
 </document>

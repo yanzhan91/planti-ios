@@ -19,12 +19,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         self.googleLoginButton.style = .wide
         
-        GIDSignIn.sharedInstance().signInSilently()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        print(UserDefaults.standard.string(forKey: DefaultsKeys.USER_ID))
+        
         if (UserDefaults.standard.string(forKey: DefaultsKeys.USER_ID) != nil) {
-//            performSegue(withIdentifier: "SignedIn", sender: self)
             performSegue(withIdentifier: "SignedIn", sender: self)
         } else {
             NotificationCenter.default.addObserver(self, selector: #selector(login(_:)), name: NSNotification.Name(rawValue: "Login"), object: nil)
@@ -42,5 +39,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         } else if (segue.destination is RestaurantViewController) {
             
         }
+    }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
     }
 }
