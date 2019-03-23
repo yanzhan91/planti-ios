@@ -12,6 +12,7 @@ import GoogleSignIn
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var googleLoginButton: GIDSignInButton!
+    private var isInitialLoad = true;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +20,18 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         self.googleLoginButton.style = .wide
         
-        print(UserDefaults.standard.string(forKey: DefaultsKeys.USER_ID))
-        
-        if (UserDefaults.standard.string(forKey: DefaultsKeys.USER_ID) != nil) {
+//        if (UserDefaults.standard.string(forKey: DefaultsKeys.USER_ID) != nil) {
+//            performSegue(withIdentifier: "SignedIn", sender: self)
+//        } else {
+            NotificationCenter.default.addObserver(self, selector: #selector(login(_:)), name: NSNotification.Name(rawValue: "Login"), object: nil)
+//        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (UserDefaults.standard.string(forKey: DefaultsKeys.USER_ID) != nil && self.isInitialLoad) {
             performSegue(withIdentifier: "SignedIn", sender: self)
         } else {
-            NotificationCenter.default.addObserver(self, selector: #selector(login(_:)), name: NSNotification.Name(rawValue: "Login"), object: nil)
+            self.isInitialLoad = false;
         }
     }
     
