@@ -19,6 +19,7 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var viewButton: UIButton!
     @IBOutlet weak var optionsBlackOutView: UIView!
     @IBOutlet weak var optionScrollView: OptionsScrollView!
+    @IBOutlet weak var postButton: UIButton!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
@@ -96,9 +97,17 @@ class RestaurantViewController: UIViewController {
         self.mapView.camera = camera
         self.mapView.delegate = self
         self.mapView.isMyLocationEnabled = true
-        self.mapView.settings.compassButton = true
-        self.mapView.settings.myLocationButton = true
+        self.mapView.settings.compassButton = false
+        self.mapView.settings.myLocationButton = false
         self.mapView.settings.zoomGestures = true
+        self.mapView.settings.tiltGestures = false
+        self.mapView.settings.rotateGestures = false
+        self.mapView.settings.indoorPicker = false
+        
+        let myLocationButton = UIButton.init(frame: CGRect.init(x: self.postButton.frame.origin.x, y: self.postButton.frame.origin.y - self.mapView.frame.origin.y - 80, width: 64, height: 64))
+        myLocationButton.setImage(UIImage.init(named: "my_location_icon"), for: .normal)
+        myLocationButton.addTarget(self, action: #selector(goToMyLocation), for: .touchUpInside)
+        self.mapView.addSubview(myLocationButton)
         
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -106,6 +115,14 @@ class RestaurantViewController: UIViewController {
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
+    }
+    
+    @objc private func goToMyLocation() {
+        guard let lat = self.mapView.myLocation?.coordinate.latitude,
+            let lng = self.mapView.myLocation?.coordinate.longitude else { return }
+        
+        let camera = GMSCameraPosition.camera(withLatitude: lat ,longitude: lng , zoom: zoomLevel)
+        self.mapView.animate(to: camera)
     }
     
     fileprivate func setupListView() {
@@ -128,7 +145,7 @@ class RestaurantViewController: UIViewController {
             let width = 300
             let height = 570
             let settingsDialog = SettingsDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
-            settingsDialog.newMenuItems.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
+            settingsDialog.saveButton.addTarget(self, action: #selector(changeSettings(_:)), for: .touchUpInside)
             self.optionsBlackOutView.addSubview(settingsDialog)
             break;
         case 2:
@@ -170,7 +187,14 @@ class RestaurantViewController: UIViewController {
         }
     }
     
-    @objc func logout() {
+    @objc private func changeSettings(_ button: ThemeButton) {
+        let popup = button.superview?.superview as! SettingsDialog
+        print(popup.newMenuItems.isOn)
+        print(popup.newPromotions.isOn)
+        blackoutTap()
+    }
+    
+    @objc private func logout() {
         GIDSignIn.sharedInstance()?.disconnect()
         dismiss(animated: true, completion: nil)
         self.performSegue(withIdentifier: "unwindToLogin", sender:self)
@@ -360,3 +384,8 @@ extension UIImageView {
     }
 }
 
+public extension NSObject {
+    public var theClassName: String {
+        return NSStringFromClass(type(of: self))
+    }
+}

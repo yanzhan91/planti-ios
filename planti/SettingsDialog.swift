@@ -13,6 +13,7 @@ class SettingsDialog: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var newMenuItems: UISwitch!
     @IBOutlet weak var newPromotions: UISwitch!
+    @IBOutlet weak var saveButton: ThemeButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +27,7 @@ class SettingsDialog: UIView {
     
     private func initialize() {
         Bundle.main.loadNibNamed("SettingsDialogView", owner: self, options: nil)
-//        self.closeButton.activate()
+        self.saveButton.activate()
         addSubview(self.contentView)
     }
 }

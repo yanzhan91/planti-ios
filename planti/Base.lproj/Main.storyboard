@@ -187,16 +187,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buA-AJ-JgJ" customClass="GIDSignInButton">
-                                <rect key="frame" x="67" y="552" width="240" height="44"/>
+                                <rect key="frame" x="71" y="642" width="240" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vegetarian_bowl" translatesAutoresizingMaskIntoConstraints="NO" id="ATI-jN-uXA">
-                                <rect key="frame" x="-172" y="273" width="325" height="266"/>
+                                <rect key="frame" x="-168" y="363" width="325" height="266"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vegetarian_bowl" translatesAutoresizingMaskIntoConstraints="NO" id="Utv-Li-he7">
-                                <rect key="frame" x="214" y="107" width="325" height="266"/>
+                                <rect key="frame" x="218" y="197" width="325" height="266"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="green_logo" translatesAutoresizingMaskIntoConstraints="NO" id="n64-bf-HWH">
+                                <rect key="frame" x="67" y="61" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -588,6 +592,7 @@
                         <outlet property="mapView" destination="vgn-h2-Qwx" id="BOF-S5-i92"/>
                         <outlet property="optionScrollView" destination="6TC-eC-9xL" id="MFh-mq-ffn"/>
                         <outlet property="optionsBlackOutView" destination="Wvh-NN-Jaq" id="Sas-EQ-4z5"/>
+                        <outlet property="postButton" destination="xLi-MS-yr5" id="D7p-9T-udZ"/>
                         <outlet property="searchField" destination="dHf-ue-Omw" id="PCr-JB-Vs1"/>
                         <outlet property="viewButton" destination="Dog-d3-870" id="ls9-56-6kk"/>
                         <segue destination="Y9C-r0-1fq" kind="presentation" identifier="openRestaurantMenu" id="Yyx-2q-RiT"/>
@@ -1035,6 +1040,6 @@
         <image name="vertical_menu_icon" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="djo-Wn-zAf"/>
+        <segue reference="ymT-ay-vVL"/>
     </inferredMetricsTieBreakers>
 </document>

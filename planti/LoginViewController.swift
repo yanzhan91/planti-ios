@@ -19,12 +19,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
         GIDSignIn.sharedInstance().uiDelegate = self
         self.googleLoginButton.style = .wide
-        
-//        if (UserDefaults.standard.string(forKey: DefaultsKeys.USER_ID) != nil) {
-//            performSegue(withIdentifier: "SignedIn", sender: self)
-//        } else {
             NotificationCenter.default.addObserver(self, selector: #selector(login(_:)), name: NSNotification.Name(rawValue: "Login"), object: nil)
-//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
