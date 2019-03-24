@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import SideMenu
 import GoogleSignIn
+import GooglePlaces
 
 class RestaurantViewController: UIViewController {
 
@@ -90,6 +91,29 @@ class RestaurantViewController: UIViewController {
         filterButton.addTarget(self, action: #selector(filter), for: .touchUpInside)
         self.searchField.rightView = filterButton
         self.searchField.rightViewMode = .always
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(search))
+        tap.numberOfTapsRequired = 1
+        self.searchField.addGestureRecognizer(tap)
+        self.searchField.isUserInteractionEnabled = true
+    }
+    
+    @objc private func search() {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        
+        // Specify the place data types to return.
+        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+            UInt(GMSPlaceField.placeID.rawValue))!
+        autocompleteController.placeFields = fields
+        
+        // Specify a filter.
+        let filter = GMSAutocompleteFilter()
+        filter.type = .noFilter
+        autocompleteController.autocompleteFilter = filter
+        
+        // Display the autocomplete view controller.
+        present(autocompleteController, animated: true, completion: nil)
     }
     
     fileprivate func setupMapView() {
@@ -381,6 +405,35 @@ extension UIImageView {
             })
             
         }).resume()
+    }
+}
+
+extension RestaurantViewController: GMSAutocompleteViewControllerDelegate {
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        self.searchField.text = place.name
+        let camera = GMSCameraPosition.camera(withTarget: place.coordinate, zoom: zoomLevel)
+        self.mapView.animate(to: camera)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
 

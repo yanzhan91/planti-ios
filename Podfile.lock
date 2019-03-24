@@ -5,6 +5,8 @@ PODS:
   - GoogleMaps/Base (3.0.2)
   - GoogleMaps/Maps (3.0.2):
     - GoogleMaps/Base
+  - GooglePlaces (3.0.2):
+    - GoogleMaps/Base (= 3.0.2)
   - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -24,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - ALCameraViewController
   - GoogleMaps (~> 3.0.2)
+  - GooglePlaces
   - GoogleSignIn
   - SideMenu
   - TextFieldEffects
@@ -32,6 +35,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ALCameraViewController
     - GoogleMaps
+    - GooglePlaces
     - GoogleSignIn
     - GoogleToolboxForMac
     - GTMSessionFetcher
@@ -41,12 +45,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   ALCameraViewController: 6398a9282057f709b87a1ecc52a83b48028ade64
   GoogleMaps: 941cd655e009b4d8e42df19a3d749bc3fccec973
+  GooglePlaces: c086e0055dc5f0177d7c9d65fc77a1734f9a4825
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 1699c6d924d003747ef7179369776c2de0113c59
+PODFILE CHECKSUM: 248abd1329d8fb19b2bd97d4f167cdf57691584a
 
 COCOAPODS: 1.6.0

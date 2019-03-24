@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GoogleSignIn
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GMSServices.provideAPIKey("AIzaSyA2PTAme6Oglw6NApySkjEdYU1iMKQQudA")
         GIDSignIn.sharedInstance().clientID = "970071006987-9cjk3spcikso0d6b7lvjooohansvmpq5.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyA2PTAme6Oglw6NApySkjEdYU1iMKQQudA")
         
         return true
     }
