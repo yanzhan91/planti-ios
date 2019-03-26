@@ -9,7 +9,6 @@
 import UIKit
 import GoogleMaps
 import SideMenu
-import GoogleSignIn
 import GooglePlaces
 
 class RestaurantViewController: UIViewController {
@@ -42,10 +41,13 @@ class RestaurantViewController: UIViewController {
         setupSearchBar()
         
         NotificationCenter.default.addObserver(self, selector: #selector(openMneuOption(_:)), name: NSNotification.Name("menuSelected"), object: nil)
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let preference = UserDefaults.standard.object(forKey: DefaultsKeys.PREFERENCE)
         if (preference == nil) {
-            self.optionScrollView.setPreference(option: .vegan)
+            let pvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PreferenceViewController") as! PreferenceViewController
+            self.present(pvc, animated: true, completion: nil)
         } else {
             self.optionScrollView.setPreference(option: Options(rawValue: preference as! String)!)
         }
@@ -63,6 +65,8 @@ class RestaurantViewController: UIViewController {
         } else {
             self.viewButton.setImage(UIImage.init(named: "list_icon"), for: .normal)
         }
+        
+        self.infoWindow.removeFromSuperview()
     }
     
     fileprivate func setupPreferenceOptionBlackOutView() {
@@ -119,7 +123,7 @@ class RestaurantViewController: UIViewController {
     }
     
     fileprivate func setupMapView() {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: zoomLevel)
+        let camera = GMSCameraPosition.camera(withLatitude: -33.84, longitude: 151.19, zoom: zoomLevel)
         self.mapView.camera = camera
         self.mapView.delegate = self
         self.mapView.isMyLocationEnabled = true
@@ -130,7 +134,8 @@ class RestaurantViewController: UIViewController {
         self.mapView.settings.rotateGestures = false
         self.mapView.settings.indoorPicker = false
         
-        let myLocationButton = UIButton.init(frame: CGRect.init(x: self.postButton.frame.origin.x, y: self.postButton.frame.origin.y - self.mapView.frame.origin.y - 80, width: 64, height: 64))
+        let myLocationButton = UIButton.init(frame: CGRect.init(x: self.view.frame.width - 64 - 15, y: self.view.frame.height - 25 - 64 - 15 - 64 - self.mapView.frame.origin.y, width: 64, height: 64))
+        
         myLocationButton.setImage(UIImage.init(named: "my_location_icon"), for: .normal)
         myLocationButton.addTarget(self, action: #selector(goToMyLocation), for: .touchUpInside)
         self.mapView.addSubview(myLocationButton)
@@ -144,11 +149,7 @@ class RestaurantViewController: UIViewController {
     }
     
     @objc private func goToMyLocation() {
-        guard let lat = self.mapView.myLocation?.coordinate.latitude,
-            let lng = self.mapView.myLocation?.coordinate.longitude else { return }
-        
-        let camera = GMSCameraPosition.camera(withLatitude: lat ,longitude: lng , zoom: zoomLevel)
-        self.mapView.animate(to: camera)
+        self.mapView.animate(toLocation: (self.mapView.myLocation?.coordinate)!)
     }
     
     fileprivate func setupListView() {
@@ -198,16 +199,6 @@ class RestaurantViewController: UIViewController {
             textDialog.closeButton.setTitle("Close", for: .normal)
             self.optionsBlackOutView.addSubview(textDialog)
             break;
-        case 4:
-            print("4")
-            let y = 100
-            let width = 300
-            let height = 570
-            let logoutDialog = LogoutDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
-            logoutDialog.cancelButton.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
-            logoutDialog.logoutButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
-            self.optionsBlackOutView.addSubview(logoutDialog)
-            break;
         default:
             break;
         }
@@ -218,12 +209,6 @@ class RestaurantViewController: UIViewController {
         print(popup.newMenuItems.isOn)
         print(popup.newPromotions.isOn)
         blackoutTap()
-    }
-    
-    @objc private func logout() {
-        GIDSignIn.sharedInstance()?.disconnect()
-        dismiss(animated: true, completion: nil)
-        self.performSegue(withIdentifier: "unwindToLogin", sender:self)
     }
     
     @objc private func filter() {
@@ -465,11 +450,5 @@ extension RestaurantViewController: GMSAutocompleteViewControllerDelegate {
     
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-}
-
-public extension NSObject {
-    public var theClassName: String {
-        return NSStringFromClass(type(of: self))
     }
 }

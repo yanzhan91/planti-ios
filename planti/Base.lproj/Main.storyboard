@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NGt-cI-tnP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,25 +30,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Menu_logo" translatesAutoresizingMaskIntoConstraints="NO" id="84T-Fh-mfc">
-                                                    <rect key="frame" x="50" y="12" width="200" height="80"/>
+                                                    <rect key="frame" x="50" y="33" width="200" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="7ai-1s-wWM"/>
                                                         <constraint firstAttribute="height" constant="80" id="elA-5e-FBs"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, John Smith" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OI7-Il-641">
-                                                    <rect key="frame" x="16" y="102" width="268" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="OI7-Il-641" secondAttribute="trailing" id="4Ie-lM-DPu"/>
-                                                <constraint firstItem="OI7-Il-641" firstAttribute="top" secondItem="84T-Fh-mfc" secondAttribute="bottom" constant="10" id="4hO-U0-AfI"/>
-                                                <constraint firstItem="OI7-Il-641" firstAttribute="leading" secondItem="opc-R9-CRR" secondAttribute="leadingMargin" id="Rdu-cQ-fWe"/>
+                                                <constraint firstItem="84T-Fh-mfc" firstAttribute="top" secondItem="opc-R9-CRR" secondAttribute="topMargin" constant="22" id="9L7-7d-fu6"/>
                                                 <constraint firstItem="84T-Fh-mfc" firstAttribute="centerX" secondItem="opc-R9-CRR" secondAttribute="centerX" id="Zl1-7M-Im3"/>
-                                                <constraint firstItem="OI7-Il-641" firstAttribute="bottom" secondItem="opc-R9-CRR" secondAttribute="bottomMargin" id="xph-xs-ng6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,27 +107,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="c8j-HW-nUu">
-                                        <rect key="frame" x="0.0" y="284" width="300" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c8j-HW-nUu" id="lFI-4N-BjT">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="49.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lp-45-PiF">
-                                                    <rect key="frame" x="16" y="14.333333333333336" width="54" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="9lp-45-PiF" firstAttribute="leading" secondItem="lFI-4N-BjT" secondAttribute="leadingMargin" id="1Nb-hH-qNS"/>
-                                                <constraint firstItem="9lp-45-PiF" firstAttribute="centerY" secondItem="lFI-4N-BjT" secondAttribute="centerY" id="Rcc-XB-YLY"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9lp-45-PiF" secondAttribute="trailing" constant="20" symbolic="YES" id="c2C-ya-rNB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -178,55 +148,16 @@
             </objects>
             <point key="canvasLocation" x="681" y="82"/>
         </scene>
-        <!--Login View Controller-->
-        <scene sceneID="p4L-2M-A76">
-            <objects>
-                <viewController id="NGt-cI-tnP" customClass="LoginViewController" customModule="planti" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5dF-Fd-uFy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buA-AJ-JgJ" customClass="GIDSignInButton">
-                                <rect key="frame" x="71" y="642" width="240" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vegetarian_bowl" translatesAutoresizingMaskIntoConstraints="NO" id="ATI-jN-uXA">
-                                <rect key="frame" x="-168" y="363" width="325" height="266"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vegetarian_bowl" translatesAutoresizingMaskIntoConstraints="NO" id="Utv-Li-he7">
-                                <rect key="frame" x="218" y="197" width="325" height="266"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="green_logo" translatesAutoresizingMaskIntoConstraints="NO" id="n64-bf-HWH">
-                                <rect key="frame" x="67" y="61" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Wxo-uw-UuH"/>
-                    </view>
-                    <connections>
-                        <outlet property="googleLoginButton" destination="buA-AJ-JgJ" id="2ZS-rk-xk8"/>
-                        <segue destination="hCe-uO-70m" kind="presentation" identifier="ChoosePreference" id="JsQ-hu-gF8"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="SignedIn" id="ymT-ay-vVL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O3q-AA-vPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1375.2" y="-693.10344827586209"/>
-        </scene>
         <!--Preference View Controller-->
         <scene sceneID="fP6-HR-bnd">
             <objects>
-                <viewController id="hCe-uO-70m" customClass="PreferenceViewController" customModule="planti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PreferenceViewController" id="hCe-uO-70m" customClass="PreferenceViewController" customModule="planti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Jv-q8-Yyo" userLabel="View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-ge-wFY">
-                                <rect key="frame" x="0.0" y="0.0" width="376" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="376" height="812"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_logo" translatesAutoresizingMaskIntoConstraints="NO" id="u8G-Rl-ZaG">
                                         <rect key="frame" x="95.666666666666686" y="64" width="184" height="109"/>
@@ -289,7 +220,6 @@
                     <connections>
                         <outlet property="optionsPopupView" destination="3ET-tH-H9U" id="Zvx-kE-4JZ"/>
                         <outlet property="scrollView" destination="Cdd-ge-wFY" id="Ncx-wb-GZ2"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="SignedIn" id="djo-Wn-zAf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EA-hU-CRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1036,10 +966,6 @@
         <image name="menu_icon" width="48" height="48"/>
         <image name="navigation_icon" width="24" height="24"/>
         <image name="post_icon" width="48" height="48"/>
-        <image name="vegetarian_bowl" width="880" height="720"/>
         <image name="vertical_menu_icon" width="48" height="48"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ymT-ay-vVL"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -7,8 +7,5 @@
 //
 
 class DefaultsKeys {
-    static let USER_ID = "userId"
-    static let FULL_NAME = "fullName"
-    static let EMAIL = "email"
     static let PREFERENCE = "preference"
 }

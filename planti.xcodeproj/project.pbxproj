@@ -14,7 +14,6 @@
 		B52706E2221F9D790040DF6A /* OptionsPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52706E1221F9D790040DF6A /* OptionsPopup.xib */; };
 		B52706E4221FB74B0040DF6A /* OptionsPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52706E3221FB74B0040DF6A /* OptionsPopupView.swift */; };
 		B53381A4222649BA0007FFDD /* EntreeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381A3222649BA0007FFDD /* EntreeCell.swift */; };
-		B53381A6222661470007FFDD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381A5222661470007FFDD /* LoginViewController.swift */; };
 		B5BE0E06222A5E1B006328A4 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE0E05222A5E1B006328A4 /* PreferenceViewController.swift */; };
 		B5BE0E08222A7562006328A4 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE0E07222A7562006328A4 /* DefaultsKeys.swift */; };
 		B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */; };
@@ -31,8 +30,6 @@
 		B5EAC3E22217F1900080858E /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC3E12217F1900080858E /* RestaurantViewController.swift */; };
 		B5F4A7A8222E6892003FAD9D /* SettingsDialogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5F4A7A7222E6892003FAD9D /* SettingsDialogView.xib */; };
 		B5F4A7AA222E68AB003FAD9D /* SettingsDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4A7A9222E68AB003FAD9D /* SettingsDialog.swift */; };
-		B5F4A7AC222E6E15003FAD9D /* LogoutDialogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5F4A7AB222E6E15003FAD9D /* LogoutDialogView.xib */; };
-		B5F4A7AE222E6E30003FAD9D /* LogoutDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4A7AD222E6E30003FAD9D /* LogoutDialog.swift */; };
 		B5F60879221D14ED001989B6 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F60878221D14ED001989B6 /* Options.swift */; };
 		B5F6087B221D1BA2001989B6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F6087A221D1BA2001989B6 /* Colors.swift */; };
 		B5F6087D221D376E001989B6 /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F6087C221D376E001989B6 /* ThemeButton.swift */; };
@@ -51,7 +48,6 @@
 		B52706E1221F9D790040DF6A /* OptionsPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsPopup.xib; sourceTree = "<group>"; };
 		B52706E3221FB74B0040DF6A /* OptionsPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPopupView.swift; sourceTree = "<group>"; };
 		B53381A3222649BA0007FFDD /* EntreeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntreeCell.swift; sourceTree = "<group>"; };
-		B53381A5222661470007FFDD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B5BE0E05222A5E1B006328A4 /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		B5BE0E07222A7562006328A4 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScrollView.swift; sourceTree = "<group>"; };
@@ -70,8 +66,6 @@
 		B5EAC3E12217F1900080858E /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		B5F4A7A7222E6892003FAD9D /* SettingsDialogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsDialogView.xib; sourceTree = "<group>"; };
 		B5F4A7A9222E68AB003FAD9D /* SettingsDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDialog.swift; sourceTree = "<group>"; };
-		B5F4A7AB222E6E15003FAD9D /* LogoutDialogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutDialogView.xib; sourceTree = "<group>"; };
-		B5F4A7AD222E6E30003FAD9D /* LogoutDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutDialog.swift; sourceTree = "<group>"; };
 		B5F60878221D14ED001989B6 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		B5F6087A221D1BA2001989B6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B5F6087C221D376E001989B6 /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
@@ -133,7 +127,6 @@
 				B5C6A6B82222032A007DE260 /* CameraUploadView.swift */,
 				B51307772223D0FB00029F7F /* RestaurantMenuViewController.swift */,
 				B53381A3222649BA0007FFDD /* EntreeCell.swift */,
-				B53381A5222661470007FFDD /* LoginViewController.swift */,
 				B5BE0E05222A5E1B006328A4 /* PreferenceViewController.swift */,
 				B5BE0E07222A7562006328A4 /* DefaultsKeys.swift */,
 				B5C6FA07222B4CB3005FBFB9 /* MenuTableViewController.swift */,
@@ -141,8 +134,6 @@
 				B5C86A6B222D11FD00CD997B /* TextDialog.swift */,
 				B5F4A7A7222E6892003FAD9D /* SettingsDialogView.xib */,
 				B5F4A7A9222E68AB003FAD9D /* SettingsDialog.swift */,
-				B5F4A7AB222E6E15003FAD9D /* LogoutDialogView.xib */,
-				B5F4A7AD222E6E30003FAD9D /* LogoutDialog.swift */,
 				B521830422476DE1004E7263 /* MapMarkerView.xib */,
 				B521830622476DF6004E7263 /* MapMarker.swift */,
 			);
@@ -230,7 +221,6 @@
 				B521830522476DE1004E7263 /* MapMarkerView.xib in Resources */,
 				B5EAC3DA2217EAE90080858E /* LaunchScreen.storyboard in Resources */,
 				B52706E2221F9D790040DF6A /* OptionsPopup.xib in Resources */,
-				B5F4A7AC222E6E15003FAD9D /* LogoutDialogView.xib in Resources */,
 				B5EAC3D72217EAE90080858E /* Assets.xcassets in Resources */,
 				B5C86A6A222D101100CD997B /* TextDialogView.xib in Resources */,
 				B5C6A6BB22220389007DE260 /* CameraUploadView.xib in Resources */,
@@ -274,8 +264,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-planti/Pods-planti-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 			);
@@ -284,8 +272,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALCameraViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 			);
@@ -305,7 +291,6 @@
 				"${PODS_ROOT}/Target Support Files/Pods-planti/Pods-planti-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -313,7 +298,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -330,10 +314,8 @@
 				B5C6A6BD22220B24007DE260 /* PostViewController.swift in Sources */,
 				B5F61845221888110032FF86 /* Restaurant.swift in Sources */,
 				B53381A4222649BA0007FFDD /* EntreeCell.swift in Sources */,
-				B53381A6222661470007FFDD /* LoginViewController.swift in Sources */,
 				B5EAC3E22217F1900080858E /* RestaurantViewController.swift in Sources */,
 				B5F6087D221D376E001989B6 /* ThemeButton.swift in Sources */,
-				B5F4A7AE222E6E30003FAD9D /* LogoutDialog.swift in Sources */,
 				B52706E4221FB74B0040DF6A /* OptionsPopupView.swift in Sources */,
 				B5BE0E06222A5E1B006328A4 /* PreferenceViewController.swift in Sources */,
 				B5F6087B221D1BA2001989B6 /* Colors.swift in Sources */,

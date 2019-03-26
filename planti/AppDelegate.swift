@@ -8,11 +8,10 @@
 
 import UIKit
 import GoogleMaps
-import GoogleSignIn
 import GooglePlaces
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
@@ -20,9 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Override point for customization after application launch.
         
         GMSServices.provideAPIKey("AIzaSyA2PTAme6Oglw6NApySkjEdYU1iMKQQudA")
-        GIDSignIn.sharedInstance().clientID = "970071006987-9cjk3spcikso0d6b7lvjooohansvmpq5.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance().delegate = self
-        
         GMSPlacesClient.provideAPIKey("AIzaSyA2PTAme6Oglw6NApySkjEdYU1iMKQQudA")
         
         return true
@@ -48,36 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-        return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print("\(error.localizedDescription)")
-        } else {
-            UserDefaults.standard.set(user.userID, forKey: DefaultsKeys.USER_ID)
-            UserDefaults.standard.set(user.profile.name, forKey: DefaultsKeys.FULL_NAME)
-            UserDefaults.standard.set(user.profile.email, forKey: DefaultsKeys.EMAIL)
-            
-            NotificationCenter.default.post(
-                name: Notification.Name(rawValue: "Login"),
-                object: nil)
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print("\(error.localizedDescription)")
-        } else {
-            UserDefaults.standard.removeObject(forKey: DefaultsKeys.USER_ID)
-            UserDefaults.standard.removeObject(forKey: DefaultsKeys.FULL_NAME)
-            UserDefaults.standard.removeObject(forKey: DefaultsKeys.EMAIL)
-            UserDefaults.standard.removeObject(forKey: DefaultsKeys.PREFERENCE)
-        }
     }
 }
 

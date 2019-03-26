@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleSignIn
 
 class PreferenceViewController: UIViewController {
 
@@ -27,20 +26,14 @@ class PreferenceViewController: UIViewController {
         
         if (isPreferenceView) {
             self.optionsPopupView.changeButton.setTitle("Join", for: .normal)
-            self.optionsPopupView.cancelButton.setTitle("Logout", for: .normal)
+            self.optionsPopupView.cancelButton.removeFromSuperview()
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(join(_:)), name: NSNotification.Name("preferencePopupChange"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(logout), name: NSNotification.Name("preferencePopupCancel"), object: nil)
     }
     
     @objc func join(_ notification: Notification) {
         UserDefaults.standard.set((notification.userInfo?["option"] as! Options).rawValue, forKey: DefaultsKeys.PREFERENCE)
-        performSegue(withIdentifier: "SignedIn", sender: self)
-    }
-    
-    @objc func logout() {
-        GIDSignIn.sharedInstance()?.disconnect()
         dismiss(animated: true, completion: nil)
     }
     
