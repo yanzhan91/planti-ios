@@ -41,7 +41,7 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
         cell.entreeImage.imageFromURL(urlString: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png")
         cell.containsLabel.text = "Contains: egg, fish"
         cell.name.text = "Chicken Pot Pie"
-        cell.posted.text = "02/26/2019 Johnnyvilleville S"
+        cell.posted.text = "02/26/2019 Posted by user"
         cell.dropdownMenuButton.tag = indexPath.row
         cell.dropdownMenuButton.addTarget(self, action: #selector(openDropDown), for: .touchUpInside)
         

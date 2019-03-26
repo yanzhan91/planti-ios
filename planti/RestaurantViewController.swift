@@ -19,7 +19,6 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var viewButton: UIButton!
     @IBOutlet weak var optionsBlackOutView: UIView!
     @IBOutlet weak var optionScrollView: OptionsScrollView!
-    @IBOutlet weak var postButton: UIButton!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?

@@ -450,7 +450,6 @@
                         <outlet property="mapView" destination="vgn-h2-Qwx" id="BOF-S5-i92"/>
                         <outlet property="optionScrollView" destination="6TC-eC-9xL" id="MFh-mq-ffn"/>
                         <outlet property="optionsBlackOutView" destination="Wvh-NN-Jaq" id="Sas-EQ-4z5"/>
-                        <outlet property="postButton" destination="xLi-MS-yr5" id="D7p-9T-udZ"/>
                         <outlet property="searchField" destination="dHf-ue-Omw" id="PCr-JB-Vs1"/>
                         <outlet property="viewButton" destination="Dog-d3-870" id="ls9-56-6kk"/>
                         <segue destination="Y9C-r0-1fq" kind="presentation" identifier="openRestaurantMenu" id="Yyx-2q-RiT"/>
