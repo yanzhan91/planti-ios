@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingsView" customModule="planti" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Iel-Di-uYM"/>
+                <outlet property="numReviews" destination="QhB-MS-2h8" id="aO8-VR-pmw"/>
+                <outlet property="star1" destination="fvh-uB-XXc" id="cFf-XK-p01"/>
+                <outlet property="star2" destination="EBs-vH-Wqh" id="Cre-iF-OUo"/>
+                <outlet property="star3" destination="waZ-5q-ua7" id="G39-iD-Ig1"/>
+                <outlet property="star4" destination="lfq-aS-6n0" id="HMk-Qf-XsP"/>
+                <outlet property="star5" destination="vJe-Gc-zbH" id="gjt-zd-yXb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="14"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fvh-uB-XXc" userLabel="Star 1">
+                    <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="14" id="V1w-mE-nAX"/>
+                        <constraint firstAttribute="height" constant="14" id="ebY-Ar-r2U"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EBs-vH-Wqh" userLabel="Star 2">
+                    <rect key="frame" x="19" y="0.0" width="14" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="14" id="VXv-pL-dHY"/>
+                        <constraint firstAttribute="height" constant="14" id="heo-rR-LLE"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="waZ-5q-ua7" userLabel="Star 3">
+                    <rect key="frame" x="38" y="0.0" width="14" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="Axi-BU-CI0"/>
+                        <constraint firstAttribute="width" constant="14" id="s16-eN-d7E"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-aS-6n0" userLabel="Star 4">
+                    <rect key="frame" x="57" y="0.0" width="14" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="14" id="91H-cy-iCk"/>
+                        <constraint firstAttribute="height" constant="14" id="jS3-OZ-Rfd"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJe-Gc-zbH" userLabel="Star 5">
+                    <rect key="frame" x="76" y="0.0" width="14" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="0Zv-tL-qjG"/>
+                        <constraint firstAttribute="width" constant="14" id="w4p-we-Wxp"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhB-MS-2h8" userLabel="ReviewNumbers">
+                    <rect key="frame" x="95" y="0.0" width="280" height="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="EBs-vH-Wqh" firstAttribute="centerY" secondItem="fvh-uB-XXc" secondAttribute="centerY" id="4Gq-v0-XNl"/>
+                <constraint firstItem="waZ-5q-ua7" firstAttribute="centerY" secondItem="fvh-uB-XXc" secondAttribute="centerY" id="5AS-Bs-tP2"/>
+                <constraint firstItem="fvh-uB-XXc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="89d-9r-tbW"/>
+                <constraint firstItem="QhB-MS-2h8" firstAttribute="leading" secondItem="vJe-Gc-zbH" secondAttribute="trailing" constant="5" id="Esl-T5-ILz"/>
+                <constraint firstItem="vJe-Gc-zbH" firstAttribute="leading" secondItem="lfq-aS-6n0" secondAttribute="trailing" constant="5" id="F3I-fI-0zg"/>
+                <constraint firstItem="fvh-uB-XXc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Gut-gH-J5n"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QhB-MS-2h8" secondAttribute="trailing" id="HmC-jH-udd"/>
+                <constraint firstItem="EBs-vH-Wqh" firstAttribute="leading" secondItem="fvh-uB-XXc" secondAttribute="trailing" constant="5" id="Jgr-Yy-x2W"/>
+                <constraint firstItem="lfq-aS-6n0" firstAttribute="leading" secondItem="waZ-5q-ua7" secondAttribute="trailing" constant="5" id="cIG-Sn-nYR"/>
+                <constraint firstItem="QhB-MS-2h8" firstAttribute="centerY" secondItem="fvh-uB-XXc" secondAttribute="centerY" id="dDP-7f-uRa"/>
+                <constraint firstItem="vJe-Gc-zbH" firstAttribute="centerY" secondItem="fvh-uB-XXc" secondAttribute="centerY" id="jhV-Gt-9kG"/>
+                <constraint firstItem="lfq-aS-6n0" firstAttribute="centerY" secondItem="fvh-uB-XXc" secondAttribute="centerY" id="ptV-WI-B9W"/>
+                <constraint firstItem="waZ-5q-ua7" firstAttribute="leading" secondItem="EBs-vH-Wqh" secondAttribute="trailing" constant="5" id="wl6-of-bvM"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

@@ -302,12 +302,8 @@ extension RestaurantViewController : GMSMapViewDelegate {
         
         let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         infoWindow.restaurantName.text = restaurant?.name
-        infoWindow.numRatings.text = String(restaurant!.numRatings)
-        infoWindow.star1.image = UIImage.init(named: "full_star_icon")
-        infoWindow.star2.image = UIImage.init(named: "full_star_icon")
-        infoWindow.star3.image = UIImage.init(named: "full_star_icon")
-        infoWindow.star4.image = UIImage.init(named: "full_star_icon")
-        infoWindow.star5.image = UIImage.init(named: "empty_star_icon")
+        infoWindow.setNumReviews(numReviews: String(restaurant?.numRatings ?? 0))
+        infoWindow.setRatings(ratings: restaurant?.ratings ?? 0)
         return infoWindow
     }
 }
@@ -333,14 +329,12 @@ extension RestaurantViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListViewCell") as! ListViewCell
         cell.restaurantImage.imageFromURL(urlString: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png")
         cell.restaurantName.text = "Test Restaurant"
-        cell.restaurantAddress.text = "500 W. Madison St, Chicago, IL 60601"
+        cell.restaurantAddress.text = "500 W. Madison St, Chicago, IL 60661"
         cell.distance.text = "2.1 miles"
-        cell.star1.image = UIImage.init(named: "full_star_icon")
-        cell.star2.image = UIImage.init(named: "full_star_icon")
-        cell.star3.image = UIImage.init(named: "full_star_icon")
-        cell.star4.image = UIImage.init(named: "full_star_icon")
-        cell.star5.image = UIImage.init(named: "empty_star_icon")
-        cell.reviewNumbers.text = "108"
+        
+        cell.ratingsView.setRatings(ratings: 4.3)
+        cell.ratingsView.numReviews.text = "108"
+        
         cell.setAllTextColors()
         cell.latitude = 41.8823
         cell.longitude = 87.6404

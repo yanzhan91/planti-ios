@@ -12,12 +12,7 @@ class MapMarker: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var restaurantName: UILabel!
-    @IBOutlet weak var numRatings: UILabel!
-    @IBOutlet weak var star1: UIImageView!
-    @IBOutlet weak var star2: UIImageView!
-    @IBOutlet weak var star3: UIImageView!
-    @IBOutlet weak var star4: UIImageView!
-    @IBOutlet weak var star5: UIImageView!
+    @IBOutlet weak var ratingsView: RatingsView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +22,14 @@ class MapMarker: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
+    }
+    
+    public func setNumReviews(numReviews: String) {
+        self.ratingsView.numReviews.text = numReviews
+    }
+    
+    public func setRatings(ratings: Double) {
+        self.ratingsView.setRatings(ratings: ratings)
     }
 
     private func initialize() {
