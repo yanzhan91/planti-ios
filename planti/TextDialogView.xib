@@ -39,9 +39,6 @@
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8o-uK-tzf" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
                     <rect key="frame" x="244" y="360" width="46" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Zd1-wt-14Q"/>
-                    </constraints>
                     <state key="normal" title="Button"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7e9-2q-t5f">
