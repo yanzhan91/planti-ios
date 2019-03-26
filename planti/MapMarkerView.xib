@@ -119,9 +119,9 @@
                 <constraint firstItem="wfc-Jo-gwP" firstAttribute="top" secondItem="i8E-tr-EDE" secondAttribute="bottom" constant="2" id="6b8-Lw-GsL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wfc-Jo-gwP" secondAttribute="trailing" constant="10" id="9gd-h0-XEQ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="i8E-tr-EDE" secondAttribute="trailing" constant="10" id="eyf-li-iPY"/>
-                <constraint firstItem="i8E-tr-EDE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="izO-bF-PeG"/>
+                <constraint firstItem="i8E-tr-EDE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="izO-bF-PeG"/>
                 <constraint firstItem="wfc-Jo-gwP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="lAV-Jp-8bi"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="wfc-Jo-gwP" secondAttribute="bottom" constant="10" id="rts-Sl-YlG"/>
+                <constraint firstAttribute="bottom" secondItem="wfc-Jo-gwP" secondAttribute="bottom" constant="10" id="rts-Sl-YlG"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
