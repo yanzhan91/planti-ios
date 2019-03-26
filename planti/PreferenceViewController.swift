@@ -27,6 +27,7 @@ class PreferenceViewController: UIViewController {
         if (isPreferenceView) {
             self.optionsPopupView.changeButton.setTitle("Join", for: .normal)
             self.optionsPopupView.cancelButton.removeFromSuperview()
+            self.optionsPopupView.cancelButton = nil
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(join(_:)), name: NSNotification.Name("preferencePopupChange"), object: nil)

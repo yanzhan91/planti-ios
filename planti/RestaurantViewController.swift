@@ -25,8 +25,6 @@ class RestaurantViewController: UIViewController {
     private var currentLocation: CLLocation?
     private var zoomLevel: Float = 15.0
     
-    private var infoWindow = MapMarker()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,8 +63,6 @@ class RestaurantViewController: UIViewController {
         } else {
             self.viewButton.setImage(UIImage.init(named: "list_icon"), for: .normal)
         }
-        
-        self.infoWindow.removeFromSuperview()
     }
     
     fileprivate func setupPreferenceOptionBlackOutView() {
@@ -298,31 +294,21 @@ extension RestaurantViewController : GMSMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         var restaurant : Restaurant?
         if let data = marker.userData! as? NSDictionary {
             restaurant = data["restaurant"] as? Restaurant
         }
         
-        self.infoWindow.removeFromSuperview()
-        self.infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-        
-        self.infoWindow.restaurantName.text = restaurant?.name
-        self.infoWindow.numRatings.text = String(restaurant!.numRatings)
-        self.infoWindow.star1.image = UIImage.init(named: "full_star_icon")
-        self.infoWindow.star2.image = UIImage.init(named: "full_star_icon")
-        self.infoWindow.star3.image = UIImage.init(named: "full_star_icon")
-        self.infoWindow.star4.image = UIImage.init(named: "full_star_icon")
-        self.infoWindow.star5.image = UIImage.init(named: "empty_star_icon")
-        
-        self.infoWindow.center = self.mapView.projection.point(for: marker.position)
-        self.infoWindow.center.y += self.mapView.frame.origin.y - 50
-        self.view.addSubview(self.infoWindow)
-        return false
-    }
-    
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        self.infoWindow.removeFromSuperview()
+        let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        infoWindow.restaurantName.text = restaurant?.name
+        infoWindow.numRatings.text = String(restaurant!.numRatings)
+        infoWindow.star1.image = UIImage.init(named: "full_star_icon")
+        infoWindow.star2.image = UIImage.init(named: "full_star_icon")
+        infoWindow.star3.image = UIImage.init(named: "full_star_icon")
+        infoWindow.star4.image = UIImage.init(named: "full_star_icon")
+        infoWindow.star5.image = UIImage.init(named: "empty_star_icon")
+        return infoWindow
     }
 }
 
