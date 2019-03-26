@@ -21,6 +21,9 @@ class ListViewCell: UITableViewCell {
     @IBOutlet weak var reviewNumbers: UILabel!
     @IBOutlet weak var distance: UILabel!
     
+    public var latitude: Double = 0
+    public var longitude: Double = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -40,5 +43,11 @@ class ListViewCell: UITableViewCell {
     }
 
     @IBAction func navigate(_ sender: Any) {
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            UIApplication.shared.open(URL(string: "comgooglemaps://?center=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
+        } else {
+            let url = "http://maps.apple.com/maps?daddr=\(latitude),\(longitude)"
+            UIApplication.shared.open(URL(string:url)!, options: [:], completionHandler: nil)
+        }
     }
 }

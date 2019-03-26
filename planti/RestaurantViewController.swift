@@ -326,19 +326,19 @@ extension RestaurantViewController : GMSMapViewDelegate {
     }
 }
 
-extension RestaurantViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! ListViewCell
-        performSegue(withIdentifier: "openRestaurantMenu", sender: cell.restaurantName.text)
-    }
-}
-
 extension RestaurantViewController : UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if (self.optionsBlackOutView.subviews.count == 0) {
             return true;
         }
         return !touch.view!.isDescendant(of: self.optionsBlackOutView.subviews[0])
+    }
+}
+
+extension RestaurantViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ListViewCell
+        performSegue(withIdentifier: "openRestaurantMenu", sender: cell.restaurantName.text)
     }
 }
 
@@ -356,6 +356,8 @@ extension RestaurantViewController : UITableViewDataSource {
         cell.star5.image = UIImage.init(named: "empty_star_icon")
         cell.reviewNumbers.text = "108"
         cell.setAllTextColors()
+        cell.latitude = 41.8823
+        cell.longitude = 87.6404
         return cell
     }
     
