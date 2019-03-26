@@ -339,7 +339,7 @@
                                                         <constraint firstItem="nhq-97-3Nq" firstAttribute="centerX" secondItem="zzx-aV-aDg" secondAttribute="centerX" id="vpD-fK-vvC"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJt-sm-Uad" userLabel="Details">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJt-sm-Uad" userLabel="Details">
                                                     <rect key="frame" x="89" y="25.666666666666668" width="206" height="47.333333333333329"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqY-pw-GT0">
