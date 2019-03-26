@@ -65,7 +65,7 @@ class OptionsScrollView: UIScrollView {
             button!.activate()
             self.selected = button!
         }
-        self.setContentOffset(CGPoint.init(x: button!.frame.origin.x - 5, y: 0), animated: true)
+        self.scrollRectToVisible(button!.frame, animated: true)
     }
     
     public func getPreference() -> Options {

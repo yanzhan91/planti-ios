@@ -144,7 +144,9 @@ class RestaurantViewController: UIViewController {
     }
     
     @objc private func goToMyLocation() {
-        self.mapView.animate(toLocation: (self.mapView.myLocation?.coordinate)!)
+        if (self.mapView.myLocation != nil) {
+            self.mapView.animate(toLocation: (self.mapView.myLocation?.coordinate)!)
+        }
     }
     
     fileprivate func setupListView() {
@@ -329,7 +331,7 @@ extension RestaurantViewController : UITableViewDataSource {
         cell.restaurantImage.imageFromURL(urlString: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png")
         cell.restaurantName.text = "Test Restaurant"
         cell.restaurantAddress.text = "500 W. Madison St, Chicago, IL 60661"
-        cell.distance.text = "2.1 miles"
+        cell.distance.text = "8.4 Miles"
         
         cell.ratingsView.setRatings(ratings: 4.3)
         cell.ratingsView.numReviews.text = "108"
