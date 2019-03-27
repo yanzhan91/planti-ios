@@ -97,7 +97,7 @@ class RestaurantViewController: UIViewController {
         
         // Specify the place data types to return.
         let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-            UInt(GMSPlaceField.placeID.rawValue))!
+            UInt(GMSPlaceField.coordinate.rawValue))!
         autocompleteController.placeFields = fields
         
         // Specify a filter.
@@ -110,7 +110,7 @@ class RestaurantViewController: UIViewController {
     }
     
     fileprivate func setupMapView() {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.84, longitude: 151.19, zoom: zoomLevel)
+        let camera = GMSCameraPosition.camera(withLatitude: 41.8823, longitude: -87.6404, zoom: zoomLevel)
         self.mapView.camera = camera
         self.mapView.delegate = self
         self.mapView.isMyLocationEnabled = true
@@ -322,7 +322,7 @@ extension RestaurantViewController : UITableViewDataSource {
         
         cell.setAllTextColors()
         cell.latitude = 41.8823
-        cell.longitude = 87.6404
+        cell.longitude = -87.6404
         return cell
     }
     
@@ -395,14 +395,16 @@ extension RestaurantViewController: GMSAutocompleteViewControllerDelegate {
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         self.searchField.text = place.name
-        let camera = GMSCameraPosition.camera(withTarget: place.coordinate, zoom: zoomLevel)
-        self.mapView.animate(to: camera)
-        dismiss(animated: true, completion: nil)
+        
+        dismiss(animated: true, completion: {
+            self.mapView.animate(toLocation: place.coordinate)
+        })
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // TODO: handle the error.
         print("Error: ", error.localizedDescription)
+        dismiss(animated: true, completion: nil)
     }
     
     // User canceled the operation.
