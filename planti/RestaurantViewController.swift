@@ -155,6 +155,7 @@ class RestaurantViewController: UIViewController {
         
         switch notification.userInfo!["menuOption"] as! Int {
         case 1:
+            self.optionsBlackOutView.isHidden = true
             let pvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PreferenceViewController") as! PreferenceViewController
             self.present(pvc, animated: true, completion: nil)
             break;

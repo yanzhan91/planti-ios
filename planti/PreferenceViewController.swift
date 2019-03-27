@@ -11,30 +11,34 @@ import UIKit
 class PreferenceViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var optionsPopupView: OptionsPopupView!
-    var isPreferenceView: Bool = false
+    
+    @IBOutlet weak var veganSwitch: UISwitch!
+    @IBOutlet weak var ovoSwitch: UISwitch!
+    @IBOutlet weak var lactoSwitch: UISwitch!
+    @IBOutlet weak var lactoOvoSwitch: UISwitch!
+    @IBOutlet weak var pescSwitch: UISwitch!
+    
+    @IBOutlet weak var chooseButton: ThemeButton!
+    @IBOutlet weak var optionsView: UIView!
+    
+    private var option: Options =  .vegan
+    private var selectedSwitch: UISwitch?
+    private var changingSwitch: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.scrollView.contentSize = getScrollViewContentSize(scrollView: self.scrollView)
+        self.chooseButton.activate()
         
-        self.optionsPopupView.layer.borderColor = Colors.themeGreen.cgColor
-        self.optionsPopupView.layer.borderWidth = 2.0
+        self.optionsView.layer.borderColor = Colors.themeGreen.cgColor
+        self.optionsView.layer.borderWidth = 2.0
         
-        self.optionsPopupView.setPreference(option: .vegan)
-        
-        if (isPreferenceView) {
-            self.optionsPopupView.changeButton.setTitle("Join", for: .normal)
-            self.optionsPopupView.cancelButton.removeFromSuperview()
-            self.optionsPopupView.cancelButton = nil
-        }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(join(_:)), name: NSNotification.Name("preferencePopupChange"), object: nil)
+        self.selectedSwitch = veganSwitch
     }
     
-    @objc func join(_ notification: Notification) {
-        UserDefaults.standard.set((notification.userInfo?["option"] as! Options).rawValue, forKey: DefaultsKeys.PREFERENCE)
+    @IBAction func choose(_ sender: Any) {
+        UserDefaults.standard.set(option.rawValue, forKey: DefaultsKeys.PREFERENCE)
         dismiss(animated: true, completion: nil)
     }
     
@@ -47,5 +51,42 @@ class PreferenceViewController: UIViewController {
         
         contentRect.size.height += 30
         return contentRect.size
+    }
+    
+    @IBAction func toggle(_ sender: UISwitch) {
+        if (self.changingSwitch) {
+            self.changingSwitch = false
+        } else {
+            if (sender != self.selectedSwitch) {
+                switch sender.tag {
+                case 0:
+                    self.option = .vegan
+                    break
+                case 1:
+                    self.option = .ovoVegetarian
+                    break
+                case 2:
+                    self.option = .lactoVegetarian
+                    break
+                case 3:
+                    self.option = .lactoOvoVegetarian
+                    break
+                case 4:
+                    self.option = .pescetarians
+                    break
+                default:
+                    self.option = .vegan
+                    break
+                }
+                
+                sender.setOn(true, animated: true)
+                self.selectedSwitch?.setOn(false, animated: true)
+                self.selectedSwitch = sender
+                self.changingSwitch = false
+            } else {
+                sender.setOn(!sender.isOn, animated: true)
+                self.changingSwitch = true
+            }
+        }
     }
 }

@@ -11,8 +11,6 @@
 		B51307782223D0FB00029F7F /* RestaurantMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51307772223D0FB00029F7F /* RestaurantMenuViewController.swift */; };
 		B521830522476DE1004E7263 /* MapMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B521830422476DE1004E7263 /* MapMarkerView.xib */; };
 		B521830722476DF6004E7263 /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521830622476DF6004E7263 /* MapMarker.swift */; };
-		B52706E2221F9D790040DF6A /* OptionsPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52706E1221F9D790040DF6A /* OptionsPopup.xib */; };
-		B52706E4221FB74B0040DF6A /* OptionsPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52706E3221FB74B0040DF6A /* OptionsPopupView.swift */; };
 		B53381A4222649BA0007FFDD /* EntreeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381A3222649BA0007FFDD /* EntreeCell.swift */; };
 		B5B4DDB62249DBF800937F78 /* RatingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5B4DDB52249DBF800937F78 /* RatingsView.xib */; };
 		B5B4DDB82249DC0900937F78 /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4DDB72249DC0900937F78 /* RatingsView.swift */; };
@@ -47,8 +45,6 @@
 		B51307772223D0FB00029F7F /* RestaurantMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMenuViewController.swift; sourceTree = "<group>"; };
 		B521830422476DE1004E7263 /* MapMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerView.xib; sourceTree = "<group>"; };
 		B521830622476DF6004E7263 /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
-		B52706E1221F9D790040DF6A /* OptionsPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsPopup.xib; sourceTree = "<group>"; };
-		B52706E3221FB74B0040DF6A /* OptionsPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPopupView.swift; sourceTree = "<group>"; };
 		B53381A3222649BA0007FFDD /* EntreeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntreeCell.swift; sourceTree = "<group>"; };
 		B5B4DDB52249DBF800937F78 /* RatingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingsView.xib; sourceTree = "<group>"; };
 		B5B4DDB72249DC0900937F78 /* RatingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsView.swift; sourceTree = "<group>"; };
@@ -123,8 +119,6 @@
 				B5F6087A221D1BA2001989B6 /* Colors.swift */,
 				B5F6087C221D376E001989B6 /* ThemeButton.swift */,
 				B5018724221E6C7B00F292EC /* ListViewCell.swift */,
-				B52706E1221F9D790040DF6A /* OptionsPopup.xib */,
-				B52706E3221FB74B0040DF6A /* OptionsPopupView.swift */,
 				B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */,
 				B5C6A6BC22220B24007DE260 /* PostViewController.swift */,
 				B5C6A6BA22220389007DE260 /* CameraUploadView.xib */,
@@ -226,7 +220,6 @@
 			files = (
 				B521830522476DE1004E7263 /* MapMarkerView.xib in Resources */,
 				B5EAC3DA2217EAE90080858E /* LaunchScreen.storyboard in Resources */,
-				B52706E2221F9D790040DF6A /* OptionsPopup.xib in Resources */,
 				B5EAC3D72217EAE90080858E /* Assets.xcassets in Resources */,
 				B5C86A6A222D101100CD997B /* TextDialogView.xib in Resources */,
 				B5B4DDB62249DBF800937F78 /* RatingsView.xib in Resources */,
@@ -324,7 +317,6 @@
 				B53381A4222649BA0007FFDD /* EntreeCell.swift in Sources */,
 				B5EAC3E22217F1900080858E /* RestaurantViewController.swift in Sources */,
 				B5F6087D221D376E001989B6 /* ThemeButton.swift in Sources */,
-				B52706E4221FB74B0040DF6A /* OptionsPopupView.swift in Sources */,
 				B5BE0E06222A5E1B006328A4 /* PreferenceViewController.swift in Sources */,
 				B5F6087B221D1BA2001989B6 /* Colors.swift in Sources */,
 				B5C6A6B92222032A007DE260 /* CameraUploadView.swift in Sources */,
