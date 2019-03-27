@@ -85,14 +85,6 @@ class RestaurantViewController: UIViewController {
         self.searchField.leftView = searchButton
         self.searchField.leftViewMode = .always
         
-        let filterButton = UIButton.init(type: .custom)
-        filterButton.setImage(UIImage(named: "filter_icon"), for: .normal)
-        filterButton.frame = CGRect(x: 0, y: 0, width: 21, height: 16)
-        filterButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
-        filterButton.addTarget(self, action: #selector(filter), for: .touchUpInside)
-        self.searchField.rightView = filterButton
-        self.searchField.rightViewMode = .always
-        
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(search))
         tap.numberOfTapsRequired = 1
         self.searchField.addGestureRecognizer(tap)
@@ -157,23 +149,20 @@ class RestaurantViewController: UIViewController {
     @objc private func openMneuOption(_ notification: Notification) {
         self.optionsBlackOutView.isHidden = false
         SideMenuManager.default.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
-        self.optionsBlackOutView.isHidden = false
         
         let frame = self.optionsBlackOutView.frame
         let x = Int((frame.width - 300) / 2)
         
         switch notification.userInfo!["menuOption"] as! Int {
         case 1:
-            print("1")
-            let y = 100
-            let width = 300
-            let height = 570
-            let settingsDialog = SettingsDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
-            settingsDialog.saveButton.addTarget(self, action: #selector(changeSettings(_:)), for: .touchUpInside)
-            self.optionsBlackOutView.addSubview(settingsDialog)
+            let pvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PreferenceViewController") as! PreferenceViewController
+            self.present(pvc, animated: true, completion: nil)
             break;
         case 2:
-            print("2")
+            break;
+        case 3:
+            break;
+        case 4:
             let y = 100
             let width = 300
             let height = 570
@@ -183,9 +172,8 @@ class RestaurantViewController: UIViewController {
             textDialog.closeButton.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
             textDialog.closeButton.setTitle("Close", for: .normal)
             self.optionsBlackOutView.addSubview(textDialog)
-            break;
-        case 3:
-            print("3")
+            break
+        case 5:
             let y = 100
             let width = 300
             let height = 570
@@ -195,7 +183,15 @@ class RestaurantViewController: UIViewController {
             textDialog.closeButton.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
             textDialog.closeButton.setTitle("Close", for: .normal)
             self.optionsBlackOutView.addSubview(textDialog)
-            break;
+            break
+        case 6:
+            let y = 100
+            let width = 300
+            let height = 570
+            let settingsDialog = SettingsDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
+            settingsDialog.saveButton.addTarget(self, action: #selector(changeSettings(_:)), for: .touchUpInside)
+            self.optionsBlackOutView.addSubview(settingsDialog)
+            break
         default:
             break;
         }
@@ -206,18 +202,6 @@ class RestaurantViewController: UIViewController {
         print(popup.newMenuItems.isOn)
         print(popup.newPromotions.isOn)
         blackoutTap()
-    }
-    
-    @objc private func filter() {
-        self.optionsBlackOutView.isHidden = false
-        let frame = self.optionsBlackOutView.frame
-        let x = Int((frame.width - 300) / 2)
-        let y = 100
-        let width = 300
-        let height = 570
-        let optionsPopup = OptionsPopupView.init(frame: CGRect(x: x, y: y, width: width, height: height))
-        optionsPopup.setPreference(option: self.optionScrollView.getPreference())
-        self.optionsBlackOutView.addSubview(optionsPopup)
     }
     
     @objc private func blackoutTap() {
