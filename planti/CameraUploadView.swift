@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ALCameraViewController
 
 class CameraUploadView: UIView {
     

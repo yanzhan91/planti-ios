@@ -1,5 +1,4 @@
 PODS:
-  - ALCameraViewController (3.0.3)
   - GoogleMaps (3.0.2):
     - GoogleMaps/Maps (= 3.0.2)
   - GoogleMaps/Base (3.0.2)
@@ -11,7 +10,6 @@ PODS:
   - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
-  - ALCameraViewController
   - GoogleMaps (~> 3.0.2)
   - GooglePlaces
   - SideMenu
@@ -19,19 +17,17 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - ALCameraViewController
     - GoogleMaps
     - GooglePlaces
     - SideMenu
     - TextFieldEffects
 
 SPEC CHECKSUMS:
-  ALCameraViewController: 6398a9282057f709b87a1ecc52a83b48028ade64
   GoogleMaps: 941cd655e009b4d8e42df19a3d749bc3fccec973
   GooglePlaces: c086e0055dc5f0177d7c9d65fc77a1734f9a4825
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 4eeeef0414badfb61d39025d7c0d6d5fbc1fef56
+PODFILE CHECKSUM: 6afdf626e22a36c11119efa38b8787fbb49b8d3d
 
 COCOAPODS: 1.6.0

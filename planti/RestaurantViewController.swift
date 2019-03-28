@@ -121,7 +121,10 @@ class RestaurantViewController: UIViewController {
         self.mapView.settings.rotateGestures = false
         self.mapView.settings.indoorPicker = false
         
-        let myLocationButton = UIButton.init(frame: CGRect.init(x: self.view.frame.width - 64 - 15, y: self.view.frame.height - 25 - 64 - 15 - 64 - self.mapView.frame.origin.y, width: 64, height: 64))
+        let x = self.view.frame.width - 64 - 15
+        let y = self.view.frame.height - (168 + self.mapView.frame.origin.y)
+        let frame = CGRect.init(x: x, y: y, width: 64, height: 64)
+        let myLocationButton = UIButton.init(frame: frame)
         
         myLocationButton.setImage(UIImage.init(named: "my_location_icon"), for: .normal)
         myLocationButton.addTarget(self, action: #selector(goToMyLocation), for: .touchUpInside)

@@ -9,7 +9,7 @@ target 'planti' do
   pod 'GoogleMaps', '~> 3.0.2'
   pod 'GooglePlaces'
   pod 'SideMenu'
-  pod 'ALCameraViewController'
+#  pod 'ALCameraViewController'
   pod 'TextFieldEffects'
 
 end

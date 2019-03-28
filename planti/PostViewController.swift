@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ALCameraViewController
+//import ALCameraViewController
 
 class PostViewController: UIViewController {
 
@@ -20,12 +20,13 @@ class PostViewController: UIViewController {
     }
     
     @objc private func cameraPresed() {
-        let cameraViewController = CameraViewController { [weak self] image, asset in
-            // Do something with your image here.
-            self?.dismiss(animated: true, completion: nil)
-        }
-        
-        present(cameraViewController, animated: true, completion: nil)
+//        let cameraViewController = CameraViewController { [weak self] image, asset in
+//            // Do something with your image here.
+//            self?.dismiss(animated: true, completion: nil)
+//        }
+//
+//        present(cameraViewController, animated: true, completion: nil)
+        print("Camera")
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
