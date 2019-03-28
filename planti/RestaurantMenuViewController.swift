@@ -9,10 +9,15 @@
 import UIKit
 
 class RestaurantMenuViewController: UIViewController {
-    
-    var restaurantName : String = "Restaurant Name"
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var optionsScrollView: OptionsScrollView!
+    
+    var restaurantName : String = "Restaurant Name"
+    var option : Options = .vegan
+    var placeId : String = ""
+    
+    private var menuItems: [MenuItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +25,8 @@ class RestaurantMenuViewController: UIViewController {
         self.restaurantNameLabel.text = restaurantName
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.optionsScrollView.delegate = self
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -69,5 +76,14 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+}
+
+extension RestaurantMenuViewController : OptionsScrollViewDelegate {
+    func didChangeOption(_ option: Options) {
+        Database.shared().getMenuItems(option: self.option, placeId: placeId) { menuItems in
+            self.menuItems = menuItems
+            self.tableView.reloadData()
+        }
     }
 }

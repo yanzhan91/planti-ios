@@ -10,6 +10,11 @@ import UIKit
 
 class OptionsScrollView: UIScrollView {
     
+    private var customDelegate: OptionsScrollViewDelegate?
+    override var delegate: UIScrollViewDelegate? {
+        didSet { customDelegate = delegate as? OptionsScrollViewDelegate }
+    }
+    
     private var selected : ThemeButton?
     private var optionsButtonsDictionary : Dictionary = [Options: ThemeButton]()
     private var buttonsOptionsDictionary : Dictionary = [ThemeButton: Options]()
@@ -54,7 +59,7 @@ class OptionsScrollView: UIScrollView {
             self.selected?.deactivate()
             sender.activate()
             self.selected = sender
-            NotificationCenter.default.post(name: NSNotification.Name("preferenceButtonChange"), object: nil, userInfo: nil)
+            self.customDelegate?.didChangeOption(self.buttonsOptionsDictionary[sender] ?? .vegan)
         }
     }
     
@@ -71,4 +76,8 @@ class OptionsScrollView: UIScrollView {
     public func getPreference() -> Options {
         return self.buttonsOptionsDictionary[self.selected!]!
     }
+}
+
+protocol OptionsScrollViewDelegate: UIScrollViewDelegate {
+    func didChangeOption(_ option: Options)
 }

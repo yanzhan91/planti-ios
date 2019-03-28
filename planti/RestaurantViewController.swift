@@ -269,15 +269,19 @@ extension RestaurantViewController : GMSMapViewDelegate {
         print("IDLE: \(position)")
         print("RADIUS: \(mapView.getRadius())")
         
-        for restaurant in Database.shared().getRestaurants() {
-            let marker = GMSMarker()
+        Database.shared().getRestaurants(option: self.optionScrollView.getPreference()) { restaurants in
+            for restaurant in restaurants {
+                let marker = GMSMarker()
             
-            marker.userData = [
+                marker.userData = [
                 "restaurant": restaurant
-            ]
-            marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
-            marker.map = mapView
+                ]
+                marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+                marker.map = mapView
+            }
         }
+        
+        
     }
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {

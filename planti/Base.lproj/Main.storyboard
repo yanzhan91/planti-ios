@@ -1228,6 +1228,7 @@
                         <viewLayoutGuide key="safeArea" id="E8a-Po-Khb"/>
                     </view>
                     <connections>
+                        <outlet property="optionsScrollView" destination="vDO-55-Zfk" id="unq-ht-1fN"/>
                         <outlet property="restaurantNameLabel" destination="rBz-uf-Df5" id="LnI-5S-HYa"/>
                         <outlet property="tableView" destination="5YG-Qs-tQL" id="NUN-B3-TVS"/>
                     </connections>
