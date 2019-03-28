@@ -38,6 +38,8 @@ class RestaurantViewController: UIViewController {
         setupSearchBar()
         
         NotificationCenter.default.addObserver(self, selector: #selector(openMneuOption(_:)), name: NSNotification.Name("menuSelected"), object: nil)
+        
+        self.optionScrollView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -224,6 +226,7 @@ class RestaurantViewController: UIViewController {
             print("\(sender is UITableView)")
             print("\(sender is String)")
             dest.restaurantName = sender as! String
+            dest.option = self.optionScrollView.getPreference()
         }
     }
 }

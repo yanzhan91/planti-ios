@@ -50,6 +50,11 @@ class OptionsScrollView: UIScrollView {
             self.addSubview(button)
             leftSpacing += Int(button.frame.width + 5)
             totalWidth += Int(button.frame.width + 5)
+            
+            if (self.selected == nil) {
+                self.selected = button
+                self.selected?.activate()
+            }
         }
         self.contentSize = CGSize(width: totalWidth, height: 50)
     }
@@ -74,7 +79,7 @@ class OptionsScrollView: UIScrollView {
     }
     
     public func getPreference() -> Options {
-        return self.buttonsOptionsDictionary[self.selected!]!
+        return self.buttonsOptionsDictionary[self.selected!] ?? .vegan
     }
 }
 

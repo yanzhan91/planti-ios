@@ -27,6 +27,7 @@ class RestaurantMenuViewController: UIViewController {
         self.tableView.dataSource = self
         
         self.optionsScrollView.delegate = self
+        self.optionsScrollView.setPreference(option: self.option)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -85,6 +86,7 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
 extension RestaurantMenuViewController : OptionsScrollViewDelegate {
     func didChangeOption(_ option: Options) {
         Database.shared().getMenuItems(option: self.option, placeId: placeId) { menuItems in
+            print("Changing options \(option)")
             self.menuItems = menuItems
             self.tableView.reloadData()
         }
