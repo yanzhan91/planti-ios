@@ -72,9 +72,6 @@ class RestaurantViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(blackoutTap))
         tap.delegate = self
         self.optionsBlackOutView.addGestureRecognizer(tap)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(optionPopupChange(_:)), name: NSNotification.Name("preferencePopupChange"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(blackoutTap), name: NSNotification.Name("preferencePopupCancel"), object: nil)
     }
     
     fileprivate func setupSearchBar() {
@@ -272,7 +269,7 @@ extension RestaurantViewController : GMSMapViewDelegate {
         print("IDLE: \(position)")
         print("RADIUS: \(mapView.getRadius())")
         
-        for restaurant in Database.getRestaurants() {
+        for restaurant in Database.shared().getRestaurants() {
             let marker = GMSMarker()
             
             marker.userData = [

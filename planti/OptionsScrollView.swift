@@ -54,7 +54,7 @@ class OptionsScrollView: UIScrollView {
             self.selected?.deactivate()
             sender.activate()
             self.selected = sender
-            NotificationCenter.default.post(name: NSNotification.Name("preferenceButtonChange"), object: nil, userInfo: ["option": self.buttonsOptionsDictionary[sender]!])
+            NotificationCenter.default.post(name: NSNotification.Name("preferenceButtonChange"), object: nil, userInfo: nil)
         }
     }
     
