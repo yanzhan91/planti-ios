@@ -23,6 +23,8 @@ class RestaurantViewController: UIViewController {
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     private var zoomLevel: Float = 15.0
+    private var restaurants: [Restaurant] = []
+    private var displayingMapView: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,22 +55,20 @@ class RestaurantViewController: UIViewController {
     }
     
     @IBAction func switchView(_ sender: Any) {
-        let mapHidden = !self.mapView.isHidden || self.listView.isHidden
-        let listHidden = self.mapView.isHidden && !self.listView.isHidden
-        
-        self.mapView.isHidden = mapHidden
-        self.listView.isHidden = listHidden
-        
-        if (self.mapView.isHidden) {
+        if (self.displayingMapView) {
             self.viewButton.setImage(UIImage.init(named: "map_icon"), for: .normal)
+            self.listView.reloadData()
         } else {
             self.viewButton.setImage(UIImage.init(named: "list_icon"), for: .normal)
+            self.mapView.getMarkersAndDisplay(restaurants: self.restaurants)
         }
+        self.mapView.isHidden = !self.displayingMapView
+        self.listView.isHidden = self.displayingMapView
+        self.displayingMapView = !self.displayingMapView
     }
     
     fileprivate func setupPreferenceOptionBlackOutView() {
-        self.optionsBlackOutView.backgroundColor =
-            UIColor.black.withAlphaComponent(0.7)
+        self.optionsBlackOutView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         self.optionsBlackOutView.isHidden = true
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(blackoutTap))
@@ -214,12 +214,6 @@ class RestaurantViewController: UIViewController {
         }
     }
     
-    @objc private func optionPopupChange(_ notification: Notification) {
-        // Call api
-        self.optionScrollView.setPreference(option: notification.userInfo?["option"] as! Options)
-        blackoutTap()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.destination is RestaurantMenuViewController) {
             let dest = segue.destination as! RestaurantMenuViewController
@@ -273,26 +267,12 @@ extension RestaurantViewController : GMSMapViewDelegate {
         print("RADIUS: \(mapView.getRadius())")
         
         Database.shared().getRestaurants(option: self.optionScrollView.getPreference()) { restaurants in
-            for restaurant in restaurants {
-                let marker = GMSMarker()
-            
-                marker.userData = [
-                "restaurant": restaurant
-                ]
-                marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
-                marker.map = mapView
-            }
+            self.mapView.getMarkersAndDisplay(restaurants: restaurants)
         }
-        
-        
     }
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        var restaurant : Restaurant?
-        if let data = marker.userData! as? NSDictionary {
-            restaurant = data["restaurant"] as? Restaurant
-        }
-        
+        let restaurant = marker.userData as? Restaurant
         let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         infoWindow.restaurantName.text = restaurant?.name
         infoWindow.setNumReviews(numReviews: String(restaurant?.numRatings ?? 0))
@@ -369,6 +349,16 @@ extension GMSMapView {
         let radius = CLLocationDistance(centerLocation.distance(from: topCenterLocation))
         return round(radius) // meters
     }
+    
+    func getMarkersAndDisplay(restaurants: [Restaurant]) {
+        self.clear()
+        for restaurant in restaurants {
+            let marker = GMSMarker()
+            marker.userData = restaurant
+            marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+            marker.map = self
+        }
+    }
 }
 
 extension UIImageView {
@@ -404,9 +394,9 @@ extension RestaurantViewController: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         self.searchField.text = place.name
         
-        dismiss(animated: true, completion: {
+        dismiss(animated: true) {
             self.mapView.animate(toLocation: place.coordinate)
-        })
+        }
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
@@ -427,5 +417,18 @@ extension RestaurantViewController: GMSAutocompleteViewControllerDelegate {
     
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}
+
+extension RestaurantViewController : OptionsScrollViewDelegate {
+    func didChangeOption(_ option: Options) {
+        Database.shared().getRestaurants(option: self.optionScrollView.getPreference()) { restaurants in
+            self.restaurants = restaurants;
+            if (self.displayingMapView) {
+                self.mapView.getMarkersAndDisplay(restaurants: restaurants)
+            } else {
+                 self.listView.reloadData()
+            }
+        }
     }
 }
