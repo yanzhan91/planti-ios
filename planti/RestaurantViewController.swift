@@ -62,8 +62,8 @@ class RestaurantViewController: UIViewController {
             self.viewButton.setImage(UIImage.init(named: "list_icon"), for: .normal)
             self.mapView.getMarkersAndDisplay(restaurants: self.restaurants)
         }
-        self.mapView.isHidden = !self.displayingMapView
-        self.listView.isHidden = self.displayingMapView
+        self.mapView.isHidden = self.displayingMapView
+        self.listView.isHidden = !self.displayingMapView
         self.displayingMapView = !self.displayingMapView
     }
     

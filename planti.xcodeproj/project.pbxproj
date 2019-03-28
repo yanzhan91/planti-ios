@@ -115,30 +115,21 @@
 				B5EAC3D82217EAE90080858E /* LaunchScreen.storyboard */,
 				B5EAC3DB2217EAE90080858E /* Info.plist */,
 				B5EAC3E12217F1900080858E /* RestaurantViewController.swift */,
-				B5F61844221888110032FF86 /* Restaurant.swift */,
-				F7FC1FD2224C643600FF4AEF /* MenuItem.swift */,
+				F7FC1FD6224C716400FF4AEF /* Models */,
 				B5F61846221889280032FF86 /* Database.swift */,
-				B5F60878221D14ED001989B6 /* Options.swift */,
-				B5F6087A221D1BA2001989B6 /* Colors.swift */,
 				B5F6087C221D376E001989B6 /* ThemeButton.swift */,
 				B5018724221E6C7B00F292EC /* ListViewCell.swift */,
 				B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */,
 				B5C6A6BC22220B24007DE260 /* PostViewController.swift */,
-				B5C6A6BA22220389007DE260 /* CameraUploadView.xib */,
-				B5C6A6B82222032A007DE260 /* CameraUploadView.swift */,
+				F7FC1FDB224C71B800FF4AEF /* CameraUploadView */,
 				B51307772223D0FB00029F7F /* RestaurantMenuViewController.swift */,
 				B53381A3222649BA0007FFDD /* EntreeCell.swift */,
 				B5BE0E05222A5E1B006328A4 /* PreferenceViewController.swift */,
-				B5BE0E07222A7562006328A4 /* DefaultsKeys.swift */,
 				B5C6FA07222B4CB3005FBFB9 /* MenuTableViewController.swift */,
-				B5C86A69222D101100CD997B /* TextDialogView.xib */,
-				B5C86A6B222D11FD00CD997B /* TextDialog.swift */,
-				B5F4A7A7222E6892003FAD9D /* SettingsDialogView.xib */,
-				B5F4A7A9222E68AB003FAD9D /* SettingsDialog.swift */,
-				B521830422476DE1004E7263 /* MapMarkerView.xib */,
-				B521830622476DF6004E7263 /* MapMarker.swift */,
-				B5B4DDB52249DBF800937F78 /* RatingsView.xib */,
-				B5B4DDB72249DC0900937F78 /* RatingsView.swift */,
+				F7FC1FDA224C719800FF4AEF /* TextDialog */,
+				F7FC1FD9224C718D00FF4AEF /* SettingsDialog */,
+				F7FC1FD8224C718300FF4AEF /* MapMarker */,
+				F7FC1FD7224C717800FF4AEF /* RatingsView */,
 			);
 			path = planti;
 			sourceTree = "<group>";
@@ -158,6 +149,63 @@
 				CEABFC2B78CCDFA5BA6F2068 /* Pods-planti.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F7FC1FD6224C716400FF4AEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5BE0E07222A7562006328A4 /* DefaultsKeys.swift */,
+				B5F61844221888110032FF86 /* Restaurant.swift */,
+				F7FC1FD2224C643600FF4AEF /* MenuItem.swift */,
+				B5F60878221D14ED001989B6 /* Options.swift */,
+				B5F6087A221D1BA2001989B6 /* Colors.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F7FC1FD7224C717800FF4AEF /* RatingsView */ = {
+			isa = PBXGroup;
+			children = (
+				B5B4DDB52249DBF800937F78 /* RatingsView.xib */,
+				B5B4DDB72249DC0900937F78 /* RatingsView.swift */,
+			);
+			path = RatingsView;
+			sourceTree = "<group>";
+		};
+		F7FC1FD8224C718300FF4AEF /* MapMarker */ = {
+			isa = PBXGroup;
+			children = (
+				B521830422476DE1004E7263 /* MapMarkerView.xib */,
+				B521830622476DF6004E7263 /* MapMarker.swift */,
+			);
+			path = MapMarker;
+			sourceTree = "<group>";
+		};
+		F7FC1FD9224C718D00FF4AEF /* SettingsDialog */ = {
+			isa = PBXGroup;
+			children = (
+				B5F4A7A7222E6892003FAD9D /* SettingsDialogView.xib */,
+				B5F4A7A9222E68AB003FAD9D /* SettingsDialog.swift */,
+			);
+			path = SettingsDialog;
+			sourceTree = "<group>";
+		};
+		F7FC1FDA224C719800FF4AEF /* TextDialog */ = {
+			isa = PBXGroup;
+			children = (
+				B5C86A69222D101100CD997B /* TextDialogView.xib */,
+				B5C86A6B222D11FD00CD997B /* TextDialog.swift */,
+			);
+			path = TextDialog;
+			sourceTree = "<group>";
+		};
+		F7FC1FDB224C71B800FF4AEF /* CameraUploadView */ = {
+			isa = PBXGroup;
+			children = (
+				B5C6A6BA22220389007DE260 /* CameraUploadView.xib */,
+				B5C6A6B82222032A007DE260 /* CameraUploadView.swift */,
+			);
+			path = CameraUploadView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
