@@ -7,5 +7,15 @@
 //
 
 class MenuItem {
-
+    var entreeImage: String
+    var name: String
+    var containsLabel: String
+    var posted: String
+    
+    init() {
+        name = ""
+        entreeImage = ""
+        containsLabel = ""
+        posted = ""
+    }
 }

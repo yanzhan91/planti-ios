@@ -36,7 +36,7 @@ class RestaurantMenuViewController: UIViewController {
 
 extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.menuItems.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,9 +45,10 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntreeCell") as! EntreeCell
-        cell.entreeImage.imageFromURL(urlString: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png")
+        let menuItem = self.menuItems[indexPath.row]
+        cell.entreeImage.imageFromURL(urlString: menuItem.entreeImage)
         cell.containsLabel.text = "Contains: egg, fish"
-        cell.name.text = "Chicken Pot Pie"
+        cell.name.text = menuItem.name
         cell.posted.text = "02/26/2019 Posted by user"
         cell.dropdownMenuButton.tag = indexPath.row
         cell.dropdownMenuButton.addTarget(self, action: #selector(openDropDown), for: .touchUpInside)
@@ -56,7 +57,9 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
     }
     
     @objc func openDropDown(sender: UIButton) {
-        let title = "Chicken Pot Pie"
+        let menuItem = self.menuItems[sender.tag]
+        
+        let title = menuItem.name
         
         let optionMenu = UIAlertController(title: self.restaurantName, message: title, preferredStyle: .actionSheet)
         
