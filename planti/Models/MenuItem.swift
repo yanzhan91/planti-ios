@@ -7,8 +7,8 @@
 //
 
 class MenuItem {
-    var entreeImage: String
     var name: String
+    var entreeImage: String
     var containsLabel: String
     var posted: String
     
@@ -17,5 +17,12 @@ class MenuItem {
         entreeImage = ""
         containsLabel = ""
         posted = ""
+    }
+    
+    init(name: String, entreeImage: String, containsLabel:String, posted: String) {
+        self.name = name
+        self.entreeImage = entreeImage
+        self.containsLabel = containsLabel
+        self.posted = posted
     }
 }

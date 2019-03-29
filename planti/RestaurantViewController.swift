@@ -223,6 +223,17 @@ class RestaurantViewController: UIViewController {
             dest.option = self.optionScrollView.getPreference()
         }
     }
+    
+    private func fetchRestaurants() {
+        Database.shared().getRestaurants(option: self.optionScrollView.getPreference()) { restaurants in
+            self.restaurants = restaurants;
+            if (self.displayingMapView) {
+                self.mapView.getMarkersAndDisplay(restaurants: restaurants)
+            } else {
+                self.listView.reloadData()
+            }
+        }
+    }
 }
 
 extension RestaurantViewController : CLLocationManagerDelegate {
@@ -265,10 +276,7 @@ extension RestaurantViewController : GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         print("IDLE: \(position)")
         print("RADIUS: \(mapView.getRadius())")
-        
-        Database.shared().getRestaurants(option: self.optionScrollView.getPreference()) { restaurants in
-            self.mapView.getMarkersAndDisplay(restaurants: restaurants)
-        }
+        fetchRestaurants()
     }
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
@@ -300,17 +308,19 @@ extension RestaurantViewController : UITableViewDelegate {
 extension RestaurantViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListViewCell") as! ListViewCell
-        cell.restaurantImage.imageFromURL(urlString: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png")
-        cell.restaurantName.text = "Test Restaurant"
+        
+        let restaurant = self.restaurants[indexPath.row]
+        
+        cell.restaurantImage.imageFromURL(urlString: restaurant.image)
+        cell.restaurantName.text = restaurant.name
         cell.restaurantAddress.text = "500 W. Madison St, Chicago, IL 60661"
         cell.distance.text = "8.4 Miles"
         
-        cell.ratingsView.setRatings(ratings: 4.3)
-        cell.ratingsView.numReviews.text = "108"
+        cell.ratingsView.setRatings(ratings: restaurant.ratings)
+        cell.ratingsView.numReviews.text = String(restaurant.numRatings)
         
-        cell.setAllTextColors()
-        cell.latitude = 41.8823
-        cell.longitude = -87.6404
+        cell.latitude = restaurant.latitude
+        cell.longitude = restaurant.longitude
         return cell
     }
     
@@ -323,7 +333,7 @@ extension RestaurantViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.restaurants.count
     }
 }
 
@@ -422,13 +432,6 @@ extension RestaurantViewController: GMSAutocompleteViewControllerDelegate {
 
 extension RestaurantViewController : OptionsScrollViewDelegate {
     func didChangeOption(_ option: Options) {
-        Database.shared().getRestaurants(option: self.optionScrollView.getPreference()) { restaurants in
-            self.restaurants = restaurants;
-            if (self.displayingMapView) {
-                self.mapView.getMarkersAndDisplay(restaurants: restaurants)
-            } else {
-                 self.listView.reloadData()
-            }
-        }
+        self.fetchRestaurants()
     }
 }

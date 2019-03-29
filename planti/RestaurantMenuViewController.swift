@@ -28,6 +28,8 @@ class RestaurantMenuViewController: UIViewController {
         
         self.optionsScrollView.delegate = self
         self.optionsScrollView.setPreference(option: self.option)
+        
+        didChangeOption(self.option)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {

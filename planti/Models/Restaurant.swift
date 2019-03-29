@@ -9,7 +9,8 @@
 import Foundation
 
 class Restaurant {
-    var name: String?
+    var name: String
+    var image : String
     var latitude: Double
     var longitude: Double
     var ratings: Double
@@ -17,14 +18,16 @@ class Restaurant {
     
     init() {
         name = ""
+        image = ""
         latitude = 0
         longitude = 0
         ratings = 0
         numRatings = 0
     }
     
-    init(name: String?, latitude: Double, longitude: Double, ratings: Double, numRatings: Int) {
+    init(name: String, image: String, latitude: Double, longitude: Double, ratings: Double, numRatings: Int) {
         self.name = name
+        self.image = image
         self.latitude = latitude
         self.longitude = longitude
         self.ratings = ratings

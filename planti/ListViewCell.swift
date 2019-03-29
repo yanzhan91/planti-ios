@@ -23,12 +23,6 @@ class ListViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    func setAllTextColors() {
-        self.restaurantName.textColor = Colors.themeGreen
-        self.restaurantAddress.textColor = Colors.themeGreen
-        self.distance.textColor = Colors.themeGreen
-    }
 
     @IBAction func navigate(_ sender: Any) {
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
