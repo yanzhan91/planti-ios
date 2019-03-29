@@ -280,12 +280,18 @@ extension RestaurantViewController : GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        let restaurant = marker.userData as? Restaurant
+        let restaurant = self.restaurants[(marker.userData as? Int)!]
         let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-        infoWindow.restaurantName.text = restaurant?.name
-        infoWindow.setNumReviews(numReviews: String(restaurant?.numRatings ?? 0))
-        infoWindow.setRatings(ratings: restaurant?.ratings ?? 0)
+        infoWindow.restaurantName.text = restaurant.name
+        infoWindow.setNumReviews(numReviews: String(restaurant.numRatings))
+        infoWindow.setRatings(ratings: restaurant.ratings)
+        infoWindow.image.imageFromURL(urlString: restaurant.image)
         return infoWindow
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        let restaurant = self.restaurants[(marker.userData as? Int)!]
+        performSegue(withIdentifier: "openRestaurantMenu", sender: restaurant.name)
     }
 }
 
@@ -362,9 +368,9 @@ extension GMSMapView {
     
     func getMarkersAndDisplay(restaurants: [Restaurant]) {
         self.clear()
-        for restaurant in restaurants {
+        for (index, restaurant) in restaurants.enumerated() {
             let marker = GMSMarker()
-            marker.userData = restaurant
+            marker.userData = index
             marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
             marker.map = self
         }

@@ -13,6 +13,7 @@ class MapMarker: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var ratingsView: RatingsView!
+    @IBOutlet weak var image: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

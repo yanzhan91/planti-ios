@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapMarker" customModule="planti" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="zee-Gu-9Cq"/>
+                <outlet property="image" destination="xrD-Qa-FvL" id="ZLs-MB-24m"/>
                 <outlet property="ratingsView" destination="wfc-Jo-gwP" id="HRY-w6-vNF"/>
                 <outlet property="restaurantName" destination="i8E-tr-EDE" id="1WJ-xf-2Vy"/>
             </connections>
@@ -22,31 +23,40 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8E-tr-EDE">
-                    <rect key="frame" x="10" y="10" width="180" height="14"/>
+                    <rect key="frame" x="52" y="9" width="138" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="14" id="cHI-XC-x4c"/>
+                        <constraint firstAttribute="height" constant="14" id="tzQ-3u-S6A"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfc-Jo-gwP" userLabel="Ratings" customClass="RatingsView" customModule="planti" customModuleProvider="target">
-                    <rect key="frame" x="10" y="26" width="180" height="14"/>
+                    <rect key="frame" x="52" y="27" width="138" height="14"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="14" id="KU1-QV-Hqb"/>
+                        <constraint firstAttribute="height" constant="14" id="UzY-h6-kSJ"/>
                     </constraints>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xrD-Qa-FvL">
+                    <rect key="frame" x="10" y="9" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="9gg-0u-z7W"/>
+                        <constraint firstAttribute="height" constant="32" id="g6H-kG-Oe0"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="i8E-tr-EDE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="4KV-3x-gZa"/>
-                <constraint firstItem="wfc-Jo-gwP" firstAttribute="top" secondItem="i8E-tr-EDE" secondAttribute="bottom" constant="2" id="6b8-Lw-GsL"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wfc-Jo-gwP" secondAttribute="trailing" constant="10" id="9gd-h0-XEQ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="i8E-tr-EDE" secondAttribute="trailing" constant="10" id="eyf-li-iPY"/>
-                <constraint firstItem="i8E-tr-EDE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="izO-bF-PeG"/>
-                <constraint firstItem="wfc-Jo-gwP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="lAV-Jp-8bi"/>
-                <constraint firstAttribute="bottom" secondItem="wfc-Jo-gwP" secondAttribute="bottom" constant="10" id="rts-Sl-YlG"/>
+                <constraint firstItem="i8E-tr-EDE" firstAttribute="leading" secondItem="xrD-Qa-FvL" secondAttribute="trailing" constant="10" id="2KH-RM-MW3"/>
+                <constraint firstItem="xrD-Qa-FvL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="AiH-NY-ga9"/>
+                <constraint firstAttribute="bottom" secondItem="xrD-Qa-FvL" secondAttribute="bottom" constant="9" id="EEj-TM-BhZ"/>
+                <constraint firstItem="wfc-Jo-gwP" firstAttribute="bottom" secondItem="xrD-Qa-FvL" secondAttribute="bottom" id="Egh-Rs-f2P"/>
+                <constraint firstAttribute="trailing" secondItem="wfc-Jo-gwP" secondAttribute="trailing" constant="10" id="I6L-Ac-rlp"/>
+                <constraint firstItem="xrD-Qa-FvL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="JNb-3i-CV6"/>
+                <constraint firstItem="i8E-tr-EDE" firstAttribute="top" secondItem="xrD-Qa-FvL" secondAttribute="top" id="a4j-oZ-V1X"/>
+                <constraint firstAttribute="trailing" secondItem="i8E-tr-EDE" secondAttribute="trailing" constant="10" id="dWq-h8-VR8"/>
+                <constraint firstItem="wfc-Jo-gwP" firstAttribute="leading" secondItem="xrD-Qa-FvL" secondAttribute="trailing" constant="10" id="hUG-Pa-Q0q"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
