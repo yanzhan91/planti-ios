@@ -140,6 +140,20 @@ class RestaurantViewController: UIViewController {
     @objc private func goToMyLocation() {
         if (self.mapView.myLocation != nil) {
             self.mapView.animate(toLocation: (self.mapView.myLocation?.coordinate)!)
+        } else {
+            let alert = UIAlertController(title: "Location was denied", message: "Please go to Settings and enable location permission", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                }
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
         }
     }
     
