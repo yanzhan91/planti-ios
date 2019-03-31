@@ -334,7 +334,12 @@ extension RestaurantViewController : UITableViewDataSource {
         cell.restaurantImage.imageFromURL(urlString: restaurant.image)
         cell.restaurantName.text = restaurant.name
         cell.restaurantAddress.text = "500 W. Madison St, Chicago, IL 60661"
-        cell.distance.text = "8.4 Miles"
+        
+        if (restaurant.distance < 0) {
+            cell.distance.text = "? Miles"
+        } else {
+            cell.distance.text = "8.4 Miles"
+        }
         
         cell.ratingsView.setRatings(ratings: restaurant.ratings)
         cell.ratingsView.numReviews.text = String(restaurant.numRatings)

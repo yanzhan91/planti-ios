@@ -15,6 +15,7 @@ class Restaurant {
     var longitude: Double
     var ratings: Double
     var numRatings: Int
+    var distance: Double
     
     init() {
         name = ""
@@ -23,6 +24,7 @@ class Restaurant {
         longitude = 0
         ratings = 0
         numRatings = 0
+        distance = -1
     }
     
     init(name: String, image: String, latitude: Double, longitude: Double, ratings: Double, numRatings: Int) {
@@ -32,5 +34,6 @@ class Restaurant {
         self.longitude = longitude
         self.ratings = ratings
         self.numRatings = numRatings
+        self.distance = -1
     }
 }
