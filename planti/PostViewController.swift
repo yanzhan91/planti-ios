@@ -29,31 +29,32 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.scrollView.contentSize = getScrollViewContentSize(scrollView: self.scrollView)
-        
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(autocompleteTap))
         self.restaurantName.addGestureRecognizer(tap)
         
         self.postButton.activate()
         
         NotificationCenter.default.addObserver(self, selector: #selector(cameraPresed), name: NSNotification.Name("postCamera"), object: nil)
+        print(scrollView.subviews.count)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(self.scrollView.frame)
-        print(self.scrollView.contentSize)
+        self.scrollView.contentSize = getScrollViewContentSize(scrollView: self.scrollView)
     }
     
     private func getScrollViewContentSize(scrollView: UIScrollView) -> CGSize {
         var contentRect = CGRect.zero
         
+        print(scrollView.subviews.count)
+        
         for view in scrollView.subviews {
+            print(view.frame)
             contentRect = contentRect.union(view.frame)
         }
         
-        contentRect.size.height += 30
         contentRect.size.width = self.view.frame.width
         
+        print(contentRect.size)
         return contentRect.size
     }
     
