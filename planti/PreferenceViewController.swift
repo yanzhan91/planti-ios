@@ -50,6 +50,8 @@ class PreferenceViewController: UIViewController {
         }
         
         contentRect.size.height += 30
+        contentRect.size.width = self.view.frame.width
+        
         return contentRect.size
     }
     
