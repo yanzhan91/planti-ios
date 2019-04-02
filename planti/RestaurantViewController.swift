@@ -293,6 +293,11 @@ extension RestaurantViewController : GMSMapViewDelegate {
         fetchRestaurants()
     }
     
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        mapView.selectedMarker = marker
+        return true
+    }
+    
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let restaurant = self.restaurants[(marker.userData as? Int)!]
         let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
