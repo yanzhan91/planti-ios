@@ -29,7 +29,7 @@ class MapMarker: UIView {
         self.ratingsView.numReviews.text = numReviews
     }
     
-    public func setRatings(ratings: Double) {
+    public func setRatings(ratings: Float) {
         self.ratingsView.setRatings(ratings: ratings)
     }
 

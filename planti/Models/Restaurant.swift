@@ -9,17 +9,21 @@
 import Foundation
 
 class Restaurant {
+    var placeId: String
     var name: String
-    var image : String
+    var address: String
+    var ratings: Float
+    var numRatings: Int
     var latitude: Double
     var longitude: Double
-    var ratings: Double
-    var numRatings: Int
-    var distance: Double
+    var distance: Float
+    var imageUrl : String
     
     init() {
+        placeId = ""
         name = ""
-        image = ""
+        address = ""
+        imageUrl = ""
         latitude = 0
         longitude = 0
         ratings = 0
@@ -27,9 +31,11 @@ class Restaurant {
         distance = -1
     }
     
-    init(name: String, image: String, latitude: Double, longitude: Double, ratings: Double, numRatings: Int) {
+    init(name: String, imageUrl: String, latitude: Double, longitude: Double, ratings: Float, numRatings: Int) {
+        self.placeId = ""
         self.name = name
-        self.image = image
+        self.address = ""
+        self.imageUrl = imageUrl
         self.latitude = latitude
         self.longitude = longitude
         self.ratings = ratings

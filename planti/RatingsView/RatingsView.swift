@@ -34,7 +34,7 @@ class RatingsView: UIView {
         addSubview(self.contentView)
     }
     
-    public func setRatings(ratings: Double) {
+    public func setRatings(ratings: Float) {
         let rounded = ratings.rounded(.down)
         self.star1.image = UIImage.init(named: rounded >= 1 ? "full_star_icon" : "empty_star_icon")
         self.star2.image = UIImage.init(named: rounded >= 2 ? "full_star_icon" : "empty_star_icon")

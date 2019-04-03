@@ -7,21 +7,27 @@
 //
 
 class MenuItem {
+    var id: String
+    var placeId: String
     var name: String
-    var entreeImage: String
+    var imageUrl: String
     var containsLabel: String
     var posted: String
     
     init() {
+        id = ""
+        placeId = ""
         name = ""
-        entreeImage = ""
+        imageUrl = ""
         containsLabel = ""
         posted = ""
     }
     
-    init(name: String, entreeImage: String, containsLabel:String, posted: String) {
+    init(name: String, imageUrl: String, containsLabel:String, posted: String) {
+        self.id = ""
+        self.placeId = ""
         self.name = name
-        self.entreeImage = entreeImage
+        self.imageUrl = imageUrl
         self.containsLabel = containsLabel
         self.posted = posted
     }
