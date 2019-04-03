@@ -87,7 +87,7 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
 
 extension RestaurantMenuViewController : OptionsScrollViewDelegate {
     func didChangeOption(_ option: Options) {
-        Database.shared().getMenuItems(option: self.option, placeId: placeId) { menuItems in
+        RestService.shared().getMenuItems(option: self.option, placeId: placeId) { menuItems in
             print("Changing options \(option)")
             self.menuItems = menuItems
             self.tableView.reloadData()

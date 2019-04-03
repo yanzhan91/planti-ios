@@ -9,12 +9,12 @@
 import Foundation
 import Alamofire
 
-class Database {
+class RestService {
     
-    private static var database = Database()
+    private static var restService = RestService()
     
-    class func shared() -> Database {
-        return database
+    class func shared() -> RestService {
+        return restService
     }
     
     public func postUser(option: Options, completion: @escaping ([Restaurant]) -> Void) {

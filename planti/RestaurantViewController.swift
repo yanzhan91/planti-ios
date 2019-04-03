@@ -239,7 +239,7 @@ class RestaurantViewController: UIViewController {
     }
     
     private func fetchRestaurants() {
-        Database.shared().getRestaurants(option: self.optionScrollView.getPreference()) { restaurants in
+        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference()) { restaurants in
             self.restaurants = restaurants;
             if (self.displayingMapView) {
                 self.mapView.getMarkersAndDisplay(restaurants: restaurants)
