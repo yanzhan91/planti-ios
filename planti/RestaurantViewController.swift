@@ -163,7 +163,6 @@ class RestaurantViewController: UIViewController {
     }
     
     @objc private func openMneuOption(_ notification: Notification) {
-        self.optionsBlackOutView.isHidden = false
         SideMenuManager.default.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
         
         let frame = self.optionsBlackOutView.frame
@@ -180,6 +179,7 @@ class RestaurantViewController: UIViewController {
         case 3:
             break;
         case 4:
+            self.optionsBlackOutView.isHidden = false
             let y = 100
             let width = 300
             let height = 400
@@ -191,6 +191,7 @@ class RestaurantViewController: UIViewController {
             self.optionsBlackOutView.addSubview(textDialog)
             break
         case 5:
+            self.optionsBlackOutView.isHidden = false
             let y = 100
             let width = 300
             let height = 400
@@ -202,6 +203,7 @@ class RestaurantViewController: UIViewController {
             self.optionsBlackOutView.addSubview(textDialog)
             break
         case 6:
+            self.optionsBlackOutView.isHidden = false
             let y = 100
             let width = 300
             let height = 273
