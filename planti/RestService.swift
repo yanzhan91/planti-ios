@@ -104,9 +104,9 @@ class RestService {
         }
     }
     
-    public func postMenuItem(placeId: String, restaurantName: String, completion: @escaping ([MenuItem]) -> Void) {
+    public func postMenuItem(placeId: String, restaurantName: String, completion: @escaping () -> Void) {
         guard let url = URL(string: "") else {
-            completion(self.getTestMenuItems())
+            completion()
             return
         }
         Alamofire.request(url, method: .get, parameters: ["placeId": "123123",
@@ -120,7 +120,7 @@ class RestService {
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {
                     print("Error: \(String(describing: response.result.error))")
-                    completion([])
+                    completion()
                     return
                 }
                 
@@ -129,7 +129,26 @@ class RestService {
                 print("Result: \(response.result)")                         // response serialization result
                 print("Value: \(value)")
                 
-                completion(self.getTestMenuItems())
+                completion()
+        }
+    }
+    
+    public func reportError(id: String) {
+        guard let url = URL(string: "") else {
+            return
+        }
+        Alamofire.request(url, method: .post, parameters: ["id": id])
+            .validate()
+            .responseJSON { response in
+                guard response.result.isSuccess, let value = response.result.value else {
+                    print("Error: \(String(describing: response.result.error))")
+                    return
+                }
+                
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")                         // response serialization result
+                print("Value: \(value)")
         }
     }
     
