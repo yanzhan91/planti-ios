@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Menu_logo" translatesAutoresizingMaskIntoConstraints="NO" id="84T-Fh-mfc">
-                                                    <rect key="frame" x="48" y="23" width="200" height="80"/>
+                                                    <rect key="frame" x="30" y="23" width="200" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="5J2-Ia-xzX"/>
                                                         <constraint firstAttribute="height" constant="80" id="JHa-nf-L71"/>
@@ -52,7 +52,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Preference" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7f-od-g2m">
-                                                    <rect key="frame" x="16" y="14.333333333333336" width="264" height="21"/>
+                                                    <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="3ZO-pt-7Wl"/>
                                                     </constraints>
@@ -76,7 +76,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications (Coming Soon)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8f3-4g-hb2">
-                                                    <rect key="frame" x="16" y="14.333333333333336" width="264" height="21"/>
+                                                    <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="HmF-ZS-xWc"/>
                                                     </constraints>
@@ -100,7 +100,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Promotions (Coming Soon)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRI-9T-9yB">
-                                                    <rect key="frame" x="16" y="14.333333333333336" width="264" height="21"/>
+                                                    <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="hka-0g-xaA"/>
                                                     </constraints>
@@ -124,7 +124,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWQ-PD-ZuG">
-                                                    <rect key="frame" x="16" y="14.333333333333336" width="264" height="21"/>
+                                                    <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="L5H-KB-s59"/>
                                                     </constraints>
@@ -148,7 +148,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyV-R5-Puy">
-                                                    <rect key="frame" x="16" y="14.333333333333336" width="264" height="21"/>
+                                                    <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="eH7-f0-02K"/>
                                                     </constraints>
@@ -172,7 +172,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HC-2C-vu8">
-                                                    <rect key="frame" x="16" y="14.333333333333336" width="264" height="21"/>
+                                                    <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ORe-wq-Ypy"/>
                                                     </constraints>
@@ -1079,11 +1079,11 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-cW-fVx" userLabel="Post" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
-                                        <rect key="frame" x="319" y="580" width="46" height="30"/>
+                                        <rect key="frame" x="334" y="580" width="31" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="nNI-On-6Ex"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Post"/>
                                         <connections>
                                             <action selector="post:" destination="1ns-Xo-Q4d" eventType="touchUpInside" id="t5d-HU-Ckf"/>
                                         </connections>

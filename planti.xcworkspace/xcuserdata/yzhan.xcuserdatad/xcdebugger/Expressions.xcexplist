@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "RestaurantViewController.gestureRecognizer(_:shouldReceive:):RestaurantViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.optionsBlackOutView.subviews.count == 0">
+            </PersistentString>
+            <PersistentString
+               value = "self.optionsBlackOutView">
+            </PersistentString>
+            <PersistentString
+               value = "touch.view == self.optionsBlackOutView">
+            </PersistentString>
+            <PersistentString
+               value = "touch.view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

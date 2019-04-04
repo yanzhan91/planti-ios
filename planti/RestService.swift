@@ -104,18 +104,19 @@ class RestService {
         }
     }
     
-    public func postMenuItem(placeId: String, restaurantName: String, completion: @escaping () -> Void) {
+    public func postMenuItem(placeId: String, restaurantName: String, menuItemName: String, containsMeat: Bool,
+                             containsDiary: Bool, containsEgg: Bool, containsFish: Bool, completion: @escaping () -> Void) {
         guard let url = URL(string: "") else {
             completion()
             return
         }
-        Alamofire.request(url, method: .get, parameters: ["placeId": "123123",
-                                                          "restaurantName": "restaurant",
-                                                          "menuItemName": "menuItemName",
-                                                          "containsMeat": false,
-                                                          "containsDiary": false,
-                                                          "containsEgg": false,
-                                                          "containsFish": false])
+        Alamofire.request(url, method: .get, parameters: ["placeId": placeId,
+                                                          "restaurantName": restaurantName,
+                                                          "menuItemName": menuItemName,
+                                                          "containsMeat": containsMeat,
+                                                          "containsDiary": containsDiary,
+                                                          "containsEgg": containsEgg,
+                                                          "containsFish": containsFish])
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {

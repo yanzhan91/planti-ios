@@ -88,10 +88,12 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func post(_ sender: Any) {
-        print(self.meatSwitch.isOn)
-        print(self.diarySwitch.isOn)
-        print(self.eggSwitch.isOn)
-        print(self.fishSwitch.isOn)
+        RestService.shared().postMenuItem(placeId: self.placeId ?? "", restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, containsFish: self.fishSwitch.isOn) { () in
+            
+            let okAlert = UIAlertController(title: "Thank you!", message: "Your contribution will benefit millions of others.", preferredStyle: .alert)
+            okAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            self.present(okAlert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
