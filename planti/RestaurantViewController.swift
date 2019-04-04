@@ -182,7 +182,7 @@ class RestaurantViewController: UIViewController {
         case 4:
             let y = 100
             let width = 300
-            let height = 570
+            let height = 400
             let textDialog = TextDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
             textDialog.title.text = "Terms of Service"
             textDialog.text.text = "This is a test terms of services. Bala, please complete."
@@ -193,7 +193,7 @@ class RestaurantViewController: UIViewController {
         case 5:
             let y = 100
             let width = 300
-            let height = 570
+            let height = 400
             let textDialog = TextDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
             textDialog.title.text = "Privacy Policy"
             textDialog.text.text = "This is a test privacy policy. Bala, please complete."
@@ -204,7 +204,7 @@ class RestaurantViewController: UIViewController {
         case 6:
             let y = 100
             let width = 300
-            let height = 570
+            let height = 273
             let settingsDialog = SettingsDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
             settingsDialog.saveButton.addTarget(self, action: #selector(changeSettings(_:)), for: .touchUpInside)
             self.optionsBlackOutView.addSubview(settingsDialog)
