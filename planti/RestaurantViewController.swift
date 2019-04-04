@@ -239,7 +239,10 @@ class RestaurantViewController: UIViewController {
     }
     
     private func fetchRestaurants() {
-        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference()) { restaurants in
+        let coordinates = self.mapView.getCenterCoordinate()
+        let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        let radius = self.mapView.getRadius()
+        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
             self.restaurants = restaurants;
             if (self.displayingMapView) {
                 self.mapView.getMarkersAndDisplay(restaurants: restaurants)
@@ -381,7 +384,7 @@ extension GMSMapView {
         return point
     }
     
-    func getRadius() -> CLLocationDistance {
+    func getRadius() -> Double {
         let centerCoordinate = getCenterCoordinate()
         let centerLocation = CLLocation(latitude: centerCoordinate.latitude, longitude: centerCoordinate.longitude)
         let topCenterCoordinate = getTopCenterCoordinate()

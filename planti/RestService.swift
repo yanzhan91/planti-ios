@@ -17,15 +17,16 @@ class RestService {
         return restService
     }
     
-    public func postUser(option: Options, completion: @escaping ([Restaurant]) -> Void) {
+    public func postUser(option: Options, placeId: String, settings: Settings, lastKnownLocation: Location,
+                         completion: @escaping ([Restaurant]) -> Void) {
         guard let url = URL(string: "") else {
             completion(self.getTestRestaurants())
             return
         }
-        Alamofire.request(url, method: .post, parameters: ["id": 123642, // device id
-                                                           "option": 1,
-                                                           "settings": ["newMenuItems": true, "newPromotions": true],
-                                                           "lastKnownLocation": ["latitude": 1.0, "longitude": 1.0]])
+        Alamofire.request(url, method: .post, parameters: ["id": placeId, // device id
+                                                           "option": option.rawValue,
+                                                           "settings": settings,
+                                                           "lastKnownLocation": lastKnownLocation])
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {
@@ -43,14 +44,15 @@ class RestService {
         }
     }
     
-    public func getRestaurants(option: Options, completion: @escaping ([Restaurant]) -> Void) {
+    public func getRestaurants(option: Options, location: Location, radius: Int,
+                               completion: @escaping ([Restaurant]) -> Void) {
         guard let url = URL(string: "") else {
             completion(self.getTestRestaurants())
             return
         }
-        Alamofire.request(url, method: .get, parameters: ["option": 1,
-                                                          "location": ["latitude": 1.0, "longitude": 1.0],
-                                                          "distance": 100])
+        Alamofire.request(url, method: .get, parameters: ["option": option.rawValue,
+                                                          "location": location,
+                                                          "distance": radius])
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {
@@ -73,7 +75,7 @@ class RestService {
             completion(self.getTestMenuItems())
             return
         }
-        Alamofire.request(url, method: .get, parameters: ["placeId": "123123", "option": 1])
+        Alamofire.request(url, method: .get, parameters: ["placeId": placeId, "option": 1])
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {
