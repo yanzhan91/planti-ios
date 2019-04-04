@@ -109,7 +109,9 @@ class RestaurantViewController: UIViewController {
     }
     
     fileprivate func setupMapView() {
-        let camera = GMSCameraPosition.camera(withLatitude: 41.8823, longitude: -87.6404, zoom: zoomLevel)
+        let location = UserDefaults.standard.value(forKey: DefaultsKeys.LAST_KNOWN_LOCATION) as? Location
+            ?? Location.init(latitude: 41.8823, longitude: -87.6404)
+        let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: zoomLevel)
         self.mapView.camera = camera
         self.mapView.delegate = self
         self.mapView.isMyLocationEnabled = true
@@ -173,11 +175,11 @@ class RestaurantViewController: UIViewController {
             self.optionsBlackOutView.isHidden = true
             let pvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PreferenceViewController") as! PreferenceViewController
             self.present(pvc, animated: true, completion: nil)
-            break;
+            break
         case 2:
-            break;
+            break
         case 3:
-            break;
+            break
         case 4:
             self.optionsBlackOutView.isHidden = false
             let y = 100
@@ -218,8 +220,11 @@ class RestaurantViewController: UIViewController {
     
     @objc private func changeSettings(_ button: ThemeButton) {
         let popup = button.superview?.superview as! SettingsDialog
-        print(popup.newMenuItems.isOn)
-        print(popup.newPromotions.isOn)
+        let newMenuItems = popup.newMenuItems.isOn
+        let newPromotions = popup.newPromotions.isOn
+        
+        RestService.shared().postUser(option: nil, settings: Settings.init(newMenuItems: newMenuItems, newPromotions: newPromotions), lastKnownLocation: nil)
+        
         blackoutTap()
     }
     
@@ -251,6 +256,10 @@ class RestaurantViewController: UIViewController {
             } else {
                 self.listView.reloadData()
             }
+            
+            RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
+            
+            UserDefaults.standard.set(location, forKey: DefaultsKeys.LAST_KNOWN_LOCATION)
         }
     }
 }

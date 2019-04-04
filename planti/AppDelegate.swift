@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyA2PTAme6Oglw6NApySkjEdYU1iMKQQudA")
         GMSPlacesClient.provideAPIKey("AIzaSyA2PTAme6Oglw6NApySkjEdYU1iMKQQudA")
         
+        UserDefaults.standard.set(UIDevice.current.identifierForVendor?.uuid, forKey: DefaultsKeys.DEVICE_ID)
+        
         return true
     }
 

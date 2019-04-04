@@ -17,21 +17,34 @@ class RestService {
         return restService
     }
     
-    public func postUser(option: Options, placeId: String, settings: Settings, lastKnownLocation: Location,
-                         completion: @escaping ([Restaurant]) -> Void) {
+    public func postUser(option: Options?, settings: Settings?, lastKnownLocation: Location?) {
         guard let url = URL(string: "") else {
-            completion(self.getTestRestaurants())
             return
         }
-        Alamofire.request(url, method: .post, parameters: ["id": placeId, // device id
-                                                           "option": option.rawValue,
-                                                           "settings": settings,
-                                                           "lastKnownLocation": lastKnownLocation])
+
+        var parameters : [String: Any] = [:]
+        
+        if let deviceId = UserDefaults.standard.value(forKey: DefaultsKeys.DEVICE_ID) {
+            parameters["id"] = deviceId
+        }
+        
+        if let option = option {
+            parameters["option"] = option
+        }
+        
+        if let settings = settings {
+            parameters["settings"] = settings
+        }
+        
+        if let lastKnownLocation = lastKnownLocation {
+            parameters["lastKnownLocation"] = lastKnownLocation
+        }
+        
+        Alamofire.request(url, method: .post, parameters: parameters)
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {
                     print("Error: \(String(describing: response.result.error))")
-                    completion([])
                     return
                 }
                 
@@ -39,8 +52,6 @@ class RestService {
                 print("Response: \(String(describing: response.response))") // http url response
                 print("Result: \(response.result)")                         // response serialization result
                 print("Value: \(value)")
-                
-                completion(self.getTestRestaurants())
         }
     }
     

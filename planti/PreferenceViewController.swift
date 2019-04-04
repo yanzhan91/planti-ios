@@ -38,7 +38,10 @@ class PreferenceViewController: UIViewController {
     }
     
     @IBAction func choose(_ sender: Any) {
-        UserDefaults.standard.set(option.rawValue, forKey: DefaultsKeys.PREFERENCE)
+        UserDefaults.standard.set(self.option.rawValue, forKey: DefaultsKeys.PREFERENCE)
+        
+        let settings = Settings()
+        RestService.shared().postUser(option: self.option, settings: settings, lastKnownLocation: nil)
         dismiss(animated: true, completion: nil)
     }
     

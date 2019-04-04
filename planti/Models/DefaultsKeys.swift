@@ -7,5 +7,7 @@
 //
 
 class DefaultsKeys {
+    static let DEVICE_ID = "deviceId"
     static let PREFERENCE = "preference"
+    static let LAST_KNOWN_LOCATION = "lastKnownLocation"
 }
