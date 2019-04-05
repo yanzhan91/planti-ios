@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIDevice.current.identifierForVendor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "RestaurantViewController.gestureRecognizer(_:shouldReceive:):RestaurantViewController.swift">
          <PersistentStrings>
             <PersistentString

@@ -6,7 +6,7 @@
 //  Copyright © 2019 planti. All rights reserved.
 //
 
-class Location {
+class Location : Codable {
     var latitude: Double
     var longitude: Double
     

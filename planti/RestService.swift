@@ -24,7 +24,8 @@ class RestService {
 
         var parameters : [String: Any] = [:]
         
-        if let deviceId = UserDefaults.standard.value(forKey: DefaultsKeys.DEVICE_ID) {
+        let uuid = UIDevice.current.identifierForVendor?.uuid
+        if let deviceId = uuid {
             parameters["id"] = deviceId
         }
         

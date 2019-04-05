@@ -109,8 +109,7 @@ class RestaurantViewController: UIViewController {
     }
     
     fileprivate func setupMapView() {
-        let location = UserDefaults.standard.value(forKey: DefaultsKeys.LAST_KNOWN_LOCATION) as? Location
-            ?? Location.init(latitude: 41.8823, longitude: -87.6404)
+        let location = DefaultsKeys.getEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, defaultValue: Location.init(latitude: 41.8823, longitude: -87.6404))
         let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: zoomLevel)
         self.mapView.camera = camera
         self.mapView.delegate = self
@@ -259,7 +258,7 @@ class RestaurantViewController: UIViewController {
             
             RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
             
-            UserDefaults.standard.set(location, forKey: DefaultsKeys.LAST_KNOWN_LOCATION)
+            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
         }
     }
 }
