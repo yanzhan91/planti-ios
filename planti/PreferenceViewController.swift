@@ -16,7 +16,6 @@ class PreferenceViewController: UIViewController {
     @IBOutlet weak var ovoSwitch: UISwitch!
     @IBOutlet weak var lactoSwitch: UISwitch!
     @IBOutlet weak var lactoOvoSwitch: UISwitch!
-    @IBOutlet weak var pescSwitch: UISwitch!
     
     @IBOutlet weak var chooseButton: ThemeButton!
     @IBOutlet weak var optionsView: UIView!
@@ -75,9 +74,6 @@ class PreferenceViewController: UIViewController {
                     break
                 case 3:
                     self.option = .lactoOvoVegetarian
-                    break
-                case 4:
-                    self.option = .pescetarians
                     break
                 default:
                     self.option = .vegan

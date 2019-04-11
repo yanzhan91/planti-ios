@@ -106,7 +106,7 @@ class RestService {
     }
     
     public func postMenuItem(placeId: String, restaurantName: String, menuItemName: String, containsMeat: Bool,
-                             containsDiary: Bool, containsEgg: Bool, containsFish: Bool, completion: @escaping () -> Void) {
+                             containsDiary: Bool, containsEgg: Bool, completion: @escaping () -> Void) {
         guard let url = URL(string: "") else {
             completion()
             return
@@ -116,8 +116,7 @@ class RestService {
                                                           "menuItemName": menuItemName,
                                                           "containsMeat": containsMeat,
                                                           "containsDiary": containsDiary,
-                                                          "containsEgg": containsEgg,
-                                                          "containsFish": containsFish])
+                                                          "containsEgg": containsEgg])
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {

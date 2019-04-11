@@ -11,5 +11,4 @@ enum Options : String, CaseIterable {
     case ovoVegetarian = "Ovo-Vegetarian"
     case lactoVegetarian = "Lacto-Vegetarian"
     case lactoOvoVegetarian = "Lacto-Ovo Vegetarian"
-    case pescetarians = "Pescetarian"
 }

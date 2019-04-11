@@ -22,7 +22,6 @@ class PostViewController: UIViewController {
     @IBOutlet weak var meatSwitch: UISwitch!
     @IBOutlet weak var diarySwitch: UISwitch!
     @IBOutlet weak var eggSwitch: UISwitch!
-    @IBOutlet weak var fishSwitch: UISwitch!
     
     private var placeId: String?
     
@@ -88,7 +87,7 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func post(_ sender: Any) {
-        RestService.shared().postMenuItem(placeId: self.placeId ?? "", restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, containsFish: self.fishSwitch.isOn) { () in
+        RestService.shared().postMenuItem(placeId: self.placeId ?? "", restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn) { () in
             
             let okAlert = UIAlertController(title: "Thank you!", message: "Your contribution will benefit millions of others.", preferredStyle: .alert)
             okAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
