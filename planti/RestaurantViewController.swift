@@ -19,6 +19,7 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var viewButton: UIButton!
     @IBOutlet weak var optionsBlackOutView: UIView!
     @IBOutlet weak var optionScrollView: OptionsScrollView!
+    @IBOutlet weak var navigationBarHeight: NSLayoutConstraint!
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
@@ -33,6 +34,10 @@ class RestaurantViewController: UIViewController {
         self.listView.isHidden = true
         
         SideMenuManager.default.menuFadeStatusBar = false
+        
+        if (!DeviceType.hasTopNotch) {
+            self.navigationBarHeight.constant = 85
+        }
         
         setupPreferenceOptionBlackOutView()
         setupMapView()

@@ -51,14 +51,11 @@ class PreferenceViewController: UIViewController {
         var contentRect = CGRect.zero
         
         for view in scrollView.subviews {
-            print(view.frame)
             contentRect = contentRect.union(view.frame)
         }
         
         contentRect.size.height += 30
         contentRect.size.width = self.view.frame.width
-        
-        print(contentRect.size)
         
         return contentRect.size
     }

@@ -12,6 +12,7 @@ class RestaurantMenuViewController: UIViewController {
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var optionsScrollView: OptionsScrollView!
+    @IBOutlet weak var navigationBarHeight: NSLayoutConstraint!
     
     var restaurantName : String = "Restaurant Name"
     var option : Options = .vegan
@@ -30,6 +31,10 @@ class RestaurantMenuViewController: UIViewController {
         
         self.optionsScrollView.delegate = self
         self.optionsScrollView.setPreference(option: self.option)
+        
+        if (!DeviceType.hasTopNotch) {
+            self.navigationBarHeight.constant = 85
+        }
         
         didChangeOption(self.option)
     }

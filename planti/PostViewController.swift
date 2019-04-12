@@ -17,6 +17,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var restaurantName: HoshiTextField!
     @IBOutlet weak var entreeName: HoshiTextField!
     @IBOutlet weak var postButton: ThemeButton!
+    @IBOutlet weak var navigationBarHeight: NSLayoutConstraint!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var meatSwitch: UISwitch!
@@ -32,6 +33,10 @@ class PostViewController: UIViewController {
         self.restaurantName.addGestureRecognizer(tap)
         
         self.postButton.activate()
+        
+        if (!DeviceType.hasTopNotch) {
+            self.navigationBarHeight.constant = 85
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(cameraPresed), name: NSNotification.Name("postCamera"), object: nil)
         print(scrollView.subviews.count)

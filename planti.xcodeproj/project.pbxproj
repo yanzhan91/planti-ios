@@ -38,6 +38,7 @@
 		DB0B11625EA3977AD908566D /* Pods_planti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7104F663970D7DF7A002C3 /* Pods_planti.framework */; };
 		F72B77302255807F000322B7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B772F2255807F000322B7 /* Settings.swift */; };
 		F72B773222558165000322B7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B773122558165000322B7 /* Location.swift */; };
+		F72C5D4A2260686F0027E7AF /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C5D492260686F0027E7AF /* DeviceType.swift */; };
 		F7FC1FD3224C643600FF4AEF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1FD2224C643600FF4AEF /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		CEABFC2B78CCDFA5BA6F2068 /* Pods-planti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planti.release.xcconfig"; path = "Target Support Files/Pods-planti/Pods-planti.release.xcconfig"; sourceTree = "<group>"; };
 		F72B772F2255807F000322B7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F72B773122558165000322B7 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		F72C5D492260686F0027E7AF /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		F7FC1FD2224C643600FF4AEF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 				F7FC1FD9224C718D00FF4AEF /* SettingsDialog */,
 				F7FC1FD8224C718300FF4AEF /* MapMarker */,
 				F7FC1FD7224C717800FF4AEF /* RatingsView */,
+				F72C5D492260686F0027E7AF /* DeviceType.swift */,
 			);
 			path = planti;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				B5C6FA08222B4CB3005FBFB9 /* MenuTableViewController.swift in Sources */,
 				B51307782223D0FB00029F7F /* RestaurantMenuViewController.swift in Sources */,
 				B5EAC3D02217EAE80080858E /* AppDelegate.swift in Sources */,
+				F72C5D4A2260686F0027E7AF /* DeviceType.swift in Sources */,
 				F72B77302255807F000322B7 /* Settings.swift in Sources */,
 				B5BE0E08222A7562006328A4 /* DefaultsKeys.swift in Sources */,
 			);
