@@ -27,13 +27,16 @@ class PreferenceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.scrollView.contentSize = getScrollViewContentSize(scrollView: self.scrollView)
         self.chooseButton.activate()
         
         self.optionsView.layer.borderColor = Colors.themeGreen.cgColor
         self.optionsView.layer.borderWidth = 2.0
         
         self.selectedSwitch = veganSwitch
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.scrollView.contentSize = getScrollViewContentSize(scrollView: self.scrollView)
     }
     
     @IBAction func choose(_ sender: Any) {
@@ -48,11 +51,14 @@ class PreferenceViewController: UIViewController {
         var contentRect = CGRect.zero
         
         for view in scrollView.subviews {
+            print(view.frame)
             contentRect = contentRect.union(view.frame)
         }
         
         contentRect.size.height += 30
         contentRect.size.width = self.view.frame.width
+        
+        print(contentRect.size)
         
         return contentRect.size
     }
