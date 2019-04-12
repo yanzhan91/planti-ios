@@ -1,18 +1,18 @@
 PODS:
   - Alamofire (4.8.2)
-  - GoogleMaps (3.0.2):
-    - GoogleMaps/Maps (= 3.0.2)
-  - GoogleMaps/Base (3.0.2)
-  - GoogleMaps/Maps (3.0.2):
+  - GoogleMaps (3.0.3):
+    - GoogleMaps/Maps (= 3.0.3)
+  - GoogleMaps/Base (3.0.3)
+  - GoogleMaps/Maps (3.0.3):
     - GoogleMaps/Base
-  - GooglePlaces (3.0.2):
-    - GoogleMaps/Base (= 3.0.2)
+  - GooglePlaces (3.0.3):
+    - GoogleMaps/Base (= 3.0.3)
   - SideMenu (5.0.3)
   - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
   - Alamofire
-  - GoogleMaps (~> 3.0.2)
+  - GoogleMaps
   - GooglePlaces
   - SideMenu
   - TextFieldEffects
@@ -27,11 +27,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  GoogleMaps: 941cd655e009b4d8e42df19a3d749bc3fccec973
-  GooglePlaces: c086e0055dc5f0177d7c9d65fc77a1734f9a4825
+  GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
+  GooglePlaces: f09e76993c9c3ee4af8f4f7f535bb94d6aa3b649
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 81cc930ae550a8351e8018c605cc11ac484df267
+PODFILE CHECKSUM: c5d5746bf0753b3c7ccd4d5143f7f4dcc877ec27
 
 COCOAPODS: 1.6.0
