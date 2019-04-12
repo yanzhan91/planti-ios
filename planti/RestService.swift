@@ -18,6 +18,7 @@ class RestService {
     }
     
     public func postUser(option: Options?, settings: Settings?, lastKnownLocation: Location?) {
+        print("Rest: Posting User \(option) \(settings) \(lastKnownLocation)")
         guard let url = URL(string: "") else {
             return
         }
@@ -58,6 +59,7 @@ class RestService {
     
     public func getRestaurants(option: Options, location: Location, radius: Int,
                                completion: @escaping ([Restaurant]) -> Void) {
+        print("Rest: getRestaurants \(option) \(location) \(radius)")
         guard let url = URL(string: "") else {
             completion(self.getTestRestaurants())
             return
@@ -83,6 +85,7 @@ class RestService {
     }
     
     public func getMenuItems(option: Options, placeId: String, completion: @escaping ([MenuItem]) -> Void) {
+        print("Rest: getting menu items \(option) \(placeId)")
         guard let url = URL(string: "") else {
             completion(self.getTestMenuItems())
             return
@@ -107,6 +110,7 @@ class RestService {
     
     public func postMenuItem(placeId: String, restaurantName: String, menuItemName: String, containsMeat: Bool,
                              containsDiary: Bool, containsEgg: Bool, completion: @escaping () -> Void) {
+        print("Rest: posting menu item \(placeId) \(restaurantName) \(menuItemName)")
         guard let url = URL(string: "") else {
             completion()
             return
@@ -135,6 +139,7 @@ class RestService {
     }
     
     public func reportError(id: String) {
+        print("Rest: reporting error \(id)")
         guard let url = URL(string: "") else {
             return
         }

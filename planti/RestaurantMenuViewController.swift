@@ -16,6 +16,8 @@ class RestaurantMenuViewController: UIViewController {
     var restaurantName : String = "Restaurant Name"
     var option : Options = .vegan
     var placeId : String = ""
+    var latitude : Double = 180
+    var longitude : Double = 180
     
     private var menuItems: [MenuItem] = []
     
@@ -34,6 +36,16 @@ class RestaurantMenuViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func navigate(_ sender: Any) {
+        if (UIApplication.shared.canOpenURL(URL(string:"https://www.google.com/maps/")!)) {
+            let url = "https://www.google.com/maps?q=\(self.restaurantName)&center=\(latitude),\(longitude)"
+            UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+        } else {
+            let url = "http://maps.apple.com/maps?q=\(self.restaurantName)&daddr=\(latitude),\(longitude)"
+            UIApplication.shared.open(URL(string:url)!, options: [:], completionHandler: nil)
+        }
     }
 }
 
