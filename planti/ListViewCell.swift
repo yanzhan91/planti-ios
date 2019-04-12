@@ -25,11 +25,12 @@ class ListViewCell: UITableViewCell {
     }
 
     @IBAction func navigate(_ sender: Any) {
-        if (UIApplication.shared.canOpenURL(URL(string:"https://www.google.com/maps/")!)) {
-            let url = "https://www.google.com/maps?q=\(self.restaurantName)&center=\(latitude),\(longitude)"
+        let name = self.restaurantName.text!.replacingOccurrences(of: " ", with: "+")
+        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+            let url = "comgooglemaps://?daddr=\(name)&center=\(latitude),\(longitude)"
             UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
         } else {
-            let url = "http://maps.apple.com/maps?q=\(self.restaurantName)&daddr=\(latitude),\(longitude)"
+            let url = "http://maps.apple.com/maps?daddr=\(name)&center=\(latitude),\(longitude)"
             UIApplication.shared.open(URL(string:url)!, options: [:], completionHandler: nil)
         }
     }
