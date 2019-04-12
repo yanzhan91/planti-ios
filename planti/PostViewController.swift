@@ -38,12 +38,18 @@ class PostViewController: UIViewController {
             self.navigationBarHeight.constant = 85
         }
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        self.view.addGestureRecognizer(tapGesture)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(cameraPresed), name: NSNotification.Name("postCamera"), object: nil)
-        print(scrollView.subviews.count)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.scrollView.contentSize = getScrollViewContentSize(scrollView: self.scrollView)
+    }
+    
+    @objc private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        self.entreeName.resignFirstResponder()
     }
     
     private func getScrollViewContentSize(scrollView: UIScrollView) -> CGSize {
