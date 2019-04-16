@@ -24,13 +24,19 @@ class PostViewController: UIViewController {
     @IBOutlet weak var diarySwitch: UISwitch!
     @IBOutlet weak var eggSwitch: UISwitch!
     
-    private var placeId: String?
+    var placeId: String?
+    var name: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(autocompleteTap))
-        self.restaurantName.addGestureRecognizer(tap)
+        if (self.name == nil) {
+            let tap = UITapGestureRecognizer.init(target: self, action: #selector(autocompleteTap))
+            self.restaurantName.addGestureRecognizer(tap)
+        } else {
+            self.restaurantName.text = name
+            self.restaurantName.isEnabled = false
+        }
         
         self.postButton.activate()
         
@@ -101,7 +107,9 @@ class PostViewController: UIViewController {
         RestService.shared().postMenuItem(placeId: self.placeId ?? "", restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn) { () in
             
             let okAlert = UIAlertController(title: "Thank you!", message: "Your contribution will benefit millions of others.", preferredStyle: .alert)
-            okAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            okAlert.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in
+                self.dismiss(animated: true, completion: nil)
+            })
             self.present(okAlert, animated: true, completion: nil)
         }
     }

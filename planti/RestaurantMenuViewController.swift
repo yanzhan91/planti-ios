@@ -53,6 +53,14 @@ class RestaurantMenuViewController: UIViewController {
             UIApplication.shared.open(URL(string:url)!, options: [:], completionHandler: nil)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination is PostViewController) {
+            let pvc = segue.destination as! PostViewController
+            pvc.name = self.restaurantName
+            pvc.placeId = self.placeId
+        }
+    }
 }
 
 extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDelegate {

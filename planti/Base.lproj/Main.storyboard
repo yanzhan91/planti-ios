@@ -733,7 +733,6 @@
                             </button>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvh-NN-Jaq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -999,33 +998,43 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-cW-fVx" userLabel="Post" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
-                                        <rect key="frame" x="334" y="580" width="31" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7w-x8-aeY">
+                                        <rect key="frame" x="0.0" y="580" width="375" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-cW-fVx" userLabel="Post" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
+                                                <rect key="frame" x="310" y="0.0" width="50" height="35"/>
+                                                <state key="normal" title="Post"/>
+                                                <connections>
+                                                    <action selector="post:" destination="1ns-Xo-Q4d" eventType="touchUpInside" id="t5d-HU-Ckf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="nNI-On-6Ex"/>
+                                            <constraint firstItem="iFF-cW-fVx" firstAttribute="leading" relation="lessThanOrEqual" secondItem="I7w-x8-aeY" secondAttribute="leading" constant="310" id="0LH-jV-hIW"/>
+                                            <constraint firstAttribute="height" constant="35" id="CDg-WS-Cp4"/>
+                                            <constraint firstAttribute="trailing" secondItem="iFF-cW-fVx" secondAttribute="trailing" constant="15" id="nQv-4y-bmL"/>
+                                            <constraint firstAttribute="bottom" secondItem="iFF-cW-fVx" secondAttribute="bottom" id="ohI-sc-biY"/>
+                                            <constraint firstItem="iFF-cW-fVx" firstAttribute="top" secondItem="I7w-x8-aeY" secondAttribute="top" id="vJQ-5j-HQa"/>
                                         </constraints>
-                                        <state key="normal" title="Post"/>
-                                        <connections>
-                                            <action selector="post:" destination="1ns-Xo-Q4d" eventType="touchUpInside" id="t5d-HU-Ckf"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="I7w-x8-aeY" firstAttribute="leading" secondItem="35f-q5-eVE" secondAttribute="leading" id="2l0-aI-D0A"/>
                                     <constraint firstAttribute="trailing" secondItem="1dF-Aa-MvD" secondAttribute="trailing" constant="10" id="32f-IH-E11"/>
                                     <constraint firstItem="S60-Uw-ngm" firstAttribute="top" secondItem="igO-PV-Vzw" secondAttribute="bottom" constant="10" id="48v-cw-aJX"/>
-                                    <constraint firstItem="iFF-cW-fVx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="35f-q5-eVE" secondAttribute="leading" constant="20" symbolic="YES" id="5GY-OM-v8N"/>
                                     <constraint firstItem="41p-Cj-yox" firstAttribute="top" secondItem="1dF-Aa-MvD" secondAttribute="bottom" constant="10" id="6ac-KX-LPn"/>
                                     <constraint firstItem="41p-Cj-yox" firstAttribute="leading" secondItem="35f-q5-eVE" secondAttribute="leading" constant="10" id="8AM-cq-Bbe"/>
                                     <constraint firstItem="igO-PV-Vzw" firstAttribute="leading" secondItem="35f-q5-eVE" secondAttribute="leading" constant="10" id="9BS-VM-eUQ"/>
                                     <constraint firstAttribute="trailing" secondItem="VcQ-CG-058" secondAttribute="trailing" constant="10" id="Dvu-OX-l56"/>
                                     <constraint firstItem="VcQ-CG-058" firstAttribute="centerX" secondItem="35f-q5-eVE" secondAttribute="centerX" id="OLm-DY-HsU"/>
+                                    <constraint firstAttribute="trailing" secondItem="I7w-x8-aeY" secondAttribute="trailing" id="U8A-7f-ai3"/>
                                     <constraint firstItem="1dF-Aa-MvD" firstAttribute="leading" secondItem="35f-q5-eVE" secondAttribute="leading" constant="10" id="UIS-YR-uZE"/>
+                                    <constraint firstItem="I7w-x8-aeY" firstAttribute="top" secondItem="S60-Uw-ngm" secondAttribute="bottom" constant="10" id="We1-eQ-PgM"/>
                                     <constraint firstItem="VcQ-CG-058" firstAttribute="top" secondItem="35f-q5-eVE" secondAttribute="top" constant="10" id="bWH-Bq-NHe"/>
                                     <constraint firstItem="VcQ-CG-058" firstAttribute="leading" secondItem="35f-q5-eVE" secondAttribute="leading" constant="10" id="c57-ed-f6e"/>
                                     <constraint firstItem="1dF-Aa-MvD" firstAttribute="top" secondItem="VcQ-CG-058" secondAttribute="bottom" constant="10" id="g5W-B7-Bqb"/>
-                                    <constraint firstItem="iFF-cW-fVx" firstAttribute="top" secondItem="S60-Uw-ngm" secondAttribute="bottom" constant="10" id="jbR-VU-NYK"/>
-                                    <constraint firstAttribute="trailing" secondItem="iFF-cW-fVx" secondAttribute="trailing" constant="10" id="kUp-ZH-AAI"/>
                                     <constraint firstAttribute="trailing" secondItem="S60-Uw-ngm" secondAttribute="trailing" constant="10" id="kXy-8Q-RF8"/>
                                     <constraint firstItem="igO-PV-Vzw" firstAttribute="top" secondItem="41p-Cj-yox" secondAttribute="bottom" constant="10" id="pr4-2m-Jvu"/>
                                     <constraint firstAttribute="trailing" secondItem="41p-Cj-yox" secondAttribute="trailing" constant="10" id="tRn-uh-w3I"/>
@@ -1189,6 +1198,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttf-XD-woK" userLabel="PostButton">
+                                <rect key="frame" x="296" y="723" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="6zY-IB-XdD"/>
+                                    <constraint firstAttribute="height" constant="64" id="V8c-DK-s4E"/>
+                                </constraints>
+                                <state key="normal" image="post_icon"/>
+                                <connections>
+                                    <segue destination="1ns-Xo-Q4d" kind="presentation" identifier="" id="qzp-NJ-UBY"/>
+                                </connections>
+                            </button>
                             <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDO-55-Zfk" customClass="OptionsScrollView" customModule="planti" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="100" width="375" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1201,6 +1221,8 @@
                         <constraints>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="trailing" secondItem="E8a-Po-Khb" secondAttribute="trailing" id="5dP-mr-o9G"/>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="7Di-XB-zBj"/>
+                            <constraint firstAttribute="bottom" secondItem="ttf-XD-woK" secondAttribute="bottom" constant="25" id="97D-Wr-zCX"/>
+                            <constraint firstItem="E8a-Po-Khb" firstAttribute="trailing" secondItem="ttf-XD-woK" secondAttribute="trailing" constant="15" id="BwI-bW-XtD"/>
                             <constraint firstItem="vDO-55-Zfk" firstAttribute="top" secondItem="gfc-6F-dWQ" secondAttribute="bottom" id="D3Y-eg-EIy"/>
                             <constraint firstItem="5YG-Qs-tQL" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="LG7-xi-KKc"/>
                             <constraint firstItem="5YG-Qs-tQL" firstAttribute="top" secondItem="vDO-55-Zfk" secondAttribute="bottom" id="P7L-OB-Cl6"/>
@@ -1235,4 +1257,7 @@
         <image name="post_icon" width="60" height="60"/>
         <image name="vertical_menu_icon" width="64" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qzp-NJ-UBY"/>
+    </inferredMetricsTieBreakers>
 </document>
