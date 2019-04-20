@@ -11,14 +11,16 @@ class MenuItem {
     var placeId: String
     var name: String
     var imageUrl: String
+    var option: Int
     var containsLabel: String
     var posted: String
     
     init() {
-        id = ""
+        id = "757658675687"
         placeId = ""
         name = ""
         imageUrl = ""
+        option = 8
         containsLabel = ""
         posted = ""
     }
@@ -28,6 +30,7 @@ class MenuItem {
         self.placeId = ""
         self.name = name
         self.imageUrl = imageUrl
+        self.option = 8
         self.containsLabel = containsLabel
         self.posted = posted
     }

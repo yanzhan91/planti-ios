@@ -294,6 +294,8 @@ extension RestaurantViewController : CLLocationManagerDelegate {
             case .authorizedAlways: fallthrough
             case .authorizedWhenInUse:
                 print("Location status is OK.")
+            default:
+                print("Error: \(status)")
         }
     }
     
@@ -321,7 +323,7 @@ extension RestaurantViewController : GMSMapViewDelegate {
         let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         infoWindow.restaurantName.text = restaurant.name
         infoWindow.setNumReviews(numReviews: String(restaurant.numRatings))
-        infoWindow.setRatings(ratings: restaurant.ratings)
+        infoWindow.setRatings(ratings: restaurant.rating)
         infoWindow.image.imageFromURL(urlString: restaurant.imageUrl)
         return infoWindow
     }
@@ -364,7 +366,7 @@ extension RestaurantViewController : UITableViewDataSource {
             cell.distance.text = "8.4 Miles"
         }
         
-        cell.ratingsView.setRatings(ratings: restaurant.ratings)
+        cell.ratingsView.setRatings(ratings: restaurant.rating)
         cell.ratingsView.numReviews.text = String(restaurant.numRatings)
         
         cell.latitude = restaurant.latitude

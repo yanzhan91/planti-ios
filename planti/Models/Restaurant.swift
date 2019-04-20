@@ -12,7 +12,7 @@ class Restaurant {
     var placeId: String
     var name: String
     var address: String
-    var ratings: Float
+    var rating: Float
     var numRatings: Int
     var latitude: Double
     var longitude: Double
@@ -26,7 +26,7 @@ class Restaurant {
         imageUrl = ""
         latitude = 0
         longitude = 0
-        ratings = 0
+        rating = 0
         numRatings = 0
         distance = -1
     }
@@ -38,7 +38,7 @@ class Restaurant {
         self.imageUrl = imageUrl
         self.latitude = latitude
         self.longitude = longitude
-        self.ratings = ratings
+        self.rating = ratings
         self.numRatings = numRatings
         self.distance = -1
     }

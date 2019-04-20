@@ -12,14 +12,15 @@ import Alamofire
 class RestService {
     
     private static var restService = RestService()
+    private var baseUrl: String = ""
     
     class func shared() -> RestService {
         return restService
     }
     
     public func postUser(option: Options?, settings: Settings?, lastKnownLocation: Location?) {
-        print("Rest: Posting User \(option) \(settings) \(lastKnownLocation)")
-        guard let url = URL(string: "") else {
+//        print("Rest: Posting User \(option) \(settings) \(lastKnownLocation)")
+        guard let url = URL(string: "\(self.baseUrl)/postUser") else {
             return
         }
 
@@ -60,7 +61,7 @@ class RestService {
     public func getRestaurants(option: Options, location: Location, radius: Int,
                                completion: @escaping ([Restaurant]) -> Void) {
         print("Rest: getRestaurants \(option) \(location) \(radius)")
-        guard let url = URL(string: "") else {
+        guard let url = URL(string: "\(self.baseUrl)/getRestaurants/\(option.rawValue)/\(location.latitude)/\(location.longitude)\(radius)/") else {
             completion(self.getTestRestaurants())
             return
         }
@@ -86,7 +87,7 @@ class RestService {
     
     public func getMenuItems(option: Options, placeId: String, completion: @escaping ([MenuItem]) -> Void) {
         print("Rest: getting menu items \(option) \(placeId)")
-        guard let url = URL(string: "") else {
+        guard let url = URL(string: "\(self.baseUrl)/getMenuItems/\(placeId)/\(option.rawValue)") else {
             completion(self.getTestMenuItems())
             return
         }
@@ -108,19 +109,31 @@ class RestService {
         }
     }
     
-    public func postMenuItem(placeId: String, restaurantName: String, menuItemName: String, containsMeat: Bool,
+    public func postMenuItem(placeId: String, menuItemName: String, containsMeat: Bool,
                              containsDiary: Bool, containsEgg: Bool, completion: @escaping () -> Void) {
-        print("Rest: posting menu item \(placeId) \(restaurantName) \(menuItemName)")
-        guard let url = URL(string: "") else {
+        print("Rest: posting menu item \(placeId) \(menuItemName)")
+        guard let url = URL(string: "\(self.baseUrl)/postMenuItem/") else {
             completion()
             return
         }
+        
+        var option: Int = 8
+        if (containsMeat) {
+            return
+        } else {
+            if (containsEgg && containsDiary) {
+                option = 1
+            } else if (containsEgg) {
+                option = 3
+            } else if (containsDiary) {
+                option = 5
+            }
+        }
+        
         Alamofire.request(url, method: .get, parameters: ["placeId": placeId,
-                                                          "restaurantName": restaurantName,
-                                                          "menuItemName": menuItemName,
-                                                          "containsMeat": containsMeat,
-                                                          "containsDiary": containsDiary,
-                                                          "containsEgg": containsEgg])
+                                                          "name": menuItemName,
+                                                          "imageUrl": "",
+                                                          "option": option])
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {
