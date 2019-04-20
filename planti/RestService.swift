@@ -19,7 +19,6 @@ class RestService {
     }
     
     public func postUser(option: Options?, settings: Settings?, lastKnownLocation: Location?) {
-//        print("Rest: Posting User \(option) \(settings) \(lastKnownLocation)")
         guard let url = URL(string: "\(self.baseUrl)/postUser") else {
             return
         }
@@ -32,7 +31,7 @@ class RestService {
         }
         
         if let option = option {
-            parameters["option"] = option
+            parameters["option"] = option.number()
         }
         
         if let settings = settings {
@@ -61,7 +60,7 @@ class RestService {
     public func getRestaurants(option: Options, location: Location, radius: Int,
                                completion: @escaping ([Restaurant]) -> Void) {
         print("Rest: getRestaurants \(option) \(location) \(radius)")
-        guard let url = URL(string: "\(self.baseUrl)/getRestaurants/\(option.rawValue)/\(location.latitude)/\(location.longitude)\(radius)/") else {
+        guard let url = URL(string: "\(self.baseUrl)/getRestaurants/\(option.number())/\(location.latitude)/\(location.longitude)\(radius)/") else {
             completion(self.getTestRestaurants())
             return
         }
@@ -87,7 +86,7 @@ class RestService {
     
     public func getMenuItems(option: Options, placeId: String, completion: @escaping ([MenuItem]) -> Void) {
         print("Rest: getting menu items \(option) \(placeId)")
-        guard let url = URL(string: "\(self.baseUrl)/getMenuItems/\(placeId)/\(option.rawValue)") else {
+        guard let url = URL(string: "\(self.baseUrl)/getMenuItems/\(placeId)/\(option.number())") else {
             completion(self.getTestMenuItems())
             return
         }

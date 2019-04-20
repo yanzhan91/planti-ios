@@ -11,4 +11,17 @@ enum Options : String, CaseIterable {
     case ovoVegetarian = "Ovo-Vegetarian"
     case lactoVegetarian = "Lacto-Vegetarian"
     case lactoOvoVegetarian = "Lacto-Ovo Vegetarian"
+    
+    public func number() -> Int {
+        switch self {
+        case .vegan:
+            return 8
+        case .lactoVegetarian:
+            return 12
+        case .ovoVegetarian:
+            return 10
+        case .lactoOvoVegetarian:
+            return 15
+        }
+    }
 }
