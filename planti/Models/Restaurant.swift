@@ -7,39 +7,35 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Restaurant {
-    var placeId: String
-    var name: String
-    var address: String
-    var rating: Float
-    var numRatings: Int
-    var latitude: Double
-    var longitude: Double
-    var distance: Float
-    var imageUrl : String
+class Restaurant: Mappable {
     
-    init() {
-        placeId = ""
-        name = ""
-        address = ""
-        imageUrl = ""
-        latitude = 0
-        longitude = 0
-        rating = 0
-        numRatings = 0
-        distance = -1
+    var placeId: String?
+    var name: String?
+    var address: String?
+    var rating: Float = 0.0
+    var numRatings: Int = 0
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    var distance: Float = 0.0
+    var imageUrl : String?
+    var option : Int = 0
+    
+    required init?(map: Map) {
+
     }
     
-    init(name: String, imageUrl: String, latitude: Double, longitude: Double, ratings: Float, numRatings: Int) {
-        self.placeId = ""
-        self.name = name
-        self.address = ""
-        self.imageUrl = imageUrl
-        self.latitude = latitude
-        self.longitude = longitude
-        self.rating = ratings
-        self.numRatings = numRatings
-        self.distance = -1
+    func mapping(map: Map) {
+        placeId <- map["placeId"]
+        name <- map["name"]
+        address <- map["address"]
+        imageUrl <- map["imageUrl"]
+        latitude <- map["latitude"]
+        longitude <- map["longitude"]
+        rating <- map["rating"]
+        numRatings <- map["numRatings"]
+        distance <- map["distance"]
+        option <- map["option"]
     }
 }

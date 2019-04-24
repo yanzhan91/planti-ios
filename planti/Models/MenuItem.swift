@@ -6,32 +6,28 @@
 //  Copyright © 2019 planti. All rights reserved.
 //
 
-class MenuItem {
-    var id: String
-    var placeId: String
-    var name: String
-    var imageUrl: String
-    var option: Int
-    var containsLabel: String
-    var posted: String
+import ObjectMapper
+
+class MenuItem : Mappable {
+    var id: String?
+    var placeId: String?
+    var name: String?
+    var imageUrl: String?
+    var option: Int = 0
+    var containsLabel: String?
+    var posted: String?
     
-    init() {
-        id = "757658675687"
-        placeId = ""
-        name = ""
-        imageUrl = ""
-        option = 8
-        containsLabel = ""
-        posted = ""
+    required init?(map: Map) {
+        
     }
     
-    init(name: String, imageUrl: String, containsLabel:String, posted: String) {
-        self.id = ""
-        self.placeId = ""
-        self.name = name
-        self.imageUrl = imageUrl
-        self.option = 8
-        self.containsLabel = containsLabel
-        self.posted = posted
+    func mapping(map: Map) {
+        id <- map["id"]
+        placeId <- map["placeId"]
+        name <- map["name"]
+        imageUrl <- map["imageUrl"]
+        option <- map["option"]
+        containsLabel <- map["containsLabel"]
+        posted <- map["posted"]
     }
 }

@@ -324,7 +324,9 @@ extension RestaurantViewController : GMSMapViewDelegate {
         infoWindow.restaurantName.text = restaurant.name
         infoWindow.setNumReviews(numReviews: String(restaurant.numRatings))
         infoWindow.setRatings(ratings: restaurant.rating)
-        infoWindow.image.imageFromURL(urlString: restaurant.imageUrl)
+        if (restaurant.imageUrl != nil) {
+            infoWindow.image.imageFromURL(urlString: restaurant.imageUrl!)
+        }
         return infoWindow
     }
     
@@ -356,7 +358,9 @@ extension RestaurantViewController : UITableViewDataSource {
         
         let restaurant = self.restaurants[indexPath.row]
         
-        cell.restaurantImage.imageFromURL(urlString: restaurant.imageUrl)
+        if (restaurant.imageUrl != nil) {
+            cell.restaurantImage.imageFromURL(urlString: restaurant.imageUrl!)
+        }
         cell.restaurantName.text = restaurant.name
         cell.restaurantAddress.text = "500 W. Madison St, Chicago, IL 60661"
         

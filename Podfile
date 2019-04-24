@@ -12,5 +12,6 @@ target 'planti' do
 #  pod 'ALCameraViewController'
   pod 'TextFieldEffects'
   pod 'Alamofire'
+  pod 'AlamofireObjectMapper'
   
 end

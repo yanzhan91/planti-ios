@@ -8,24 +8,25 @@
 
 import Foundation
 import Alamofire
+import AlamofireObjectMapper
 
 class RestService {
     
     private static var restService = RestService()
-    private var baseUrl: String = ""
+    private final var scheme: String = "http"
+    private final var host: String = "planti-env.er36yiu2yy.us-east-1.elasticbeanstalk.com"
     
     class func shared() -> RestService {
         return restService
     }
     
     public func postUser(option: Options?, settings: Settings?, lastKnownLocation: Location?) {
-        guard let url = URL(string: "\(self.baseUrl)/postUser") else {
-            return
-        }
-
+        
+        let url = buildUrl(path: "/planti-api/ui/postUser", queries: [])
+        
         var parameters : [String: Any] = [:]
         
-        let uuid = UIDevice.current.identifierForVendor?.uuid
+        let uuid = UIDevice.current.identifierForVendor?.description
         if let deviceId = uuid {
             parameters["id"] = deviceId
         }
@@ -39,10 +40,16 @@ class RestService {
         }
         
         if let lastKnownLocation = lastKnownLocation {
-            parameters["lastKnownLocation"] = lastKnownLocation
+            parameters["latitude"] = lastKnownLocation.latitude
+            parameters["longitude"] = lastKnownLocation.longitude
         }
         
-        Alamofire.request(url, method: .post, parameters: parameters)
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/json",
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {
@@ -60,15 +67,20 @@ class RestService {
     public func getRestaurants(option: Options, location: Location, radius: Int,
                                completion: @escaping ([Restaurant]) -> Void) {
         print("Rest: getRestaurants \(option) \(location) \(radius)")
-        guard let url = URL(string: "\(self.baseUrl)/getRestaurants/\(option.number())/\(location.latitude)/\(location.longitude)\(radius)/") else {
-            completion(self.getTestRestaurants())
-            return
-        }
+        
+        
+        let url = buildUrl(path: "/planti-api/ui/getRestaurants", queries: [
+            URLQueryItem(name: "option", value: String(option.number())),
+            URLQueryItem(name: "latitude", value: String(location.latitude)),
+            URLQueryItem(name: "longitude", value: String(location.longitude)),
+            URLQueryItem(name: "radius", value: String(radius))
+        ])
+        
         Alamofire.request(url, method: .get, parameters: ["option": option.rawValue,
                                                           "location": location,
                                                           "distance": radius])
             .validate()
-            .responseJSON { response in
+            .responseArray { (response: DataResponse<[Restaurant]>) in
                 guard response.result.isSuccess, let value = response.result.value else {
                     print("Error: \(String(describing: response.result.error))")
                     completion([])
@@ -80,19 +92,17 @@ class RestService {
                 print("Result: \(response.result)")                         // response serialization result
                 print("Value: \(value)")
                 
-                completion(self.getTestRestaurants())
+                completion(value)
         }
     }
     
     public func getMenuItems(option: Options, placeId: String, completion: @escaping ([MenuItem]) -> Void) {
         print("Rest: getting menu items \(option) \(placeId)")
-        guard let url = URL(string: "\(self.baseUrl)/getMenuItems/\(placeId)/\(option.number())") else {
-            completion(self.getTestMenuItems())
-            return
-        }
+        let url = buildUrl(path: "/planti-api/ui/getMenuItems/", queries: [
+            URLQueryItem(name: "placeId", value: placeId), URLQueryItem(name: "option", value: String(option.number()))])
         Alamofire.request(url, method: .get, parameters: ["placeId": placeId, "option": 1])
             .validate()
-            .responseJSON { response in
+            .responseArray { (response: DataResponse<[MenuItem]>) in
                 guard response.result.isSuccess, let value = response.result.value else {
                     print("Error: \(String(describing: response.result.error))")
                     completion([])
@@ -104,17 +114,14 @@ class RestService {
                 print("Result: \(response.result)")                         // response serialization result
                 print("Value: \(value)")
                 
-                completion(self.getTestMenuItems())
+                completion(value)
         }
     }
     
     public func postMenuItem(placeId: String, menuItemName: String, containsMeat: Bool,
                              containsDiary: Bool, containsEgg: Bool, completion: @escaping () -> Void) {
         print("Rest: posting menu item \(placeId) \(menuItemName)")
-        guard let url = URL(string: "\(self.baseUrl)/postMenuItem/") else {
-            completion()
-            return
-        }
+        let url = buildUrl(path: "/planti-api/ui/postMenuItem/", queries: [])
         
         var option: Int = 8
         if (containsMeat) {
@@ -129,10 +136,10 @@ class RestService {
             }
         }
         
-        Alamofire.request(url, method: .get, parameters: ["placeId": placeId,
+        Alamofire.request(url, method: .post, parameters: ["placeId": placeId,
                                                           "name": menuItemName,
                                                           "imageUrl": "",
-                                                          "option": option])
+                                                          "option": option], encoding: JSONEncoding.default)
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {
@@ -170,23 +177,13 @@ class RestService {
         }
     }
     
-    private func getTestRestaurants() -> [Restaurant] {
-        return [
-            Restaurant(name: "One", imageUrl: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png",
-                       latitude: 41.882085, longitude: -87.640879, ratings: 4.3, numRatings: 1098),
-            Restaurant(name: "Two", imageUrl: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png",
-                       latitude: 41.881073300547996, longitude: -87.64162547155212, ratings: 3.2, numRatings: 14),
-            Restaurant(name: "Three", imageUrl: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png",
-                       latitude: 41.883012, longitude: -87.644991, ratings: 1.7, numRatings: 3002)
-        ]
-    }
-    
-    private func getTestMenuItems() -> [MenuItem] {
-        var menuItems: [MenuItem] = []
-        for i in 1...Int.random(in: 1...5) {
-            menuItems.append(MenuItem(name: String(i), imageUrl: "https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/a00b5514-9b26-11e6-8ccf-00163ec9f5fa/4091407790/restaurant-story-logo.png",
-                                      containsLabel: "Contains: egg, fish", posted: "02/26/2019 Posted by user"))
-        }
-        return menuItems
+    private func buildUrl(path: String, queries: [URLQueryItem]) -> URL {
+        var url = URLComponents()
+        url.scheme = self.scheme
+        url.host = self.host
+        url.port = 5000
+        url.path = path
+        url.queryItems = queries
+        return try! url.asURL()
     }
 }
