@@ -35,9 +35,10 @@ class RestService {
             parameters["option"] = option.number()
         }
         
-        if let settings = settings {
-            parameters["settings"] = settings
-        }
+//        if let settings = settings {
+            // TODO not working
+//            parameters["settings"] = settings
+//        }
         
         if let lastKnownLocation = lastKnownLocation {
             parameters["latitude"] = lastKnownLocation.latitude
@@ -181,7 +182,6 @@ class RestService {
         var url = URLComponents()
         url.scheme = self.scheme
         url.host = self.host
-        url.port = 5000
         url.path = path
         url.queryItems = queries
         return try! url.asURL()
