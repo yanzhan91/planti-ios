@@ -26,7 +26,6 @@ class RestaurantViewController: UIViewController {
     private var zoomLevel: Float = 15.0
     private var restaurants: [Restaurant] = []
     private var displayingMapView: Bool = true
-    private var fetchingRestaurants: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -254,21 +253,17 @@ class RestaurantViewController: UIViewController {
         let coordinates = self.mapView.getCenterCoordinate()
         let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
         let radius = self.mapView.getRadius()
-        if (self.fetchingRestaurants) {
-            self.fetchingRestaurants = true
-            RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
-                self.restaurants = restaurants;
-                if (self.displayingMapView) {
-                    self.mapView.getMarkersAndDisplay(restaurants: restaurants)
-                } else {
-                    self.listView.reloadData()
-                }
-                
-                RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
-                
-                DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
-                self.fetchingRestaurants = false
+        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
+            self.restaurants = restaurants;
+            if (self.displayingMapView) {
+                self.mapView.getMarkersAndDisplay(restaurants: restaurants)
+            } else {
+                self.listView.reloadData()
             }
+            
+            RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
+            
+            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
         }
     }
 }
