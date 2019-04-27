@@ -27,6 +27,8 @@ class RestaurantViewController: UIViewController {
     private var restaurants: [Restaurant] = []
     private var displayingMapView: Bool = true
     
+    private var refreshButton: UIButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -127,20 +129,24 @@ class RestaurantViewController: UIViewController {
         self.mapView.settings.indoorPicker = false
         
         let x = self.view.frame.width - 64 - 15
-        let y = self.view.frame.height - (168 + self.mapView.frame.origin.y)
+        let y = self.mapView.frame.height - (2 * 64) - 40
         let frame = CGRect.init(x: x, y: y, width: 64, height: 64)
         let myLocationButton = UIButton.init(frame: frame)
-        
         myLocationButton.setImage(UIImage.init(named: "my_location_icon"), for: .normal)
         myLocationButton.addTarget(self, action: #selector(goToMyLocation), for: .touchUpInside)
         self.mapView.addSubview(myLocationButton)
+        
+        self.refreshButton = UIButton.init(frame: CGRect.init(x: x, y: y - 64 - 15, width: 64, height: 64))
+        self.refreshButton!.setImage(UIImage.init(named: "refresh_icon"), for: .normal)
+        self.refreshButton!.addTarget(self, action: #selector(fetchRestaurants), for: .touchUpInside)
+        self.mapView.addSubview(self.refreshButton!)
         
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.distanceFilter = 50
-        locationManager.startUpdatingLocation()
         locationManager.delegate = self
+        locationManager.startUpdatingLocation()
     }
     
     @objc private func goToMyLocation() {
@@ -249,7 +255,7 @@ class RestaurantViewController: UIViewController {
         }
     }
     
-    private func fetchRestaurants() {
+    @objc private func fetchRestaurants() {
         let coordinates = self.mapView.getCenterCoordinate()
         let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
         let radius = self.mapView.getRadius()
@@ -278,7 +284,10 @@ extension RestaurantViewController : CLLocationManagerDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude,
                                               zoom: zoomLevel)
+        
         mapView.animate(to: camera)
+        
+        self.fetchRestaurants()
     }
     
     // Handle authorization for the location manager.
@@ -309,8 +318,8 @@ extension RestaurantViewController : CLLocationManagerDelegate {
 extension RestaurantViewController : GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         print("IDLE: \(position)")
+        print("CENTER: \(mapView.getCenterCoordinate())")
         print("RADIUS: \(mapView.getRadius())")
-        fetchRestaurants()
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
