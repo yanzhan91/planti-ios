@@ -21,7 +21,7 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var optionScrollView: OptionsScrollView!
     @IBOutlet weak var navigationBarHeight: NSLayoutConstraint!
     
-    private var locationManager = CLLocationManager()
+    private var locationManager : CLLocationManager!
     private var restaurants: [Restaurant] = []
     private var displayingMapView: Bool = true
     
@@ -139,7 +139,8 @@ class RestaurantViewController: UIViewController {
         self.refreshButton!.addTarget(self, action: #selector(fetchRestaurants), for: .touchUpInside)
         self.mapView.addSubview(self.refreshButton!)
         
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.requestLocation()
@@ -149,8 +150,8 @@ class RestaurantViewController: UIViewController {
         if (self.mapView.myLocation != nil) {
             locationManager.requestLocation()
         } else {
-            let alert = UIAlertController(title: "Location was denied", message: "Please go to Settings and enable location permission", preferredStyle: .alert)
-            
+            let alert = UIAlertController(title: "Location was disabled", message: "Please go to settings and enable location permission for Planti", preferredStyle: .alert)
+
             alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
                 guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                     return
@@ -160,7 +161,7 @@ class RestaurantViewController: UIViewController {
                 }
             })
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
+
             self.present(alert, animated: true)
         }
     }
@@ -259,6 +260,7 @@ class RestaurantViewController: UIViewController {
     private func fetchRestaurantsWithCoordinates(coordinates: CLLocationCoordinate2D) {
         let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
         let radius = self.mapView.getRadius()
+        print(Date())
         RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
             self.restaurants = restaurants;
             if (self.displayingMapView) {
@@ -270,6 +272,7 @@ class RestaurantViewController: UIViewController {
             RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
             
             DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
+            print(Date())
         }
     }
 }
@@ -279,7 +282,7 @@ extension RestaurantViewController : CLLocationManagerDelegate {
         let location: CLLocation = locations.last!
         
         print("TEST UPDT: \(location.coordinate)")
-        self.fetchRestaurantsWithCoordinates(coordinates: location.coordinate)
+//        self.fetchRestaurantsWithCoordinates(coordinates: location.coordinate)
         self.mapView.animate(toLocation: location.coordinate)
     }
     
