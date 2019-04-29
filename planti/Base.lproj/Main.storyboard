@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -721,10 +722,10 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLi-MS-yr5" userLabel="PostButton">
-                                <rect key="frame" x="296" y="723" width="64" height="64"/>
+                                <rect key="frame" x="305" y="742" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="g1u-V9-g5d"/>
-                                    <constraint firstAttribute="width" constant="64" id="lee-mK-rrL"/>
+                                    <constraint firstAttribute="height" constant="50" id="g1u-V9-g5d"/>
+                                    <constraint firstAttribute="width" constant="50" id="lee-mK-rrL"/>
                                 </constraints>
                                 <state key="normal" image="post_icon"/>
                                 <connections>
@@ -740,7 +741,7 @@
                             <constraint firstItem="pES-lF-zIu" firstAttribute="trailing" secondItem="vgn-h2-Qwx" secondAttribute="trailing" id="0Cj-PV-dIK"/>
                             <constraint firstItem="vgn-h2-Qwx" firstAttribute="top" secondItem="6TC-eC-9xL" secondAttribute="bottom" id="AGS-iw-FdD"/>
                             <constraint firstItem="Wvh-NN-Jaq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="B8s-bB-fAh"/>
-                            <constraint firstAttribute="bottom" secondItem="xLi-MS-yr5" secondAttribute="bottom" constant="25" id="HMJ-G0-LlF"/>
+                            <constraint firstAttribute="bottom" secondItem="xLi-MS-yr5" secondAttribute="bottom" constant="20" id="HMJ-G0-LlF"/>
                             <constraint firstItem="pES-lF-zIu" firstAttribute="leading" secondItem="vgn-h2-Qwx" secondAttribute="leading" id="Kag-lh-JKb"/>
                             <constraint firstItem="vgn-h2-Qwx" firstAttribute="leading" secondItem="MEb-W4-oT5" secondAttribute="leading" id="NLt-6U-5f0"/>
                             <constraint firstAttribute="trailing" secondItem="Wvh-NN-Jaq" secondAttribute="trailing" id="NP5-RI-Gbc"/>
@@ -757,7 +758,7 @@
                             <constraint firstItem="vgn-h2-Qwx" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="nCw-mu-nd4"/>
                             <constraint firstItem="OuG-x8-oLE" firstAttribute="trailing" secondItem="MEb-W4-oT5" secondAttribute="trailing" id="pTe-AQ-c8f"/>
                             <constraint firstItem="6TC-eC-9xL" firstAttribute="top" secondItem="OuG-x8-oLE" secondAttribute="bottom" id="s8B-ca-ZdZ"/>
-                            <constraint firstAttribute="trailing" secondItem="xLi-MS-yr5" secondAttribute="trailing" constant="15" id="wwG-WX-jgu"/>
+                            <constraint firstAttribute="trailing" secondItem="xLi-MS-yr5" secondAttribute="trailing" constant="20" id="wwG-WX-jgu"/>
                             <constraint firstItem="6TC-eC-9xL" firstAttribute="trailing" secondItem="MEb-W4-oT5" secondAttribute="trailing" id="zDl-ab-DdL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MEb-W4-oT5"/>
@@ -1255,7 +1256,7 @@
         <image name="menu_icon" width="64" height="64"/>
         <image name="navigation_icon" width="32" height="32"/>
         <image name="navigation_icon_white" width="32" height="32"/>
-        <image name="post_icon" width="60" height="60"/>
+        <image name="post_icon" width="100" height="100"/>
         <image name="vertical_menu_icon" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>

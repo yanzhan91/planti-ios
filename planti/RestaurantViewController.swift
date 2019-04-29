@@ -126,15 +126,15 @@ class RestaurantViewController: UIViewController {
         self.mapView.settings.rotateGestures = false
         self.mapView.settings.indoorPicker = false
         
-        let x = self.view.frame.width - 64 - 15
-        let y = self.mapView.frame.height - (2 * 64) - 40
-        let frame = CGRect.init(x: x, y: y, width: 64, height: 64)
+        let x = self.view.frame.width - 50 - 20
+        let y = self.mapView.frame.height - (2 * 70)
+        let frame = CGRect.init(x: x, y: y, width: 50, height: 50)
         let myLocationButton = UIButton.init(frame: frame)
         myLocationButton.setImage(UIImage.init(named: "my_location_icon"), for: .normal)
         myLocationButton.addTarget(self, action: #selector(goToMyLocation), for: .touchUpInside)
         self.mapView.addSubview(myLocationButton)
         
-        self.refreshButton = UIButton.init(frame: CGRect.init(x: x, y: 15, width: 64, height: 64))
+        self.refreshButton = UIButton.init(frame: CGRect.init(x: x, y: self.mapView.frame.height - (3 * 70), width: 50, height: 50))
         self.refreshButton!.setImage(UIImage.init(named: "refresh_icon"), for: .normal)
         self.refreshButton!.addTarget(self, action: #selector(fetchRestaurants), for: .touchUpInside)
         self.mapView.addSubview(self.refreshButton!)
@@ -245,8 +245,6 @@ class RestaurantViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.destination is RestaurantMenuViewController) {
             let dest = segue.destination as! RestaurantMenuViewController
-            print("\(sender is UITableView)")
-            print("\(sender is String)")
             dest.restaurantName = sender as! String
             dest.option = self.optionScrollView.getPreference()
         }
@@ -258,9 +256,9 @@ class RestaurantViewController: UIViewController {
     }
     
     private func fetchRestaurantsWithCoordinates(coordinates: CLLocationCoordinate2D) {
+        self.refreshButton?.isHidden = true
         let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
         let radius = self.mapView.getRadius()
-        print(Date())
         RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
             self.restaurants = restaurants;
             if (self.displayingMapView) {
@@ -272,7 +270,6 @@ class RestaurantViewController: UIViewController {
             RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
             
             DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
-            print(Date())
         }
     }
 }
@@ -281,8 +278,10 @@ extension RestaurantViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
         
+        self.refreshButton?.isHidden = true
+        
         print("TEST UPDT: \(location.coordinate)")
-//        self.fetchRestaurantsWithCoordinates(coordinates: location.coordinate)
+        self.fetchRestaurantsWithCoordinates(coordinates: location.coordinate)
         self.mapView.animate(toLocation: location.coordinate)
     }
     
@@ -315,6 +314,10 @@ extension RestaurantViewController : GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         let restaurant = self.restaurants[(marker.userData as? Int)!]
         performSegue(withIdentifier: "openRestaurantMenu", sender: restaurant.name)
+    }
+    
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+        self.refreshButton?.isHidden = false
     }
 }
 
@@ -436,8 +439,7 @@ extension RestaurantViewController: GMSAutocompleteViewControllerDelegate {
         self.searchField.text = place.name
         
         dismiss(animated: true) {
-            // 41.885322, -87.633805
-            print(place.coordinate)
+            self.refreshButton?.isHidden = false
             self.mapView.animate(toLocation: place.coordinate)
         }
     }
