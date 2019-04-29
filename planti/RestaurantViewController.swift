@@ -22,7 +22,6 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var navigationBarHeight: NSLayoutConstraint!
     
     private var locationManager = CLLocationManager()
-    private var currentLocation: CLLocation?
     private var zoomLevel: Float = 15.0
     private var restaurants: [Restaurant] = []
     private var displayingMapView: Bool = true
@@ -46,7 +45,7 @@ class RestaurantViewController: UIViewController {
         setupListView()
         setupSearchBar()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(openMneuOption(_:)), name: NSNotification.Name("menuSelected"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openMenuOption(_:)), name: NSNotification.Name("menuSelected"), object: nil)
         
         self.optionScrollView.delegate = self
     }
@@ -136,22 +135,20 @@ class RestaurantViewController: UIViewController {
         myLocationButton.addTarget(self, action: #selector(goToMyLocation), for: .touchUpInside)
         self.mapView.addSubview(myLocationButton)
         
-        self.refreshButton = UIButton.init(frame: CGRect.init(x: x, y: y - 64 - 15, width: 64, height: 64))
+        self.refreshButton = UIButton.init(frame: CGRect.init(x: x, y: 15, width: 64, height: 64))
         self.refreshButton!.setImage(UIImage.init(named: "refresh_icon"), for: .normal)
         self.refreshButton!.addTarget(self, action: #selector(fetchRestaurants), for: .touchUpInside)
         self.mapView.addSubview(self.refreshButton!)
         
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.requestWhenInUseAuthorization()
-        locationManager.distanceFilter = 50
         locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+        locationManager.requestLocation()
     }
     
     @objc private func goToMyLocation() {
         if (self.mapView.myLocation != nil) {
-            self.mapView.animate(toLocation: (self.mapView.myLocation?.coordinate)!)
+            locationManager.requestLocation()
         } else {
             let alert = UIAlertController(title: "Location was denied", message: "Please go to Settings and enable location permission", preferredStyle: .alert)
             
@@ -174,7 +171,7 @@ class RestaurantViewController: UIViewController {
         self.listView.dataSource = self
     }
     
-    @objc private func openMneuOption(_ notification: Notification) {
+    @objc private func openMenuOption(_ notification: Notification) {
         SideMenuManager.default.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
         
         let frame = self.optionsBlackOutView.frame
@@ -257,6 +254,10 @@ class RestaurantViewController: UIViewController {
     
     @objc private func fetchRestaurants() {
         let coordinates = self.mapView.getCenterCoordinate()
+        self.fetchRestaurantsWithCoordinates(coordinates: coordinates)
+    }
+    
+    private func fetchRestaurantsWithCoordinates(coordinates: CLLocationCoordinate2D) {
         let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
         let radius = self.mapView.getRadius()
         RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
@@ -275,37 +276,12 @@ class RestaurantViewController: UIViewController {
 }
 
 extension RestaurantViewController : CLLocationManagerDelegate {
-    // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
-        print("Location: \(location)")
-        print(location.coordinate)
         
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                              longitude: location.coordinate.longitude,
-                                              zoom: zoomLevel)
-        
-        mapView.animate(to: camera)
-        
-        self.fetchRestaurants()
-    }
-    
-    // Handle authorization for the location manager.
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-            case .restricted:
-                print("Location access was restricted.")
-            case .denied:
-                print("User denied access to location.")
-                // Display the map using the default location.
-            case .notDetermined:
-                print("Location status not determined.")
-            case .authorizedAlways: fallthrough
-            case .authorizedWhenInUse:
-                print("Location status is OK.")
-            default:
-                print("Error: \(status)")
-        }
+        print("TEST UPDT: \(location.coordinate)")
+        self.fetchRestaurantsWithCoordinates(coordinates: location.coordinate)
+        self.mapView.animate(toLocation: location.coordinate)
     }
     
     // Handle location manager errors.
@@ -316,11 +292,6 @@ extension RestaurantViewController : CLLocationManagerDelegate {
 }
 
 extension RestaurantViewController : GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        print("IDLE: \(position)")
-        print("CENTER: \(mapView.getCenterCoordinate())")
-        print("RADIUS: \(mapView.getRadius())")
-    }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         mapView.selectedMarker = marker
@@ -402,25 +373,17 @@ extension RestaurantViewController : UITableViewDataSource {
 
 extension GMSMapView {
     func getCenterCoordinate() -> CLLocationCoordinate2D {
-        let centerPoint = self.center
-        let centerCoordinate = self.projection.coordinate(for: centerPoint)
-        return centerCoordinate
-    }
-    
-    func getTopCenterCoordinate() -> CLLocationCoordinate2D {
-        // to get coordinate from CGPoint of your map
-        let topCenterCoor = self.convert(CGPoint(x: self.frame.size.width, y: 0), from: self)
-        let point = self.projection.coordinate(for: topCenterCoor)
-        return point
+        return self.camera.target
     }
     
     func getRadius() -> Double {
-        let centerCoordinate = getCenterCoordinate()
-        let centerLocation = CLLocation(latitude: centerCoordinate.latitude, longitude: centerCoordinate.longitude)
-        let topCenterCoordinate = getTopCenterCoordinate()
-        let topCenterLocation = CLLocation(latitude: topCenterCoordinate.latitude, longitude: topCenterCoordinate.longitude)
-        let radius = CLLocationDistance(centerLocation.distance(from: topCenterLocation))
-        return round(radius) // meters
+        let topLeft: CLLocationCoordinate2D = self.projection.visibleRegion().farLeft
+        let bottomLeft: CLLocationCoordinate2D = self.projection.visibleRegion().nearLeft
+        let zoomt = self.camera.zoom
+        let lat = Double(abs(Float(topLeft.latitude - bottomLeft.latitude)))
+        let metersPerPixel: Double = Double((cos(lat * .pi / 180) * 2 * .pi) * 6378137 / Double((256 * pow(2, zoomt))))
+        print(metersPerPixel * Double(self.frame.width / 2))
+        return round(metersPerPixel * Double(self.frame.width / 2))
     }
     
     func getMarkersAndDisplay(restaurants: [Restaurant]) {
@@ -468,6 +431,8 @@ extension RestaurantViewController: GMSAutocompleteViewControllerDelegate {
         self.searchField.text = place.name
         
         dismiss(animated: true) {
+            // 41.885322, -87.633805
+            print(place.coordinate)
             self.mapView.animate(toLocation: place.coordinate)
         }
     }

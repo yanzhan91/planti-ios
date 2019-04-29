@@ -67,7 +67,7 @@ class RestService {
     
     public func getRestaurants(option: Options, location: Location, radius: Int,
                                completion: @escaping ([Restaurant]) -> Void) {
-        print("Rest: getRestaurants \(option) \(location) \(radius)")
+        print("Rest: getRestaurants \(option) \(location.latitude) \(location.longitude) \(radius)")
         
         
         let url = buildUrl(path: "/planti-api/ui/getRestaurants", queries: [
@@ -77,9 +77,7 @@ class RestService {
             URLQueryItem(name: "radius", value: String(radius))
         ])
         
-        Alamofire.request(url, method: .get, parameters: ["option": option.rawValue,
-                                                          "location": location,
-                                                          "distance": radius])
+        Alamofire.request(url, method: .get, parameters: nil)
             .validate()
             .responseArray { (response: DataResponse<[Restaurant]>) in
                 guard response.result.isSuccess, let value = response.result.value else {
