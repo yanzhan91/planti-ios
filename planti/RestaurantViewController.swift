@@ -22,7 +22,6 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var navigationBarHeight: NSLayoutConstraint!
     
     private var locationManager = CLLocationManager()
-    private var zoomLevel: Float = 15.0
     private var restaurants: [Restaurant] = []
     private var displayingMapView: Bool = true
     
@@ -116,7 +115,7 @@ class RestaurantViewController: UIViewController {
     
     fileprivate func setupMapView() {
         let location = DefaultsKeys.getEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, defaultValue: Location.init(latitude: 41.8823, longitude: -87.6404))
-        let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: zoomLevel)
+        let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 15.0)
         self.mapView.camera = camera
         self.mapView.delegate = self
         self.mapView.isMyLocationEnabled = true
@@ -253,7 +252,7 @@ class RestaurantViewController: UIViewController {
     }
     
     @objc private func fetchRestaurants() {
-        let coordinates = self.mapView.getCenterCoordinate()
+        let coordinates = self.mapView.camera.target
         self.fetchRestaurantsWithCoordinates(coordinates: coordinates)
     }
     
@@ -372,18 +371,21 @@ extension RestaurantViewController : UITableViewDataSource {
 }
 
 extension GMSMapView {
-    func getCenterCoordinate() -> CLLocationCoordinate2D {
-        return self.camera.target
+    
+    func getTopRightCoordinate() -> CLLocationCoordinate2D {
+        // to get coordinate from CGPoint of your map
+        let topCenterCoor = self.convert(CGPoint(x: self.frame.width, y: 0), from: self)
+        let point = self.projection.coordinate(for: topCenterCoor)
+        return point
     }
     
     func getRadius() -> Double {
-        let topLeft: CLLocationCoordinate2D = self.projection.visibleRegion().farLeft
-        let bottomLeft: CLLocationCoordinate2D = self.projection.visibleRegion().nearLeft
-        let zoomt = self.camera.zoom
-        let lat = Double(abs(Float(topLeft.latitude - bottomLeft.latitude)))
-        let metersPerPixel: Double = Double((cos(lat * .pi / 180) * 2 * .pi) * 6378137 / Double((256 * pow(2, zoomt))))
-        print(metersPerPixel * Double(self.frame.width / 2))
-        return round(metersPerPixel * Double(self.frame.width / 2))
+        let centerCoordinate = self.camera.target
+        let centerLocation = CLLocation(latitude: centerCoordinate.latitude, longitude: centerCoordinate.longitude)
+        let topCenterCoordinate = self.getTopRightCoordinate()
+        let topCenterLocation = CLLocation(latitude: topCenterCoordinate.latitude, longitude: topCenterCoordinate.longitude)
+        let radius = CLLocationDistance(centerLocation.distance(from: topCenterLocation))
+        return round(radius)
     }
     
     func getMarkersAndDisplay(restaurants: [Restaurant]) {
