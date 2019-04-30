@@ -3,6 +3,26 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "SearchViewController.viewDidLoad():SearchViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in SearchViewController.tableView(_:didSelectRowAt:):SearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "placemarker.name">
+            </PersistentString>
+            <PersistentString
+               value = "item.name">
+            </PersistentString>
+            <PersistentString
+               value = "placemarker.title">
+            </PersistentString>
+            <PersistentString
+               value = "placemarker.subtitle">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static DeviceType.isIPhoneX.getter:DeviceType.swift">
          <PersistentStrings>
             <PersistentString
@@ -32,6 +52,14 @@
             </PersistentString>
             <PersistentString
                value = "touch.view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchViewController.tableView(_:cellForRowAt:):SearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "item.title">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

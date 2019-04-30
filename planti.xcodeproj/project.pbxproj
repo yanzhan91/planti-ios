@@ -39,6 +39,7 @@
 		F72B77302255807F000322B7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B772F2255807F000322B7 /* Settings.swift */; };
 		F72B773222558165000322B7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B773122558165000322B7 /* Location.swift */; };
 		F72C5D4A2260686F0027E7AF /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C5D492260686F0027E7AF /* DeviceType.swift */; };
+		F73918B52278254D00C047B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73918B42278254D00C047B3 /* SearchViewController.swift */; };
 		F7FC1FD3224C643600FF4AEF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1FD2224C643600FF4AEF /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		F72B772F2255807F000322B7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F72B773122558165000322B7 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F72C5D492260686F0027E7AF /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		F73918B42278254D00C047B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F7FC1FD2224C643600FF4AEF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 				F7FC1FD8224C718300FF4AEF /* MapMarker */,
 				F7FC1FD7224C717800FF4AEF /* RatingsView */,
 				F72C5D492260686F0027E7AF /* DeviceType.swift */,
+				F73918B42278254D00C047B3 /* SearchViewController.swift */,
 			);
 			path = planti;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				B5F4A7AA222E68AB003FAD9D /* SettingsDialog.swift in Sources */,
 				B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */,
 				F72B773222558165000322B7 /* Location.swift in Sources */,
+				F73918B52278254D00C047B3 /* SearchViewController.swift in Sources */,
 				B5F60879221D14ED001989B6 /* Options.swift in Sources */,
 				B521830722476DF6004E7263 /* MapMarker.swift in Sources */,
 				B5018725221E6C7B00F292EC /* ListViewCell.swift in Sources */,

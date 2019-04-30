@@ -96,21 +96,9 @@ class RestaurantViewController: UIViewController {
     }
     
     @objc private func search() {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        
-        // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-            UInt(GMSPlaceField.coordinate.rawValue))!
-        autocompleteController.placeFields = fields
-        
-        // Specify a filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .noFilter
-        autocompleteController.autocompleteFilter = filter
-        
-        // Display the autocomplete view controller.
-        present(autocompleteController, animated: true, completion: nil)
+        let searchVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        searchVc.delegate = self
+        self.present(searchVc, animated: true, completion: nil)
     }
     
     fileprivate func setupMapView() {
@@ -278,11 +266,11 @@ extension RestaurantViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
         
-        self.refreshButton?.isHidden = true
-        
         print("TEST UPDT: \(location.coordinate)")
         self.fetchRestaurantsWithCoordinates(coordinates: location.coordinate)
         self.mapView.animate(toLocation: location.coordinate)
+        
+        self.refreshButton?.isHidden = true
     }
     
     // Handle location manager errors.
@@ -380,7 +368,7 @@ extension GMSMapView {
     
     func getTopRightCoordinate() -> CLLocationCoordinate2D {
         // to get coordinate from CGPoint of your map
-        let topCenterCoor = self.convert(CGPoint(x: self.frame.width, y: 0), from: self)
+        let topCenterCoor = self.convert(CGPoint(x: self.frame.width, y: self.frame.height / 2), from: self)
         let point = self.projection.coordinate(for: topCenterCoor)
         return point
     }
@@ -433,40 +421,15 @@ extension UIImageView {
     }
 }
 
-extension RestaurantViewController: GMSAutocompleteViewControllerDelegate {
-    // Handle the user's selection.
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        self.searchField.text = place.name
-        
-        dismiss(animated: true) {
-            self.refreshButton?.isHidden = false
-            self.mapView.animate(toLocation: place.coordinate)
-        }
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // User canceled the operation.
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-}
-
 extension RestaurantViewController : OptionsScrollViewDelegate {
     func didChangeOption(_ option: Options) {
         self.fetchRestaurants()
+    }
+}
+
+extension RestaurantViewController : SearchViewControllerDelegate {
+    func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D) {
+        self.searchField.text = name
+        self.mapView.animate(toLocation: coordinate)
     }
 }
