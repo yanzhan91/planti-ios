@@ -9,7 +9,7 @@
 import UIKit
 //import ALCameraViewController
 import TextFieldEffects
-import GooglePlaces
+import MapKit
 
 class PostViewController: UIViewController {
 
@@ -24,7 +24,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var diarySwitch: UISwitch!
     @IBOutlet weak var eggSwitch: UISwitch!
     
-    var placeId: String?
+    var coordinate: CLLocationCoordinate2D?
     var name: String?
     
     override func viewDidLoad() {
@@ -75,21 +75,9 @@ class PostViewController: UIViewController {
     }
     
     @objc private func autocompleteTap() {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        
-        // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-            UInt(GMSPlaceField.placeID.rawValue))!
-        autocompleteController.placeFields = fields
-        
-        // Specify a filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .establishment
-        autocompleteController.autocompleteFilter = filter
-        
-        // Display the autocomplete view controller.
-        present(autocompleteController, animated: true, completion: nil)
+        let searchVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        searchVc.delegate = self
+        self.present(searchVc, animated: true, completion: nil)
     }
     
     @objc private func cameraPresed() {
@@ -119,29 +107,9 @@ class PostViewController: UIViewController {
     }
 }
 
-extension PostViewController : GMSAutocompleteViewControllerDelegate {
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        self.restaurantName.text = place.name
-        self.placeId = place.placeID
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
-    }
-    
-    // User canceled the operation.
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+extension PostViewController : SearchViewControllerDelegate {
+    func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D) {
+        self.restaurantName.text = name
+        self.coordinate = coordinate
     }
 }

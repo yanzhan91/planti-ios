@@ -65,14 +65,15 @@ extension SearchViewController: UITableViewDelegate{
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = item.subtitle
         let search = MKLocalSearch(request: request)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         search.start { (response, error) in
             guard let response = response else {return}
             guard let mapItem = response.mapItems.first else {return}
             let placemark = mapItem.placemark
             self.dismiss(animated: true) {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.delegate?.didSelectSearchResult(name: item.title, coordinate: placemark.coordinate)
             }
-//            item.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
         }
     }
 }

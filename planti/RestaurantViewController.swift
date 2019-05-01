@@ -9,7 +9,6 @@
 import UIKit
 import GoogleMaps
 import SideMenu
-import GooglePlaces
 
 class RestaurantViewController: UIViewController {
 

@@ -7,7 +7,6 @@ target 'planti' do
 
   # Pods for planti
   pod 'GoogleMaps'
-  pod 'GooglePlaces'
   pod 'SideMenu'
 #  pod 'ALCameraViewController'
   pod 'TextFieldEffects'
