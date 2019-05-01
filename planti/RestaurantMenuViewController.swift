@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class RestaurantMenuViewController: UIViewController {
     @IBOutlet weak var restaurantNameLabel: UILabel!
@@ -58,7 +59,7 @@ class RestaurantMenuViewController: UIViewController {
         if (segue.destination is PostViewController) {
             let pvc = segue.destination as! PostViewController
             pvc.name = self.restaurantName
-            pvc.placeId = self.placeId
+            pvc.coordinate = CLLocationCoordinate2D.init(latitude: self.latitude, longitude: self.longitude)
         }
     }
 }

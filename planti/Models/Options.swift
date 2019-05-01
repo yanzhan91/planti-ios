@@ -15,13 +15,13 @@ enum Options : String, CaseIterable {
     public func number() -> Int {
         switch self {
         case .vegan:
-            return 8
+            return 1
         case .lactoVegetarian:
-            return 12
+            return 2
         case .ovoVegetarian:
-            return 10
+            return 3
         case .lactoOvoVegetarian:
-            return 15
+            return 4
         }
     }
 }

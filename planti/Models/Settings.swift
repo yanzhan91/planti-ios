@@ -6,7 +6,7 @@
 //  Copyright © 2019 planti. All rights reserved.
 //
 
-class Settings {
+class Settings : Codable {
     var newMenuItems: Bool
     var newPromotions: Bool
     
@@ -18,5 +18,9 @@ class Settings {
     init(newMenuItems: Bool, newPromotions: Bool) {
         self.newMenuItems = newMenuItems
         self.newPromotions = newPromotions
+    }
+    
+    public func toDictionary() -> Dictionary<String, Bool> {
+        return ["newMenuItems": self.newMenuItems, "newPromotions": self.newPromotions]
     }
 }

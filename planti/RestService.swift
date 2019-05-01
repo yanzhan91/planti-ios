@@ -35,10 +35,9 @@ class RestService {
             parameters["option"] = option.number()
         }
         
-//        if let settings = settings {
-            // TODO not working
-//            parameters["settings"] = settings
-//        }
+        if let settings = settings {
+            parameters["settings"] = settings.toDictionary()
+        }
         
         if let lastKnownLocation = lastKnownLocation {
             parameters["latitude"] = lastKnownLocation.latitude
@@ -117,9 +116,9 @@ class RestService {
         }
     }
     
-    public func postMenuItem(placeId: String, menuItemName: String, containsMeat: Bool,
+    public func postMenuItem(name: String, menuItemName: String, containsMeat: Bool,
                              containsDiary: Bool, containsEgg: Bool, completion: @escaping () -> Void) {
-        print("Rest: posting menu item \(placeId) \(menuItemName)")
+        print("Rest: posting menu item \(name) \(menuItemName)")
         let url = buildUrl(path: "/planti-api/ui/postMenuItem/", queries: [])
         
         var option: Int = 8
@@ -135,7 +134,7 @@ class RestService {
             }
         }
         
-        Alamofire.request(url, method: .post, parameters: ["placeId": placeId,
+        Alamofire.request(url, method: .post, parameters: ["restaurantName": name,
                                                           "name": menuItemName,
                                                           "imageUrl": "",
                                                           "option": option], encoding: JSONEncoding.default)
