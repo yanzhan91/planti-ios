@@ -61,16 +61,12 @@ class PostViewController: UIViewController {
     private func getScrollViewContentSize(scrollView: UIScrollView) -> CGSize {
         var contentRect = CGRect.zero
         
-        print(scrollView.subviews.count)
-        
         for view in scrollView.subviews {
-            print(view.frame)
             contentRect = contentRect.union(view.frame)
         }
         
         contentRect.size.width = self.view.frame.width
         
-        print(contentRect.size)
         return contentRect.size
     }
     
@@ -86,8 +82,8 @@ class PostViewController: UIViewController {
 //            self?.dismiss(animated: true, completion: nil)
 //        }
 //        present(cameraViewController, animated: true, completion: nil)
-        print(self.scrollView.frame)
-        print(self.scrollView.contentSize)
+//        print(self.scrollView.frame)
+//        print(self.scrollView.contentSize)
         print("Camera")
     }
     

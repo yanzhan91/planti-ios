@@ -98,7 +98,7 @@ class RestService {
         print("Rest: getting menu items \(option) \(placeId)")
         let url = buildUrl(path: "/planti-api/ui/getMenuItems/", queries: [
             URLQueryItem(name: "placeId", value: placeId), URLQueryItem(name: "option", value: String(option.number()))])
-        Alamofire.request(url, method: .get, parameters: ["placeId": placeId, "option": 1])
+        Alamofire.request(url, method: .get)
             .validate()
             .responseArray { (response: DataResponse<[MenuItem]>) in
                 guard response.result.isSuccess, let value = response.result.value else {

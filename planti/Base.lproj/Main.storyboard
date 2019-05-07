@@ -849,10 +849,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8e-so-925" userLabel="Back Button">
-                                        <rect key="frame" x="8" y="58" width="20" height="20"/>
+                                        <rect key="frame" x="8" y="50" width="36" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="RtR-Lk-eZk"/>
-                                            <constraint firstAttribute="width" constant="20" id="niT-Wj-Wow"/>
+                                            <constraint firstAttribute="height" constant="36" id="RtR-Lk-eZk"/>
+                                            <constraint firstAttribute="width" constant="36" id="niT-Wj-Wow"/>
                                         </constraints>
                                         <state key="normal" image="back_icon"/>
                                         <connections>
@@ -1142,10 +1142,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyv-pf-k0i" userLabel="Back Button">
-                                        <rect key="frame" x="8" y="58" width="20" height="20"/>
+                                        <rect key="frame" x="8" y="50" width="36" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="RtX-J6-lcl"/>
-                                            <constraint firstAttribute="height" constant="20" id="aKE-D1-v50"/>
+                                            <constraint firstAttribute="width" constant="36" id="RtX-J6-lcl"/>
+                                            <constraint firstAttribute="height" constant="36" id="aKE-D1-v50"/>
                                         </constraints>
                                         <state key="normal" image="back_icon"/>
                                         <connections>
@@ -1154,10 +1154,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptO-9B-EDU">
-                                        <rect key="frame" x="345" y="60.666666666666657" width="15" height="15"/>
+                                        <rect key="frame" x="324" y="50" width="36" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="KoM-NR-dKc"/>
-                                            <constraint firstAttribute="width" constant="15" id="LCL-oa-6i6"/>
+                                            <constraint firstAttribute="height" constant="36" id="KoM-NR-dKc"/>
+                                            <constraint firstAttribute="width" constant="36" id="LCL-oa-6i6"/>
                                         </constraints>
                                         <state key="normal" image="navigation_icon_white"/>
                                         <connections>
@@ -1311,6 +1311,6 @@
         <image name="vertical_menu_icon" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gnn-bx-0ca"/>
+        <segue reference="qzp-NJ-UBY"/>
     </inferredMetricsTieBreakers>
 </document>

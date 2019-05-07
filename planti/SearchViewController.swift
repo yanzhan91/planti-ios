@@ -23,7 +23,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         self.searchController.obscuresBackgroundDuringPresentation = false
-        self.searchController.searchBar.placeholder = "Search Candies"
+        self.searchController.searchBar.placeholder = "Search place or restaurants"
         self.searchController.definesPresentationContext = true
         
         self.searchController.isActive = true
@@ -38,6 +38,8 @@ class SearchViewController: UIViewController {
         self.tableView.dataSource = self
         self.searchCompleter.delegate = self
         self.searchController.searchBar.delegate = self
+        
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -63,15 +65,19 @@ extension SearchViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = places[indexPath.row]
         let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = item.subtitle
+        request.naturalLanguageQuery = item.subtitle == "" ? item.title : item.subtitle
         let search = MKLocalSearch(request: request)
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         search.start { (response, error) in
-            guard let response = response else {return}
+            guard let response = response else {
+                print(error.debugDescription)
+                return
+            }
             guard let mapItem = response.mapItems.first else {return}
             let placemark = mapItem.placemark
+            print(placemark.coordinate)
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             self.dismiss(animated: true) {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.delegate?.didSelectSearchResult(name: item.title, coordinate: placemark.coordinate)
             }
         }
@@ -92,7 +98,9 @@ extension SearchViewController: MKLocalSearchCompleterDelegate{
 
 extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchCompleter.queryFragment = searchText
+        if (searchText != "") {
+            self.searchCompleter.queryFragment = searchText
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

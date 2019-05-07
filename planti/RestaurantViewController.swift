@@ -26,6 +26,8 @@ class RestaurantViewController: UIViewController {
     
     private var refreshButton: UIButton?
     
+    private var searchVC: SearchViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -95,9 +97,9 @@ class RestaurantViewController: UIViewController {
     }
     
     @objc private func search() {
-        let searchVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
-        searchVc.delegate = self
-        self.present(searchVc, animated: true, completion: nil)
+        self.searchVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController)
+        self.searchVC!.delegate = self
+        self.present(self.searchVC!, animated: true, completion: nil)
     }
     
     fileprivate func setupMapView() {
@@ -232,7 +234,9 @@ class RestaurantViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.destination is RestaurantMenuViewController) {
             let dest = segue.destination as! RestaurantMenuViewController
-            dest.restaurantName = sender as! String
+            let map = sender as? Dictionary<String, String>
+            dest.restaurantName = (map?["restaurantName"])!
+            dest.placeId = (map?["placeId"])!
             dest.option = self.optionScrollView.getPreference()
         }
     }
@@ -300,7 +304,7 @@ extension RestaurantViewController : GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         let restaurant = self.restaurants[(marker.userData as? Int)!]
-        performSegue(withIdentifier: "openRestaurantMenu", sender: restaurant.name)
+        performSegue(withIdentifier: "openRestaurantMenu", sender: ["restaurantName": restaurant.name, "placeId": restaurant.placeId])
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
@@ -319,8 +323,8 @@ extension RestaurantViewController : UIGestureRecognizerDelegate {
 
 extension RestaurantViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! ListViewCell
-        performSegue(withIdentifier: "openRestaurantMenu", sender: cell.restaurantName.text)
+        let restaurant = self.restaurants[indexPath.row]
+        performSegue(withIdentifier: "openRestaurantMenu", sender: ["restaurantName": restaurant.name, "placeId": restaurant.placeId])
     }
 }
 
@@ -334,7 +338,7 @@ extension RestaurantViewController : UITableViewDataSource {
             cell.restaurantImage.imageFromURL(urlString: restaurant.imageUrl!)
         }
         cell.restaurantName.text = restaurant.name
-        cell.restaurantAddress.text = "500 W. Madison St, Chicago, IL 60661"
+        cell.restaurantAddress.text = restaurant.address
         
         if (restaurant.distance < 0) {
             cell.distance.text = ""
@@ -367,8 +371,8 @@ extension GMSMapView {
     
     func getTopRightCoordinate() -> CLLocationCoordinate2D {
         // to get coordinate from CGPoint of your map
-        let topCenterCoor = self.convert(CGPoint(x: self.frame.width, y: self.frame.height / 2), from: self)
-        let point = self.projection.coordinate(for: topCenterCoor)
+        let topRightCoor = self.convert(CGPoint(x: self.frame.width, y: 0), from: self)
+        let point = self.projection.coordinate(for: topRightCoor)
         return point
     }
     
@@ -430,5 +434,7 @@ extension RestaurantViewController : SearchViewControllerDelegate {
     func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D) {
         self.searchField.text = name
         self.mapView.animate(toLocation: coordinate)
+//        self.searchVC?.dismiss(animated: true, completion: nil)
+//        self.searchVC = nil
     }
 }

@@ -79,7 +79,7 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
         if (menuItem.imageUrl != nil) {
             cell.entreeImage.imageFromURL(urlString: menuItem.imageUrl!)
         }
-        cell.containsLabel.text = "Contains: egg, fish"
+        cell.containsLabel.text = menuItem.containsLabel
         cell.name.text = menuItem.name
         cell.posted.text = "02/26/2019 Posted by user"
         cell.dropdownMenuButton.tag = indexPath.row
