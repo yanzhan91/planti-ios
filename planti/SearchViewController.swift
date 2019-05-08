@@ -38,8 +38,6 @@ class SearchViewController: UIViewController {
         self.tableView.dataSource = self
         self.searchCompleter.delegate = self
         self.searchController.searchBar.delegate = self
-        
-        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -75,9 +73,10 @@ extension SearchViewController: UITableViewDelegate{
             guard let mapItem = response.mapItems.first else {return}
             let placemark = mapItem.placemark
             print(placemark.coordinate)
-//            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            self.searchController.isActive = false
             self.dismiss(animated: true) {
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.delegate?.didSelectSearchResult(name: item.title, coordinate: placemark.coordinate)
             }
         }
@@ -85,7 +84,6 @@ extension SearchViewController: UITableViewDelegate{
 }
 
 extension SearchViewController: MKLocalSearchCompleterDelegate{
-    
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         places = completer.results
         self.tableView.reloadData()
@@ -96,7 +94,7 @@ extension SearchViewController: MKLocalSearchCompleterDelegate{
     }
 }
 
-extension SearchViewController: UISearchBarDelegate{
+extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchText != "") {
             self.searchCompleter.queryFragment = searchText

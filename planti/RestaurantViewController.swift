@@ -26,8 +26,6 @@ class RestaurantViewController: UIViewController {
     
     private var refreshButton: UIButton?
     
-    private var searchVC: SearchViewController?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,9 +95,9 @@ class RestaurantViewController: UIViewController {
     }
     
     @objc private func search() {
-        self.searchVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController)
-        self.searchVC!.delegate = self
-        self.present(self.searchVC!, animated: true, completion: nil)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        vc.delegate = self
+        self.present(vc, animated: true, completion: nil)
     }
     
     fileprivate func setupMapView() {
@@ -434,7 +432,5 @@ extension RestaurantViewController : SearchViewControllerDelegate {
     func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D) {
         self.searchField.text = name
         self.mapView.animate(toLocation: coordinate)
-//        self.searchVC?.dismiss(animated: true, completion: nil)
-//        self.searchVC = nil
     }
 }
