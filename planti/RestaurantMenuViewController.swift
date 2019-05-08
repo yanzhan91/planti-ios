@@ -76,9 +76,10 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntreeCell") as! EntreeCell
         let menuItem = self.menuItems[indexPath.row]
-        if (menuItem.imageUrl != nil) {
-            cell.entreeImage.imageFromURL(urlString: menuItem.imageUrl!)
-        }
+//        if (menuItem.imageUrl != nil) {
+//            cell.entreeImage.imageFromURL(urlString: menuItem.imageUrl!)
+//        }
+        cell.entreeImage?.image = UIImage.init(named: "default_image")
         cell.containsLabel.text = menuItem.containsLabel
         cell.name.text = menuItem.name
         cell.posted.text = "02/26/2019 Posted by user"

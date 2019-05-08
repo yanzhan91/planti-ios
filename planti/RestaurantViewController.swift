@@ -291,12 +291,14 @@ extension RestaurantViewController : GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let restaurant = self.restaurants[(marker.userData as? Int)!]
         let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        infoWindow.layer.cornerRadius = 12
         infoWindow.restaurantName.text = restaurant.name
         infoWindow.setNumReviews(numReviews: String(restaurant.numRatings))
         infoWindow.setRatings(ratings: restaurant.rating)
-        if (restaurant.imageUrl != nil) {
-            infoWindow.image.imageFromURL(urlString: restaurant.imageUrl!)
-        }
+//        if (restaurant.imageUrl != nil) {
+//            infoWindow.image.imageFromURL(urlString: restaurant.imageUrl!)
+//        }
+        infoWindow.image.image = UIImage.init(named: "default_image")
         return infoWindow
     }
     
@@ -346,6 +348,8 @@ extension RestaurantViewController : UITableViewDataSource {
         
         cell.ratingsView.setRatings(ratings: restaurant.rating)
         cell.ratingsView.numReviews.text = String(restaurant.numRatings)
+        
+        cell.imageView?.image = UIImage.init(named: "default_image")
         
         cell.latitude = restaurant.latitude
         cell.longitude = restaurant.longitude
