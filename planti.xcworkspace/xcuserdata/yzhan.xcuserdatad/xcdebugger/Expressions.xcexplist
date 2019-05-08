@@ -42,6 +42,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "RestaurantViewController.locationManager(_:didUpdateLocations:):RestaurantViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.refreshButton?.isHidden">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "RestaurantViewController.gestureRecognizer(_:shouldReceive:):RestaurantViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -59,15 +67,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SearchViewController.viewDidLoad():SearchViewController.swift">
-      </ContextState>
-      <ContextState
          contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
                value = "UIDevice.current.identifierForVendor">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchViewController.viewDidLoad():SearchViewController.swift">
       </ContextState>
       <ContextState
          contextName = "SearchViewController.tableView(_:cellForRowAt:):SearchViewController.swift">

@@ -25,6 +25,7 @@ class RestaurantViewController: UIViewController {
     private var displayingMapView: Bool = true
     
     private var refreshButton: UIButton?
+    private var refreshable = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,6 +136,7 @@ class RestaurantViewController: UIViewController {
     
     @objc private func goToMyLocation() {
         if (self.mapView.myLocation != nil) {
+            self.refreshable = false
             locationManager.requestLocation()
         } else {
             let alert = UIAlertController(title: "Location was disabled", message: "Please go to settings and enable location permission for Planti", preferredStyle: .alert)
@@ -267,11 +269,11 @@ extension RestaurantViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
         
+        self.refreshButton?.isHidden = true
+        
         print("TEST UPDT: \(location.coordinate)")
         self.fetchRestaurantsWithCoordinates(coordinates: location.coordinate)
         self.mapView.animate(toLocation: location.coordinate)
-        
-        self.refreshButton?.isHidden = true
     }
     
     // Handle location manager errors.
@@ -309,7 +311,12 @@ extension RestaurantViewController : GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
-        self.refreshButton?.isHidden = false
+        if (self.refreshable) {
+            self.refreshButton?.isHidden = false
+        } else {
+            self.refreshable = true
+            self.refreshButton?.isHidden = true
+        }
     }
 }
 
@@ -435,6 +442,8 @@ extension RestaurantViewController : OptionsScrollViewDelegate {
 extension RestaurantViewController : SearchViewControllerDelegate {
     func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D) {
         self.searchField.text = name
+        self.refreshable = false
+        self.fetchRestaurantsWithCoordinates(coordinates: coordinate)
         self.mapView.animate(toLocation: coordinate)
     }
 }
