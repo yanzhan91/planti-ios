@@ -38,6 +38,7 @@ class MapMarker: UIView {
         self.layer.borderColor = Colors.themeGreen.cgColor
         self.layer.cornerRadius = 12
         self.layer.borderWidth = 2
+        self.backgroundColor = .clear
         addSubview(self.contentView)
     }
 }

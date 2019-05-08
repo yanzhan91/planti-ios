@@ -670,7 +670,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="98.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PFs-C4-zPN" userLabel="Restaurant Image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="PFs-C4-zPN" userLabel="Restaurant Image">
                                                     <rect key="frame" x="15" y="17.333333333333329" width="64" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="64" id="TWa-Az-qJX"/>
@@ -1135,8 +1135,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfc-6F-dWQ" userLabel="NavigationBar">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBz-uf-Df5">
-                                        <rect key="frame" x="106" y="56" width="163" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBz-uf-Df5">
+                                        <rect key="frame" x="44" y="56" width="280" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1154,7 +1154,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptO-9B-EDU">
-                                        <rect key="frame" x="324" y="50" width="36" height="36"/>
+                                        <rect key="frame" x="324" y="54" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="KoM-NR-dKc"/>
                                             <constraint firstAttribute="width" constant="36" id="LCL-oa-6i6"/>
@@ -1168,12 +1168,13 @@
                                 <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ptO-9B-EDU" secondAttribute="trailing" constant="15" id="01t-1z-C6g"/>
+                                    <constraint firstItem="ptO-9B-EDU" firstAttribute="leading" secondItem="rBz-uf-Df5" secondAttribute="trailing" id="0Jq-cK-NkM"/>
                                     <constraint firstItem="rBz-uf-Df5" firstAttribute="centerY" secondItem="Tyv-pf-k0i" secondAttribute="centerY" id="7Ic-v2-O5M"/>
                                     <constraint firstItem="Tyv-pf-k0i" firstAttribute="leading" secondItem="gfc-6F-dWQ" secondAttribute="leading" constant="8" id="HGh-db-zWA"/>
-                                    <constraint firstItem="ptO-9B-EDU" firstAttribute="centerY" secondItem="rBz-uf-Df5" secondAttribute="centerY" id="cVB-SW-Mp0"/>
+                                    <constraint firstItem="ptO-9B-EDU" firstAttribute="centerY" secondItem="rBz-uf-Df5" secondAttribute="centerY" constant="4" id="cVB-SW-Mp0"/>
                                     <constraint firstAttribute="bottom" secondItem="rBz-uf-Df5" secondAttribute="bottom" constant="20" id="fT1-7E-ABg"/>
                                     <constraint firstAttribute="height" constant="100" id="jS5-Qb-DDk"/>
-                                    <constraint firstItem="rBz-uf-Df5" firstAttribute="centerX" secondItem="gfc-6F-dWQ" secondAttribute="centerX" id="kd5-Al-QyN"/>
+                                    <constraint firstItem="rBz-uf-Df5" firstAttribute="leading" secondItem="Tyv-pf-k0i" secondAttribute="trailing" id="vHX-wG-6Ba"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5YG-Qs-tQL">
@@ -1189,14 +1190,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kf0-AB-23a">
-                                                    <rect key="frame" x="10" y="10" width="100" height="100"/>
+                                                    <rect key="frame" x="10" y="10" width="64" height="64"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="Dcb-Tx-vJH"/>
-                                                        <constraint firstAttribute="width" constant="100" id="q7z-aM-4MI"/>
+                                                        <constraint firstAttribute="height" constant="64" id="Dcb-Tx-vJH"/>
+                                                        <constraint firstAttribute="width" constant="64" id="q7z-aM-4MI"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Oklahoma Bacon Cheeseburger" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="j1d-NN-LBQ">
-                                                    <rect key="frame" x="118" y="10" width="213" height="48"/>
+                                                    <rect key="frame" x="89" y="10" width="242" height="53"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="uX9-K4-XA3"/>
                                                     </constraints>
@@ -1213,30 +1214,31 @@
                                                     <state key="normal" image="vertical_menu_icon"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains: egg, fish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAV-3l-G8j">
-                                                    <rect key="frame" x="118" y="63" width="241" height="14"/>
+                                                    <rect key="frame" x="89" y="68" width="270" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/30/2019 Johndfsdfff S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYp-db-doi">
-                                                    <rect key="frame" x="118" y="82" width="241" height="12"/>
+                                                    <rect key="frame" x="89" y="87" width="270" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aYp-db-doi" secondAttribute="bottom" constant="10" id="0OV-Ki-0NP"/>
                                                 <constraint firstItem="WAV-3l-G8j" firstAttribute="leading" secondItem="j1d-NN-LBQ" secondAttribute="leading" id="189-WZ-9gz"/>
                                                 <constraint firstItem="aYp-db-doi" firstAttribute="trailing" secondItem="WAV-3l-G8j" secondAttribute="trailing" id="5uw-fN-T5t"/>
                                                 <constraint firstItem="PSc-co-qKf" firstAttribute="trailing" secondItem="WAV-3l-G8j" secondAttribute="trailing" id="6CH-ll-rMK"/>
+                                                <constraint firstItem="kf0-AB-23a" firstAttribute="top" secondItem="8GR-5C-Pkq" secondAttribute="top" constant="10" id="EWg-Iy-6kn"/>
                                                 <constraint firstItem="j1d-NN-LBQ" firstAttribute="top" secondItem="kf0-AB-23a" secondAttribute="top" id="IKi-og-AhK"/>
                                                 <constraint firstItem="PSc-co-qKf" firstAttribute="leading" secondItem="j1d-NN-LBQ" secondAttribute="trailing" constant="8" id="IfS-NW-z1P"/>
                                                 <constraint firstItem="aYp-db-doi" firstAttribute="top" secondItem="WAV-3l-G8j" secondAttribute="bottom" constant="5" id="O76-mg-ufR"/>
-                                                <constraint firstItem="j1d-NN-LBQ" firstAttribute="leading" secondItem="kf0-AB-23a" secondAttribute="trailing" constant="8" id="Qfg-R3-IRE"/>
+                                                <constraint firstItem="j1d-NN-LBQ" firstAttribute="leading" secondItem="kf0-AB-23a" secondAttribute="trailing" constant="15" id="Qfg-R3-IRE"/>
                                                 <constraint firstItem="PSc-co-qKf" firstAttribute="top" secondItem="j1d-NN-LBQ" secondAttribute="top" id="db1-Mj-nyV"/>
                                                 <constraint firstItem="kf0-AB-23a" firstAttribute="leading" secondItem="8GR-5C-Pkq" secondAttribute="leading" constant="10" id="jLO-1g-Hg5"/>
                                                 <constraint firstItem="aYp-db-doi" firstAttribute="leading" secondItem="j1d-NN-LBQ" secondAttribute="leading" id="qT8-no-Rrv"/>
-                                                <constraint firstItem="kf0-AB-23a" firstAttribute="centerY" secondItem="8GR-5C-Pkq" secondAttribute="centerY" id="wIl-Ld-fHZ"/>
                                                 <constraint firstItem="WAV-3l-G8j" firstAttribute="top" secondItem="j1d-NN-LBQ" secondAttribute="bottom" constant="5" id="xCc-fe-6xH"/>
                                                 <constraint firstAttribute="trailing" secondItem="PSc-co-qKf" secondAttribute="trailing" constant="16" id="zMq-KR-Y7e"/>
                                             </constraints>
@@ -1302,11 +1304,12 @@
     <resources>
         <image name="Menu_logo" width="200" height="80"/>
         <image name="back_icon" width="20" height="20"/>
+        <image name="default_image" width="100" height="100"/>
         <image name="green_logo" width="371" height="221"/>
         <image name="list_icon" width="60" height="60"/>
         <image name="menu_icon" width="64" height="64"/>
         <image name="navigation_icon" width="32" height="32"/>
-        <image name="navigation_icon_white" width="32" height="32"/>
+        <image name="navigation_icon_white" width="20" height="20"/>
         <image name="post_icon" width="100" height="100"/>
         <image name="vertical_menu_icon" width="64" height="64"/>
     </resources>

@@ -109,7 +109,7 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return UITableView.automaticDimension
     }
 }
 
