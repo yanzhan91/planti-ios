@@ -259,6 +259,22 @@ class RestaurantViewController: UIViewController {
                 self.listView.reloadData()
             }
             
+            if (restaurants.count == 0) {
+                print(self.view.frame)
+                let x = self.view.frame.width / 2 - 109
+                let y = self.optionScrollView.frame.origin.y + self.optionScrollView.frame.height + 10
+                let noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: y, width: 218, height: 40), title: "No restaurants available")
+                print(noRestaurantNotice.frame)
+                noRestaurantNotice.activate()
+                self.view.addSubview(noRestaurantNotice)
+//                UIView.animate(withDuration: 1.0, animations: {
+//                    noRestaurantNotice.frame = CGRect(x: x, y: y, width: 218, height: 40)
+//                })
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    noRestaurantNotice.removeFromSuperview()
+                }
+            }
+            
             RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
             
             DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
