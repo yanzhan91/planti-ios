@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "planti/RestaurantViewController.swift"
-            timestampString = "579026381.689347"
+            timestampString = "579067157.524006"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "mapView(_:willMove:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -137,6 +137,7 @@ class RestaurantViewController: UIViewController {
     @objc private func goToMyLocation() {
         if (self.mapView.myLocation != nil) {
             self.refreshable = false
+            self.searchField.text = ""
             locationManager.requestLocation()
         } else {
             let alert = UIAlertController(title: "Location was disabled", message: "Please go to settings and enable location permission for Planti", preferredStyle: .alert)
@@ -312,6 +313,7 @@ extension RestaurantViewController : GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
         if (self.refreshable) {
+            self.searchField.text = ""
             self.refreshButton?.isHidden = false
         } else {
             self.refreshable = true
