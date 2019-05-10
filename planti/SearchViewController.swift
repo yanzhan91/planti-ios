@@ -23,7 +23,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         self.searchController.obscuresBackgroundDuringPresentation = false
-        self.searchController.searchBar.placeholder = "Search place or restaurants"
+        self.searchController.searchBar.placeholder = "Search places or restaurants"
         self.searchController.definesPresentationContext = true
         
         self.searchController.isActive = true
@@ -38,6 +38,8 @@ class SearchViewController: UIViewController {
         self.tableView.dataSource = self
         self.searchCompleter.delegate = self
         self.searchController.searchBar.delegate = self
+        
+        self.searchController.searchBar.becomeFirstResponder()
     }
 }
 

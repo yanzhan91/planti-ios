@@ -92,9 +92,9 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
     @objc func openDropDown(sender: UIButton) {
         let menuItem = self.menuItems[sender.tag]
         let optionMenu = UIAlertController(title: self.restaurantName, message: menuItem.name, preferredStyle: .actionSheet)
-        let reportAction = UIAlertAction.init(title: "Report Error", style: .destructive) { (action) in
+        let reportAction = UIAlertAction(title: "Report Error", style: .default) { (action) in
             if (menuItem.id != nil) {
-                RestService.shared().reportError(id: menuItem.id!)
+                RestService.shared().reportError(id: menuItem.id!, placeId: self.placeId)
             }
             let okAlert = UIAlertController(title: "Thank you for your feedback!", message: nil, preferredStyle: .alert)
             okAlert.addAction(UIAlertAction(title: "OK", style: .cancel))

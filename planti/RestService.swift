@@ -155,12 +155,12 @@ class RestService {
         }
     }
     
-    public func reportError(id: String) {
+    public func reportError(id: String, placeId: String) {
         print("Rest: reporting error \(id)")
-        guard let url = URL(string: "") else {
-            return
-        }
-        Alamofire.request(url, method: .post, parameters: ["id": id])
+        let url = buildUrl(path: "/planti-api/ui/reportError", queries: [
+            URLQueryItem(name: "id", value: id),
+            URLQueryItem(name: "placeId", value: placeId)])
+        Alamofire.request(url, method: .post)
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {

@@ -27,6 +27,8 @@ class RestaurantViewController: UIViewController {
     private var refreshButton: UIButton?
     private var refreshable = true
     
+    private var noRestaurantNotice: ThemeButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -126,6 +128,7 @@ class RestaurantViewController: UIViewController {
         self.refreshButton!.setImage(UIImage.init(named: "refresh_icon"), for: .normal)
         self.refreshButton!.addTarget(self, action: #selector(fetchRestaurants), for: .touchUpInside)
         self.mapView.addSubview(self.refreshButton!)
+        self.refreshButton!.isHidden = true
         
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -178,28 +181,18 @@ class RestaurantViewController: UIViewController {
         case 3:
             break
         case 4:
-            self.optionsBlackOutView.isHidden = false
-            let y = 100
-            let width = 300
-            let height = 400
-            let textDialog = TextDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
-            textDialog.title.text = "Terms of Service"
-            textDialog.text.text = "This is a test terms of services. Bala, please complete."
-            textDialog.closeButton.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
-            textDialog.closeButton.setTitle("Close", for: .normal)
-            self.optionsBlackOutView.addSubview(textDialog)
+            let termsVC = UIStoryboard(name: "Main", bundle:nil)
+                .instantiateViewController(withIdentifier: "textVC") as! TextViewController
+            termsVC.nameText = "Terms of Use"
+            termsVC.textviewText = Documents.shared().getTerms()
+            self.present(termsVC, animated: true, completion: nil)
             break
         case 5:
-            self.optionsBlackOutView.isHidden = false
-            let y = 100
-            let width = 300
-            let height = 400
-            let textDialog = TextDialog.init(frame: CGRect(x: x, y: y, width: width, height: height))
-            textDialog.title.text = "Privacy Policy"
-            textDialog.text.text = "This is a test privacy policy. Bala, please complete."
-            textDialog.closeButton.addTarget(self, action: #selector(blackoutTap), for: .touchUpInside)
-            textDialog.closeButton.setTitle("Close", for: .normal)
-            self.optionsBlackOutView.addSubview(textDialog)
+            let privacyVC = UIStoryboard(name: "Main", bundle:nil)
+                .instantiateViewController(withIdentifier: "textVC") as! TextViewController
+            privacyVC.nameText = "Privacy Policy"
+            privacyVC.textviewText = "This is a test privacy policy. Bala, please complete."
+            self.present(privacyVC, animated: true, completion: nil)
             break
         case 6:
             self.optionsBlackOutView.isHidden = false
@@ -251,6 +244,7 @@ class RestaurantViewController: UIViewController {
         self.refreshButton?.isHidden = true
         let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
         let radius = self.mapView.getRadius()
+        
         RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
             self.restaurants = restaurants;
             if (self.displayingMapView) {
@@ -258,25 +252,19 @@ class RestaurantViewController: UIViewController {
             } else {
                 self.listView.reloadData()
             }
-            
+
             if (restaurants.count == 0) {
-                print(self.view.frame)
-                let x = self.view.frame.width / 2 - 109
-                let y = self.optionScrollView.frame.origin.y + self.optionScrollView.frame.height + 10
-                let noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: y, width: 218, height: 40), title: "No restaurants available")
-                print(noRestaurantNotice.frame)
-                noRestaurantNotice.activate()
-                self.view.addSubview(noRestaurantNotice)
-//                UIView.animate(withDuration: 1.0, animations: {
-//                    noRestaurantNotice.frame = CGRect(x: x, y: y, width: 218, height: 40)
-//                })
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    noRestaurantNotice.removeFromSuperview()
+                if (self.noRestaurantNotice == nil) {
+                    let x = self.view.frame.width / 2 - 138
+                    self.noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: 10, width: 277, height: 40), title: "No restaurants yet in this area")
+                    self.noRestaurantNotice!.activate()
+                    self.mapView.addSubview(self.noRestaurantNotice!)
                 }
+                self.noRestaurantNotice?.isHidden = false
             }
-            
+
             RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
-            
+
             DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
         }
     }
@@ -325,6 +313,10 @@ extension RestaurantViewController : GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         let restaurant = self.restaurants[(marker.userData as? Int)!]
         performSegue(withIdentifier: "openRestaurantMenu", sender: ["restaurantName": restaurant.name, "placeId": restaurant.placeId])
+    }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        self.noRestaurantNotice?.isHidden = true
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {

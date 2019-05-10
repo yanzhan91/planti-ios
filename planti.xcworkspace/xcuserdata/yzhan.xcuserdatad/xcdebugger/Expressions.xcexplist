@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in RestaurantViewController.fetchRestaurantsWithCoordinates(coordinates:):RestaurantViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "noRestaurauntNotice.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in SearchViewController.tableView(_:didSelectRowAt:):SearchViewController.swift">
          <PersistentStrings>
             <PersistentString
