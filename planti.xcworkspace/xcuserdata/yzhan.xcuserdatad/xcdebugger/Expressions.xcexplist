@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in RestaurantViewController.fetchRestaurantsWithCoordinates(coordinates:):RestaurantViewController.swift">
+         contextName = "SearchViewController.tableView(_:cellForRowAt:):SearchViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "noRestaurauntNotice.frame">
+               value = "item.title">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -58,6 +58,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MenuTableViewController.tableView(_:didSelectRowAt:):MenuTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.parent">
+            </PersistentString>
+            <PersistentString
+               value = " SideMenuManager.default.menuLeftNavigationController?">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "RestaurantViewController.gestureRecognizer(_:shouldReceive:):RestaurantViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -83,15 +94,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SearchViewController.viewDidLoad():SearchViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "SearchViewController.tableView(_:cellForRowAt:):SearchViewController.swift">
+         contextName = "closure #1 in RestaurantViewController.fetchRestaurantsWithCoordinates(coordinates:):RestaurantViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "item.title">
+               value = "noRestaurauntNotice.frame">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchViewController.viewDidLoad():SearchViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

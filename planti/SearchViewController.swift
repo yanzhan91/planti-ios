@@ -63,6 +63,7 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.selectingSearchResult?()
         let item = places[indexPath.row]
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = item.subtitle == "" ? item.title : item.subtitle
@@ -108,6 +109,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-protocol SearchViewControllerDelegate {
+@objc protocol SearchViewControllerDelegate {
+    @objc optional func selectingSearchResult()
     func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D)
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class MenuTableViewController: UITableViewController {
 
@@ -16,7 +17,40 @@ class MenuTableViewController: UITableViewController {
         self.tableView.dataSource = self
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {      
-        NotificationCenter.default.post(name: NSNotification.Name("menuSelected"), object: nil, userInfo: ["menuOption": indexPath.row])
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        SideMenuManager.default.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
+        
+        if let presenter = presentingViewController as? RestaurantParentViewController {
+            switch indexPath.row {
+            case 1:
+                let pvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PreferenceViewController") as! PreferenceViewController
+                pvc.delegate = presenter.self
+                pvc.option = presenter.optionScrollView.getPreference()
+                presenter.present(pvc, animated: true, completion: nil)
+                break
+            case 2:
+                break
+            case 3:
+                break
+            case 4:
+                let termsVC = UIStoryboard(name: "Main", bundle:nil)
+                    .instantiateViewController(withIdentifier: "textVC") as! TextViewController
+                termsVC.nameText = "Terms of Use"
+                termsVC.textviewText = Documents.shared().getTerms()
+                presenter.present(termsVC, animated: true, completion: nil)
+                break
+            case 5:
+                let privacyVC = UIStoryboard(name: "Main", bundle:nil)
+                    .instantiateViewController(withIdentifier: "textVC") as! TextViewController
+                privacyVC.nameText = "Privacy Policy"
+                privacyVC.textviewText = "This is a test privacy policy. Bala, please complete."
+                presenter.present(privacyVC, animated: true, completion: nil)
+                break
+            case 6:
+                break
+            default:
+                break;
+            }
+        }
     }
 }

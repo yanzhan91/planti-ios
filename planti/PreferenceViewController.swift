@@ -20,9 +20,11 @@ class PreferenceViewController: UIViewController {
     @IBOutlet weak var chooseButton: ThemeButton!
     @IBOutlet weak var optionsView: UIView!
     
-    private var option: Options =  .vegan
+    var option: Options = .vegan
     private var selectedSwitch: UISwitch?
     private var changingSwitch: Bool = false
+    
+    var delegate: PreferenceViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,18 +34,31 @@ class PreferenceViewController: UIViewController {
         self.optionsView.layer.borderColor = Colors.themeGreen.cgColor
         self.optionsView.layer.borderWidth = 2.0
         
-        self.selectedSwitch = veganSwitch
+        switch self.option {
+        case .vegan:
+            self.selectedSwitch = veganSwitch
+            break
+        case .ovoVegetarian:
+            self.selectedSwitch = ovoSwitch
+            break
+        case .lactoVegetarian:
+            self.selectedSwitch = lactoSwitch
+            break
+        case .lactoOvoVegetarian:
+            self.selectedSwitch = lactoOvoSwitch
+            break
+        }
+        self.selectedSwitch?.setOn(true, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.scrollView.contentSize = getScrollViewContentSize(scrollView: self.scrollView)
     }
     
-    @IBAction func choose(_ sender: Any) {
-        UserDefaults.standard.set(self.option.rawValue, forKey: DefaultsKeys.PREFERENCE)
-        
+    @IBAction func choose(_ sender: Any) {     
         let settings = Settings()
         RestService.shared().postUser(option: self.option, settings: settings, lastKnownLocation: nil)
+        self.delegate?.optionDidChange(option: self.option)
         dismiss(animated: true, completion: nil)
     }
     
@@ -93,4 +108,8 @@ class PreferenceViewController: UIViewController {
             }
         }
     }
+}
+
+protocol PreferenceViewControllerDelegate {
+    func optionDidChange(option: Options)
 }
