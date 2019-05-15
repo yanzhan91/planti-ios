@@ -50,8 +50,6 @@ class RestaurantParentViewController: UIViewController {
     private var radius: Int?
     
     private var restaurants: [Restaurant] = []
-    
-    private var noRestaurantNotice: ThemeButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,12 +119,12 @@ class RestaurantParentViewController: UIViewController {
     @IBAction func switchView(_ sender: Any) {
         let button = sender as! UIButton
         if (self.activeViewController == self.mapViewController) {
-            button.setImage(UIImage.init(named: "list_icon"), for: .normal)
+            button.setImage(UIImage.init(named: "map_icon"), for: .normal)
             activeViewController = self.listViewController
             self.listViewController.reload(restaurants: self.restaurants)
         } else {
+            button.setImage(UIImage.init(named: "list_icon"), for: .normal)
             activeViewController = self.mapViewController
-            button.setImage(UIImage.init(named: "map_icon"), for: .normal)
         }
     }
     
@@ -155,19 +153,8 @@ class RestaurantParentViewController: UIViewController {
     public func fetchRestaurants(coordinates: CLLocationCoordinate2D, radius: Int) {
         let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
         RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
-            
-            if (restaurants.count == 0) {
-                if (self.noRestaurantNotice == nil) {
-                    let x = self.view.frame.width / 2 - 138
-                    self.noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: 10, width: 277, height: 40), title: "No restaurants yet in this area")
-                    self.noRestaurantNotice!.activate()
-                    self.contentView.addSubview(self.noRestaurantNotice!)
-                }
-                self.noRestaurantNotice?.isHidden = false
-            } else {
-                self.restaurants = restaurants
-            }
-            
+        
+            self.restaurants = restaurants
             self.mapViewController.reload(restaurants: restaurants)
             
             RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
@@ -195,7 +182,7 @@ extension RestaurantParentViewController : SearchViewControllerDelegate {
     func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D) {
         self.searchField.text = name
         self.mapViewController.moveMap(coordinate: coordinate)
-        self.fetchRestaurants(coordinates: self.mapViewController.getCoordinate(), radius: self.mapViewController.getRadius())
+        self.fetchRestaurants(coordinates: coordinate, radius: self.mapViewController.getRadius())
     }
 }
 

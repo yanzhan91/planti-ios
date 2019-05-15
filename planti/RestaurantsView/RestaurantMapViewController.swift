@@ -19,6 +19,8 @@ class RestaurantMapViewController: UIViewController {
     
     private var pvc: RestaurantParentViewController?
     private var refreshable = true
+    
+    private var noRestaurantNotice: ThemeButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,26 +38,8 @@ class RestaurantMapViewController: UIViewController {
         self.mapView.settings.tiltGestures = false
         self.mapView.settings.rotateGestures = false
         self.mapView.settings.indoorPicker = false
-    }
-
-    @objc private func goToMyLocation() {
-        if (self.mapView.myLocation != nil) {
-            self.refreshable = false
-        } else {
-            let alert = UIAlertController(title: "Location was disabled", message: "Please go to settings and enable location permission for Planti", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
-                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                    return
-                }
-                if UIApplication.shared.canOpenURL(settingsUrl) {
-                    UIApplication.shared.open(settingsUrl, completionHandler: nil)
-                }
-            })
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
-            self.present(alert, animated: true)
-        }
+        
+        self.refreshButton.isHidden = true
     }
     
     public func getRadius() -> Int {
@@ -67,19 +51,37 @@ class RestaurantMapViewController: UIViewController {
     }
     
     public func moveMap(coordinate: CLLocationCoordinate2D) {
+        self.refreshable = false
         self.mapView.animate(toLocation: coordinate)
     }
 
     public func reload(restaurants: [Restaurant]) {
         self.restaurants = restaurants
-        self.mapView.getMarkersAndDisplay(restaurants: restaurants)
+        self.refreshButton.isHidden = true
+        if (restaurants.count == 0) {
+            if (self.noRestaurantNotice == nil) {
+                let x = self.view.frame.width / 2 - 133
+                self.noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: 10, width: 266, height: 40), title: "No restaurants yet in this area")
+                self.noRestaurantNotice!.activate()
+                
+                print(self.noRestaurantNotice?.frame)
+                self.view.addSubview(self.noRestaurantNotice!)
+            }
+            self.noRestaurantNotice?.isHidden = false
+        } else {
+            self.noRestaurantNotice?.isHidden = true
+            self.mapView.getMarkersAndDisplay(restaurants: restaurants)
+        }
     }
     
     @IBAction func refresh(_ sender: Any) {
+        self.refreshButton.isHidden = true
         self.pvc?.fetchRestaurants(coordinates: self.mapView.camera.target, radius: self.mapView.getRadius())
     }
     
     @IBAction func goToMyLocation(_ sender: Any) {
+        self.refreshable = false
+        self.refreshButton.isHidden = true
         self.pvc?.updateMyLocation()
     }
 }
@@ -116,12 +118,12 @@ extension RestaurantMapViewController : GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+        self.noRestaurantNotice?.isHidden = true
         if (self.refreshable) {
-//            self.searchField.text = ""
-            self.refreshButton?.isHidden = false
+            self.refreshButton.isHidden = false
         } else {
             self.refreshable = true
-            self.refreshButton?.isHidden = true
+            self.refreshButton.isHidden = true
         }
     }
 }
