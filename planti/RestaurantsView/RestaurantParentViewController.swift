@@ -17,7 +17,7 @@ class RestaurantParentViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         // Instantiate View Controller
-        var viewController = storyboard.instantiateViewController(withIdentifier: "RestaurantMapViewController") as! RestaurantMapViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "RestaurantMapViewController") as! RestaurantMapViewController
         
         return viewController
     }()
@@ -27,7 +27,7 @@ class RestaurantParentViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         // Instantiate View Controller
-        var viewController = storyboard.instantiateViewController(withIdentifier: "RestaurantListViewController") as! RestaurantListViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "RestaurantListViewController") as! RestaurantListViewController
 
         return viewController
     }()
@@ -56,9 +56,13 @@ class RestaurantParentViewController: UIViewController {
         
         SideMenuManager.default.menuFadeStatusBar = false
         
-//        if (!DeviceType.hasTopNotch) {
-//            self.navigationBarHeight.constant = 75
-//        }
+        print(self.navigationBarHeight.constant)
+        
+        if (!DeviceType.hasTopNotch) {
+            self.navigationBarHeight.constant = 400
+        }
+        
+        print(self.navigationBarHeight.constant)
         
         self.optionScrollView.delegate = self
         
@@ -117,6 +121,7 @@ class RestaurantParentViewController: UIViewController {
     }
     
     @IBAction func switchView(_ sender: Any) {
+        print(self.navigationBarHeight.constant)
         let button = sender as! UIButton
         if (self.activeViewController == self.mapViewController) {
             button.setImage(UIImage.init(named: "map_icon"), for: .normal)

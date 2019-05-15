@@ -25,7 +25,6 @@
 		B5EAC3D52217EAE80080858E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EAC3D32217EAE80080858E /* Main.storyboard */; };
 		B5EAC3D72217EAE90080858E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EAC3D62217EAE90080858E /* Assets.xcassets */; };
 		B5EAC3DA2217EAE90080858E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EAC3D82217EAE90080858E /* LaunchScreen.storyboard */; };
-		B5EAC3E22217F1900080858E /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC3E12217F1900080858E /* RestaurantViewController.swift */; };
 		B5F4A7A8222E6892003FAD9D /* SettingsDialogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5F4A7A7222E6892003FAD9D /* SettingsDialogView.xib */; };
 		B5F4A7AA222E68AB003FAD9D /* SettingsDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4A7A9222E68AB003FAD9D /* SettingsDialog.swift */; };
 		B5F60879221D14ED001989B6 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F60878221D14ED001989B6 /* Options.swift */; };
@@ -70,7 +69,6 @@
 		B5EAC3D62217EAE90080858E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5EAC3D92217EAE90080858E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5EAC3DB2217EAE90080858E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B5EAC3E12217F1900080858E /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		B5F4A7A7222E6892003FAD9D /* SettingsDialogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsDialogView.xib; sourceTree = "<group>"; };
 		B5F4A7A9222E68AB003FAD9D /* SettingsDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDialog.swift; sourceTree = "<group>"; };
 		B5F60878221D14ED001989B6 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				B5EAC3D62217EAE90080858E /* Assets.xcassets */,
 				B5EAC3D82217EAE90080858E /* LaunchScreen.storyboard */,
 				B5EAC3DB2217EAE90080858E /* Info.plist */,
-				B5EAC3E12217F1900080858E /* RestaurantViewController.swift */,
 				F7FC1FD6224C716400FF4AEF /* Models */,
 				B5F61846221889280032FF86 /* RestService.swift */,
 				B5F6087C221D376E001989B6 /* ThemeButton.swift */,
@@ -403,7 +400,6 @@
 				B5F61845221888110032FF86 /* Restaurant.swift in Sources */,
 				B53381A4222649BA0007FFDD /* EntreeCell.swift in Sources */,
 				F75A4C3D2285054A00FBEF10 /* TextViewController.swift in Sources */,
-				B5EAC3E22217F1900080858E /* RestaurantViewController.swift in Sources */,
 				B5F6087D221D376E001989B6 /* ThemeButton.swift in Sources */,
 				B5BE0E06222A5E1B006328A4 /* PreferenceViewController.swift in Sources */,
 				B5F6087B221D1BA2001989B6 /* Colors.swift in Sources */,

@@ -763,7 +763,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgh-LN-tZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2706.4000000000001" y="115.27093596059113"/>
+            <point key="canvasLocation" x="-455" y="68"/>
         </scene>
         <!--Restaurant Map View Controller-->
         <scene sceneID="p28-KP-XE8">
@@ -821,7 +821,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZz-pV-9o4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3598" y="526"/>
+            <point key="canvasLocation" x="-1348" y="478"/>
         </scene>
         <!--Restaurant List View Controller-->
         <scene sceneID="tN8-je-6xM">
@@ -946,7 +946,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMm-NR-rWT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3598" y="-268"/>
+            <point key="canvasLocation" x="-1348" y="-316"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="pVa-7a-CRc">
@@ -1243,7 +1243,7 @@
         <!--Restaurant Menu View Controller-->
         <scene sceneID="hOk-cb-BzN">
             <objects>
-                <viewController id="Y9C-r0-1fq" customClass="RestaurantMenuViewController" customModule="planti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="restaurantMenuVC" id="Y9C-r0-1fq" customClass="RestaurantMenuViewController" customModule="planti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="emy-Gx-UFl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1368,10 +1368,10 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttf-XD-woK" userLabel="PostButton">
-                                <rect key="frame" x="296" y="723" width="64" height="64"/>
+                                <rect key="frame" x="305" y="742" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="6zY-IB-XdD"/>
-                                    <constraint firstAttribute="height" constant="64" id="V8c-DK-s4E"/>
+                                    <constraint firstAttribute="width" constant="50" id="6zY-IB-XdD"/>
+                                    <constraint firstAttribute="height" constant="50" id="V8c-DK-s4E"/>
                                 </constraints>
                                 <state key="normal" image="post_icon"/>
                                 <connections>
@@ -1390,8 +1390,8 @@
                         <constraints>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="trailing" secondItem="E8a-Po-Khb" secondAttribute="trailing" id="5dP-mr-o9G"/>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="7Di-XB-zBj"/>
-                            <constraint firstAttribute="bottom" secondItem="ttf-XD-woK" secondAttribute="bottom" constant="25" id="97D-Wr-zCX"/>
-                            <constraint firstItem="E8a-Po-Khb" firstAttribute="trailing" secondItem="ttf-XD-woK" secondAttribute="trailing" constant="15" id="BwI-bW-XtD"/>
+                            <constraint firstAttribute="bottom" secondItem="ttf-XD-woK" secondAttribute="bottom" constant="20" id="97D-Wr-zCX"/>
+                            <constraint firstAttribute="trailing" secondItem="ttf-XD-woK" secondAttribute="trailing" constant="20" id="BwI-bW-XtD"/>
                             <constraint firstItem="vDO-55-Zfk" firstAttribute="top" secondItem="gfc-6F-dWQ" secondAttribute="bottom" id="D3Y-eg-EIy"/>
                             <constraint firstItem="5YG-Qs-tQL" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="LG7-xi-KKc"/>
                             <constraint firstItem="5YG-Qs-tQL" firstAttribute="top" secondItem="vDO-55-Zfk" secondAttribute="bottom" id="P7L-OB-Cl6"/>
@@ -1412,7 +1412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RnZ-Iy-R9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448.80000000000001" y="779.55665024630548"/>
+            <point key="canvasLocation" x="751" y="780"/>
         </scene>
     </scenes>
     <resources>
@@ -1430,6 +1430,6 @@
         <image name="vertical_menu_icon" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YZu-HY-RfZ"/>
+        <segue reference="qzp-NJ-UBY"/>
     </inferredMetricsTieBreakers>
 </document>

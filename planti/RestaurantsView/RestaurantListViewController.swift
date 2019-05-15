@@ -21,7 +21,11 @@ class RestaurantListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let restaurant = self.restaurants[indexPath.row]
-        performSegue(withIdentifier: "openRestaurantMenu", sender: ["restaurantName": restaurant.name, "placeId": restaurant.placeId])
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! RestaurantMenuViewController
+        rmvc.restaurantName = restaurant.name!
+        rmvc.placeId = restaurant.placeId!
+        self.present(rmvc, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -63,8 +63,6 @@ class RestaurantMapViewController: UIViewController {
                 let x = self.view.frame.width / 2 - 133
                 self.noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: 10, width: 266, height: 40), title: "No restaurants yet in this area")
                 self.noRestaurantNotice!.activate()
-                
-                print(self.noRestaurantNotice?.frame)
                 self.view.addSubview(self.noRestaurantNotice!)
             }
             self.noRestaurantNotice?.isHidden = false
@@ -110,11 +108,11 @@ extension RestaurantMapViewController : GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         let restaurant = self.restaurants[(marker.userData as? Int)!]
-        performSegue(withIdentifier: "openRestaurantMenu", sender: ["restaurantName": restaurant.name, "placeId": restaurant.placeId])
-    }
-    
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-//        self.noRestaurantNotice?.isHidden = true
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! RestaurantMenuViewController
+        rmvc.restaurantName = restaurant.name!
+        rmvc.placeId = restaurant.placeId!
+        self.present(rmvc, animated: true, completion: nil)
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
