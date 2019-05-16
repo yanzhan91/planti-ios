@@ -56,14 +56,6 @@ class RestaurantParentViewController: UIViewController {
         
         SideMenuManager.default.menuFadeStatusBar = false
         
-        print(self.navigationBarHeight.constant)
-        
-        if (!DeviceType.hasTopNotch) {
-            self.navigationBarHeight.constant = 400
-        }
-        
-        print(self.navigationBarHeight.constant)
-        
         self.optionScrollView.delegate = self
         
         let searchButton = UIButton.init(type: .custom)
@@ -121,7 +113,6 @@ class RestaurantParentViewController: UIViewController {
     }
     
     @IBAction func switchView(_ sender: Any) {
-        print(self.navigationBarHeight.constant)
         let button = sender as! UIButton
         if (self.activeViewController == self.mapViewController) {
             button.setImage(UIImage.init(named: "map_icon"), for: .normal)
