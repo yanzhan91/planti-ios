@@ -43,6 +43,7 @@
 		F78AA8B42288F15B00A332CE /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8AE2288F15B00A332CE /* RestaurantMapViewController.swift */; };
 		F78AA8B52288F15B00A332CE /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8AF2288F15B00A332CE /* RestaurantListViewController.swift */; };
 		F78AA8B92288F15B00A332CE /* RestaurantParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8B32288F15B00A332CE /* RestaurantParentViewController.swift */; };
+		F7BBD15E229372E000B78129 /* MapMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BBD15D229372E000B78129 /* MapMarkerAnnotationView.swift */; };
 		F7FC1FD3224C643600FF4AEF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1FD2224C643600FF4AEF /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		F78AA8AE2288F15B00A332CE /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
 		F78AA8AF2288F15B00A332CE /* RestaurantListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		F78AA8B32288F15B00A332CE /* RestaurantParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantParentViewController.swift; sourceTree = "<group>"; };
+		F7BBD15D229372E000B78129 /* MapMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		F7FC1FD2224C643600FF4AEF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +217,7 @@
 			children = (
 				B521830422476DE1004E7263 /* MapMarkerView.xib */,
 				B521830622476DF6004E7263 /* MapMarker.swift */,
+				F7BBD15D229372E000B78129 /* MapMarkerAnnotationView.swift */,
 			);
 			path = MapMarker;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BBD15E229372E000B78129 /* MapMarkerAnnotationView.swift in Sources */,
 				F7FC1FD3224C643600FF4AEF /* MenuItem.swift in Sources */,
 				B5C6A6BD22220B24007DE260 /* PostViewController.swift in Sources */,
 				B5B4DDB82249DC0900937F78 /* RatingsView.swift in Sources */,

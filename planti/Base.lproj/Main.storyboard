@@ -789,10 +789,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sG7-pP-4Jb" userLabel="MapView" customClass="GMSMapView">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DNY-4F-xwI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcb-4H-57K" userLabel="LocationButton">
                                 <rect key="frame" x="305" y="672" width="50" height="50"/>
                                 <constraints>
@@ -818,19 +817,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="n0c-3X-qFd" firstAttribute="trailing" secondItem="DNY-4F-xwI" secondAttribute="trailing" id="1Aa-X8-PrI"/>
                             <constraint firstAttribute="trailing" secondItem="lcb-4H-57K" secondAttribute="trailing" constant="20" id="1Ab-Qk-aSb"/>
-                            <constraint firstItem="sG7-pP-4Jb" firstAttribute="trailing" secondItem="n0c-3X-qFd" secondAttribute="trailing" id="2XG-5M-BlL"/>
-                            <constraint firstAttribute="bottom" secondItem="sG7-pP-4Jb" secondAttribute="bottom" id="2nD-Ey-Si3"/>
+                            <constraint firstItem="DNY-4F-xwI" firstAttribute="leading" secondItem="n0c-3X-qFd" secondAttribute="leading" id="5AW-yB-SKU"/>
                             <constraint firstItem="lcb-4H-57K" firstAttribute="top" secondItem="j3Z-Rw-Dcb" secondAttribute="bottom" constant="20" id="69I-ux-rAQ"/>
+                            <constraint firstItem="DNY-4F-xwI" firstAttribute="top" secondItem="yKX-Ay-1dn" secondAttribute="top" id="Ev9-1w-NLJ"/>
+                            <constraint firstAttribute="bottom" secondItem="DNY-4F-xwI" secondAttribute="bottom" id="GWA-eN-ZJn"/>
                             <constraint firstAttribute="bottom" secondItem="lcb-4H-57K" secondAttribute="bottom" constant="90" id="Kfb-VT-Iwg"/>
                             <constraint firstItem="n0c-3X-qFd" firstAttribute="trailing" secondItem="j3Z-Rw-Dcb" secondAttribute="trailing" constant="20" id="Zjp-kI-e0F"/>
-                            <constraint firstItem="sG7-pP-4Jb" firstAttribute="top" secondItem="yKX-Ay-1dn" secondAttribute="top" id="hPN-ps-7Xr"/>
-                            <constraint firstItem="sG7-pP-4Jb" firstAttribute="leading" secondItem="n0c-3X-qFd" secondAttribute="leading" id="ol2-wg-iwO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n0c-3X-qFd"/>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="sG7-pP-4Jb" id="wFj-kf-bmp"/>
+                        <outlet property="mapView" destination="DNY-4F-xwI" id="aWH-Mz-oNp"/>
                         <outlet property="myLocationButton" destination="lcb-4H-57K" id="AFY-BD-s3n"/>
                         <outlet property="refreshButton" destination="j3Z-Rw-Dcb" id="C9o-vV-vSB"/>
                     </connections>

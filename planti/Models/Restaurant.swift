@@ -26,6 +26,9 @@ class Restaurant: Mappable {
 
     }
     
+    init() {
+    }
+    
     func mapping(map: Map) {
         placeId <- map["placeId"]
         name <- map["name"]
