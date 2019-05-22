@@ -14,6 +14,7 @@ class MapMarker: UIView {
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var ratingsView: RatingsView!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var selectButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,10 +36,8 @@ class MapMarker: UIView {
 
     private func initialize() {
         Bundle.main.loadNibNamed("MapMarkerView", owner: self, options: nil)
-        self.layer.borderColor = Colors.themeGreen.cgColor
-        self.layer.cornerRadius = 12
-        self.layer.borderWidth = 2
         self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
         addSubview(self.contentView)
     }
 }

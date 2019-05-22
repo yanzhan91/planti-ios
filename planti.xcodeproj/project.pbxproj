@@ -40,10 +40,10 @@
 		F752332C2284E23F005E3625 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752332B2284E23F005E3625 /* Documents.swift */; };
 		F752332F2284E3A6005E3625 /* Terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = F752332E2284E3A6005E3625 /* Terms.txt */; };
 		F75A4C3D2285054A00FBEF10 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75A4C3C2285054A00FBEF10 /* TextViewController.swift */; };
+		F773DD7C2295045900529B09 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773DD7B2295045900529B09 /* MapAnnotation.swift */; };
 		F78AA8B42288F15B00A332CE /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8AE2288F15B00A332CE /* RestaurantMapViewController.swift */; };
 		F78AA8B52288F15B00A332CE /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8AF2288F15B00A332CE /* RestaurantListViewController.swift */; };
 		F78AA8B92288F15B00A332CE /* RestaurantParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8B32288F15B00A332CE /* RestaurantParentViewController.swift */; };
-		F7BBD15E229372E000B78129 /* MapMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BBD15D229372E000B78129 /* MapMarkerAnnotationView.swift */; };
 		F7FC1FD3224C643600FF4AEF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1FD2224C643600FF4AEF /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,10 +85,10 @@
 		F752332B2284E23F005E3625 /* Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
 		F752332E2284E3A6005E3625 /* Terms.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Terms.txt; sourceTree = "<group>"; };
 		F75A4C3C2285054A00FBEF10 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		F773DD7B2295045900529B09 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		F78AA8AE2288F15B00A332CE /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
 		F78AA8AF2288F15B00A332CE /* RestaurantListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		F78AA8B32288F15B00A332CE /* RestaurantParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantParentViewController.swift; sourceTree = "<group>"; };
-		F7BBD15D229372E000B78129 /* MapMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		F7FC1FD2224C643600FF4AEF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,7 +217,7 @@
 			children = (
 				B521830422476DE1004E7263 /* MapMarkerView.xib */,
 				B521830622476DF6004E7263 /* MapMarker.swift */,
-				F7BBD15D229372E000B78129 /* MapMarkerAnnotationView.swift */,
+				F773DD7B2295045900529B09 /* MapAnnotation.swift */,
 			);
 			path = MapMarker;
 			sourceTree = "<group>";
@@ -396,7 +396,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7BBD15E229372E000B78129 /* MapMarkerAnnotationView.swift in Sources */,
 				F7FC1FD3224C643600FF4AEF /* MenuItem.swift in Sources */,
 				B5C6A6BD22220B24007DE260 /* PostViewController.swift in Sources */,
 				B5B4DDB82249DC0900937F78 /* RatingsView.swift in Sources */,
@@ -407,6 +406,7 @@
 				B5F6087D221D376E001989B6 /* ThemeButton.swift in Sources */,
 				B5BE0E06222A5E1B006328A4 /* PreferenceViewController.swift in Sources */,
 				B5F6087B221D1BA2001989B6 /* Colors.swift in Sources */,
+				F773DD7C2295045900529B09 /* MapAnnotation.swift in Sources */,
 				B5C6A6B92222032A007DE260 /* CameraUploadView.swift in Sources */,
 				B5F61847221889280032FF86 /* RestService.swift in Sources */,
 				B5F4A7AA222E68AB003FAD9D /* SettingsDialog.swift in Sources */,

@@ -148,22 +148,24 @@ class RestaurantParentViewController: UIViewController {
     
     public func fetchRestaurants(coordinates: CLLocationCoordinate2D, radius: Int) {
         let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
-        let r1 = Restaurant.init()
-        r1.name = "Bala"
-        r1.latitude = 41.8823
-        r1.longitude = -87.6404
-        self.restaurants = [r1]
-        self.mapViewController.reload(restaurants: [r1])
+
+//        Testing
+//        let r1 = Restaurant.init()
+//        r1.name = "Bala"
+//        r1.latitude = 41.8823
+//        r1.longitude = -87.6404
+//        self.restaurants = [r1]
+//        self.mapViewController.reload(restaurants: [r1])
         
-//        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
-//
-//            self.restaurants = restaurants
-//            self.mapViewController.reload(restaurants: restaurants)
-//
-//            RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
-//
-//            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
-//        }
+        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
+
+            self.restaurants = restaurants
+            self.mapViewController.reload(restaurants: restaurants)
+
+            RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
+
+            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
+        }
     }
     
     public func updateMyLocation() {

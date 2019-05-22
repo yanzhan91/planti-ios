@@ -72,6 +72,14 @@
          contextName = "SearchViewController.viewDidLoad():SearchViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "closure #1 in RestaurantViewController.fetchRestaurantsWithCoordinates(coordinates:):RestaurantViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "noRestaurauntNotice.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SearchViewController.tableView(_:didSelectRowAt:):SearchViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -79,14 +87,6 @@
             </PersistentString>
             <PersistentString
                value = "item.title">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in RestaurantViewController.fetchRestaurantsWithCoordinates(coordinates:):RestaurantViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "noRestaurauntNotice.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -112,6 +112,14 @@
             </PersistentString>
             <PersistentString
                value = "touch.view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.mapView(_:didSelect:):RestaurantMapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "callout.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

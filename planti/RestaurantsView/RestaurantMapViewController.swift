@@ -91,14 +91,26 @@ extension RestaurantMapViewController : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation { return nil }
+        
+        if let cluster = annotation as? MKClusterAnnotation {
+            var view = mapView.dequeueReusableAnnotationView(withIdentifier: "cluster") as? MKMarkerAnnotationView
+            if view == nil{
+                view = MKMarkerAnnotationView(annotation: cluster, reuseIdentifier: "cluster")
+                view?.markerTintColor = Colors.themeGreen
+            }
+            return view
+        }
+        
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "mapAnnotation")
         
-        var markerView: MapMarkerAnnotationView?
+        var markerView: MKMarkerAnnotationView?
+        
+        let mapAnnotation = annotation as! MapAnnotation
         
         if annotationView == nil {
-            annotationView = MapMarkerAnnotationView(annotation: annotation, reuseIdentifier: "mapAnnotation")
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "mapAnnotation")
             
-            markerView = annotationView as? MapMarkerAnnotationView
+            markerView = annotationView as? MKMarkerAnnotationView
             
             markerView?.animatesWhenAdded = false
             markerView?.markerTintColor = Colors.themeGreen
@@ -108,59 +120,48 @@ extension RestaurantMapViewController : MKMapViewDelegate {
             markerView?.subtitleVisibility = .hidden
         } else {
             annotationView!.annotation = annotation
-            markerView = annotationView as? MapMarkerAnnotationView
+            markerView = annotationView as? MKMarkerAnnotationView
         }
         
-        markerView?.name = "Bala Is The Coolest"
-        markerView?.numRatings = 456
-        markerView?.ratings = 3.4
-        markerView?.restaurantImage = UIImage.init(named: "default_image")
+        markerView?.canShowCallout = true
+        
+        let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 180, height: 32))
+        infoWindow.backgroundColor = .clear
+        infoWindow.restaurantName.text = mapAnnotation.name
+        infoWindow.setNumReviews(numReviews: String(mapAnnotation.numRatings))
+        infoWindow.setRatings(ratings: mapAnnotation.ratings)
+        //        if (restaurant.imageUrl != nil) {
+        //            infoWindow.image.imageFromURL(urlString: restaurant.imageUrl!)
+        //        }
+        infoWindow.image.image = UIImage.init(named: "default_image")
+        infoWindow.selectButton.tag = mapAnnotation.index
+        infoWindow.selectButton.addTarget(self, action: #selector(selectAnnotation), for: .touchUpInside)
+        
+        let widthConstraint = NSLayoutConstraint(item: infoWindow, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 180)
+        infoWindow.addConstraint(widthConstraint)
+        
+        let heightConstraint = NSLayoutConstraint(item: infoWindow, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 32)
+        infoWindow.addConstraint(heightConstraint)
+        
+        markerView?.detailCalloutAccessoryView = infoWindow
+        
+        markerView?.clusteringIdentifier = "mapAnnotation"
         
         return markerView
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print(view.annotation?.coordinate ?? "default")
+    @objc func selectAnnotation(sender: UIButton) {
+        let restaurant = self.restaurants[sender.tag]
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! RestaurantMenuViewController
+        rmvc.restaurantName = restaurant.name!
+        rmvc.placeId = restaurant.placeId!
+        self.present(rmvc, animated: true, completion: nil)
     }
     
-//    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-//        mapView.selectedMarker = marker
-//        return true
-//    }
-//
-//    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-//        let restaurant = self.restaurants[(marker.userData as? Int)!]
-//        let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-//
-//        infoWindow.backgroundColor = .clear
-//        infoWindow.restaurantName.text = restaurant.name
-//        infoWindow.setNumReviews(numReviews: String(restaurant.numRatings))
-//        infoWindow.setRatings(ratings: restaurant.rating)
-//        //        if (restaurant.imageUrl != nil) {
-//        //            infoWindow.image.imageFromURL(urlString: restaurant.imageUrl!)
-//        //        }
-//        infoWindow.image.image = UIImage.init(named: "default_image")
-//        return infoWindow
-//    }
-//
-//    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-//        let restaurant = self.restaurants[(marker.userData as? Int)!]
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! RestaurantMenuViewController
-//        rmvc.restaurantName = restaurant.name!
-//        rmvc.placeId = restaurant.placeId!
-//        self.present(rmvc, animated: true, completion: nil)
-//    }
-//
-//    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
-//        self.noRestaurantNotice?.isHidden = true
-//        if (self.refreshable) {
-//            self.refreshButton.isHidden = false
-//        } else {
-//            self.refreshable = true
-//            self.refreshButton.isHidden = true
-//        }
-//    }
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        userLocation.title = nil
+    }
 }
 
 extension MKMapView {
@@ -180,10 +181,8 @@ extension MKMapView {
 
     func getMarkersAndDisplay(restaurants: [Restaurant]) {
         self.removeAnnotations(self.annotations)
-        for restaurant in restaurants {
-            let annotation = MKPointAnnotation()
-            annotation.title = restaurant.name
-            annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+        for (index, restaurant) in restaurants.enumerated() {
+            let annotation = MapAnnotation(index: index, name: restaurant.name!, ratings: restaurant.rating, numRatings: restaurant.numRatings, image: UIImage(named: "default_image")!, coordinate: CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude))
             self.addAnnotation(annotation)
         }
     }

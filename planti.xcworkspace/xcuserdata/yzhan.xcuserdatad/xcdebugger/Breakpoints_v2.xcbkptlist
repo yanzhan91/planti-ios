@@ -38,16 +38,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "planti/MapMarker/MapMarkerAnnotationView.swift"
-            timestampString = "580102446.835747"
+            filePath = "planti/RestaurantsView/RestaurantMapViewController.swift"
+            timestampString = "580200599.552642"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "setSelected(_:animated:)"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "getRadius()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "planti/RestaurantsView/RestaurantMapViewController.swift"
+            timestampString = "580200599.5535409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "getRadius()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
