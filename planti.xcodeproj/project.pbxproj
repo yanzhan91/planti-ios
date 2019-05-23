@@ -34,7 +34,6 @@
 		B5F61847221889280032FF86 /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F61846221889280032FF86 /* RestService.swift */; };
 		DB0B11625EA3977AD908566D /* Pods_planti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7104F663970D7DF7A002C3 /* Pods_planti.framework */; };
 		F72B77302255807F000322B7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B772F2255807F000322B7 /* Settings.swift */; };
-		F72B773222558165000322B7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B773122558165000322B7 /* Location.swift */; };
 		F72C5D4A2260686F0027E7AF /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C5D492260686F0027E7AF /* DeviceType.swift */; };
 		F73918B52278254D00C047B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73918B42278254D00C047B3 /* SearchViewController.swift */; };
 		F752332C2284E23F005E3625 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752332B2284E23F005E3625 /* Documents.swift */; };
@@ -79,7 +78,6 @@
 		B5F61846221889280032FF86 /* RestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		CEABFC2B78CCDFA5BA6F2068 /* Pods-planti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planti.release.xcconfig"; path = "Target Support Files/Pods-planti/Pods-planti.release.xcconfig"; sourceTree = "<group>"; };
 		F72B772F2255807F000322B7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		F72B773122558165000322B7 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F72C5D492260686F0027E7AF /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		F73918B42278254D00C047B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F752332B2284E23F005E3625 /* Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 				B5F60878221D14ED001989B6 /* Options.swift */,
 				B5F6087A221D1BA2001989B6 /* Colors.swift */,
 				F72B772F2255807F000322B7 /* Settings.swift */,
-				F72B773122558165000322B7 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,7 +408,6 @@
 				B5F61847221889280032FF86 /* RestService.swift in Sources */,
 				B5F4A7AA222E68AB003FAD9D /* SettingsDialog.swift in Sources */,
 				B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */,
-				F72B773222558165000322B7 /* Location.swift in Sources */,
 				F73918B52278254D00C047B3 /* SearchViewController.swift in Sources */,
 				F78AA8B52288F15B00A332CE /* RestaurantListViewController.swift in Sources */,
 				F752332C2284E23F005E3625 /* Documents.swift in Sources */,

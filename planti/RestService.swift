@@ -123,7 +123,7 @@ class RestService {
         
         var option: Int = 8
         if (containsMeat) {
-            return
+            completion()
         } else {
             if (containsEgg && containsDiary) {
                 option = 1

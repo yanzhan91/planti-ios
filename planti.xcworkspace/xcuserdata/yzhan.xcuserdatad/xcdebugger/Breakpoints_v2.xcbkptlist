@@ -9,14 +9,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "planti/PreferenceViewController.swift"
-            timestampString = "579507238.171553"
+            filePath = "planti/PostViewController.swift"
+            timestampString = "580284153.679971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "post(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "planti.PostViewController.post(Any) -&gt; ()"
+                  moduleName = "planti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhan/Documents/planti/planti-ios/planti/PostViewController.swift"
+                  timestampString = "580284276.669752"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "118">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in planti.PostViewController.post(Any) -&gt; ()"
+                  moduleName = "planti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhan/Documents/planti/planti-ios/planti/PostViewController.swift"
+                  timestampString = "580284276.672212"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "planti/PreferenceViewController.swift"
-            timestampString = "579507238.171609"
+            filePath = "planti/PostViewController.swift"
+            timestampString = "580284156.70366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "post(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
