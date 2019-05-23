@@ -106,6 +106,8 @@ extension RestaurantMapViewController : MKMapViewDelegate {
             if view == nil{
                 view = MKMarkerAnnotationView(annotation: cluster, reuseIdentifier: "cluster")
                 view?.markerTintColor = Colors.themeGreen
+                view?.titleVisibility = .hidden
+                view?.subtitleVisibility = .hidden
             }
             return view
         }
