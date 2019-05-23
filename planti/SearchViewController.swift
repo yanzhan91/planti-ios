@@ -66,7 +66,7 @@ extension SearchViewController: UITableViewDelegate{
         self.delegate?.selectingSearchResult?()
         let item = places[indexPath.row]
         let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = item.subtitle == "" ? item.title : item.subtitle
+        request.naturalLanguageQuery = item.title == "" ? item.subtitle : item.title
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             guard let response = response else {
@@ -75,7 +75,6 @@ extension SearchViewController: UITableViewDelegate{
             }
             guard let mapItem = response.mapItems.first else {return}
             let placemark = mapItem.placemark
-            print(placemark.coordinate)
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             self.searchController.isActive = false
             self.dismiss(animated: true) {

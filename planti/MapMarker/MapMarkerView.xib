@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8E-tr-EDE">
-                    <rect key="frame" x="37" y="0.0" width="35.5" height="14"/>
+                    <rect key="frame" x="37" y="0.0" width="118" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="tzQ-3u-S6A"/>
                     </constraints>
@@ -34,7 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfc-Jo-gwP" userLabel="Ratings" customClass="RatingsView" customModule="planti" customModuleProvider="target">
-                    <rect key="frame" x="37" y="18" width="35.5" height="14"/>
+                    <rect key="frame" x="37" y="18" width="118" height="14"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="UzY-h6-kSJ"/>
@@ -61,6 +61,7 @@
                 <constraint firstItem="i8E-tr-EDE" firstAttribute="leading" secondItem="xrD-Qa-FvL" secondAttribute="trailing" constant="5" id="2KH-RM-MW3"/>
                 <constraint firstItem="xrD-Qa-FvL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AiH-NY-ga9"/>
                 <constraint firstItem="wfc-Jo-gwP" firstAttribute="bottom" secondItem="xrD-Qa-FvL" secondAttribute="bottom" id="Egh-Rs-f2P"/>
+                <constraint firstItem="IcR-U3-ErT" firstAttribute="leading" secondItem="i8E-tr-EDE" secondAttribute="trailing" constant="5" id="FAq-fe-rw6"/>
                 <constraint firstItem="IcR-U3-ErT" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="GXw-at-C3z"/>
                 <constraint firstItem="xrD-Qa-FvL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JNb-3i-CV6"/>
                 <constraint firstItem="wfc-Jo-gwP" firstAttribute="trailing" secondItem="i8E-tr-EDE" secondAttribute="trailing" id="VMK-W7-pI3"/>

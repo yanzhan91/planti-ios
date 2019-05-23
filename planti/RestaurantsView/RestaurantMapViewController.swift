@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-//import GoogleMaps
 
 class RestaurantMapViewController: UIViewController {
     
@@ -89,6 +88,16 @@ class RestaurantMapViewController: UIViewController {
 
 extension RestaurantMapViewController : MKMapViewDelegate {
     
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        self.noRestaurantNotice?.isHidden = true
+        if (self.refreshable) {
+            self.refreshButton?.isHidden = false
+        } else {
+            self.refreshable = true
+            self.refreshButton?.isHidden = true
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation { return nil }
         
@@ -161,6 +170,23 @@ extension RestaurantMapViewController : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         userLocation.title = nil
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if (view.annotation is MKUserLocation) {
+            print("user")
+        } else if (view.annotation is MKClusterAnnotation) {
+            print("cluster")
+            var region = MKCoordinateRegion()
+            var span = MKCoordinateSpan()
+            span.latitudeDelta = mapView.region.span.latitudeDelta * 0.5
+            span.longitudeDelta = mapView.region.span.longitudeDelta * 0.5
+            region.center = view.annotation!.coordinate
+            region.span = span
+            mapView.setRegion(region, animated: true)
+        } else {
+            mapView.setCenter(view.annotation!.coordinate, animated: true)
+        }
     }
 }
 
