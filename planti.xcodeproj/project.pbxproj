@@ -248,7 +248,6 @@
 				B5EAC3C82217EAE80080858E /* Sources */,
 				B5EAC3C92217EAE80080858E /* Frameworks */,
 				B5EAC3CA2217EAE80080858E /* Resources */,
-				DD24B534C2DB316DEF763024 /* [CP] Copy Pods Resources */,
 				5082D35B168D5EF1E04DBB4C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -362,28 +361,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-planti/Pods-planti-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DD24B534C2DB316DEF763024 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-planti/Pods-planti-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-planti/Pods-planti-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -6,7 +6,7 @@ target 'planti' do
   use_frameworks!
 
   # Pods for planti
-  pod 'GoogleMaps'
+#  pod 'GoogleMaps'
   pod 'SideMenu'
 #  pod 'ALCameraViewController'
   pod 'TextFieldEffects'
