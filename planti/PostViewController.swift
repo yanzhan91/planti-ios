@@ -101,8 +101,28 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func turnOnCamera(_ sender: Any) {
-        
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
     }
+}
+
+extension PostViewController : UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[.editedImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        
+        print(image.size)
+    }
+}
+
+extension PostViewController : UINavigationControllerDelegate {
+    
 }
 
 extension PostViewController : SearchViewControllerDelegate {
