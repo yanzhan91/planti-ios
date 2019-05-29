@@ -167,6 +167,7 @@ extension RestaurantMapViewController : MKMapViewDelegate {
         let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! RestaurantMenuViewController
         rmvc.restaurantName = restaurant.name!
         rmvc.placeId = restaurant.placeId!
+        rmvc.option = (self.pvc?.optionScrollView.getPreference())!
         self.present(rmvc, animated: true, completion: nil)
     }
     

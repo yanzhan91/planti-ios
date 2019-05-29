@@ -40,9 +40,10 @@ class PostViewController: UIViewController {
         self.postButton.activate()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        let swipGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        swipGesture.direction = .down
         self.view.addGestureRecognizer(tapGesture)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(cameraPresed), name: NSNotification.Name("postCamera"), object: nil)
+        self.view.addGestureRecognizer(swipGesture)
         
         self.cameraUploadView.layer.borderWidth = 1.0
         self.cameraUploadView.layer.borderColor = Colors.themeGreen.cgColor
@@ -74,19 +75,8 @@ class PostViewController: UIViewController {
         self.present(searchVc, animated: true, completion: nil)
     }
     
-    @objc private func cameraPresed() {
-//        let cameraViewController = CameraViewController { [weak self] image, asset in
-//            // Do something with your image here.
-//            self?.dismiss(animated: true, completion: nil)
-//        }
-//        present(cameraViewController, animated: true, completion: nil)
-//        print(self.scrollView.frame)
-//        print(self.scrollView.contentSize)
-        print("Camera")
-    }
-    
     @IBAction func post(_ sender: Any) {
-        RestService.shared().postMenuItem(name: self.name ?? "", menuItemName: self.entreeName.text ?? "", containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn) { () in
+        RestService.shared().postMenuItem(name: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn) { () in
             
             let okAlert = UIAlertController(title: "Thank you!", message: "Your contribution will benefit millions of others.", preferredStyle: .alert)
             okAlert.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in

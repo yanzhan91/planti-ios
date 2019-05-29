@@ -152,10 +152,10 @@ class RestaurantParentViewController: UIViewController {
             self.restaurants = restaurants
             self.mapViewController.reload(restaurants: restaurants)
 
-            RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: coordinates)
+//            RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: coordinates)
 
-            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION_LATITUDE, value: coordinates.latitude)
-            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION_LONGITUDE, value: coordinates.longitude)
+//            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION_LATITUDE, value: coordinates.latitude)
+//            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION_LONGITUDE, value: coordinates.longitude)
         }
     }
     
