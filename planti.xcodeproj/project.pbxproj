@@ -17,8 +17,6 @@
 		B5BE0E06222A5E1B006328A4 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE0E05222A5E1B006328A4 /* PreferenceViewController.swift */; };
 		B5BE0E08222A7562006328A4 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE0E07222A7562006328A4 /* DefaultsKeys.swift */; };
 		B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */; };
-		B5C6A6B92222032A007DE260 /* CameraUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6A6B82222032A007DE260 /* CameraUploadView.swift */; };
-		B5C6A6BB22220389007DE260 /* CameraUploadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5C6A6BA22220389007DE260 /* CameraUploadView.xib */; };
 		B5C6A6BD22220B24007DE260 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6A6BC22220B24007DE260 /* PostViewController.swift */; };
 		B5C6FA08222B4CB3005FBFB9 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6FA07222B4CB3005FBFB9 /* MenuTableViewController.swift */; };
 		B5EAC3D02217EAE80080858E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC3CF2217EAE80080858E /* AppDelegate.swift */; };
@@ -58,8 +56,6 @@
 		B5BE0E05222A5E1B006328A4 /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		B5BE0E07222A7562006328A4 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScrollView.swift; sourceTree = "<group>"; };
-		B5C6A6B82222032A007DE260 /* CameraUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUploadView.swift; sourceTree = "<group>"; };
-		B5C6A6BA22220389007DE260 /* CameraUploadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraUploadView.xib; sourceTree = "<group>"; };
 		B5C6A6BC22220B24007DE260 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		B5C6FA07222B4CB3005FBFB9 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		B5EAC3CC2217EAE80080858E /* planti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = planti.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,7 +130,6 @@
 				B5018724221E6C7B00F292EC /* ListViewCell.swift */,
 				B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */,
 				B5C6A6BC22220B24007DE260 /* PostViewController.swift */,
-				F7FC1FDB224C71B800FF4AEF /* CameraUploadView */,
 				B51307772223D0FB00029F7F /* RestaurantMenuViewController.swift */,
 				B53381A3222649BA0007FFDD /* EntreeCell.swift */,
 				B5BE0E05222A5E1B006328A4 /* PreferenceViewController.swift */,
@@ -225,15 +220,6 @@
 			path = SettingsDialog;
 			sourceTree = "<group>";
 		};
-		F7FC1FDB224C71B800FF4AEF /* CameraUploadView */ = {
-			isa = PBXGroup;
-			children = (
-				B5C6A6BA22220389007DE260 /* CameraUploadView.xib */,
-				B5C6A6B82222032A007DE260 /* CameraUploadView.swift */,
-			);
-			path = CameraUploadView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,7 +284,6 @@
 				B5EAC3DA2217EAE90080858E /* LaunchScreen.storyboard in Resources */,
 				B5EAC3D72217EAE90080858E /* Assets.xcassets in Resources */,
 				B5B4DDB62249DBF800937F78 /* RatingsView.xib in Resources */,
-				B5C6A6BB22220389007DE260 /* CameraUploadView.xib in Resources */,
 				F752332F2284E3A6005E3625 /* Terms.txt in Resources */,
 				B5F4A7A8222E6892003FAD9D /* SettingsDialogView.xib in Resources */,
 				B5EAC3D52217EAE80080858E /* Main.storyboard in Resources */,
@@ -378,7 +363,6 @@
 				B5BE0E06222A5E1B006328A4 /* PreferenceViewController.swift in Sources */,
 				B5F6087B221D1BA2001989B6 /* Colors.swift in Sources */,
 				F773DD7C2295045900529B09 /* MapAnnotation.swift in Sources */,
-				B5C6A6B92222032A007DE260 /* CameraUploadView.swift in Sources */,
 				B5F61847221889280032FF86 /* RestService.swift in Sources */,
 				B5F4A7AA222E68AB003FAD9D /* SettingsDialog.swift in Sources */,
 				B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */,

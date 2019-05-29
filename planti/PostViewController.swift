@@ -13,7 +13,7 @@ import MapKit
 
 class PostViewController: UIViewController {
 
-    @IBOutlet weak var cameraUploadView: CameraUploadView!
+    @IBOutlet weak var cameraUploadView: UIView!
     @IBOutlet weak var restaurantName: HoshiTextField!
     @IBOutlet weak var entreeName: HoshiTextField!
     @IBOutlet weak var postButton: ThemeButton!
@@ -42,7 +42,10 @@ class PostViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(cameraPresed), name: NSNotification.Name("postCamera"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(cameraPresed), name: NSNotification.Name("postCamera"), object: nil)
+        
+        self.cameraUploadView.layer.borderWidth = 1.0
+        self.cameraUploadView.layer.borderColor = Colors.themeGreen.cgColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -95,6 +98,10 @@ class PostViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func turnOnCamera(_ sender: Any) {
+        
     }
 }
 
