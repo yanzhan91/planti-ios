@@ -147,16 +147,15 @@ class RestaurantParentViewController: UIViewController {
     }
     
     public func fetchRestaurants(coordinates: CLLocationCoordinate2D, radius: Int) {
-        let location = Location.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
-        
-        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: location, radius: Int(radius)) { restaurants in
+        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: coordinates, radius: Int(radius)) { restaurants in
 
             self.restaurants = restaurants
             self.mapViewController.reload(restaurants: restaurants)
 
-            RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: location)
+            RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: coordinates)
 
-            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION, value: location)
+            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION_LATITUDE, value: coordinates.latitude)
+            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION_LONGITUDE, value: coordinates.longitude)
         }
     }
     

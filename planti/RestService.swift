@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
+import MapKit
 
 class RestService {
     
@@ -20,7 +21,7 @@ class RestService {
         return restService
     }
     
-    public func postUser(option: Options?, settings: Settings?, lastKnownLocation: Location?) {
+    public func postUser(option: Options?, settings: Settings?, lastKnownLocation: CLLocationCoordinate2D?) {
         
         let url = buildUrl(path: "/planti-api/ui/postUser", queries: [])
         
@@ -64,7 +65,7 @@ class RestService {
         }
     }
     
-    public func getRestaurants(option: Options, location: Location, radius: Int,
+    public func getRestaurants(option: Options, location: CLLocationCoordinate2D, radius: Int,
                                completion: @escaping ([Restaurant]) -> Void) {
         print("Rest: getRestaurants \(option) \(location.latitude) \(location.longitude) \(radius)")
         

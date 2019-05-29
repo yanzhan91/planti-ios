@@ -17,7 +17,6 @@ class PostViewController: UIViewController {
     @IBOutlet weak var restaurantName: HoshiTextField!
     @IBOutlet weak var entreeName: HoshiTextField!
     @IBOutlet weak var postButton: ThemeButton!
-    @IBOutlet weak var navigationBarHeight: NSLayoutConstraint!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var meatSwitch: UISwitch!
@@ -39,10 +38,6 @@ class PostViewController: UIViewController {
         }
         
         self.postButton.activate()
-        
-        if (!DeviceType.hasTopNotch) {
-            self.navigationBarHeight.constant = 85
-        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)

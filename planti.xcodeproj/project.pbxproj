@@ -34,7 +34,6 @@
 		B5F61847221889280032FF86 /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F61846221889280032FF86 /* RestService.swift */; };
 		DB0B11625EA3977AD908566D /* Pods_planti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7104F663970D7DF7A002C3 /* Pods_planti.framework */; };
 		F72B77302255807F000322B7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B772F2255807F000322B7 /* Settings.swift */; };
-		F72C5D4A2260686F0027E7AF /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C5D492260686F0027E7AF /* DeviceType.swift */; };
 		F73918B52278254D00C047B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73918B42278254D00C047B3 /* SearchViewController.swift */; };
 		F752332C2284E23F005E3625 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752332B2284E23F005E3625 /* Documents.swift */; };
 		F752332F2284E3A6005E3625 /* Terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = F752332E2284E3A6005E3625 /* Terms.txt */; };
@@ -78,7 +77,6 @@
 		B5F61846221889280032FF86 /* RestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		CEABFC2B78CCDFA5BA6F2068 /* Pods-planti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planti.release.xcconfig"; path = "Target Support Files/Pods-planti/Pods-planti.release.xcconfig"; sourceTree = "<group>"; };
 		F72B772F2255807F000322B7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		F72C5D492260686F0027E7AF /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		F73918B42278254D00C047B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F752332B2284E23F005E3625 /* Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
 		F752332E2284E3A6005E3625 /* Terms.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Terms.txt; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				F7FC1FD9224C718D00FF4AEF /* SettingsDialog */,
 				F7FC1FD8224C718300FF4AEF /* MapMarker */,
 				F7FC1FD7224C717800FF4AEF /* RatingsView */,
-				F72C5D492260686F0027E7AF /* DeviceType.swift */,
 				F73918B42278254D00C047B3 /* SearchViewController.swift */,
 				F752332B2284E23F005E3625 /* Documents.swift */,
 				F75A4C3C2285054A00FBEF10 /* TextViewController.swift */,
@@ -394,7 +391,6 @@
 				B5C6FA08222B4CB3005FBFB9 /* MenuTableViewController.swift in Sources */,
 				B51307782223D0FB00029F7F /* RestaurantMenuViewController.swift in Sources */,
 				B5EAC3D02217EAE80080858E /* AppDelegate.swift in Sources */,
-				F72C5D4A2260686F0027E7AF /* DeviceType.swift in Sources */,
 				F72B77302255807F000322B7 /* Settings.swift in Sources */,
 				B5BE0E08222A7562006328A4 /* DefaultsKeys.swift in Sources */,
 				F78AA8B92288F15B00A332CE /* RestaurantParentViewController.swift in Sources */,

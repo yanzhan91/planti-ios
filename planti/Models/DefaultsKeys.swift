@@ -10,7 +10,8 @@ import Foundation
 
 class DefaultsKeys {
     static let PREFERENCE = "preference"
-    static let LAST_KNOWN_LOCATION = "lastKnownLocation"
+    static let LAST_KNOWN_LOCATION_LATITUDE = "lastKnownLocationLatitude"
+    static let LAST_KNOWN_LOCATION_LONGITUDE = "lastKnownLocationLongitude"
     
     static func setEncodedUserDefaults<T>(key: String, value: T) where T: Codable {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(value), forKey: key)

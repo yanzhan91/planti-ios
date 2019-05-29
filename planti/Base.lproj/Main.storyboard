@@ -1254,7 +1254,6 @@
                         <outlet property="eggSwitch" destination="56R-Bq-xQe" id="FHW-M1-mLO"/>
                         <outlet property="entreeName" destination="41p-Cj-yox" id="xRZ-4P-7MT"/>
                         <outlet property="meatSwitch" destination="86Y-IH-l2V" id="pTa-A8-iZh"/>
-                        <outlet property="navigationBarHeight" destination="1vS-Ja-YGo" id="Z0z-vZ-G6O"/>
                         <outlet property="postButton" destination="iFF-cW-fVx" id="suP-gJ-mD4"/>
                         <outlet property="restaurantName" destination="1dF-Aa-MvD" id="eAO-dp-HdH"/>
                         <outlet property="scrollView" destination="35f-q5-eVE" id="mBe-Gz-Xbe"/>
@@ -1437,7 +1436,6 @@
                         <viewLayoutGuide key="safeArea" id="E8a-Po-Khb"/>
                     </view>
                     <connections>
-                        <outlet property="navigationBarHeight" destination="jS5-Qb-DDk" id="mKA-w9-9Un"/>
                         <outlet property="optionsScrollView" destination="vDO-55-Zfk" id="unq-ht-1fN"/>
                         <outlet property="restaurantNameLabel" destination="rBz-uf-Df5" id="LnI-5S-HYa"/>
                         <outlet property="tableView" destination="5YG-Qs-tQL" id="NUN-B3-TVS"/>
