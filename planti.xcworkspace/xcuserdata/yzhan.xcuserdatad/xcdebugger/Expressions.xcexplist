@@ -132,6 +132,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "reuseIdentifier">
+            </PersistentString>
+            <PersistentString
+               value = "cell.image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "RestaurantMapViewController.mapView(_:didAdd:):RestaurantMapViewController.swift">
       </ContextState>
    </ContextStates>

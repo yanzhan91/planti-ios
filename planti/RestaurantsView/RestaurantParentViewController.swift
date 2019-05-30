@@ -22,12 +22,12 @@ class RestaurantParentViewController: UIViewController {
         return viewController
     }()
     
-    private lazy var listViewController: RestaurantListViewController = {
+    private lazy var listViewController: RestaurantCollectionViewController = {
         // Load Storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         // Instantiate View Controller
-        let viewController = storyboard.instantiateViewController(withIdentifier: "RestaurantListViewController") as! RestaurantListViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "RestaurantCollectionViewController") as! RestaurantCollectionViewController
 
         return viewController
     }()
