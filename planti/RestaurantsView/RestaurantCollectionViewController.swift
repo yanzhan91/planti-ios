@@ -33,7 +33,9 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RestaurantCollectionViewCell
         
         let restaurant = self.restaurants[indexPath.row]
-        cell.loadImage(url: URL.init(string: restaurant.imageUrl!)!)
+        if (restaurant.imageUrl != nil) {
+            cell.loadImage(url: URL.init(string: restaurant.imageUrl!)!)
+        }
         cell.name.text = restaurant.name
         cell.address.text = restaurant.address
         
@@ -62,7 +64,7 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let restaurant = self.restaurants[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! RestaurantMenuViewController
+        let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! MenuItemViewController
         rmvc.restaurantName = restaurant.name!
         rmvc.placeId = restaurant.placeId!
         self.present(rmvc, animated: true, completion: nil)
@@ -76,5 +78,4 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         self.restaurants = restaurants
         self.collectionView.reloadData()
     }
-
 }

@@ -9,9 +9,9 @@
 import UIKit
 import MapKit
 
-class RestaurantMenuViewController: UIViewController {
+class MenuItemViewController: UIViewController {
     @IBOutlet weak var restaurantNameLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var optionsScrollView: OptionsScrollView!
     
     var restaurantName : String = "Restaurant Name"
@@ -26,8 +26,8 @@ class RestaurantMenuViewController: UIViewController {
         super.viewDidLoad()
         
         self.restaurantNameLabel.text = restaurantName
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
         
         self.optionsScrollView.delegate = self
         self.optionsScrollView.setPreference(option: self.option)
@@ -59,29 +59,34 @@ class RestaurantMenuViewController: UIViewController {
     }
 }
 
-extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.menuItems.count
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EntreeCell") as! EntreeCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuItemCell", for: indexPath) as! MenuItemCollectionViewCell
         let menuItem = self.menuItems[indexPath.row]
-//        if (menuItem.imageUrl != nil) {
-//            cell.entreeImage.imageFromURL(urlString: menuItem.imageUrl!)
-//        }
-        cell.entreeImage?.image = UIImage.init(named: "default_image")
-        cell.containsLabel.text = menuItem.containsLabel
+        if (menuItem.imageUrl != nil) {
+            cell.loadImage(url: URL(string: menuItem.imageUrl!)!)
+        }
         cell.name.text = menuItem.name
-        cell.posted.text = "02/26/2019 Posted by user"
-        cell.dropdownMenuButton.tag = indexPath.row
-        cell.dropdownMenuButton.addTarget(self, action: #selector(openDropDown), for: .touchUpInside)
-        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat = 30;
+        let cellSize = collectionView.frame.size.width - padding;
+        return CGSize(width: cellSize / 2, height: cellSize / 2);
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     @objc func openDropDown(sender: UIButton) {
@@ -102,18 +107,14 @@ extension RestaurantMenuViewController : UITableViewDataSource, UITableViewDeleg
         
         self.present(optionMenu, animated: true, completion: nil)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
 }
 
-extension RestaurantMenuViewController : OptionsScrollViewDelegate {
+extension MenuItemViewController : OptionsScrollViewDelegate {
     func didChangeOption(_ option: Options) {
         RestService.shared().getMenuItems(option: self.option, placeId: placeId) { menuItems in
             print("Changing options \(option)")
             self.menuItems = menuItems
-            self.tableView.reloadData()
+            self.collectionView.reloadData()
         }
     }
 }

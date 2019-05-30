@@ -164,7 +164,7 @@ extension RestaurantMapViewController : MKMapViewDelegate {
     @objc func selectAnnotation(sender: UIButton) {
         let restaurant = self.restaurants[sender.tag]
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! RestaurantMenuViewController
+        let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! MenuItemViewController
         rmvc.restaurantName = restaurant.name!
         rmvc.placeId = restaurant.placeId!
         rmvc.option = (self.pvc?.optionScrollView.getPreference())!

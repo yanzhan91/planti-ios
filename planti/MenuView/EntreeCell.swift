@@ -8,8 +8,7 @@
 
 import UIKit
 
-class EntreeCell: UITableViewCell {
-
+class EntreeCell: UICollectionViewCell {
     @IBOutlet weak var entreeImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var containsLabel: UILabel!

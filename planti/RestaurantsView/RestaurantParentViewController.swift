@@ -137,8 +137,8 @@ class RestaurantParentViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.destination is RestaurantMenuViewController) {
-            let dest = segue.destination as! RestaurantMenuViewController
+        if (segue.destination is MenuItemViewController) {
+            let dest = segue.destination as! MenuItemViewController
             let map = sender as? Dictionary<String, String>
             dest.restaurantName = (map?["restaurantName"])!
             dest.placeId = (map?["placeId"])!
