@@ -38,8 +38,10 @@ class SearchViewController: UIViewController {
         self.tableView.dataSource = self
         self.searchCompleter.delegate = self
         self.searchController.searchBar.delegate = self
-        
-        self.searchController.searchBar.becomeFirstResponder()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.searchController.searchBar.perform(#selector(becomeFirstResponder), with: nil, afterDelay: 0)
     }
 }
 
