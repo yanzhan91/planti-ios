@@ -13,10 +13,10 @@ import MapKit
 
 class PostViewController: UIViewController {
 
-    @IBOutlet weak var cameraUploadView: UIView!
     @IBOutlet weak var restaurantName: HoshiTextField!
     @IBOutlet weak var entreeName: HoshiTextField!
     @IBOutlet weak var postButton: ThemeButton!
+    @IBOutlet weak var cameraView: UIImageView!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var meatSwitch: UISwitch!
@@ -30,7 +30,7 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         
         if (self.name == nil) {
-            let tap = UITapGestureRecognizer.init(target: self, action: #selector(autocompleteTap))
+            let tap = UITapGestureRecognizer(target: self, action: #selector(autocompleteTap))
             self.restaurantName.addGestureRecognizer(tap)
         } else {
             self.restaurantName.text = name
@@ -45,8 +45,10 @@ class PostViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
         self.view.addGestureRecognizer(swipGesture)
         
-        self.cameraUploadView.layer.borderWidth = 1.0
-        self.cameraUploadView.layer.borderColor = Colors.themeGreen.cgColor
+        self.cameraView.image = UIImage(named: "camera_icon")?.withAlignmentRectInsets(UIEdgeInsets(top: -20, left: -20, bottom: -20, right: -20))
+        self.cameraView.isUserInteractionEnabled = true
+        let cameraGesture = UITapGestureRecognizer(target: self, action: #selector(cameraTap))
+        self.cameraView.addGestureRecognizer(cameraGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,10 +92,9 @@ class PostViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func turnOnCamera(_ sender: Any) {
+    @objc func cameraTap() {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
-        vc.allowsEditing = true
         vc.delegate = self
         present(vc, animated: true)
     }
@@ -102,12 +103,13 @@ class PostViewController: UIViewController {
 extension PostViewController : UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
-        guard let image = info[.editedImage] as? UIImage else {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             print("No image found")
             return
         }
         
         print(image.size)
+        self.cameraView.image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
 }
 
