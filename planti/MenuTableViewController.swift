@@ -29,24 +29,20 @@ class MenuTableViewController: UITableViewController {
                 presenter.present(pvc, animated: true, completion: nil)
                 break
             case 2:
-                break
-            case 3:
-                break
-            case 4:
                 let termsVC = UIStoryboard(name: "Main", bundle:nil)
                     .instantiateViewController(withIdentifier: "textVC") as! TextViewController
                 termsVC.nameText = "Terms of Use"
                 termsVC.textviewText = Documents.shared().getTerms()
                 presenter.present(termsVC, animated: true, completion: nil)
                 break
-            case 5:
+            case 3:
                 let privacyVC = UIStoryboard(name: "Main", bundle:nil)
                     .instantiateViewController(withIdentifier: "textVC") as! TextViewController
                 privacyVC.nameText = "Privacy Policy"
                 privacyVC.textviewText = "This is a test privacy policy. Bala, please complete."
                 presenter.present(privacyVC, animated: true, completion: nil)
                 break
-            case 6:
+            case 4:
                 let settingsVC = UIStoryboard(name: "Main", bundle:nil)
                     .instantiateViewController(withIdentifier: "settingsVC") as! SettingsViewController
                 presenter.present(settingsVC, animated: true, completion: nil)

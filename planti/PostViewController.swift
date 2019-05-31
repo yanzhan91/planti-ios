@@ -49,6 +49,7 @@ class PostViewController: UIViewController {
         self.cameraView.isUserInteractionEnabled = true
         let cameraGesture = UITapGestureRecognizer(target: self, action: #selector(cameraTap))
         self.cameraView.addGestureRecognizer(cameraGesture)
+        self.cameraView.layer.cornerRadius = 12
     }
     
     override func viewDidAppear(_ animated: Bool) {
