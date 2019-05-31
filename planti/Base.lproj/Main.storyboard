@@ -1074,22 +1074,22 @@ promotions</string>
                                             <rect key="frame" x="8" y="115.66666666666669" width="299" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-3z-PKi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="258" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="253" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Jordan's Steakhouse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCz-De-cik">
-                                                            <rect key="frame" x="0.0" y="0.0" width="258" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="253" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somewhere on Michigan Avenue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baB-DX-f5I">
-                                                            <rect key="frame" x="0.0" y="24.999999999999986" width="258" height="15"/>
+                                                            <rect key="frame" x="0.0" y="24.999999999999986" width="253" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxd-3O-wGw" userLabel="Ratings" customClass="RatingsView" customModule="planti" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="44.999999999999986" width="258" height="14"/>
+                                                            <rect key="frame" x="0.0" y="44.999999999999986" width="253" height="14"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="14" id="gA9-gE-UAU"/>
@@ -1109,7 +1109,7 @@ promotions</string>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17a-UB-0DK" userLabel="Directions">
-                                                    <rect key="frame" x="258" y="2.6666666666666572" width="41" height="55"/>
+                                                    <rect key="frame" x="253" y="2.6666666666666572" width="41" height="55"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvo-7v-CXX" userLabel="Distance">
                                                             <rect key="frame" x="0.0" y="35.000000000000014" width="41" height="15"/>
@@ -1141,9 +1141,9 @@ promotions</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="17a-UB-0DK" firstAttribute="leading" secondItem="Ale-3z-PKi" secondAttribute="trailing" id="45Q-sa-1Ln"/>
+                                                <constraint firstAttribute="trailing" secondItem="17a-UB-0DK" secondAttribute="trailing" constant="5" id="C1h-VC-6p8"/>
                                                 <constraint firstItem="17a-UB-0DK" firstAttribute="centerY" secondItem="LsG-J7-Z5z" secondAttribute="centerY" id="Maa-Fd-NKp"/>
                                                 <constraint firstItem="Ale-3z-PKi" firstAttribute="top" secondItem="LsG-J7-Z5z" secondAttribute="top" id="TSO-aG-nbA"/>
-                                                <constraint firstAttribute="trailing" secondItem="17a-UB-0DK" secondAttribute="trailing" id="WBm-Wb-8LN"/>
                                                 <constraint firstItem="Ale-3z-PKi" firstAttribute="leading" secondItem="LsG-J7-Z5z" secondAttribute="leading" id="cbp-iN-Z6n"/>
                                                 <constraint firstAttribute="height" constant="60" id="ljw-zL-ERR"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ale-3z-PKi" secondAttribute="bottom" id="xuf-yg-MNt"/>

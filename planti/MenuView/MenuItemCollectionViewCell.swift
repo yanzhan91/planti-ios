@@ -12,6 +12,11 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
     func loadImage(url: URL) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
