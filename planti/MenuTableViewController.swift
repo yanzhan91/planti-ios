@@ -47,6 +47,9 @@ class MenuTableViewController: UITableViewController {
                 presenter.present(privacyVC, animated: true, completion: nil)
                 break
             case 6:
+                let settingsVC = UIStoryboard(name: "Main", bundle:nil)
+                    .instantiateViewController(withIdentifier: "settingsVC") as! SettingsViewController
+                presenter.present(settingsVC, animated: true, completion: nil)
                 break
             default:
                 break;

@@ -21,7 +21,41 @@ class RestService {
         return restService
     }
     
-    public func postUser(option: Options?, settings: Settings?, lastKnownLocation: CLLocationCoordinate2D?) {
+    public func getSettings(completion: @escaping (Settings) -> Void) {
+        
+        var queries: [URLQueryItem] = []
+        
+        let uuid = UIDevice.current.identifierForVendor?.description
+        if let deviceId = uuid {
+            queries.append(URLQueryItem(name: "id", value: deviceId))
+        }
+        
+        let url = buildUrl(path: "/planti-api/ui/getSettings", queries: queries)
+        
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/json",
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers)
+            .validate()
+            .responseObject { (response: DataResponse<Settings>) in
+                guard response.result.isSuccess, let value = response.result.value else {
+                    print("Error: \(String(describing: response.result.error))")
+                    completion(Settings())
+                    return
+                }
+                
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")                         // response serialization result
+                print("Value: \(value)")
+                
+                completion(value)
+        }
+    }
+    
+    public func postUser(option: Options?, settings: Settings?, completion: @escaping () -> Void) {
         
         let url = buildUrl(path: "/planti-api/ui/postUser", queries: [])
         
@@ -40,11 +74,6 @@ class RestService {
             parameters["settings"] = settings.toDictionary()
         }
         
-        if let lastKnownLocation = lastKnownLocation {
-            parameters["latitude"] = lastKnownLocation.latitude
-            parameters["longitude"] = lastKnownLocation.longitude
-        }
-        
         let headers: HTTPHeaders = [
             "Content-Type":"application/json",
             "Accept": "application/json"
@@ -55,6 +84,7 @@ class RestService {
             .responseJSON { response in
                 guard response.result.isSuccess, let value = response.result.value else {
                     print("Error: \(String(describing: response.result.error))")
+                    completion()
                     return
                 }
                 
@@ -62,6 +92,7 @@ class RestService {
                 print("Response: \(String(describing: response.response))") // http url response
                 print("Result: \(response.result)")                         // response serialization result
                 print("Value: \(value)")
+                completion()
         }
     }
     

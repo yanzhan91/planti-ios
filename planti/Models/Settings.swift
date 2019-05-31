@@ -6,13 +6,23 @@
 //  Copyright © 2019 planti. All rights reserved.
 //
 
-class Settings : Codable {
-    var newMenuItems: Bool
-    var newPromotions: Bool
+import ObjectMapper
+
+class Settings : Mappable {
+
+    var newMenuItems: Bool = false
+    var newPromotions: Bool = false
+    
+    required init?(map: Map) {
+        
+    }
     
     init() {
-        newMenuItems = true
-        newPromotions = true
+    }
+    
+    func mapping(map: Map) {
+        self.newMenuItems <- map["newMenuItems"]
+        self.newPromotions <- map["newPromotions"]
     }
     
     init(newMenuItems: Bool, newPromotions: Bool) {
