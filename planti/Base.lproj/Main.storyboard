@@ -1074,22 +1074,22 @@ promotions</string>
                                             <rect key="frame" x="8" y="115.66666666666669" width="299" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-3z-PKi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="234" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="258" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Jordan's Steakhouse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCz-De-cik">
-                                                            <rect key="frame" x="0.0" y="0.0" width="234" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="258" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somewhere on Michigan Avenue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baB-DX-f5I">
-                                                            <rect key="frame" x="0.0" y="24.999999999999986" width="234" height="15"/>
+                                                            <rect key="frame" x="0.0" y="24.999999999999986" width="258" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxd-3O-wGw" userLabel="Ratings" customClass="RatingsView" customModule="planti" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="44.999999999999986" width="234" height="14"/>
+                                                            <rect key="frame" x="0.0" y="44.999999999999986" width="258" height="14"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="14" id="gA9-gE-UAU"/>
@@ -1109,15 +1109,15 @@ promotions</string>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17a-UB-0DK" userLabel="Directions">
-                                                    <rect key="frame" x="234" y="2.6666666666666572" width="65" height="55"/>
+                                                    <rect key="frame" x="258" y="2.6666666666666572" width="41" height="55"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvo-7v-CXX" userLabel="Distance">
-                                                            <rect key="frame" x="12" y="35.000000000000014" width="41" height="15"/>
+                                                            <rect key="frame" x="0.0" y="35.000000000000014" width="41" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dl9-PU-kod">
-                                                            <rect key="frame" x="20" y="5" width="25" height="25"/>
+                                                            <rect key="frame" x="8" y="5" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="rQ2-Cy-syx"/>
                                                                 <constraint firstAttribute="width" constant="25" id="voH-gf-HPP"/>
@@ -1135,7 +1135,7 @@ promotions</string>
                                                         <constraint firstAttribute="bottom" secondItem="Jvo-7v-CXX" secondAttribute="bottom" constant="5" id="X4n-u0-6dD"/>
                                                         <constraint firstItem="Jvo-7v-CXX" firstAttribute="centerX" secondItem="17a-UB-0DK" secondAttribute="centerX" id="nb9-aB-Z1H"/>
                                                         <constraint firstItem="dl9-PU-kod" firstAttribute="centerX" secondItem="17a-UB-0DK" secondAttribute="centerX" id="yLf-Jk-WzL"/>
-                                                        <constraint firstAttribute="width" constant="65" id="zrN-eU-hE2"/>
+                                                        <constraint firstAttribute="width" constant="41" id="zrN-eU-hE2"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1208,14 +1208,14 @@ promotions</string>
                                                         <rect key="frame" x="0.0" y="35" width="355" height="40"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meat_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Wb0-53-4i6">
-                                                                <rect key="frame" x="30" y="4" width="32" height="32"/>
+                                                                <rect key="frame" x="10" y="4" width="32" height="32"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="32" id="Myn-x6-WgI"/>
                                                                     <constraint firstAttribute="width" constant="32" id="tN0-Oh-biy"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlj-aQ-u82">
-                                                                <rect key="frame" x="82" y="9.6666666666666856" width="184" height="21"/>
+                                                                <rect key="frame" x="62" y="9.6666666666666856" width="204" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1233,7 +1233,7 @@ promotions</string>
                                                             <constraint firstItem="Wb0-53-4i6" firstAttribute="centerY" secondItem="2X7-cP-ohA" secondAttribute="centerY" id="UYb-uG-Vmi"/>
                                                             <constraint firstItem="Khn-fS-ABN" firstAttribute="centerY" secondItem="2X7-cP-ohA" secondAttribute="centerY" id="bZs-oz-JNy"/>
                                                             <constraint firstItem="Wb0-53-4i6" firstAttribute="centerY" secondItem="2X7-cP-ohA" secondAttribute="centerY" id="h8K-vx-m9P"/>
-                                                            <constraint firstItem="Wb0-53-4i6" firstAttribute="leading" secondItem="2X7-cP-ohA" secondAttribute="leading" constant="30" id="ncZ-M1-8NZ"/>
+                                                            <constraint firstItem="Wb0-53-4i6" firstAttribute="leading" secondItem="2X7-cP-ohA" secondAttribute="leading" constant="10" id="ncZ-M1-8NZ"/>
                                                             <constraint firstItem="zlj-aQ-u82" firstAttribute="leading" secondItem="Wb0-53-4i6" secondAttribute="trailing" constant="20" id="p7d-CW-SOg"/>
                                                         </constraints>
                                                     </view>
@@ -1245,14 +1245,14 @@ promotions</string>
                                                                 <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             </switch>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary_icon" translatesAutoresizingMaskIntoConstraints="NO" id="jvI-cv-vjp">
-                                                                <rect key="frame" x="30" y="4" width="32" height="32"/>
+                                                                <rect key="frame" x="10" y="4" width="32" height="32"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="32" id="2bZ-CS-EVY"/>
                                                                     <constraint firstAttribute="height" constant="32" id="xm7-nL-Qej"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBk-Je-wsD">
-                                                                <rect key="frame" x="82" y="9.6666666666666856" width="184" height="21"/>
+                                                                <rect key="frame" x="62" y="9.6666666666666856" width="204" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1266,7 +1266,7 @@ promotions</string>
                                                             <constraint firstAttribute="height" constant="40" id="aTI-dw-yAM"/>
                                                             <constraint firstAttribute="trailing" secondItem="Qml-bz-ZI7" secondAttribute="trailing" constant="30" id="h2C-7r-4xM"/>
                                                             <constraint firstItem="PBk-Je-wsD" firstAttribute="centerY" secondItem="zkq-Sj-gOy" secondAttribute="centerY" id="j3P-eZ-3LC"/>
-                                                            <constraint firstItem="jvI-cv-vjp" firstAttribute="leading" secondItem="zkq-Sj-gOy" secondAttribute="leading" constant="30" id="nSg-cq-a7j"/>
+                                                            <constraint firstItem="jvI-cv-vjp" firstAttribute="leading" secondItem="zkq-Sj-gOy" secondAttribute="leading" constant="10" id="nSg-cq-a7j"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RsS-tp-ZPk">
@@ -1277,14 +1277,14 @@ promotions</string>
                                                                 <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             </switch>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="egg_icon" translatesAutoresizingMaskIntoConstraints="NO" id="arx-ti-RsA">
-                                                                <rect key="frame" x="30" y="4" width="32" height="32"/>
+                                                                <rect key="frame" x="10" y="4" width="32" height="32"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="32" id="4sR-uN-dfs"/>
                                                                     <constraint firstAttribute="width" constant="32" id="uNj-Ow-fWN"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wC5-K6-zqN">
-                                                                <rect key="frame" x="82" y="9.6666666666666856" width="184" height="21"/>
+                                                                <rect key="frame" x="62" y="9.6666666666666856" width="204" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1296,7 +1296,7 @@ promotions</string>
                                                             <constraint firstItem="dB0-SF-3P1" firstAttribute="centerY" secondItem="RsS-tp-ZPk" secondAttribute="centerY" id="Ltd-cK-TWg"/>
                                                             <constraint firstItem="arx-ti-RsA" firstAttribute="centerY" secondItem="RsS-tp-ZPk" secondAttribute="centerY" id="MAg-Fv-NoX"/>
                                                             <constraint firstItem="arx-ti-RsA" firstAttribute="centerY" secondItem="RsS-tp-ZPk" secondAttribute="centerY" id="bo2-4A-84Z"/>
-                                                            <constraint firstItem="arx-ti-RsA" firstAttribute="leading" secondItem="RsS-tp-ZPk" secondAttribute="leading" constant="30" id="hTX-T7-ilT"/>
+                                                            <constraint firstItem="arx-ti-RsA" firstAttribute="leading" secondItem="RsS-tp-ZPk" secondAttribute="leading" constant="10" id="hTX-T7-ilT"/>
                                                             <constraint firstItem="wC5-K6-zqN" firstAttribute="centerY" secondItem="RsS-tp-ZPk" secondAttribute="centerY" id="njb-Q9-Pqf"/>
                                                             <constraint firstAttribute="trailing" secondItem="dB0-SF-3P1" secondAttribute="trailing" constant="30" id="uDp-ry-YQ5"/>
                                                             <constraint firstItem="dB0-SF-3P1" firstAttribute="leading" secondItem="wC5-K6-zqN" secondAttribute="trailing" constant="10" id="vQs-N5-ptf"/>
@@ -1600,30 +1600,8 @@ promotions</string>
                                     <constraint firstItem="rBz-uf-Df5" firstAttribute="leading" secondItem="Tyv-pf-k0i" secondAttribute="trailing" id="vHX-wG-6Ba"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttf-XD-woK" userLabel="PostButton">
-                                <rect key="frame" x="305" y="742" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="6zY-IB-XdD"/>
-                                    <constraint firstAttribute="height" constant="50" id="V8c-DK-s4E"/>
-                                </constraints>
-                                <state key="normal" image="post_icon"/>
-                                <connections>
-                                    <segue destination="1ns-Xo-Q4d" kind="presentation" identifier="" id="qzp-NJ-UBY"/>
-                                </connections>
-                            </button>
-                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDO-55-Zfk" customClass="OptionsScrollView" customModule="planti" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="100" width="375" height="50"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="rJK-qK-q4B"/>
-                                </constraints>
-                            </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEz-y5-7Ff">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S7i-d9-Z27">
-                                <rect key="frame" x="0.0" y="154" width="375" height="624"/>
+                                <rect key="frame" x="0.0" y="154" width="375" height="658"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uqB-3e-csu">
                                     <size key="itemSize" width="227" height="202"/>
@@ -1680,6 +1658,28 @@ promotions</string>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttf-XD-woK" userLabel="PostButton">
+                                <rect key="frame" x="305" y="742" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="6zY-IB-XdD"/>
+                                    <constraint firstAttribute="height" constant="50" id="V8c-DK-s4E"/>
+                                </constraints>
+                                <state key="normal" image="post_icon"/>
+                                <connections>
+                                    <segue destination="1ns-Xo-Q4d" kind="presentation" identifier="" id="qzp-NJ-UBY"/>
+                                </connections>
+                            </button>
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDO-55-Zfk" customClass="OptionsScrollView" customModule="planti" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="100" width="375" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rJK-qK-q4B"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEz-y5-7Ff">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1695,7 +1695,7 @@ promotions</string>
                             <constraint firstItem="E8a-Po-Khb" firstAttribute="top" secondItem="PEz-y5-7Ff" secondAttribute="bottom" id="ll7-iU-mbb"/>
                             <constraint firstItem="S7i-d9-Z27" firstAttribute="top" secondItem="vDO-55-Zfk" secondAttribute="bottom" id="nru-ew-n93"/>
                             <constraint firstAttribute="trailing" secondItem="vDO-55-Zfk" secondAttribute="trailing" id="o24-7U-i8K"/>
-                            <constraint firstItem="E8a-Po-Khb" firstAttribute="bottom" secondItem="S7i-d9-Z27" secondAttribute="bottom" id="pJ2-Oo-Wdr"/>
+                            <constraint firstAttribute="bottom" secondItem="S7i-d9-Z27" secondAttribute="bottom" id="pJ2-Oo-Wdr"/>
                             <constraint firstAttribute="trailing" secondItem="PEz-y5-7Ff" secondAttribute="trailing" id="pKM-EC-lB2"/>
                             <constraint firstItem="S7i-d9-Z27" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="rXC-aY-D9o"/>
                             <constraint firstItem="vDO-55-Zfk" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="xEd-ku-cRA"/>
