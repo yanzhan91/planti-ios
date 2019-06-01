@@ -15,6 +15,7 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.image.layer.cornerRadius = 10
     }
     
     func loadImage(url: URL) {

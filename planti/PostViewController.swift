@@ -97,6 +97,7 @@ class PostViewController: UIViewController {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
         vc.delegate = self
+        vc.cameraFlashMode = .auto
         present(vc, animated: true)
     }
 }

@@ -82,7 +82,7 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat = 30;
         let cellSize = collectionView.frame.size.width - padding;
-        return CGSize(width: cellSize / 2, height: cellSize / 2);
+        return CGSize(width: cellSize / 2, height: cellSize / 2 + 50);
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
