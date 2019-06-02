@@ -69,6 +69,15 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
         return 1
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let miVC = storyboard.instantiateViewController(withIdentifier: "MenuImageVC") as! MenuImageViewController
+        miVC.menuItems = self.menuItems
+        miVC.index = indexPath.row
+        self.present(miVC, animated: true, completion: nil)
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuItemCell", for: indexPath) as! MenuItemCollectionViewCell
         let menuItem = self.menuItems[indexPath.row]

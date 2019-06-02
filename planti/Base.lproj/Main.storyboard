@@ -1627,6 +1627,36 @@ promotions</string>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="779.55665024630548"/>
         </scene>
+        <!--Menu Image View Controller-->
+        <scene sceneID="3PM-hg-h8q">
+            <objects>
+                <viewController storyboardIdentifier="MenuImageVC" id="1Pe-L9-64f" customClass="MenuImageViewController" customModule="planti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gl0-ea-F3x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFA-RB-FBU" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EFA-RB-FBU" firstAttribute="top" secondItem="gl0-ea-F3x" secondAttribute="top" id="XhX-S9-YfW"/>
+                            <constraint firstItem="EFA-RB-FBU" firstAttribute="leading" secondItem="fnR-lC-sOQ" secondAttribute="leading" id="qtS-EQ-Igr"/>
+                            <constraint firstAttribute="bottom" secondItem="EFA-RB-FBU" secondAttribute="bottom" id="zJf-S3-yAa"/>
+                            <constraint firstItem="EFA-RB-FBU" firstAttribute="trailing" secondItem="fnR-lC-sOQ" secondAttribute="trailing" id="zwb-Im-9PK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fnR-lC-sOQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="slideView" destination="EFA-RB-FBU" id="Mau-Az-ACe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOr-ey-mwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="780"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Menu_logo" width="200" height="80"/>

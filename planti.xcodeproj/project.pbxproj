@@ -31,6 +31,7 @@
 		F723EF2F229FB24B00C16209 /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F723EF2E229FB24B00C16209 /* MenuItemViewController.swift */; };
 		F72B77302255807F000322B7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B772F2255807F000322B7 /* Settings.swift */; };
 		F73918B52278254D00C047B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73918B42278254D00C047B3 /* SearchViewController.swift */; };
+		F73B36E222A2546300853EF9 /* MenuImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B36E122A2546300853EF9 /* MenuImageViewController.swift */; };
 		F74CC2F9229F9C420036013F /* RestaurantCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CC2F8229F9C420036013F /* RestaurantCollectionViewController.swift */; };
 		F74CC2FB229F9F0D0036013F /* RestaurantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CC2FA229F9F0D0036013F /* RestaurantCollectionViewCell.swift */; };
 		F752332C2284E23F005E3625 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752332B2284E23F005E3625 /* Documents.swift */; };
@@ -72,6 +73,7 @@
 		F723EF2E229FB24B00C16209 /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 		F72B772F2255807F000322B7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F73918B42278254D00C047B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F73B36E122A2546300853EF9 /* MenuImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImageViewController.swift; sourceTree = "<group>"; };
 		F74CC2F8229F9C420036013F /* RestaurantCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCollectionViewController.swift; sourceTree = "<group>"; };
 		F74CC2FA229F9F0D0036013F /* RestaurantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCollectionViewCell.swift; sourceTree = "<group>"; };
 		F752332B2284E23F005E3625 /* Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				F723EF2E229FB24B00C16209 /* MenuItemViewController.swift */,
 				B53381A3222649BA0007FFDD /* EntreeCell.swift */,
 				F723EF2A229FB0BB00C16209 /* MenuItemCollectionViewCell.swift */,
+				F73B36E122A2546300853EF9 /* MenuImageViewController.swift */,
 			);
 			path = MenuView;
 			sourceTree = "<group>";
@@ -324,7 +327,9 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-planti/Pods-planti-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
@@ -334,7 +339,9 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
@@ -366,6 +373,7 @@
 				B5F61847221889280032FF86 /* RestService.swift in Sources */,
 				F74CC2FB229F9F0D0036013F /* RestaurantCollectionViewCell.swift in Sources */,
 				B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */,
+				F73B36E222A2546300853EF9 /* MenuImageViewController.swift in Sources */,
 				F73918B52278254D00C047B3 /* SearchViewController.swift in Sources */,
 				F752332C2284E23F005E3625 /* Documents.swift in Sources */,
 				B5F60879221D14ED001989B6 /* Options.swift in Sources */,
