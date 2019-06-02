@@ -9,41 +9,51 @@
 import UIKit
 import ImageSlideshow
 
-class MenuImageViewController: UIViewController {
+class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     
     public var menuItems: [MenuItem]?
     public var index: Int = 0
     @IBOutlet weak var slideView: ImageSlideshow!
+    @IBOutlet weak var menuName: UILabel!
+    @IBOutlet weak var containsText: UILabel!
+    @IBOutlet weak var postedText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        slideView.slideshowInterval = 0
-        slideView.circular = false
-        slideView.activityIndicator = DefaultActivityIndicator()
+        self.slideView.slideshowInterval = 0
+        self.slideView.circular = false
+        self.slideView.activityIndicator = DefaultActivityIndicator()
+        self.slideView.contentScaleMode = .scaleAspectFit
         
         let pageIndicator = UIPageControl()
         pageIndicator.currentPageIndicatorTintColor = Colors.themeGreen
-        pageIndicator.pageIndicatorTintColor = UIColor.lightGray
-        slideView.pageIndicator = pageIndicator
+        pageIndicator.pageIndicatorTintColor = .white
+        self.slideView.pageIndicator = pageIndicator
         
         let images: [AlamofireSource] = (self.menuItems?.map { AlamofireSource(urlString: $0.imageUrl!)! }) ?? []
-        slideView.setImageInputs(images)
+        self.slideView.setImageInputs(images)
         
-        slideView.presentFullScreenController(from: self)
+        self.slideView.backgroundColor = .black
+        self.slideView.delegate = self
+        self.slideView.preload = .fixed(offset: 5)
+        self.slideView.setCurrentPage(self.index, animated: false)
+        
+        setMenuTexts(index: self.index)
     }
     
-    func loadImage(url: URL) -> UIImage {
-        var result: UIImage?
-        DispatchQueue.global().async { () in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-//                    DispatchQueue.main.async {
-                        result = image
-//                    }
-                }
-            }
-        }
-        return result ?? UIImage(named: "default_image")!
+    func imageSlideshow(_ imageSlideshow: ImageSlideshow, didChangeCurrentPageTo page: Int) {
+        setMenuTexts(index: page)
+    }
+    
+    func setMenuTexts(index: Int) {
+        let item = self.menuItems?[index]
+        self.menuName.text = item?.name
+        self.containsText.text = item?.containsLabel
+        self.postedText.text = "Users"
+    }
+    
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
