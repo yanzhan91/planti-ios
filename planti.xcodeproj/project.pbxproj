@@ -36,6 +36,7 @@
 		F752332C2284E23F005E3625 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752332B2284E23F005E3625 /* Documents.swift */; };
 		F752332F2284E3A6005E3625 /* Terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = F752332E2284E3A6005E3625 /* Terms.txt */; };
 		F75A4C3D2285054A00FBEF10 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75A4C3C2285054A00FBEF10 /* TextViewController.swift */; };
+		F76EB7CD22A4ED4D0055B6BB /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76EB7CC22A4ED4D0055B6BB /* ImageService.swift */; };
 		F773DD7C2295045900529B09 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773DD7B2295045900529B09 /* MapAnnotation.swift */; };
 		F78AA8B42288F15B00A332CE /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8AE2288F15B00A332CE /* RestaurantMapViewController.swift */; };
 		F78AA8B92288F15B00A332CE /* RestaurantParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8B32288F15B00A332CE /* RestaurantParentViewController.swift */; };
@@ -77,6 +78,7 @@
 		F752332B2284E23F005E3625 /* Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
 		F752332E2284E3A6005E3625 /* Terms.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Terms.txt; sourceTree = "<group>"; };
 		F75A4C3C2285054A00FBEF10 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		F76EB7CC22A4ED4D0055B6BB /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		F773DD7B2295045900529B09 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		F78AA8AE2288F15B00A332CE /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
 		F78AA8B32288F15B00A332CE /* RestaurantParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantParentViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		B5EAC3CE2217EAE80080858E /* planti */ = {
 			isa = PBXGroup;
 			children = (
+				F76EB7CB22A4ED2F0055B6BB /* Services */,
 				F7FC1FD7224C717800FF4AEF /* RatingsView */,
 				F7FC1FD8224C718300FF4AEF /* MapMarker */,
 				F723EF29229FAFBB00C16209 /* MenuView */,
@@ -128,7 +131,6 @@
 				B5EAC3D82217EAE90080858E /* LaunchScreen.storyboard */,
 				B5EAC3DB2217EAE90080858E /* Info.plist */,
 				F7FC1FD6224C716400FF4AEF /* Models */,
-				B5F61846221889280032FF86 /* RestService.swift */,
 				B5F6087C221D376E001989B6 /* ThemeButton.swift */,
 				B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */,
 				B5C6A6BC22220B24007DE260 /* PostViewController.swift */,
@@ -175,6 +177,15 @@
 				F752332E2284E3A6005E3625 /* Terms.txt */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F76EB7CB22A4ED2F0055B6BB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B5F61846221889280032FF86 /* RestService.swift */,
+				F76EB7CC22A4ED4D0055B6BB /* ImageService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F78AA8AD2288F14E00A332CE /* RestaurantsView */ = {
@@ -369,6 +380,7 @@
 				B5F61847221889280032FF86 /* RestService.swift in Sources */,
 				F74CC2FB229F9F0D0036013F /* RestaurantCollectionViewCell.swift in Sources */,
 				B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */,
+				F76EB7CD22A4ED4D0055B6BB /* ImageService.swift in Sources */,
 				F73B36E222A2546300853EF9 /* MenuImageViewController.swift in Sources */,
 				F73918B52278254D00C047B3 /* SearchViewController.swift in Sources */,
 				F752332C2284E23F005E3625 /* Documents.swift in Sources */,

@@ -143,6 +143,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ImageService.fetchImage(urlString:completion:):ImageService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "imageCache.object(forKey: urlString as AnyObject)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "RestaurantMapViewController.mapView(_:didAdd:):RestaurantMapViewController.swift">
       </ContextState>
    </ContextStates>
