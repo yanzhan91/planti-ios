@@ -41,7 +41,7 @@ class OptionsScrollView: UIScrollView {
         for option in Options.allCases {
             let button = ThemeButton.init(frame: CGRect(x: leftSpacing, y: topSpacing, width: 100, height: 40),
                                           title: option.rawValue)
-            
+
             button.addTarget(self, action: #selector(preferenceButtonPressed), for: .touchUpInside)
             
             self.buttonsOptionsDictionary[button] = option

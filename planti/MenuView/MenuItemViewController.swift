@@ -85,6 +85,7 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
             cell.loadImage(url: URL(string: menuItem.imageUrl!)!)
         }
         cell.name.text = menuItem.name
+        cell.name.sizeToFit()
         return cell
     }
     

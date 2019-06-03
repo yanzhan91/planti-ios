@@ -881,7 +881,7 @@ promotions</string>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDT-qW-DhH">
-                                <rect key="frame" x="0.0" y="154" width="375" height="658"/>
+                                <rect key="frame" x="0.0" y="147" width="375" height="665"/>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZC-AS-Fgx" userLabel="PostButton">
                                 <rect key="frame" x="305" y="742" width="50" height="50"/>
@@ -898,7 +898,7 @@ promotions</string>
                                 <rect key="frame" x="0.0" y="104" width="375" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ajG-0Z-6kU"/>
+                                    <constraint firstAttribute="height" constant="43" id="ajG-0Z-6kU"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1328,7 +1328,7 @@ promotions</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-cW-fVx" userLabel="Post" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="100" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Aj4-7i-nLU"/>
+                                                            <constraint firstAttribute="width" constant="100" id="Aj4-7i-nLU"/>
                                                         </constraints>
                                                         <state key="normal" title="Post"/>
                                                         <connections>
@@ -1338,7 +1338,7 @@ promotions</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sf5-8r-nf9" userLabel="Post" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
                                                         <rect key="frame" x="145" y="0.0" width="100" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="IGB-QB-0U8"/>
+                                                            <constraint firstAttribute="width" constant="100" id="IGB-QB-0U8"/>
                                                         </constraints>
                                                         <state key="normal" title="Cancel"/>
                                                         <connections>
@@ -1350,7 +1350,6 @@ promotions</string>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="iFF-cW-fVx" secondAttribute="trailing" id="KjB-eO-qc6"/>
                                                     <constraint firstAttribute="bottom" secondItem="iFF-cW-fVx" secondAttribute="bottom" id="Ntf-hH-CU0"/>
-                                                    <constraint firstItem="Sf5-8r-nf9" firstAttribute="leading" relation="lessThanOrEqual" secondItem="I7w-x8-aeY" secondAttribute="leading" constant="145" id="PAP-G7-86S"/>
                                                     <constraint firstAttribute="height" constant="40" id="Vna-9m-lw7"/>
                                                     <constraint firstItem="iFF-cW-fVx" firstAttribute="top" secondItem="I7w-x8-aeY" secondAttribute="top" id="WQJ-DR-szC"/>
                                                     <constraint firstAttribute="bottom" secondItem="Sf5-8r-nf9" secondAttribute="bottom" id="Z9q-ad-Pw3"/>
@@ -1360,7 +1359,7 @@ promotions</string>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnJ-BJ-9FR">
                                                 <rect key="frame" x="151.33333333333334" y="214" width="1" height="168"/>
-                                                <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="CUA-WO-lmg"/>
                                                 </constraints>
@@ -1737,6 +1736,6 @@ promotions</string>
         <image name="refresh_icon" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qzp-NJ-UBY"/>
+        <segue reference="YZu-HY-RfZ"/>
     </inferredMetricsTieBreakers>
 </document>

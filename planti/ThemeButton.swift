@@ -21,16 +21,17 @@ class ThemeButton: UIButton {
     }
     
     private func initalize(title: String?) {
-        self.layer.cornerRadius = 18
+        self.layer.cornerRadius = 14
         self.layer.borderWidth = 1.5
         self.layer.borderColor = Colors.themeGreen.cgColor
         self.backgroundColor = UIColor.white
         self.clipsToBounds = true
+        self.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         if (title != nil) {
             self.setTitle(title, for: .normal)
         }
         deactivate()
-        self.contentEdgeInsets = UIEdgeInsets(top: 9, left: 12, bottom: 9, right: 12)
+        self.contentEdgeInsets = UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8)
         self.sizeToFit()
     }
     
