@@ -143,6 +143,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MenuImageViewController.imageSlideshow(_:didChangeCurrentPageTo:):MenuImageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "imageSlideshow.currentSlideshowItem?.imageView.highlightedImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ImageService.fetchImage(urlString:completion:):ImageService.swift">
          <PersistentStrings>
             <PersistentString

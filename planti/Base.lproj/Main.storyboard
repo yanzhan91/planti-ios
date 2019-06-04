@@ -1624,7 +1624,7 @@ promotions</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFA-RB-FBU" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                <rect key="frame" x="0.0" y="150" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="150" width="375" height="628"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-9H-TxW">
@@ -1639,40 +1639,35 @@ promotions</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsC-hW-OCg" userLabel="ContainsText">
-                                <rect key="frame" x="85" y="77.666666666666671" width="270" height="17"/>
+                                <rect key="frame" x="85" y="106.33333333333333" width="270" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.88317008679394893" green="0.88317008679394893" blue="0.88317008679394893" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lo-eO-pfo" userLabel="PostedText">
-                                <rect key="frame" x="92.333333333333343" y="99.666666666666671" width="262.66666666666663" height="17"/>
+                                <rect key="frame" x="92.333333333333343" y="128.33333333333334" width="262.66666666666663" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.88317008679394893" green="0.88317008679394893" blue="0.88317008679394893" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted by: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSa-KE-6MJ" userLabel="Posted">
-                                <rect key="frame" x="20" y="99.666666666666671" width="72.333333333333329" height="17"/>
+                                <rect key="frame" x="20" y="128.33333333333334" width="72.333333333333329" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.88317008679394893" green="0.88317008679394893" blue="0.88317008679394893" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-6m-G8E" userLabel="Contains">
-                                <rect key="frame" x="20" y="77.666666666666671" width="65" height="17"/>
+                                <rect key="frame" x="20" y="106.33333333333333" width="65" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.88317008679394893" green="0.88317008679394893" blue="0.88317008679394893" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zuk-R6-vgU" userLabel="Name">
-                                <rect key="frame" x="20" y="44" width="295" height="28.666666666666671"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Really Reaaally long menu item name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zuk-R6-vgU" userLabel="Name">
+                                <rect key="frame" x="20" y="44" width="295" height="57.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="odp-zQ-caP">
-                                <rect key="frame" x="0.0" y="741" width="375" height="37"/>
-                                <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1686,14 +1681,11 @@ promotions</string>
                             <constraint firstItem="6lo-eO-pfo" firstAttribute="leading" secondItem="NSa-KE-6MJ" secondAttribute="trailing" id="Q7y-6E-FGl"/>
                             <constraint firstItem="NSa-KE-6MJ" firstAttribute="leading" secondItem="gl0-ea-F3x" secondAttribute="leading" constant="20" id="Qfu-Ih-3b7"/>
                             <constraint firstItem="EFA-RB-FBU" firstAttribute="top" secondItem="gl0-ea-F3x" secondAttribute="top" constant="150" id="XhX-S9-YfW"/>
-                            <constraint firstItem="odp-zQ-caP" firstAttribute="leading" secondItem="fnR-lC-sOQ" secondAttribute="leading" id="kXt-AA-Jdv"/>
+                            <constraint firstItem="fnR-lC-sOQ" firstAttribute="bottom" secondItem="EFA-RB-FBU" secondAttribute="bottom" id="bE3-3c-4O6"/>
                             <constraint firstItem="4gN-6m-G8E" firstAttribute="leading" secondItem="gl0-ea-F3x" secondAttribute="leading" constant="20" id="mYD-JD-wpj"/>
                             <constraint firstItem="OsC-hW-OCg" firstAttribute="centerY" secondItem="4gN-6m-G8E" secondAttribute="centerY" id="oUS-sy-mdl"/>
-                            <constraint firstItem="fnR-lC-sOQ" firstAttribute="trailing" secondItem="odp-zQ-caP" secondAttribute="trailing" id="qTJ-qx-pI7"/>
                             <constraint firstItem="EFA-RB-FBU" firstAttribute="leading" secondItem="fnR-lC-sOQ" secondAttribute="leading" id="qtS-EQ-Igr"/>
                             <constraint firstItem="fnR-lC-sOQ" firstAttribute="trailing" secondItem="PMs-9H-TxW" secondAttribute="trailing" constant="20" id="rSo-2Q-Xd9"/>
-                            <constraint firstItem="odp-zQ-caP" firstAttribute="top" secondItem="EFA-RB-FBU" secondAttribute="bottom" id="sqV-tC-d6E"/>
-                            <constraint firstItem="fnR-lC-sOQ" firstAttribute="bottom" secondItem="odp-zQ-caP" secondAttribute="bottom" id="wCh-7v-OAo"/>
                             <constraint firstItem="6lo-eO-pfo" firstAttribute="centerY" secondItem="NSa-KE-6MJ" secondAttribute="centerY" id="ykq-iI-ahf"/>
                             <constraint firstItem="Zuk-R6-vgU" firstAttribute="top" secondItem="fnR-lC-sOQ" secondAttribute="top" id="zJf-S3-yAa"/>
                             <constraint firstItem="4gN-6m-G8E" firstAttribute="top" secondItem="Zuk-R6-vgU" secondAttribute="bottom" constant="5" id="zpf-O0-J2I"/>
@@ -1706,7 +1698,6 @@ promotions</string>
                     <connections>
                         <outlet property="containsText" destination="OsC-hW-OCg" id="jlE-b9-o0T"/>
                         <outlet property="menuName" destination="Zuk-R6-vgU" id="SBW-gw-J80"/>
-                        <outlet property="pageIndicator" destination="odp-zQ-caP" id="Lbe-CP-TaA"/>
                         <outlet property="postedText" destination="6lo-eO-pfo" id="NYq-LI-6Ha"/>
                         <outlet property="slideView" destination="EFA-RB-FBU" id="Mau-Az-ACe"/>
                     </connections>

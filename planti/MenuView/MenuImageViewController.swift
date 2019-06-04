@@ -17,7 +17,6 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var menuName: UILabel!
     @IBOutlet weak var containsText: UILabel!
     @IBOutlet weak var postedText: UILabel!
-    @IBOutlet weak var pageIndicator: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +27,11 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         self.slideView.contentScaleMode = .scaleAspectFit
         self.slideView.zoomEnabled = true
         
-        self.pageIndicator.isUserInteractionEnabled = false
-        
-        self.slideView.pageIndicator = self.pageIndicator
+        let pageIndicator = UIPageControl()
+        pageIndicator.currentPageIndicatorTintColor = Colors.themeGreen
+        pageIndicator.pageIndicatorTintColor = .white
+        pageIndicator.isUserInteractionEnabled = false
+        self.slideView.pageIndicator = pageIndicator
         self.slideView.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         
         let images: [AlamofireSource] = (self.menuItems?.map { AlamofireSource(urlString: $0.imageUrl!)! }) ?? []
@@ -39,9 +40,12 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         self.slideView.backgroundColor = .black
         self.slideView.delegate = self
         self.slideView.preload = .fixed(offset: 5)
-        self.slideView.setCurrentPage(self.index, animated: false)
         
-        setMenuTexts(index: self.index)
+        if (self.index == 0) {
+            setMenuTexts(index: self.index)
+        } else {
+            self.slideView.setCurrentPage(self.index, animated: false)
+        }
     }
     
     func imageSlideshow(_ imageSlideshow: ImageSlideshow, didChangeCurrentPageTo page: Int) {
