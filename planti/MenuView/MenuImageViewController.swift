@@ -17,6 +17,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var menuName: UILabel!
     @IBOutlet weak var containsText: UILabel!
     @IBOutlet weak var postedText: UILabel!
+    @IBOutlet weak var pageIndicator: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         self.slideView.activityIndicator = DefaultActivityIndicator()
         self.slideView.contentScaleMode = .scaleAspectFit
         
-        let pageIndicator = UIPageControl()
-        pageIndicator.currentPageIndicatorTintColor = Colors.themeGreen
-        pageIndicator.pageIndicatorTintColor = .white
-        self.slideView.pageIndicator = pageIndicator
+        self.slideView.pageIndicator = self.pageIndicator
         
         let images: [AlamofireSource] = (self.menuItems?.map { AlamofireSource(urlString: $0.imageUrl!)! }) ?? []
         self.slideView.setImageInputs(images)
