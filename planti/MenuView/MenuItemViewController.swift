@@ -12,7 +12,6 @@ import MapKit
 class MenuItemViewController: UIViewController {
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var optionsScrollView: OptionsScrollView!
     
     var restaurantName : String = "Restaurant Name"
     var option : Options = .vegan
@@ -28,9 +27,6 @@ class MenuItemViewController: UIViewController {
         self.restaurantNameLabel.text = restaurantName
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        
-        self.optionsScrollView.delegate = self
-        self.optionsScrollView.setPreference(option: self.option)
         
         didChangeOption(self.option)
     }

@@ -26,8 +26,12 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         self.slideView.circular = false
         self.slideView.activityIndicator = DefaultActivityIndicator()
         self.slideView.contentScaleMode = .scaleAspectFit
+        self.slideView.zoomEnabled = true
+        
+        self.pageIndicator.isUserInteractionEnabled = false
         
         self.slideView.pageIndicator = self.pageIndicator
+        self.slideView.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         
         let images: [AlamofireSource] = (self.menuItems?.map { AlamofireSource(urlString: $0.imageUrl!)! }) ?? []
         self.slideView.setImageInputs(images)
@@ -49,6 +53,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         self.menuName.text = item?.name
         self.containsText.text = item?.containsLabel
         self.postedText.text = "Users"
+
     }
     
     @IBAction func close(_ sender: Any) {

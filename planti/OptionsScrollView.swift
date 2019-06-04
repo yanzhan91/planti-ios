@@ -56,7 +56,7 @@ class OptionsScrollView: UIScrollView {
                 self.selected?.activate()
             }
         }
-        self.contentSize = CGSize(width: totalWidth, height: 50)
+        self.contentSize = CGSize(width: totalWidth, height: 43)
     }
     
     @objc private func preferenceButtonPressed(sender: ThemeButton) {

@@ -1523,7 +1523,7 @@ promotions</string>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S7i-d9-Z27">
-                                <rect key="frame" x="0.0" y="154" width="375" height="658"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="708"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uqB-3e-csu">
                                     <size key="itemSize" width="227" height="220"/>
@@ -1583,13 +1583,6 @@ promotions</string>
                                     <segue destination="1ns-Xo-Q4d" kind="presentation" identifier="" id="qzp-NJ-UBY"/>
                                 </connections>
                             </button>
-                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDO-55-Zfk" customClass="OptionsScrollView" customModule="planti" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="100" width="375" height="50"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="rJK-qK-q4B"/>
-                                </constraints>
-                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEz-y5-7Ff">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -1600,25 +1593,21 @@ promotions</string>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="trailing" secondItem="E8a-Po-Khb" secondAttribute="trailing" id="5dP-mr-o9G"/>
                             <constraint firstItem="E8a-Po-Khb" firstAttribute="trailing" secondItem="S7i-d9-Z27" secondAttribute="trailing" id="6Bc-Cc-AhU"/>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="7Di-XB-zBj"/>
+                            <constraint firstItem="S7i-d9-Z27" firstAttribute="top" secondItem="gfc-6F-dWQ" secondAttribute="bottom" id="7TM-8h-035"/>
                             <constraint firstAttribute="bottom" secondItem="ttf-XD-woK" secondAttribute="bottom" constant="20" id="97D-Wr-zCX"/>
                             <constraint firstAttribute="trailing" secondItem="ttf-XD-woK" secondAttribute="trailing" constant="20" id="BwI-bW-XtD"/>
-                            <constraint firstItem="vDO-55-Zfk" firstAttribute="top" secondItem="gfc-6F-dWQ" secondAttribute="bottom" id="D3Y-eg-EIy"/>
                             <constraint firstItem="PEz-y5-7Ff" firstAttribute="leading" secondItem="emy-Gx-UFl" secondAttribute="leading" id="FmI-pG-MAZ"/>
                             <constraint firstItem="PEz-y5-7Ff" firstAttribute="top" secondItem="emy-Gx-UFl" secondAttribute="top" id="PJU-pj-bUs"/>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="top" secondItem="E8a-Po-Khb" secondAttribute="top" id="f97-Qp-1vP"/>
                             <constraint firstItem="E8a-Po-Khb" firstAttribute="top" secondItem="PEz-y5-7Ff" secondAttribute="bottom" id="ll7-iU-mbb"/>
-                            <constraint firstItem="S7i-d9-Z27" firstAttribute="top" secondItem="vDO-55-Zfk" secondAttribute="bottom" id="nru-ew-n93"/>
-                            <constraint firstAttribute="trailing" secondItem="vDO-55-Zfk" secondAttribute="trailing" id="o24-7U-i8K"/>
                             <constraint firstAttribute="bottom" secondItem="S7i-d9-Z27" secondAttribute="bottom" id="pJ2-Oo-Wdr"/>
                             <constraint firstAttribute="trailing" secondItem="PEz-y5-7Ff" secondAttribute="trailing" id="pKM-EC-lB2"/>
                             <constraint firstItem="S7i-d9-Z27" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="rXC-aY-D9o"/>
-                            <constraint firstItem="vDO-55-Zfk" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="xEd-ku-cRA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E8a-Po-Khb"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="S7i-d9-Z27" id="zTn-Az-evf"/>
-                        <outlet property="optionsScrollView" destination="vDO-55-Zfk" id="unq-ht-1fN"/>
                         <outlet property="restaurantNameLabel" destination="rBz-uf-Df5" id="LnI-5S-HYa"/>
                     </connections>
                 </viewController>
@@ -1745,6 +1734,6 @@ promotions</string>
         <image name="refresh_icon" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YZu-HY-RfZ"/>
+        <segue reference="qzp-NJ-UBY"/>
     </inferredMetricsTieBreakers>
 </document>
