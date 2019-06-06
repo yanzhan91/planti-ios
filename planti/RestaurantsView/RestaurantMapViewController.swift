@@ -165,8 +165,8 @@ extension RestaurantMapViewController : MKMapViewDelegate {
         let restaurant = self.restaurants[sender.tag]
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! MenuItemViewController
-        rmvc.restaurantName = restaurant.name!
-        rmvc.placeId = restaurant.placeId!
+        rmvc.restaurantName = restaurant.restaurantName!
+        rmvc.chainId = restaurant.chainId!
         rmvc.option = (self.pvc?.optionScrollView.getPreference())!
         self.present(rmvc, animated: true, completion: nil)
     }
@@ -211,7 +211,7 @@ extension MKMapView {
     func getMarkersAndDisplay(restaurants: [Restaurant]) {
         self.removeAnnotations(self.annotations)
         for (index, restaurant) in restaurants.enumerated() {
-            let annotation = MapAnnotation(index: index, name: restaurant.name!, ratings: restaurant.rating, numRatings: restaurant.numRatings, image: UIImage(named: "default_image")!, coordinate: CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude))
+            let annotation = MapAnnotation(index: index, name: restaurant.restaurantName!, ratings: restaurant.rating, numRatings: restaurant.numRatings, image: UIImage(named: "AppIcon")!, coordinate: CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude))
             self.addAnnotation(annotation)
         }
     }

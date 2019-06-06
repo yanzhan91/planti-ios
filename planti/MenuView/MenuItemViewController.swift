@@ -15,7 +15,7 @@ class MenuItemViewController: UIViewController {
     
     var restaurantName : String = "Restaurant Name"
     var option : Options = .vegan
-    var placeId : String = ""
+    var chainId : String = ""
     var latitude : Double = 180
     var longitude : Double = 180
     
@@ -80,7 +80,7 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
         if (menuItem.imageUrl != nil) {
             cell.loadImage(url: URL(string: menuItem.imageUrl!)!)
         }
-        cell.name.text = menuItem.name
+        cell.name.text = menuItem.menuItemName
         cell.name.sizeToFit()
         return cell
     }
@@ -97,10 +97,10 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
     
     @objc func openDropDown(sender: UIButton) {
         let menuItem = self.menuItems[sender.tag]
-        let optionMenu = UIAlertController(title: self.restaurantName, message: menuItem.name, preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: self.restaurantName, message: menuItem.menuItemName, preferredStyle: .actionSheet)
         let reportAction = UIAlertAction(title: "Report Error", style: .default) { (action) in
             if (menuItem.id != nil) {
-                RestService.shared().reportError(id: menuItem.id!, placeId: self.placeId)
+                RestService.shared().reportError(menuItemId: menuItem.id!, chainId: self.chainId)
             }
             let okAlert = UIAlertController(title: "Thank you for your feedback!", message: nil, preferredStyle: .alert)
             okAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -117,7 +117,7 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
 
 extension MenuItemViewController : OptionsScrollViewDelegate {
     func didChangeOption(_ option: Options) {
-        RestService.shared().getMenuItems(option: self.option, placeId: placeId) { menuItems in
+        RestService.shared().getMenuItems(option: self.option, chainId: chainId) { menuItems in
             print("Changing options \(option)")
             self.menuItems = menuItems
             self.collectionView.reloadData()

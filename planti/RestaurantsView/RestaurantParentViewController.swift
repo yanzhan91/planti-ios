@@ -141,7 +141,7 @@ class RestaurantParentViewController: UIViewController {
             let dest = segue.destination as! MenuItemViewController
             let map = sender as? Dictionary<String, String>
             dest.restaurantName = (map?["restaurantName"])!
-            dest.placeId = (map?["placeId"])!
+            dest.chainId = (map?["chainId"])!
             dest.option = self.optionScrollView.getPreference()
         }
     }
@@ -151,11 +151,6 @@ class RestaurantParentViewController: UIViewController {
 
             self.restaurants = restaurants
             self.mapViewController.reload(restaurants: restaurants)
-
-//            RestService.shared().postUser(option: self.optionScrollView.getPreference(), settings: nil, lastKnownLocation: coordinates)
-
-//            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION_LATITUDE, value: coordinates.latitude)
-//            DefaultsKeys.setEncodedUserDefaults(key: DefaultsKeys.LAST_KNOWN_LOCATION_LONGITUDE, value: coordinates.longitude)
         }
     }
     

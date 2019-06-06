@@ -15,7 +15,8 @@ class RestService {
     
     private static var restService = RestService()
     private final var scheme: String = "http"
-    private final var host: String = "planti-env.er36yiu2yy.us-east-1.elasticbeanstalk.com"
+//    private final var host: String = "planti-env.er36yiu2yy.us-east-1.elasticbeanstalk.com"
+    private final var host: String = "localhost"
     
     class func shared() -> RestService {
         return restService
@@ -126,10 +127,10 @@ class RestService {
         }
     }
     
-    public func getMenuItems(option: Options, placeId: String, completion: @escaping ([MenuItem]) -> Void) {
-        print("Rest: getting menu items \(option) \(placeId)")
+    public func getMenuItems(option: Options, chainId: String, completion: @escaping ([MenuItem]) -> Void) {
+        print("Rest: getting menu items \(option) \(chainId)")
         let url = buildUrl(path: "/planti-api/ui/getMenuItems/", queries: [
-            URLQueryItem(name: "placeId", value: placeId), URLQueryItem(name: "option", value: String(option.number()))])
+            URLQueryItem(name: "chainId", value: chainId), URLQueryItem(name: "option", value: String(option.number()))])
         Alamofire.request(url, method: .get)
             .validate()
             .responseArray { (response: DataResponse<[MenuItem]>) in
@@ -243,11 +244,11 @@ class RestService {
         }
     }
     
-    public func reportError(id: String, placeId: String) {
-        print("Rest: reporting error \(id)")
+    public func reportError(menuItemId: String, chainId: String) {
+        print("Rest: reporting error \(menuItemId)")
         let url = buildUrl(path: "/planti-api/ui/reportError", queries: [
-            URLQueryItem(name: "id", value: id),
-            URLQueryItem(name: "placeId", value: placeId)])
+            URLQueryItem(name: "id", value: menuItemId),
+            URLQueryItem(name: "chainId", value: chainId)])
         Alamofire.request(url, method: .post)
             .validate()
             .responseJSON { response in
@@ -268,6 +269,7 @@ class RestService {
         url.scheme = self.scheme
         url.host = self.host
         url.path = path
+        url.port = 5000
         url.queryItems = queries
         return try! url.asURL()
     }

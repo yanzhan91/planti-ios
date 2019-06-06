@@ -54,9 +54,9 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     
     func setMenuTexts(index: Int) {
         let item = self.menuItems?[index]
-        self.menuName.text = item?.name
+        self.menuName.text = item?.menuItemName
         self.containsText.text = item?.containsLabel
-        self.postedText.text = "Users"
+        self.postedText.text = item?.postedBy
 
     }
     

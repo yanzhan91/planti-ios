@@ -9,13 +9,13 @@
 import ObjectMapper
 
 class MenuItem : Mappable {
+    
     var id: String?
-    var placeId: String?
-    var name: String?
+    var chainId: String?
+    var menuItemName: String?
     var imageUrl: String?
-    var option: Int = 0
     var containsLabel: String?
-    var posted: String?
+    var postedBy: String?
     
     required init?(map: Map) {
         
@@ -23,11 +23,10 @@ class MenuItem : Mappable {
     
     func mapping(map: Map) {
         id <- map["id"]
-        placeId <- map["placeId"]
-        name <- map["name"]
+        chainId <- map["chainId"]
+        menuItemName <- map["menuItemName"]
         imageUrl <- map["imageUrl"]
-        option <- map["option"]
         containsLabel <- map["containsLabel"]
-        posted <- map["posted"]
+        postedBy <- map["postedBy"]
     }
 }
