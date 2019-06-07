@@ -929,6 +929,7 @@ promotions</string>
                         <outlet property="optionScrollView" destination="aPt-QE-WOn" id="ogH-MX-8P7"/>
                         <outlet property="postButton" destination="zZC-AS-Fgx" id="zc2-9w-LQA"/>
                         <outlet property="searchField" destination="DGo-ZT-99g" id="Sjo-ir-O8x"/>
+                        <outlet property="switchViewButton" destination="1SU-Xi-xJm" id="Q4M-oC-skx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgh-LN-tZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1725,6 +1726,6 @@ promotions</string>
         <image name="refresh_icon" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qzp-NJ-UBY"/>
+        <segue reference="YZu-HY-RfZ"/>
     </inferredMetricsTieBreakers>
 </document>

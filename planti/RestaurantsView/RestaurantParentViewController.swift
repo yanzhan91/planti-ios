@@ -44,6 +44,7 @@ class RestaurantParentViewController: UIViewController {
     @IBOutlet weak var optionScrollView: OptionsScrollView!
     @IBOutlet weak var navigationBarHeight: NSLayoutConstraint!
     @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var switchViewButton: UIButton!
     
     private var locationManager : CLLocationManager!
     private var location: CLLocationCoordinate2D?
@@ -126,7 +127,7 @@ class RestaurantParentViewController: UIViewController {
     
     private func switchView(vc: UIViewController) {
         if (activeViewController != vc) {
-            switchView(AnyObject.self)
+            switchView(self.switchViewButton!)
         }
     }
     
