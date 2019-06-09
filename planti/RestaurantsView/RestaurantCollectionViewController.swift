@@ -48,7 +48,7 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         if (restaurant.distance < 0) {
             cell.distance.text = ""
         } else {
-            cell.distance.text = "8.4 Miles"
+            cell.distance.text = "\(restaurant.distance) mi"
         }
         
         cell.ratingsView.setRatings(ratings: restaurant.rating)

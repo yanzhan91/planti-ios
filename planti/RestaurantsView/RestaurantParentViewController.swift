@@ -148,7 +148,8 @@ class RestaurantParentViewController: UIViewController {
     }
     
     public func fetchRestaurants(coordinates: CLLocationCoordinate2D, radius: Int) {
-        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: coordinates, radius: Int(radius)) { restaurants in
+//        print(self.mapViewController.getUserLocation())
+        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), location: coordinates, userLocation: self.mapViewController.getUserLocation(), radius: Int(radius)) { restaurants in
 
             self.restaurants = restaurants
             self.mapViewController.reload(restaurants: restaurants)
@@ -182,7 +183,6 @@ extension RestaurantParentViewController : PreferenceViewControllerDelegate {
     func optionDidChange(option: Options) {
         self.optionScrollView.setPreference(option: option)
                 UserDefaults.standard.set(option.rawValue, forKey: DefaultsKeys.PREFERENCE)
-//        self.fetchRestaurants(coordinates: self.mapViewController.getCoordinate(), radius: self.mapViewController.getRadius())
     }
 }
 
@@ -190,16 +190,17 @@ extension RestaurantParentViewController :  MenuItemViewControllerDelegate {
     func optionDidChangeInMenuItem(option: Options) {
         self.optionScrollView.setPreference(option: option)
         UserDefaults.standard.set(option.rawValue, forKey: DefaultsKeys.PREFERENCE)
-//        self.fetchRestaurants(coordinates: self.mapViewController.getCoordinate(), radius: self.mapViewController.getRadius())
     }
 }
 
 extension RestaurantParentViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
-        switchView(vc: self.mapViewController)
-        self.mapViewController.moveMap(coordinate: location.coordinate)
-        self.fetchRestaurants(coordinates: location.coordinate, radius: self.mapViewController.getRadius())
+        if (location.coordinate.latitude != 0 && location.coordinate.longitude != 0) {
+            switchView(vc: self.mapViewController)
+            self.mapViewController.moveMap(coordinate: location.coordinate)
+            self.fetchRestaurants(coordinates: location.coordinate, radius: self.mapViewController.getRadius())
+        }
     }
     
     // Handle location manager errors.

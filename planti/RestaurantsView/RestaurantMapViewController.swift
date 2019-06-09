@@ -84,6 +84,10 @@ class RestaurantMapViewController: UIViewController {
         self.refreshButton.isHidden = true
         self.pvc?.updateMyLocation()
     }
+    
+    public func getUserLocation() -> CLLocationCoordinate2D {
+        return self.mapView.userLocation.coordinate
+    }
 }
 
 extension RestaurantMapViewController : MKMapViewDelegate {

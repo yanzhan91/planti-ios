@@ -97,15 +97,17 @@ class RestService {
         }
     }
     
-    public func getRestaurants(option: Options, location: CLLocationCoordinate2D, radius: Int,
+    public func getRestaurants(option: Options, location: CLLocationCoordinate2D, userLocation: CLLocationCoordinate2D, radius: Int,
                                completion: @escaping ([Restaurant]) -> Void) {
         print("Rest: getRestaurants \(option) \(location.latitude) \(location.longitude) \(radius)")
         
-        
+        print(userLocation)
         let url = buildUrl(path: "/planti-api/ui/getRestaurants", queries: [
             URLQueryItem(name: "option", value: String(option.number())),
             URLQueryItem(name: "latitude", value: String(location.latitude)),
             URLQueryItem(name: "longitude", value: String(location.longitude)),
+            URLQueryItem(name: "userLatitude", value: String(userLocation.latitude)),
+            URLQueryItem(name: "userLongitude", value: String(userLocation.longitude)),
             URLQueryItem(name: "radius", value: String(radius))
         ])
         

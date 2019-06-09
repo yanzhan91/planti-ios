@@ -49,6 +49,9 @@
          contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "restaurant.distance">
+            </PersistentString>
+            <PersistentString
                value = "reuseIdentifier">
             </PersistentString>
             <PersistentString
@@ -175,6 +178,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in MenuImageViewController.viewDidLoad():MenuImageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "$0.imageUrl == nil">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MenuTableViewController.tableView(_:didSelectRowAt:):MenuTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -190,6 +201,14 @@
          <PersistentStrings>
             <PersistentString
                value = "UIDevice.current.identifierForVendor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.getUserLocation():RestaurantMapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mapView.userLocation.coordinate">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
