@@ -3,21 +3,70 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "RestaurantParentViewController.switchView(vc:):RestaurantParentViewController.swift">
+         contextName = "RestaurantViewController.locationManager(_:didUpdateLocations:):RestaurantViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "activeViewController == self.listViewController">
-            </PersistentString>
-            <PersistentString
-               value = "activeViewController == self.mapViewController">
+               value = "self.refreshButton?.isHidden">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static DeviceType.isIPhoneX.getter:DeviceType.swift">
+         contextName = "SearchViewController.viewDidLoad():SearchViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.selectAnnotation(sender:):RestaurantMapViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "#available(iOS 12, *)">
+               value = "rmvc.optionScrollView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in RestaurantViewController.fetchRestaurantsWithCoordinates(coordinates:):RestaurantViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "noRestaurauntNotice.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ImageService.fetchImage(urlString:completion:):ImageService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "imageCache.object(forKey: urlString as AnyObject)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "reuseIdentifier">
+            </PersistentString>
+            <PersistentString
+               value = "cell.image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.mapView(_:viewFor:):RestaurantMapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "zoomLevel &lt;= maxZoomLevel">
+            </PersistentString>
+            <PersistentString
+               value = "self.currentZoomLevel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.mapView(_:didAdd:):RestaurantMapViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SearchViewController.tableView(_:cellForRowAt:):SearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "item.title">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -39,25 +88,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MenuTableViewController.tableView(_:didSelectRowAt:):MenuTableViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.parent">
-            </PersistentString>
-            <PersistentString
-               value = " SideMenuManager.default.menuLeftNavigationController?">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "SearchViewController.tableView(_:cellForRowAt:):SearchViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "item.title">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "PostViewController.post(_:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -66,24 +96,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
+         contextName = "static DeviceType.isIPhoneX.getter:DeviceType.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIDevice.current.identifierForVendor">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "RestaurantMenuViewController.viewDidLoad():RestaurantMenuViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "SearchViewController.viewDidLoad():SearchViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in RestaurantViewController.fetchRestaurantsWithCoordinates(coordinates:):RestaurantViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "noRestaurauntNotice.frame">
+               value = "#available(iOS 12, *)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -99,10 +115,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RestaurantViewController.locationManager(_:didUpdateLocations:):RestaurantViewController.swift">
+         contextName = "RestaurantMapViewController.mapView(_:didSelect:):RestaurantMapViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.refreshButton?.isHidden">
+               value = "callout.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -124,21 +140,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RestaurantMapViewController.mapView(_:didSelect:):RestaurantMapViewController.swift">
+         contextName = "RestaurantParentViewController.switchView(vc:):RestaurantParentViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "callout.frame">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "reuseIdentifier">
+               value = "activeViewController == self.listViewController">
             </PersistentString>
             <PersistentString
-               value = "cell.image">
+               value = "activeViewController == self.mapViewController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -151,15 +159,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ImageService.fetchImage(urlString:completion:):ImageService.swift">
+         contextName = "MenuTableViewController.tableView(_:didSelectRowAt:):MenuTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "imageCache.object(forKey: urlString as AnyObject)">
+               value = "self.parent">
+            </PersistentString>
+            <PersistentString
+               value = " SideMenuManager.default.menuLeftNavigationController?">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RestaurantMapViewController.mapView(_:didAdd:):RestaurantMapViewController.swift">
+         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIDevice.current.identifierForVendor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMenuViewController.viewDidLoad():RestaurantMenuViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

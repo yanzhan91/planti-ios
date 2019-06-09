@@ -13,9 +13,13 @@ private let reuseIdentifier = "RestaurantCollectionCell"
 class RestaurantCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     private var restaurants: [Restaurant] = []
+    private var pvc: RestaurantParentViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.pvc = self.parent as? RestaurantParentViewController
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
@@ -65,6 +69,7 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         let restaurant = self.restaurants[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! MenuItemViewController
+        rmvc.option = (self.pvc?.optionScrollView.getPreference())!
         rmvc.restaurantName = restaurant.restaurantName!
         rmvc.chainId = restaurant.chainId!
         self.present(rmvc, animated: true, completion: nil)

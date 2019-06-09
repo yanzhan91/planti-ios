@@ -12,12 +12,15 @@ import MapKit
 class MenuItemViewController: UIViewController {
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var optionsScrollView: OptionsScrollView!
     
     var restaurantName : String = "Restaurant Name"
     var option : Options = .vegan
     var chainId : String = ""
     var latitude : Double = 180
     var longitude : Double = 180
+    
+    var delegate: MenuItemViewControllerDelegate?
     
     private var menuItems: [MenuItem] = []
     
@@ -28,10 +31,12 @@ class MenuItemViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
-        didChangeOption(self.option)
+        self.optionsScrollView.delegate = self
+        self.optionsScrollView.setPreference(option: self.option)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
+        self.delegate?.optionDidChange(option: self.optionsScrollView.getPreference())
         dismiss(animated: true, completion: nil)
     }
     
@@ -81,7 +86,7 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
             cell.loadImage(url: URL(string: menuItem.imageUrl!)!)
         }
         cell.name.text = menuItem.menuItemName
-        cell.name.sizeToFit()
+//        cell.name.sizeToFit()
         return cell
     }
     
@@ -115,10 +120,13 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
     }
 }
 
+protocol MenuItemViewControllerDelegate {
+    func optionDidChange(option: Options)
+}
+
 extension MenuItemViewController : OptionsScrollViewDelegate {
     func didChangeOption(_ option: Options) {
         RestService.shared().getMenuItems(option: self.option, chainId: chainId) { menuItems in
-            print("Changing options \(option)")
             self.menuItems = menuItems
             self.collectionView.reloadData()
         }

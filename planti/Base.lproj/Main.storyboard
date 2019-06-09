@@ -1524,7 +1524,7 @@ promotions</string>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S7i-d9-Z27">
-                                <rect key="frame" x="0.0" y="104" width="375" height="708"/>
+                                <rect key="frame" x="0.0" y="147" width="375" height="665"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uqB-3e-csu">
                                     <size key="itemSize" width="227" height="220"/>
@@ -1588,18 +1588,28 @@ promotions</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chb-2C-r6F" customClass="OptionsScrollView" customModule="planti" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="104" width="375" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="8Ku-PC-q8K"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="trailing" secondItem="E8a-Po-Khb" secondAttribute="trailing" id="5dP-mr-o9G"/>
                             <constraint firstItem="E8a-Po-Khb" firstAttribute="trailing" secondItem="S7i-d9-Z27" secondAttribute="trailing" id="6Bc-Cc-AhU"/>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="7Di-XB-zBj"/>
-                            <constraint firstItem="S7i-d9-Z27" firstAttribute="top" secondItem="gfc-6F-dWQ" secondAttribute="bottom" id="7TM-8h-035"/>
                             <constraint firstAttribute="bottom" secondItem="ttf-XD-woK" secondAttribute="bottom" constant="20" id="97D-Wr-zCX"/>
+                            <constraint firstItem="Chb-2C-r6F" firstAttribute="top" secondItem="gfc-6F-dWQ" secondAttribute="bottom" id="Ai2-uI-4nx"/>
                             <constraint firstAttribute="trailing" secondItem="ttf-XD-woK" secondAttribute="trailing" constant="20" id="BwI-bW-XtD"/>
                             <constraint firstItem="PEz-y5-7Ff" firstAttribute="leading" secondItem="emy-Gx-UFl" secondAttribute="leading" id="FmI-pG-MAZ"/>
+                            <constraint firstItem="Chb-2C-r6F" firstAttribute="trailing" secondItem="E8a-Po-Khb" secondAttribute="trailing" id="KUX-ii-eiQ"/>
                             <constraint firstItem="PEz-y5-7Ff" firstAttribute="top" secondItem="emy-Gx-UFl" secondAttribute="top" id="PJU-pj-bUs"/>
+                            <constraint firstItem="S7i-d9-Z27" firstAttribute="top" secondItem="Chb-2C-r6F" secondAttribute="bottom" id="WTK-Xu-DeH"/>
                             <constraint firstItem="gfc-6F-dWQ" firstAttribute="top" secondItem="E8a-Po-Khb" secondAttribute="top" id="f97-Qp-1vP"/>
+                            <constraint firstItem="Chb-2C-r6F" firstAttribute="leading" secondItem="E8a-Po-Khb" secondAttribute="leading" id="iuI-uG-HyE"/>
                             <constraint firstItem="E8a-Po-Khb" firstAttribute="top" secondItem="PEz-y5-7Ff" secondAttribute="bottom" id="ll7-iU-mbb"/>
                             <constraint firstAttribute="bottom" secondItem="S7i-d9-Z27" secondAttribute="bottom" id="pJ2-Oo-Wdr"/>
                             <constraint firstAttribute="trailing" secondItem="PEz-y5-7Ff" secondAttribute="trailing" id="pKM-EC-lB2"/>
@@ -1609,6 +1619,7 @@ promotions</string>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="S7i-d9-Z27" id="zTn-Az-evf"/>
+                        <outlet property="optionsScrollView" destination="Chb-2C-r6F" id="uyt-RN-5lF"/>
                         <outlet property="restaurantNameLabel" destination="rBz-uf-Df5" id="LnI-5S-HYa"/>
                     </connections>
                 </viewController>
@@ -1726,6 +1737,6 @@ promotions</string>
         <image name="refresh_icon" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YZu-HY-RfZ"/>
+        <segue reference="qzp-NJ-UBY"/>
     </inferredMetricsTieBreakers>
 </document>
