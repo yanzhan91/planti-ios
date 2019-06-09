@@ -141,10 +141,7 @@ extension RestaurantMapViewController : MKMapViewDelegate {
         infoWindow.restaurantName.text = mapAnnotation.name
         infoWindow.setNumReviews(numReviews: String(mapAnnotation.numRatings))
         infoWindow.setRatings(ratings: mapAnnotation.ratings)
-        //        if (restaurant.imageUrl != nil) {
-        //            infoWindow.image.imageFromURL(urlString: restaurant.imageUrl!)
-        //        }
-        infoWindow.image.image = UIImage.init(named: "default_image")
+        infoWindow.image.image = mapAnnotation.image
         infoWindow.selectButton.tag = mapAnnotation.index
         infoWindow.selectButton.addTarget(self, action: #selector(selectAnnotation), for: .touchUpInside)
         
@@ -212,7 +209,7 @@ extension MKMapView {
     func getMarkersAndDisplay(restaurants: [Restaurant]) {
         self.removeAnnotations(self.annotations)
         for (index, restaurant) in restaurants.enumerated() {
-            let annotation = MapAnnotation(index: index, name: restaurant.restaurantName!, ratings: restaurant.rating, numRatings: restaurant.numRatings, image: UIImage(named: "default_image")!, coordinate: CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude))
+            let annotation = MapAnnotation(index: index, name: restaurant.restaurantName!, ratings: restaurant.rating, numRatings: restaurant.numRatings, image: UIImage(named: "default_restaurant_map_image")!, coordinate: CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude))
             self.addAnnotation(annotation)
         }
     }

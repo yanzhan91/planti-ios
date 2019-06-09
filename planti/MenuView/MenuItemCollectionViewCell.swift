@@ -19,7 +19,7 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     }
     
     func loadImage(url: URL) {
-        ImageService.shared().fetchImage(urlString: url.absoluteString) { image in
+        ImageService.shared().fetchImage(urlString: url.absoluteString, defaultImage: UIImage(named: "default_menu_item_cell_image")!) { image in
             DispatchQueue.main.async {
                 if (image.size.width != image.size.height) {
                     

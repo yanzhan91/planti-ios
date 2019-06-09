@@ -39,6 +39,8 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         let restaurant = self.restaurants[indexPath.row]
         if (restaurant.imageUrl != nil) {
             cell.loadImage(url: URL.init(string: restaurant.imageUrl!)!)
+        } else {
+            cell.image.image = UIImage(named: "default_restaurant_image")
         }
         cell.name.text = restaurant.restaurantName
         cell.address.text = restaurant.address

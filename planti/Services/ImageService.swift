@@ -17,7 +17,7 @@ class ImageService {
         return imageService
     }
     
-    public func fetchImage(urlString: String, completion: @escaping (UIImage) -> ()) {
+    public func fetchImage(urlString: String, defaultImage: UIImage, completion: @escaping (UIImage) -> ()) {
         if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) {
             completion(imageFromCache)
         }
@@ -32,7 +32,7 @@ class ImageService {
                         self.imageCache.setObject(image, forKey: urlString as AnyObject)
                         completion(image)
                 } else {
-                        completion(UIImage(named: "default_image")!)
+                        completion(defaultImage)
                 }
             }.resume()
         } else {

@@ -84,6 +84,8 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
         let menuItem = self.menuItems[indexPath.row]
         if (menuItem.imageUrl != nil) {
             cell.loadImage(url: URL(string: menuItem.imageUrl!)!)
+        } else {
+            cell.image.image = UIImage(named: "default_menu_item_cell_image")
         }
         cell.name.text = menuItem.menuItemName
         return cell

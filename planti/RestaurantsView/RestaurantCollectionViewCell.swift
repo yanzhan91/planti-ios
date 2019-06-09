@@ -40,7 +40,7 @@ class RestaurantCollectionViewCell: UICollectionViewCell {
     }
     
     func loadImage(url: URL) {
-        ImageService.shared().fetchImage(urlString: url.absoluteString) { image in
+        ImageService.shared().fetchImage(urlString: url.absoluteString, defaultImage: UIImage(named: "default_restaurant_image")!) { image in
             DispatchQueue.main.async {
                 self.image.image = image
             }

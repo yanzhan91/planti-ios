@@ -34,7 +34,13 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         self.slideView.pageIndicator = pageIndicator
         self.slideView.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         
-        let images: [AlamofireSource] = (self.menuItems?.map { AlamofireSource(urlString: $0.imageUrl!)! }) ?? []
+        let images: [InputSource] = (self.menuItems?.map {
+            if ($0.imageUrl == nil) {
+                return AlamofireSource(urlString: $0.imageUrl!)!
+            } else {
+                return ImageSource(image: UIImage(named: "default_menu_item_full_image")!)
+            }
+        }) ?? []
         self.slideView.setImageInputs(images)
         
         self.slideView.backgroundColor = .black
