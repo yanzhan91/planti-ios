@@ -15,8 +15,8 @@ class RestService {
     
     private static var restService = RestService()
     private final var scheme: String = "http"
-    private final var host: String = "planti-env.er36yiu2yy.us-east-1.elasticbeanstalk.com"
-//    private final var host: String = "localhost"
+//    private final var host: String = "planti-env.er36yiu2yy.us-east-1.elasticbeanstalk.com"
+    private final var host: String = "localhost"
     
     class func shared() -> RestService {
         return restService
@@ -151,43 +151,38 @@ class RestService {
         }
     }
     
-    public func postMenuItem(name: String, menuItemName: String, containsMeat: Bool,
-                             containsDiary: Bool, containsEgg: Bool, completion: @escaping () -> Void) {
+    public func postMenuItem(name: String, menuItemName: String, containsDiary: Bool, containsEgg: Bool, image: UIImage?, completion: @escaping () -> Void) {
         print("Rest: posting menu item \(name) \(menuItemName)")
-        let url = buildUrl(path: "/planti-api/ui/postMenuItem/", queries: [])
+        let url = buildUrl(path: "/planti-api/ui/menuItem/")
         
-        var option: Int = 8
-        if (containsMeat) {
-            completion()
-        } else {
-            if (containsEgg && containsDiary) {
-                option = 1
-            } else if (containsEgg) {
-                option = 3
-            } else if (containsDiary) {
-                option = 5
+        let parameters: [String : String] = [
+            "restaurantName": name,
+            "menuItemName": menuItemName,
+            "diary": containsDiary ? "true" : "false",
+            "egg": containsEgg ? "true" : "false"]
+        
+        print(Date())
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            if (image != nil) {
+                multipartFormData.append((image?.jpegData(compressionQuality: 0.75))!, withName: "file", mimeType: "image/jpg")
+            }
+            
+            for (key, value) in parameters {
+                multipartFormData.append(value.data(using: .utf8)!, withName: key)
+            }
+        }, usingThreshold: UInt64.init(), with: URLRequest(url: url)) { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    print(Date())
+//                    completion()
+                }
+            case .failure(let encodingError):
+                print(encodingError)
+//                completion()
             }
         }
-        
-        Alamofire.request(url, method: .post, parameters: ["restaurantName": name,
-                                                          "name": menuItemName,
-                                                          "imageUrl": "",
-                                                          "option": option], encoding: JSONEncoding.default)
-            .validate()
-            .responseJSON { response in
-                guard response.result.isSuccess, let value = response.result.value else {
-                    print("Error: \(String(describing: response.result.error))")
-                    completion()
-                    return
-                }
-                
-                print("Request: \(String(describing: response.request))")   // original url request
-                print("Response: \(String(describing: response.response))") // http url response
-                print("Result: \(response.result)")                         // response serialization result
-                print("Value: \(value)")
-                
-                completion()
-        }
+        completion()
     }
     
     func postMenuItem(name: String, menuItemName: String, containsMeat: Bool,
@@ -271,7 +266,7 @@ class RestService {
         url.scheme = self.scheme
         url.host = self.host
         url.path = path
-//        url.port = 5000
+        url.port = 5000
         url.queryItems = queries
         return try! url.asURL()
     }

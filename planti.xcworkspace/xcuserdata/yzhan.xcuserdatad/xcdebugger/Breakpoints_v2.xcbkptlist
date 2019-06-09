@@ -9,22 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "planti/Services/RestService.swift"
-            timestampString = "581803971.574445"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "getRestaurants(option:location:userLocation:radius:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "planti/RestaurantsView/RestaurantMapViewController.swift"
             timestampString = "581803594.417819"
             startingColumnNumber = "9223372036854775807"
@@ -42,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "planti/RestaurantsView/RestaurantParentViewController.swift"
-            timestampString = "581803971.574877"
+            timestampString = "581809116.500438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
@@ -58,13 +42,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "planti/RestaurantsView/RestaurantParentViewController.swift"
-            timestampString = "581803971.574942"
+            timestampString = "581809116.5005209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "178"
             endingLineNumber = "178"
             landmarkName = "didSelectSearchResult(name:coordinate:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "planti/Services/RestService.swift"
+            timestampString = "581809116.500578"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "postMenuItem(name:menuItemName:containsDiary:containsEgg:image:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "planti/Services/RestService.swift"
+            timestampString = "581809116.50174"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "postMenuItem(name:menuItemName:containsDiary:containsEgg:image:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in planti.RestService.postMenuItem(name: Swift.String, menuItemName: Swift.String, containsDiary: Swift.Bool, containsEgg: Swift.Bool, image: Swift.Optional&lt;__C.UIImage&gt;, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "planti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhan/Documents/planti/planti-ios/planti/Services/RestService.swift"
+                  timestampString = "581809116.734176"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "176"
+                  endingLineNumber = "176"
+                  offsetFromSymbolStart = "291">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in planti.RestService.postMenuItem(name: Swift.String, menuItemName: Swift.String, containsDiary: Swift.Bool, containsEgg: Swift.Bool, image: Swift.Optional&lt;__C.UIImage&gt;, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "planti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhan/Documents/planti/planti-ios/planti/Services/RestService.swift"
+                  timestampString = "581809116.7369061"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

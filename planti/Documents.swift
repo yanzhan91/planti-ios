@@ -10,25 +10,19 @@ import Foundation
 
 class Documents {
     private static var documents = Documents()
-    private var terms: String?
     
     class func shared() -> Documents {
         return documents
     }
     
-    public func getTerms() -> String {
-        if (self.terms == nil) {
-            if let filepath = Bundle.main.path(forResource: "Terms", ofType: "txt") {
-                do {
-                    self.terms = try String(contentsOfFile: filepath)
-                    return self.terms!
-                } catch {
-                    
-                }
+    public func getDocument(type: String) -> String {
+        if let filepath = Bundle.main.path(forResource: type, ofType: "txt") {
+            do {
+                return try String(contentsOfFile: filepath)
+            } catch {
+                
             }
-            return "Something went wrong!"
-        } else {
-            return self.terms!
         }
+        return "Something went wrong!"
     }
 }

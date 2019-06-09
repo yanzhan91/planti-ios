@@ -40,10 +40,13 @@ class PostViewController: UIViewController {
         self.postButton.activate()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
-        let swipGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
-        swipGesture.direction = .down
+        let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        swipeDownGesture.direction = .down
+        let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        swipeUpGesture.direction = .up
         self.view.addGestureRecognizer(tapGesture)
-        self.view.addGestureRecognizer(swipGesture)
+        self.view.addGestureRecognizer(swipeDownGesture)
+        self.view.addGestureRecognizer(swipeUpGesture)
         
         self.cameraView.image = UIImage(named: "camera_icon")?.withAlignmentRectInsets(UIEdgeInsets(top: -20, left: -20, bottom: -20, right: -20))
         self.cameraView.isUserInteractionEnabled = true
@@ -79,7 +82,7 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func post(_ sender: Any) {
-        RestService.shared().postMenuItem(name: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn) { () in
+        RestService.shared().postMenuItem(name: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: UIImage(named: "default_image")) { () in
             
             let okAlert = UIAlertController(title: "Thank you!", message: "Your contribution will benefit millions of others.", preferredStyle: .alert)
             okAlert.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in

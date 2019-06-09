@@ -41,6 +41,7 @@
 		F78AA8B42288F15B00A332CE /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8AE2288F15B00A332CE /* RestaurantMapViewController.swift */; };
 		F78AA8B92288F15B00A332CE /* RestaurantParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AA8B32288F15B00A332CE /* RestaurantParentViewController.swift */; };
 		F7A7972822A09B66009E86C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A7972722A09B66009E86C4 /* SettingsViewController.swift */; };
+		F7F639BD22ADA1340085C0EB /* Privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = F7F639BC22ADA1340085C0EB /* Privacy.txt */; };
 		F7FC1FD3224C643600FF4AEF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1FD2224C643600FF4AEF /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		F78AA8AE2288F15B00A332CE /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
 		F78AA8B32288F15B00A332CE /* RestaurantParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantParentViewController.swift; sourceTree = "<group>"; };
 		F7A7972722A09B66009E86C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F7F639BC22ADA1340085C0EB /* Privacy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Privacy.txt; sourceTree = "<group>"; };
 		F7FC1FD2224C643600FF4AEF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				F752332E2284E3A6005E3625 /* Terms.txt */,
+				F7F639BC22ADA1340085C0EB /* Privacy.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				B5B4DDB62249DBF800937F78 /* RatingsView.xib in Resources */,
 				F752332F2284E3A6005E3625 /* Terms.txt in Resources */,
 				B5EAC3D52217EAE80080858E /* Main.storyboard in Resources */,
+				F7F639BD22ADA1340085C0EB /* Privacy.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

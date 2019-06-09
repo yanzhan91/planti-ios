@@ -1,0 +1,19 @@
+Lasted Updated: 09-Jun-2019
+
+Welcome, Your Privacy is important to us. This Privacy Policy describes how we collect your information through our planti mobile app, As used in this Privacy Policy, "Planti," "we," "us," and "our" means planti.
+
+What type of data we collect when you use our application or services.
+
+We collect location information to provide restaurants and menu items of your choice in your current location.  You can prevent mobile device from sharing location information at any time using mobile device settings, however your location is very essential for Planti to show restaurants with many preferred food choices near your location.
+
+We use tracking technology to find the devise ID which uniquely identifies your devise. This information is required to identify user activity on the mobile app.
+
+
+
+
+
+
+
+
+
+
