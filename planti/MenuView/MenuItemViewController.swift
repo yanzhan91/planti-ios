@@ -86,7 +86,6 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
             cell.loadImage(url: URL(string: menuItem.imageUrl!)!)
         }
         cell.name.text = menuItem.menuItemName
-//        cell.name.sizeToFit()
         return cell
     }
     
@@ -126,7 +125,7 @@ protocol MenuItemViewControllerDelegate {
 
 extension MenuItemViewController : OptionsScrollViewDelegate {
     func didChangeOption(_ option: Options) {
-        RestService.shared().getMenuItems(option: self.option, chainId: chainId) { menuItems in
+        RestService.shared().getMenuItems(option: option, chainId: chainId) { menuItems in
             self.menuItems = menuItems
             self.collectionView.reloadData()
         }

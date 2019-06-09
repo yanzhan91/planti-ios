@@ -64,7 +64,7 @@ class OptionsScrollView: UIScrollView {
             self.selected?.deactivate()
             sender.activate()
             self.selected = sender
-            self.customDelegate?.didChangeOption(self.buttonsOptionsDictionary[sender] ?? .vegan)
+            self.customDelegate?.didChangeOption(self.buttonsOptionsDictionary[sender]!)
         }
     }
     
@@ -76,6 +76,7 @@ class OptionsScrollView: UIScrollView {
             self.selected = button!
         }
         self.scrollRectToVisible(button!.frame, animated: true)
+        self.customDelegate?.didChangeOption(self.buttonsOptionsDictionary[self.selected!]!)
     }
     
     public func getPreference() -> Options {

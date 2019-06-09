@@ -72,6 +72,7 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         rmvc.option = (self.pvc?.optionScrollView.getPreference())!
         rmvc.restaurantName = restaurant.restaurantName!
         rmvc.chainId = restaurant.chainId!
+        rmvc.delegate = self.pvc
         self.present(rmvc, animated: true, completion: nil)
     }
     

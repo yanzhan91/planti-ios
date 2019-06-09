@@ -182,7 +182,15 @@ extension RestaurantParentViewController : PreferenceViewControllerDelegate {
     func optionDidChange(option: Options) {
         self.optionScrollView.setPreference(option: option)
                 UserDefaults.standard.set(option.rawValue, forKey: DefaultsKeys.PREFERENCE)
-        self.fetchRestaurants(coordinates: self.mapViewController.getCoordinate(), radius: self.mapViewController.getRadius())
+//        self.fetchRestaurants(coordinates: self.mapViewController.getCoordinate(), radius: self.mapViewController.getRadius())
+    }
+}
+
+extension RestaurantParentViewController :  MenuItemViewControllerDelegate {
+    func optionDidChangeInMenuItem(option: Options) {
+        self.optionScrollView.setPreference(option: option)
+        UserDefaults.standard.set(option.rawValue, forKey: DefaultsKeys.PREFERENCE)
+//        self.fetchRestaurants(coordinates: self.mapViewController.getCoordinate(), radius: self.mapViewController.getRadius())
     }
 }
 

@@ -1017,7 +1017,6 @@ promotions</string>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BTY-4C-kg2">
                                             <rect key="frame" x="8" y="8" width="299" height="99.666666666666671"/>
-                                            <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="BTY-4C-kg2" secondAttribute="height" multiplier="300:100" id="Dcg-uo-OFm"/>
                                             </constraints>

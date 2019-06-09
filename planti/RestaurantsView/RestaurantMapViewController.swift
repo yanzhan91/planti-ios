@@ -168,6 +168,7 @@ extension RestaurantMapViewController : MKMapViewDelegate {
         rmvc.restaurantName = restaurant.restaurantName!
         rmvc.chainId = restaurant.chainId!
         rmvc.option = (self.pvc?.optionScrollView.getPreference())!
+        rmvc.delegate = self.pvc
         self.present(rmvc, animated: true, completion: nil)
     }
     
