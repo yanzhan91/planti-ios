@@ -153,7 +153,7 @@ class RestService {
     
     public func postMenuItem(name: String, menuItemName: String, containsDiary: Bool, containsEgg: Bool, image: UIImage?, completion: @escaping () -> Void) {
         print("Rest: posting menu item \(name) \(menuItemName)")
-        let url = buildUrl(path: "/planti-api/ui/menuItem/")
+        let url = buildUrl(path: "/planti-api/ui/menuItem/", queries: [])
         
         let parameters: [String : String] = [
             "restaurantName": name,
@@ -161,82 +161,29 @@ class RestService {
             "diary": containsDiary ? "true" : "false",
             "egg": containsEgg ? "true" : "false"]
         
-        print(Date())
-        Alamofire.upload(multipartFormData: { multipartFormData in
-            if (image != nil) {
-                multipartFormData.append((image?.jpegData(compressionQuality: 0.75))!, withName: "file", mimeType: "image/jpg")
-            }
-            
-            for (key, value) in parameters {
-                multipartFormData.append(value.data(using: .utf8)!, withName: key)
-            }
-        }, usingThreshold: UInt64.init(), with: URLRequest(url: url)) { encodingResult in
-            switch encodingResult {
-            case .success(let upload, _, _):
-                upload.responseJSON { response in
-                    print(Date())
-//                    completion()
-                }
-            case .failure(let encodingError):
-                print(encodingError)
-//                completion()
-            }
-        }
-        completion()
-    }
-    
-    func postMenuItem(name: String, menuItemName: String, containsMeat: Bool,
-                      containsDiary: Bool, containsEgg: Bool, image: UIImage, completion: @escaping () -> Void) {
-        
-        print("Rest: posting menu item \(name) \(menuItemName)")
-        let url = buildUrl(path: "/planti-api/ui/postMenuItem/", queries: [])
-        
-        var option: Int = 8
-        if (containsMeat) {
-            completion()
-        } else {
-            if (containsEgg && containsDiary) {
-                option = 1
-            } else if (containsEgg) {
-                option = 3
-            } else if (containsDiary) {
-                option = 5
-            }
-        }
-        
         let headers: HTTPHeaders = [
             "Content-type": "multipart/form-data"
         ]
-        
+
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(name.data(using: String.Encoding.utf8)!, withName: "restaurantName")
-            multipartFormData.append(menuItemName.data(using: String.Encoding.utf8)!, withName: "name")
-            multipartFormData.append("\(option)".data(using: String.Encoding.utf8)!, withName: "option")
+            for (key, value) in parameters {
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
+            }
             
-            if let data = image.jpegData(compressionQuality: 1.0) {
-                multipartFormData.append(data, withName: "image", fileName: "image.jpeg", mimeType: "image/jpeg")
+            if let data = image?.jpegData(compressionQuality: 0.75) {
+                multipartFormData.append(data, withName: "file", fileName: "image.png", mimeType: "image/png")
             }
             
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
             switch result{
-                case .success(let upload, _, _):
-                    upload.responseJSON { response in
-                        guard response.result.isSuccess, let value = response.result.value else {
-                            print("Error: \(String(describing: response.result.error))")
-                            completion()
-                            return
-                        }
-                        
-                        print("Request: \(String(describing: response.request))")   // original url request
-                        print("Response: \(String(describing: response.response))") // http url response
-                        print("Result: \(response.result)")                         // response serialization result
-                        print("Value: \(value)")
-                        
-                        completion()
-                    }
-                case .failure(let error):
-                    print("Error in upload: \(error.localizedDescription)")
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    print("Succesfully uploaded")
                     completion()
+                }
+            case .failure(let error):
+                print("Error in upload: \(error.localizedDescription)")
+                completion()
             }
         }
     }
