@@ -15,8 +15,8 @@ class RestService {
     
     private static var restService = RestService()
     private final var scheme: String = "http"
-//    private final var host: String = "planti-env.er36yiu2yy.us-east-1.elasticbeanstalk.com"
-    private final var host: String = "localhost"
+    private final var host: String = "planti-env.er36yiu2yy.us-east-1.elasticbeanstalk.com"
+//    private final var host: String = "localhost"
     
     class func shared() -> RestService {
         return restService
@@ -213,7 +213,7 @@ class RestService {
         url.scheme = self.scheme
         url.host = self.host
         url.path = path
-        url.port = 5000
+//        url.port = 5000
         url.queryItems = queries
         return try! url.asURL()
     }
