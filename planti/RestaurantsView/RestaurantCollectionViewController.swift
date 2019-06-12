@@ -18,10 +18,12 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.pvc = self.parent as? RestaurantParentViewController
-        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.pvc = self.parent as? RestaurantParentViewController
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

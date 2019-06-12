@@ -42,13 +42,11 @@ class RestaurantParentViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var optionScrollView: OptionsScrollView!
-    @IBOutlet weak var navigationBarHeight: NSLayoutConstraint!
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var switchViewButton: UIButton!
     
     private var locationManager : CLLocationManager!
     private var location: CLLocationCoordinate2D?
-    private var radius: Int?
     
     private var restaurants: [Restaurant] = []
 
@@ -81,10 +79,15 @@ class RestaurantParentViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if (UserDefaults.standard.object(forKey: DefaultsKeys.PREFERENCE) == nil) {
+        if (UserDefaults.standard.string(forKey: DefaultsKeys.PREFERENCE) == nil) {
             let pvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PreferenceViewController") as! PreferenceViewController
             pvc.delegate = self
             self.present(pvc, animated: true, completion: nil)
+        } else {
+            let option = Options(rawValue: UserDefaults.standard.string(forKey: DefaultsKeys.PREFERENCE)!) ?? .vegan
+            if (optionScrollView.getPreference() != option) {
+                self.optionScrollView.setPreference(option: option)
+            }
         }
     }
     
@@ -183,14 +186,12 @@ extension RestaurantParentViewController : SearchViewControllerDelegate {
 extension RestaurantParentViewController : PreferenceViewControllerDelegate {
     func optionDidChange(option: Options) {
         self.optionScrollView.setPreference(option: option)
-                UserDefaults.standard.set(option.rawValue, forKey: DefaultsKeys.PREFERENCE)
     }
 }
 
 extension RestaurantParentViewController :  MenuItemViewControllerDelegate {
     func optionDidChangeInMenuItem(option: Options) {
         self.optionScrollView.setPreference(option: option)
-        UserDefaults.standard.set(option.rawValue, forKey: DefaultsKeys.PREFERENCE)
     }
 }
 

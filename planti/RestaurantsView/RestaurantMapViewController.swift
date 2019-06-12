@@ -25,8 +25,6 @@ class RestaurantMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.pvc = self.parent as? RestaurantParentViewController
-        
         self.mapView.mapType = MKMapType.standard
         let location = CLLocationCoordinate2D(latitude: 41.8823, longitude: -87.6404)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
@@ -42,6 +40,10 @@ class RestaurantMapViewController: UIViewController {
         self.mapView.showsPointsOfInterest = false
         
         self.refreshButton.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.pvc = self.parent as? RestaurantParentViewController
     }
     
     public func getRadius() -> Int {

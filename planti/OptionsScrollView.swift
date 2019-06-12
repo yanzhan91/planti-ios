@@ -65,6 +65,7 @@ class OptionsScrollView: UIScrollView {
             sender.activate()
             self.selected = sender
             self.customDelegate?.didChangeOption(self.buttonsOptionsDictionary[sender]!)
+            UserDefaults.standard.set(self.buttonsOptionsDictionary[sender]!.rawValue, forKey: DefaultsKeys.PREFERENCE)
         }
     }
     
@@ -77,6 +78,7 @@ class OptionsScrollView: UIScrollView {
         }
         self.scrollRectToVisible(button!.frame, animated: true)
         self.customDelegate?.didChangeOption(self.buttonsOptionsDictionary[self.selected!]!)
+        UserDefaults.standard.set(self.buttonsOptionsDictionary[self.selected!]!.rawValue, forKey: DefaultsKeys.PREFERENCE)
     }
     
     public func getPreference() -> Options {
