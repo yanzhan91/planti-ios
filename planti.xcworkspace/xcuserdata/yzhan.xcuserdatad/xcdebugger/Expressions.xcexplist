@@ -49,13 +49,13 @@
          contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "restaurant.distance">
-            </PersistentString>
-            <PersistentString
                value = "reuseIdentifier">
             </PersistentString>
             <PersistentString
                value = "cell.image">
+            </PersistentString>
+            <PersistentString
+               value = "restaurant.distance">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -86,6 +86,14 @@
          <PersistentStrings>
             <PersistentString
                value = "self.pvc?.optionScrollView.getPreference()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.mapView(_:regionDidChangeAnimated:):RestaurantMapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mapView.view(for: annotation as! MKAnnotation)?.clusteringIdentifier">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -137,7 +145,16 @@
          contextName = "RestaurantMapViewController.mapView(_:didSelect:):RestaurantMapViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "annotations">
+            </PersistentString>
+            <PersistentString
                value = "callout.frame">
+            </PersistentString>
+            <PersistentString
+               value = "clusterAnnotation.memberAnnotations">
+            </PersistentString>
+            <PersistentString
+               value = "annotations.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -211,6 +228,9 @@
                value = "self.mapView.userLocation.coordinate">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.currentZoomLevel.didset:RestaurantMapViewController.swift">
       </ContextState>
       <ContextState
          contextName = "RestaurantMenuViewController.viewDidLoad():RestaurantMenuViewController.swift">

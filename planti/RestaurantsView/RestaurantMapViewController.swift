@@ -92,6 +92,27 @@ class RestaurantMapViewController: UIViewController {
 
 extension RestaurantMapViewController : MKMapViewDelegate {
     
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if (mapView.getRadius() < 50) {
+            for annotation in mapView.annotations(in: mapView.visibleMapRect) {
+                if annotation is MKClusterAnnotation {
+                    let members = (annotation as! MKClusterAnnotation).memberAnnotations
+                    for member in members {
+                        mapView.view(for: member)?.clusteringIdentifier = ""
+                    }
+                    mapView.removeAnnotation(annotation as! MKClusterAnnotation)
+                    mapView.addAnnotations(members)
+                }
+            }
+        } else {
+            for annotation in mapView.annotations(in: mapView.visibleMapRect) {
+                if annotation is MapAnnotation {
+                    mapView.view(for: annotation as! MKAnnotation)?.clusteringIdentifier = "mapAnnotation"
+                }
+            }
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         self.noRestaurantNotice?.isHidden = true
         if (self.refreshable) {
@@ -182,13 +203,8 @@ extension RestaurantMapViewController : MKMapViewDelegate {
             print("user")
         } else if (view.annotation is MKClusterAnnotation) {
             print("cluster")
-            var region = MKCoordinateRegion()
-            var span = MKCoordinateSpan()
-            span.latitudeDelta = mapView.region.span.latitudeDelta * 0.5
-            span.longitudeDelta = mapView.region.span.longitudeDelta * 0.5
-            region.center = view.annotation!.coordinate
-            region.span = span
-            mapView.setRegion(region, animated: true)
+            let clusterAnnotation = view.annotation as! MKClusterAnnotation
+            mapView.showAnnotations(clusterAnnotation.memberAnnotations, animated: true)
         } else {
             mapView.setCenter(view.annotation!.coordinate, animated: true)
         }
