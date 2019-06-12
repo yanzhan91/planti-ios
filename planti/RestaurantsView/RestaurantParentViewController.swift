@@ -153,6 +153,7 @@ class RestaurantParentViewController: UIViewController {
 
             self.restaurants = restaurants
             self.mapViewController.reload(restaurants: restaurants)
+            self.listViewController.reload(restaurants: restaurants)
         }
     }
     
