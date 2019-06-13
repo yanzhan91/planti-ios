@@ -5,6 +5,7 @@ PODS:
   - AlamofireObjectMapper (5.2.0):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
+  - Cluster (3.0.0)
   - ImageSlideshow (1.8.0):
     - ImageSlideshow/Core (= 1.8.0)
   - ImageSlideshow/Alamofire (1.8.0):
@@ -18,6 +19,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - AlamofireObjectMapper (~> 5.2.0)
+  - Cluster
   - ImageSlideshow (~> 1.8)
   - ImageSlideshow/Alamofire (~> 1.8)
   - SideMenu
@@ -28,6 +30,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - AlamofireObjectMapper
+    - Cluster
     - ImageSlideshow
     - ObjectMapper
     - SideMenu
@@ -37,11 +40,12 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
+  Cluster: 47f0e962d94ea961cc336d2bf936fe4dc1f61cdb
   ImageSlideshow: 197130fe349aafa9446f54277c792551d41eadf9
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: f0362557b088958cd63fc8e3b350499abd8b3bef
+PODFILE CHECKSUM: 64faa96760ccb97d491d58bb754b6e6745c79ba6
 
 COCOAPODS: 1.6.0

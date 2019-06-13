@@ -14,4 +14,5 @@ target 'planti' do
   pod 'AlamofireObjectMapper', '~> 5.2.0'
   pod 'ImageSlideshow', '~> 1.8'
   pod 'ImageSlideshow/Alamofire', '~> 1.8'
+  pod 'Cluster'
 end

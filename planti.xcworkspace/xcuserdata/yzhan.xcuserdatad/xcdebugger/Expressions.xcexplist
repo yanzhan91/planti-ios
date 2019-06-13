@@ -3,12 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "RestaurantCollectionViewController.viewDidAppear(_:):RestaurantCollectionViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.pvc">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "RestaurantMenuViewController.viewDidLoad():RestaurantMenuViewController.swift">
       </ContextState>
       <ContextState
          contextName = "RestaurantViewController.locationManager(_:didUpdateLocations:):RestaurantViewController.swift">
@@ -57,13 +52,29 @@
          contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "restaurant.distance">
+            </PersistentString>
+            <PersistentString
                value = "reuseIdentifier">
             </PersistentString>
             <PersistentString
                value = "cell.image">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.refresh(_:):RestaurantMapViewController.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "restaurant.distance">
+               value = "self.mapView.view(for: self.mapView.annotations[5])?">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.getMarkersAndDisplay(restaurants:):RestaurantMapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "annotations[0] is Annotation">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -71,10 +82,16 @@
          contextName = "RestaurantMapViewController.mapView(_:viewFor:):RestaurantMapViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "zoomLevel &lt;= maxZoomLevel">
+               value = "mapAnnotation.numRatings">
             </PersistentString>
             <PersistentString
                value = "self.currentZoomLevel">
+            </PersistentString>
+            <PersistentString
+               value = "mapAnnotation.index">
+            </PersistentString>
+            <PersistentString
+               value = "zoomLevel &lt;= maxZoomLevel">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -93,10 +110,10 @@
          contextName = "RestaurantCollectionViewController.collectionView(_:didSelectItemAt:):RestaurantCollectionViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.pvc">
+               value = "self.pvc?.optionScrollView.getPreference()">
             </PersistentString>
             <PersistentString
-               value = "self.pvc?.optionScrollView.getPreference()">
+               value = "self.pvc">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -257,10 +274,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RestaurantMapViewController.currentZoomLevel.didset:RestaurantMapViewController.swift">
+         contextName = "RestaurantParentViewController.viewDidAppear(_:):RestaurantParentViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "optionScrollView.getPreference()">
+            </PersistentString>
+            <PersistentString
+               value = "UserDefaults.standard.string(forKey: DefaultsKeys.PREFERENCE)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RestaurantMenuViewController.viewDidLoad():RestaurantMenuViewController.swift">
+         contextName = "RestaurantCollectionViewController.viewDidAppear(_:):RestaurantCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.pvc">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantMapViewController.currentZoomLevel.didset:RestaurantMapViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

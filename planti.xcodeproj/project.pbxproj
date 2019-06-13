@@ -29,6 +29,7 @@
 		F723EF2B229FB0BB00C16209 /* MenuItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F723EF2A229FB0BB00C16209 /* MenuItemCollectionViewCell.swift */; };
 		F723EF2F229FB24B00C16209 /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F723EF2E229FB24B00C16209 /* MenuItemViewController.swift */; };
 		F72B77302255807F000322B7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B772F2255807F000322B7 /* Settings.swift */; };
+		F72DEE2D22B2275200A7BCB6 /* MapClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DEE2C22B2275200A7BCB6 /* MapClusterAnnotationView.swift */; };
 		F73918B52278254D00C047B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73918B42278254D00C047B3 /* SearchViewController.swift */; };
 		F73B36E222A2546300853EF9 /* MenuImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B36E122A2546300853EF9 /* MenuImageViewController.swift */; };
 		F74CC2F9229F9C420036013F /* RestaurantCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CC2F8229F9C420036013F /* RestaurantCollectionViewController.swift */; };
@@ -72,6 +73,7 @@
 		F723EF2A229FB0BB00C16209 /* MenuItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F723EF2E229FB24B00C16209 /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 		F72B772F2255807F000322B7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		F72DEE2C22B2275200A7BCB6 /* MapClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapClusterAnnotationView.swift; sourceTree = "<group>"; };
 		F73918B42278254D00C047B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F73B36E122A2546300853EF9 /* MenuImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImageViewController.swift; sourceTree = "<group>"; };
 		F74CC2F8229F9C420036013F /* RestaurantCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCollectionViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				B521830422476DE1004E7263 /* MapMarkerView.xib */,
 				B521830622476DF6004E7263 /* MapMarker.swift */,
 				F773DD7B2295045900529B09 /* MapAnnotation.swift */,
+				F72DEE2C22B2275200A7BCB6 /* MapClusterAnnotationView.swift */,
 			);
 			path = MapMarker;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				B5F6087B221D1BA2001989B6 /* Colors.swift in Sources */,
 				F773DD7C2295045900529B09 /* MapAnnotation.swift in Sources */,
 				B5F61847221889280032FF86 /* RestService.swift in Sources */,
+				F72DEE2D22B2275200A7BCB6 /* MapClusterAnnotationView.swift in Sources */,
 				F74CC2FB229F9F0D0036013F /* RestaurantCollectionViewCell.swift in Sources */,
 				B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */,
 				F76EB7CD22A4ED4D0055B6BB /* ImageService.swift in Sources */,
