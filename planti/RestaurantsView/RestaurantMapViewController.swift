@@ -26,6 +26,7 @@ class RestaurantMapViewController: UIViewController {
         manager.maxZoomLevel = 20
         manager.minCountForClustering = 2
         manager.clusterPosition = .nearCenter
+        manager.shouldRemoveInvisibleAnnotations = true
         return manager
     }()
     
@@ -41,7 +42,7 @@ class RestaurantMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.mapView.mapType = MKMapType.standard
+        self.mapView.mapType = .mutedStandard
     
         self.mapView.delegate = self
         self.mapView.isRotateEnabled = false
@@ -50,6 +51,7 @@ class RestaurantMapViewController: UIViewController {
         self.mapView.showsBuildings = false
         self.mapView.showsTraffic = false
         self.mapView.showsPointsOfInterest = false
+        self.mapView.userTrackingMode = .none
         
         self.refreshButton.isHidden = true
     }
@@ -160,6 +162,7 @@ extension RestaurantMapViewController : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
+            mapView.view(for: annotation)?.isEnabled = false
             return nil
         } else if let annotation = annotation as? ClusterAnnotation {
             return mapView.annotationView(annotation: annotation, reuseIdentifier: "clusterIdentifier")
