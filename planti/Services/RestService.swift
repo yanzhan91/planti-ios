@@ -170,8 +170,8 @@ class RestService {
                 multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
             }
             
-            if let data = image?.jpegData(compressionQuality: 0.75) {
-                multipartFormData.append(data, withName: "file", fileName: "image.png", mimeType: "image/png")
+            if let data = image?.jpegData(compressionQuality: 0.01) {
+                multipartFormData.append(data, withName: "file", fileName: "image.jpeg", mimeType: "image/jpeg")
             }
             
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in

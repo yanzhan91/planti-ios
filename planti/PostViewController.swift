@@ -82,7 +82,7 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func post(_ sender: Any) {
-        RestService.shared().postMenuItem(name: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: UIImage(named: "default_image")) { () in
+        RestService.shared().postMenuItem(name: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
             
             let okAlert = UIAlertController(title: "Thank you!", message: "Your contribution will benefit millions of others.", preferredStyle: .alert)
             okAlert.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in

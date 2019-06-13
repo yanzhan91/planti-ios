@@ -165,15 +165,18 @@ extension RestaurantMapViewController : MKMapViewDelegate {
             return mapView.annotationView(annotation: annotation, reuseIdentifier: "clusterIdentifier")
         } else {
             let annotation = annotation as! MapAnnotation
-            let annotationView = mapView.annotationView(of: MKMarkerAnnotationView.self, annotation: annotation, reuseIdentifier: "mapIdentifier")
+            let annotationView = mapView.annotationView(of: MKPinAnnotationView.self, annotation: annotation, reuseIdentifier: "mapIdentifier")
             
-            annotationView.animatesWhenAdded = false
-            annotationView.markerTintColor = Colors.themeGreen
-            annotationView.glyphImage = UIImage.init(named: "marker_icon")
+//            annotationView.animatesWhenAdded = false
+//            annotationView.markerTintColor = Colors.themeGreen
+//            annotationView.glyphImage = UIImage.init(named: "marker_icon")
+//            annotationView.canShowCallout = true
+//            annotationView.titleVisibility = .hidden
+//            annotationView.subtitleVisibility = .hidden
+            
             annotationView.canShowCallout = true
-            annotationView.titleVisibility = .hidden
-            annotationView.subtitleVisibility = .hidden
-            annotationView.canShowCallout = true
+            annotationView.pinTintColor = Colors.themeGreen
+            annotationView.animatesDrop = true
             
             let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 180, height: 32))
             infoWindow.backgroundColor = .clear
