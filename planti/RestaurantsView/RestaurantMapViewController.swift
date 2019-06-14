@@ -84,6 +84,8 @@ class RestaurantMapViewController: UIViewController {
                 self.view.addSubview(self.noRestaurantNotice!)
             }
             self.noRestaurantNotice?.isHidden = false
+            self.manager.removeAll()
+            self.manager.reload(mapView: self.mapView)
         } else {
             self.noRestaurantNotice?.isHidden = true
             self.getMarkersAndDisplay(restaurants: restaurants)
