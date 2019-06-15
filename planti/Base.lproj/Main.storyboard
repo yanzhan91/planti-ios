@@ -1153,10 +1153,10 @@ promotions</string>
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="708"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="OmH-Bt-ucR">
-                                                <rect key="frame" x="10" y="214" width="131.33333333333334" height="168"/>
+                                                <rect key="frame" x="10" y="205" width="131.33333333333334" height="168"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igO-PV-Vzw" userLabel="ContainsView">
-                                                <rect key="frame" x="162.33333333333337" y="214" width="202.66666666666663" height="168"/>
+                                                <rect key="frame" x="162.33333333333337" y="205" width="202.66666666666663" height="168"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRs-QV-5c7">
                                                         <rect key="frame" x="0.0" y="0.0" width="202.66666666666666" height="30"/>
@@ -1283,10 +1283,10 @@ promotions</string>
                                                 </constraints>
                                             </view>
                                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Item Name" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="41p-Cj-yox" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="10" y="144" width="355" height="50"/>
+                                                <rect key="frame" x="10" y="142" width="355" height="43"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="23X-ZW-QBy"/>
+                                                    <constraint firstAttribute="height" constant="43" id="23X-ZW-QBy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -1303,10 +1303,10 @@ promotions</string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Restaurant Name" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="1dF-Aa-MvD" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="10" y="84" width="355" height="50"/>
+                                                <rect key="frame" x="10" y="84" width="355" height="43"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="IVT-7o-1ao"/>
+                                                    <constraint firstAttribute="height" constant="43" id="IVT-7o-1ao"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -1330,7 +1330,7 @@ promotions</string>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7w-x8-aeY">
-                                                <rect key="frame" x="10" y="402" width="355" height="40"/>
+                                                <rect key="frame" x="10" y="393" width="355" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-cW-fVx" userLabel="Post" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="100" height="40"/>
@@ -1365,7 +1365,7 @@ promotions</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnJ-BJ-9FR">
-                                                <rect key="frame" x="151.33333333333334" y="214" width="1" height="168"/>
+                                                <rect key="frame" x="151.33333333333334" y="205" width="1" height="168"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="CUA-WO-lmg"/>
@@ -1394,7 +1394,7 @@ promotions</string>
                                             <constraint firstAttribute="trailing" secondItem="1dF-Aa-MvD" secondAttribute="trailing" constant="10" id="r5Z-uM-Msf"/>
                                             <constraint firstItem="OmH-Bt-ucR" firstAttribute="leading" secondItem="2lM-CW-iAy" secondAttribute="leading" constant="10" id="r9g-y6-Vzp"/>
                                             <constraint firstItem="OmH-Bt-ucR" firstAttribute="width" secondItem="2lM-CW-iAy" secondAttribute="width" multiplier="0.35" id="rFl-BR-bQg"/>
-                                            <constraint firstItem="41p-Cj-yox" firstAttribute="top" secondItem="1dF-Aa-MvD" secondAttribute="bottom" constant="10" id="tKH-RK-j8b"/>
+                                            <constraint firstItem="41p-Cj-yox" firstAttribute="top" secondItem="1dF-Aa-MvD" secondAttribute="bottom" constant="15" id="tKH-RK-j8b"/>
                                             <constraint firstAttribute="trailing" secondItem="igO-PV-Vzw" secondAttribute="trailing" constant="10" id="yyb-aO-UKL"/>
                                         </constraints>
                                     </view>
