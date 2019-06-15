@@ -375,7 +375,7 @@
                                                             <constraint firstAttribute="height" constant="1" id="cCj-pU-OED"/>
                                                         </constraints>
                                                     </view>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Eat mostly plants with to dairy products and eggs. No meat." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTw-OS-DAv" userLabel="VeganText">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Eat mostly plants with dairy products and eggs. No meat." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTw-OS-DAv" userLabel="VeganText">
                                                         <rect key="frame" x="0.0" y="33" width="280" height="59"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
