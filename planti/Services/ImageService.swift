@@ -23,20 +23,16 @@ class ImageService {
         }
         
         if let url = URL(string: urlString) {
-            URLSession.shared.dataTask(with: url) {data, response, error in
-                if let httpURLResponse = response as? HTTPURLResponse,
-                    httpURLResponse.statusCode == 200,
-                    let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                    let data = data, error == nil,
-                    let image = UIImage(data: data) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
                         self.imageCache.setObject(image, forKey: urlString as AnyObject)
                         completion(image)
-                } else {
-                        completion(defaultImage)
+                        return
+                    }
                 }
-            }.resume()
-        } else {
-            completion(UIImage(named: "default_image")!)
+                completion(defaultImage)
+            }
         }
     }
 }

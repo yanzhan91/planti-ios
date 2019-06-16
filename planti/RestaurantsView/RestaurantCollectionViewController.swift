@@ -39,11 +39,7 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RestaurantCollectionViewCell
         
         let restaurant = self.restaurants[indexPath.row]
-        if (restaurant.imageUrl != nil) {
-            cell.loadImage(url: URL.init(string: restaurant.imageUrl!)!)
-        } else {
-            cell.image.image = UIImage(named: "default_restaurant_image")
-        }
+        cell.loadImage(url: URL.init(string: restaurant.imageUrl!)!)
         cell.name.text = restaurant.restaurantName
         cell.address.text = restaurant.address
         
