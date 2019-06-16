@@ -70,7 +70,9 @@ class RestaurantMapViewController: UIViewController {
     
     public func moveMap(coordinate: CLLocationCoordinate2D) {
         self.refreshable = false
-        self.mapView.setCenter(coordinate, animated: true)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        self.mapView.setRegion(region, animated: true)
     }
 
     public func reload(restaurants: [Restaurant]) {
