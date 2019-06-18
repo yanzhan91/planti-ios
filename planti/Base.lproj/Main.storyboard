@@ -236,7 +236,7 @@
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qeM-dH-Xoe" userLabel="VeganSwitch">
-                                                        <rect key="frame" x="231" y="-3.3333333333333428" width="51" height="31"/>
+                                                        <rect key="frame" x="231" y="-3.3333333333333144" width="51" height="31"/>
                                                         <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="toggle:" destination="hCe-uO-70m" eventType="valueChanged" id="5vE-qk-uzy"/>
@@ -469,8 +469,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Cdd-ge-wFY" firstAttribute="top" secondItem="8Jv-q8-Yyo" secondAttribute="top" id="OT9-Hv-54Q"/>
-                            <constraint firstItem="Cdd-ge-wFY" firstAttribute="bottom" secondItem="8Jv-q8-Yyo" secondAttribute="bottom" id="WL8-mO-Xtf"/>
+                            <constraint firstItem="Cdd-ge-wFY" firstAttribute="top" secondItem="xum-f9-EYL" secondAttribute="top" id="OT9-Hv-54Q"/>
+                            <constraint firstItem="Cdd-ge-wFY" firstAttribute="bottom" secondItem="xum-f9-EYL" secondAttribute="bottom" id="WL8-mO-Xtf"/>
                             <constraint firstItem="Cdd-ge-wFY" firstAttribute="trailing" secondItem="8Jv-q8-Yyo" secondAttribute="trailing" id="wzz-bV-ON1"/>
                             <constraint firstItem="Cdd-ge-wFY" firstAttribute="leading" secondItem="8Jv-q8-Yyo" secondAttribute="leading" id="yO9-mA-dpf"/>
                         </constraints>
