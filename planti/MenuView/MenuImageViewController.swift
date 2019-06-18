@@ -35,8 +35,8 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         self.slideView.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         
         let images: [InputSource] = (self.menuItems?.map {
-            if ($0.imageUrl != "null" && $0.imageUrl != nil) {
-                return AlamofireSource(urlString: $0.imageUrl!)!
+            if ($0.getImageUrl() != nil) {
+                return AlamofireSource(urlString: $0.getImageUrl()!)!
             } else {
                 return ImageSource(image: UIImage(named: "default_menu_item_full_image")!)
             }

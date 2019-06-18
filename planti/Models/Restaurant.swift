@@ -12,7 +12,7 @@ import ObjectMapper
 class Restaurant: Mappable {
     
     var id: String?
-    var chainId: String?
+    var chainId: String = ""
     var restaurantName: String?
     var address: String?
     var rating: Float = 0.0
@@ -20,7 +20,6 @@ class Restaurant: Mappable {
     var latitude: Double = 0.0
     var longitude: Double = 0.0
     var distance: Float = 0.0
-    var imageUrl : String?
     
     required init?(map: Map) {
 
@@ -34,11 +33,14 @@ class Restaurant: Mappable {
         chainId <- map["chainId"]
         restaurantName <- map["restaurantName"]
         address <- map["address"]
-        imageUrl <- map["imageUrl"]
         latitude <- map["latitude"]
         longitude <- map["longitude"]
         rating <- map["rating"]
         numRatings <- map["numRatings"]
         distance <- map["distance"]
+    }
+    
+    public func getImageUrl() -> String {
+        return "\(DefaultsKeys.S3_URL)\(chainId).jpeg"
     }
 }

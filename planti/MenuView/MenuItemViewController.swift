@@ -82,8 +82,8 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuItemCell", for: indexPath) as! MenuItemCollectionViewCell
         let menuItem = self.menuItems[indexPath.row]
-        if (menuItem.imageUrl != nil) {
-            cell.loadImage(url: URL(string: menuItem.imageUrl!)!)
+        if (menuItem.getImageUrl() != nil) {
+            cell.loadImage(url: URL(string: menuItem.getImageUrl()!)!)
         } else {
             cell.image.image = UIImage(named: "default_menu_item_cell_image")
         }
@@ -105,9 +105,7 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
         let menuItem = self.menuItems[sender.tag]
         let optionMenu = UIAlertController(title: self.restaurantName, message: menuItem.menuItemName, preferredStyle: .actionSheet)
         let reportAction = UIAlertAction(title: "Report Error", style: .default) { (action) in
-            if (menuItem.id != nil) {
-                RestService.shared().reportError(menuItemId: menuItem.id!, chainId: self.chainId)
-            }
+            RestService.shared().reportError(menuItemId: menuItem.id, chainId: self.chainId)
             let okAlert = UIAlertController(title: "Thank you for your feedback!", message: nil, preferredStyle: .alert)
             okAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
             self.present(okAlert, animated: true, completion: nil)

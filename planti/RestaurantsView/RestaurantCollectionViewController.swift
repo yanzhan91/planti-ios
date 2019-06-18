@@ -39,7 +39,7 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RestaurantCollectionViewCell
         
         let restaurant = self.restaurants[indexPath.row]
-        cell.loadImage(url: URL.init(string: restaurant.imageUrl!)!)
+        cell.loadImage(url: URL.init(string: restaurant.getImageUrl())!)
         cell.name.text = restaurant.restaurantName
         cell.address.text = restaurant.address
         
@@ -71,7 +71,7 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! MenuItemViewController
         rmvc.option = (self.pvc?.optionScrollView.getPreference())!
         rmvc.restaurantName = restaurant.restaurantName!
-        rmvc.chainId = restaurant.chainId!
+        rmvc.chainId = restaurant.chainId
         rmvc.delegate = self.pvc
         self.present(rmvc, animated: true, completion: nil)
     }

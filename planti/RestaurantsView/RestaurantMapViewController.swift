@@ -60,8 +60,12 @@ class RestaurantMapViewController: UIViewController {
         self.pvc = self.parent as? RestaurantParentViewController
     }
     
-    public func getRadius() -> Int {
-        return self.mapView.getRadius()
+    public func getCoordinateRanges() -> (Double, Double, Double, Double) {
+        return getCoordinateRangesWithCenterCoordinate(center: self.mapView.centerCoordinate)
+    }
+    
+    public func getCoordinateRangesWithCenterCoordinate(center: CLLocationCoordinate2D) -> (Double, Double, Double, Double) {
+        return self.mapView.getCoordinateRanges()
     }
     
     public func getCoordinate() -> CLLocationCoordinate2D {
@@ -95,9 +99,8 @@ class RestaurantMapViewController: UIViewController {
     }
     
     @IBAction func refresh(_ sender: Any) {
-//        print(manager.zoomLevel)
         self.refreshButton.isHidden = true
-        self.pvc?.fetchRestaurants(coordinates: self.mapView.centerCoordinate, radius: self.mapView.getRadius())
+        self.pvc?.fetchRestaurants(coordinates: self.mapView.centerCoordinate)
     }
     
     @IBAction func goToMyLocation(_ sender: Any) {
@@ -211,7 +214,7 @@ extension RestaurantMapViewController : MKMapViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! MenuItemViewController
         rmvc.restaurantName = restaurant.restaurantName!
-        rmvc.chainId = restaurant.chainId!
+        rmvc.chainId = restaurant.chainId
         rmvc.option = (self.pvc?.optionScrollView.getPreference())!
         rmvc.delegate = self.pvc
         self.present(rmvc, animated: true, completion: nil)
@@ -247,16 +250,29 @@ extension MKMapView {
         return annotationView
     }
     
+    func getCoordinateRanges() -> (Double, Double, Double, Double) {
+        
+        let center = self.centerCoordinate
+        let latDelta = self.region.span.latitudeDelta
+        let lngDelta = self.region.span.longitudeDelta
+        
+        return (center.latitude - latDelta, center.longitude - lngDelta,
+            center.latitude + latDelta, center.longitude + lngDelta)
+    }
+    
     func getTopRightCoordinate() -> CLLocationCoordinate2D {
         return self.convert(CGPoint(x: self.frame.width, y: 0), toCoordinateFrom: self)
     }
     
-    func getRadius() -> Int {
-        let centerCoordinate = self.centerCoordinate
-        let centerLocation = CLLocation(latitude: centerCoordinate.latitude, longitude: centerCoordinate.longitude)
-        let topCenterCoordinate = self.getTopRightCoordinate()
-        let topCenterLocation = CLLocation(latitude: topCenterCoordinate.latitude, longitude: topCenterCoordinate.longitude)
-        let radius = CLLocationDistance(centerLocation.distance(from: topCenterLocation))
-        return Int(round(radius))
+    func getTopLeftCoordinate() -> CLLocationCoordinate2D {
+        return self.convert(CGPoint(x: 0, y: 0), toCoordinateFrom: self)
+    }
+    
+    func getBottomLeftCoordinate() -> CLLocationCoordinate2D {
+        return self.convert(CGPoint(x: 0, y: self.frame.height), toCoordinateFrom: self)
+    }
+    
+    func getBottomRightCoordinate() -> CLLocationCoordinate2D {
+        return self.convert(CGPoint(x: self.frame.width, y: self.frame.height), toCoordinateFrom: self)
     }
 }

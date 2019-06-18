@@ -10,10 +10,9 @@ import ObjectMapper
 
 class MenuItem : Mappable {
     
-    var id: String?
+    var id: String = ""
     var chainId: String?
     var menuItemName: String?
-    var imageUrl: String?
     var containsLabel: String?
     var postedBy: String?
     
@@ -25,8 +24,11 @@ class MenuItem : Mappable {
         id <- map["id"]
         chainId <- map["chainId"]
         menuItemName <- map["menuItemName"]
-        imageUrl <- map["imageUrl"]
         containsLabel <- map["containsLabel"]
         postedBy <- map["postedBy"]
+    }
+    
+    public func getImageUrl() -> String? {
+        return "\(DefaultsKeys.S3_URL)\(id).jpeg"
     }
 }

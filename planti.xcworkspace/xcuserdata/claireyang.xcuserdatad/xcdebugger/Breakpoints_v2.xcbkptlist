@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "planti/MenuView/MenuImageViewController.swift"
-            timestampString = "582399270.132"
+            timestampString = "582536443.142936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -64,6 +64,22 @@
             startingLineNumber = "30"
             endingLineNumber = "30"
             landmarkName = "fetchImage(urlString:defaultImage:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "planti/Models/MenuItem.swift"
+            timestampString = "582536443.143039"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getImageUrl()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
