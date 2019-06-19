@@ -161,7 +161,21 @@ class RestaurantParentViewController: UIViewController {
     }
     
     public func updateMyLocation() {
-        locationManager.requestLocation()
+        if (CLLocationManager.locationServicesEnabled()) {
+            let alert = UIAlertController(title: "Location Service Is Disabled", message: "To re-enable, please go to Settings and turn on Location Service for this app.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                }
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            locationManager.requestLocation()
+        }
     }
 }
 
