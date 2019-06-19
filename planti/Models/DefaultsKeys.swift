@@ -11,5 +11,4 @@ import Foundation
 class DefaultsKeys {
     static let PREFERENCE = "preference"
     static let S3_URL = "https://planti-images.s3.amazonaws.com/"
-    static let API_URL = "planti-env.er36yiu2yy.us-east-1.elasticbeanstalk.com"
 }

@@ -82,6 +82,7 @@ class RestaurantMapViewController: UIViewController {
     public func reload(restaurants: [Restaurant]) {
         self.restaurants = restaurants
         self.refreshButton.isHidden = true
+        self.mapView.clearAnnotation()
         if (restaurants.count == 0) {
             if (self.noRestaurantNotice == nil) {
                 let x = self.view.frame.width / 2 - 133
@@ -100,6 +101,7 @@ class RestaurantMapViewController: UIViewController {
     
     @IBAction func refresh(_ sender: Any) {
         self.refreshButton.isHidden = true
+        self.mapView.clearAnnotation()
         self.pvc?.fetchRestaurants(coordinates: self.mapView.centerCoordinate)
     }
     
@@ -253,26 +255,16 @@ extension MKMapView {
     func getCoordinateRanges() -> (Double, Double, Double, Double) {
         
         let center = self.centerCoordinate
-        let latDelta = self.region.span.latitudeDelta
-        let lngDelta = self.region.span.longitudeDelta
+        let latDelta = self.region.span.latitudeDelta / 2
+        let lngDelta = self.region.span.longitudeDelta / 2
         
         return (center.latitude - latDelta, center.longitude - lngDelta,
             center.latitude + latDelta, center.longitude + lngDelta)
     }
     
-    func getTopRightCoordinate() -> CLLocationCoordinate2D {
-        return self.convert(CGPoint(x: self.frame.width, y: 0), toCoordinateFrom: self)
-    }
-    
-    func getTopLeftCoordinate() -> CLLocationCoordinate2D {
-        return self.convert(CGPoint(x: 0, y: 0), toCoordinateFrom: self)
-    }
-    
-    func getBottomLeftCoordinate() -> CLLocationCoordinate2D {
-        return self.convert(CGPoint(x: 0, y: self.frame.height), toCoordinateFrom: self)
-    }
-    
-    func getBottomRightCoordinate() -> CLLocationCoordinate2D {
-        return self.convert(CGPoint(x: self.frame.width, y: self.frame.height), toCoordinateFrom: self)
+    func clearAnnotation() {
+        let userLocation = self.userLocation
+        self.removeAnnotations(self.annotations)
+        self.addAnnotation(userLocation)
     }
 }
