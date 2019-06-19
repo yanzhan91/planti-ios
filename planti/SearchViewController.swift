@@ -68,7 +68,7 @@ extension SearchViewController: UITableViewDelegate{
         self.delegate?.selectingSearchResult?()
         let item = places[indexPath.row]
         let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = item.title == "" ? item.subtitle : item.title
+        request.naturalLanguageQuery = "\(item.title ) \(item.subtitle )"
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             guard let response = response else {
