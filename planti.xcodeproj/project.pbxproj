@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B50F266C22BB2767009D30BD /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F266B22BB2767009D30BD /* AlertService.swift */; };
 		B521830522476DE1004E7263 /* MapMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B521830422476DE1004E7263 /* MapMarkerView.xib */; };
 		B521830722476DF6004E7263 /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521830622476DF6004E7263 /* MapMarker.swift */; };
 		B5B4DDB62249DBF800937F78 /* RatingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5B4DDB52249DBF800937F78 /* RatingsView.xib */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		4379E13A8EA8D3E60A59B989 /* Pods-planti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planti.debug.xcconfig"; path = "Target Support Files/Pods-planti/Pods-planti.debug.xcconfig"; sourceTree = "<group>"; };
 		6C7104F663970D7DF7A002C3 /* Pods_planti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_planti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B50F266B22BB2767009D30BD /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		B521830422476DE1004E7263 /* MapMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerView.xib; sourceTree = "<group>"; };
 		B521830622476DF6004E7263 /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
 		B5B4DDB52249DBF800937F78 /* RatingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingsView.xib; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				B5F61846221889280032FF86 /* RestService.swift */,
 				F76EB7CC22A4ED4D0055B6BB /* ImageService.swift */,
+				B50F266B22BB2767009D30BD /* AlertService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				B5C6A6BD22220B24007DE260 /* PostViewController.swift in Sources */,
 				B5B4DDB82249DC0900937F78 /* RatingsView.swift in Sources */,
 				F78AA8B42288F15B00A332CE /* RestaurantMapViewController.swift in Sources */,
+				B50F266C22BB2767009D30BD /* AlertService.swift in Sources */,
 				B5F61845221888110032FF86 /* Restaurant.swift in Sources */,
 				F75A4C3D2285054A00FBEF10 /* TextViewController.swift in Sources */,
 				B5F6087D221D376E001989B6 /* ThemeButton.swift in Sources */,

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import ALCameraViewController
 import TextFieldEffects
 import MapKit
 
@@ -82,13 +81,17 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func post(_ sender: Any) {
-        RestService.shared().postMenuItem(name: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
-            
-            let okAlert = UIAlertController(title: "Thank you!", message: "Your contribution will benefit millions of others.", preferredStyle: .alert)
-            okAlert.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in
-                self.dismiss(animated: true, completion: nil)
-            })
-            self.present(okAlert, animated: true, completion: nil)
+        if ((self.restaurantName.text ?? "").isEmpty) {
+            let okAlert = AlertService.shared().createOkAlert(title: "Error", message: "Please specify restaurant name and menu item name", buttonTitle: "OK", viewController: self)
+            self.present(okAlert, animated: true)
+        } else {
+            RestService.shared().postMenuItem(name: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
+                
+                let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "Your contribution will benefit millions of others.", buttonTitle: "OK", viewController: self) { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                self.present(okAlert, animated: true, completion: nil)
+            }
         }
     }
     

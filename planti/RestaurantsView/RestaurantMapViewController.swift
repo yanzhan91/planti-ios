@@ -90,9 +90,10 @@ class RestaurantMapViewController: UIViewController {
         self.mapView.clearAnnotation()
         if (restaurants.count == 0) {
             if (self.noRestaurantNotice == nil) {
-                let x = self.view.frame.width / 2 - 133
-                self.noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: 10, width: 266, height: 40), title: "No restaurants yet in this area")
+                let x = self.view.frame.width / 2 - 116
+                self.noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: 10, width: 233, height: 32), title: "No restaurants yet in this area")
                 self.noRestaurantNotice!.activate()
+                print(self.noRestaurantNotice!.frame)
                 self.view.addSubview(self.noRestaurantNotice!)
             }
             self.noRestaurantNotice?.isHidden = false

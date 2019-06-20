@@ -83,5 +83,9 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
     public func reload(restaurants: [Restaurant]) {
         self.restaurants = restaurants
         self.collectionView.reloadData()
+        if (restaurants.isEmpty) {
+            let alert = AlertService.shared().createOkAlert(title: "No restaurant here yet", message: "Help the community by submitting new restaurants", buttonTitle: "Ok", viewController: self)
+            self.present(alert, animated: true)
+        }
     }
 }

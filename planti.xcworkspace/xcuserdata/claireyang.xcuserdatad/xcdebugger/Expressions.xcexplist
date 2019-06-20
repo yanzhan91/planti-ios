@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SearchViewController.tableView(_:didSelectRowAt:):SearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "item.title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in SearchViewController.tableView(_:didSelectRowAt:):SearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "placemark">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "restaurant.getImageUrl()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MenuItem.getImageUrl():MenuItem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "&quot;\(DefaultsKeys.S3_URL)/\(id).jpeg&quot;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MenuImageViewController.viewDidLoad():MenuImageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "$0.getImageUrl()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MKMapView.getCoordinateRanges():RestaurantMapViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
