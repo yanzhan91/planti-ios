@@ -214,8 +214,8 @@ extension RestaurantParentViewController : CLLocationManagerDelegate {
         let location: CLLocation = locations.last!
         if (location.coordinate.latitude != 0 && location.coordinate.longitude != 0) {
             switchView(vc: self.mapViewController)
-            self.mapViewController.moveMap(coordinate: location.coordinate)
-            self.fetchRestaurants(coordinates: location.coordinate)
+            let region = self.mapViewController.moveMap(coordinate: location.coordinate)
+            self.fetchRestaurants(coordinates: location.coordinate, region: region)
         }
     }
     
