@@ -152,8 +152,17 @@ class RestaurantParentViewController: UIViewController {
     
     public func fetchRestaurants(coordinates: CLLocationCoordinate2D) {
         let (minLat, minLng, maxLat, maxLng) = self.mapViewController.getCoordinateRangesWithCenterCoordinate(center: coordinates)
+        fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng)
+    }
+    
+    public func fetchRestaurants(coordinates: CLLocationCoordinate2D, region: MKCoordinateRegion) {
+        let (minLat, minLng, maxLat, maxLng) = self.mapViewController.getCoordinateRangesWithCenterCoordinate(center: coordinates, region: region)
+        fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng)
+    }
+    
+    public func fetchRestaurants(coordinates: CLLocationCoordinate2D, minLat: Double, minLng: Double, maxLat: Double, maxLng: Double) {
         RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, userLocation: self.mapViewController.getUserLocation()) { restaurants in
-
+            
             self.restaurants = restaurants
             self.mapViewController.reload(restaurants: restaurants)
             self.listViewController.reload(restaurants: restaurants)
@@ -192,8 +201,8 @@ extension RestaurantParentViewController : SearchViewControllerDelegate {
     
     func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D) {
         self.searchField.text = name
-        self.mapViewController.moveMap(coordinate: coordinate)
-        self.fetchRestaurants(coordinates: coordinate)
+        let region: MKCoordinateRegion = self.mapViewController.moveMap(coordinate: coordinate)
+        self.fetchRestaurants(coordinates: coordinate, region: region)
     }
 }
 

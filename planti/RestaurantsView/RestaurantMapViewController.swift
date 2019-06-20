@@ -68,15 +68,20 @@ class RestaurantMapViewController: UIViewController {
         return self.mapView.getCoordinateRanges()
     }
     
+    public func getCoordinateRangesWithCenterCoordinate(center: CLLocationCoordinate2D, region: MKCoordinateRegion) -> (Double, Double, Double, Double) {
+        return self.mapView.getCoordinateRanges(coordinate: center, region: region)
+    }
+    
     public func getCoordinate() -> CLLocationCoordinate2D {
         return self.mapView.centerCoordinate
     }
     
-    public func moveMap(coordinate: CLLocationCoordinate2D) {
+    public func moveMap(coordinate: CLLocationCoordinate2D) -> MKCoordinateRegion {
         self.refreshable = false
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         self.mapView.setRegion(region, animated: true)
+        return region
     }
 
     public func reload(restaurants: [Restaurant]) {
@@ -260,6 +265,16 @@ extension MKMapView {
         
         return (center.latitude - latDelta, center.longitude - lngDelta,
             center.latitude + latDelta, center.longitude + lngDelta)
+    }
+    
+    func getCoordinateRanges(coordinate: CLLocationCoordinate2D, region: MKCoordinateRegion) -> (Double, Double, Double, Double) {
+        
+        let center = coordinate
+        let latDelta = region.span.latitudeDelta / 2
+        let lngDelta = region.span.longitudeDelta / 2
+        
+        return (center.latitude - latDelta, center.longitude - lngDelta,
+                center.latitude + latDelta, center.longitude + lngDelta)
     }
     
     func clearAnnotation() {
