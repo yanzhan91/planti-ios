@@ -222,6 +222,6 @@ extension RestaurantParentViewController : CLLocationManagerDelegate {
     // Handle location manager errors.
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
-        print("Error: \(error)")
+        self.fetchRestaurants(coordinates: CLLocationCoordinate2D(latitude: 41.8823, longitude: -87.6404))
     }
 }

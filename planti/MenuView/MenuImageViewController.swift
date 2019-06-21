@@ -36,7 +36,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         
         let images: [InputSource] = (self.menuItems?.map {
             if ($0.getImageUrl() != nil) {
-                return AlamofireSource(urlString: $0.getImageUrl()!)!
+                return AlamofireSource(urlString: $0.getImageUrl()!, placeholder: UIImage(named: "default_menu_item_full_image"))!
             } else {
                 return ImageSource(image: UIImage(named: "default_menu_item_full_image")!)
             }
