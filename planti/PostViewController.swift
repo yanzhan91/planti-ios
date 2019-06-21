@@ -81,8 +81,8 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func post(_ sender: Any) {
-        if ((self.restaurantName.text ?? "").isEmpty) {
-            let okAlert = AlertService.shared().createOkAlert(title: "Error", message: "Please specify restaurant name and menu item name", buttonTitle: "OK", viewController: self)
+        if ((self.restaurantName.text ?? "").isEmpty || (self.entreeName.text ?? "").isEmpty) {
+            let okAlert = AlertService.shared().createOkAlert(title: "Error", message: "Please specify restaurant name and item name", buttonTitle: "OK", viewController: self)
             self.present(okAlert, animated: true)
         } else {
             RestService.shared().postMenuItem(name: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
