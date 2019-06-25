@@ -169,6 +169,7 @@ extension RestaurantMapViewController : MKMapViewDelegate {
         self.noRestaurantNotice?.isHidden = true
         if (self.refreshable) {
             self.refreshButton?.isHidden = false
+            self.pvc?.clearSearchField()
         } else {
             self.refreshable = true
             self.refreshButton?.isHidden = true
