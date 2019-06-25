@@ -170,11 +170,11 @@ class RestaurantParentViewController: UIViewController {
     }
     
     public func updateMyLocation() {
-        if (CLLocationManager.locationServicesEnabled()) {
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways) {
+            locationManager.requestLocation()
+        } else {
             let alert = AlertService.shared().createSettingsAlert(title: "Location Service Is Disabled", message: "To re-enable, please go to Settings and turn on Location Service for this app.", buttonTitle: "Settings", viewController: self)
             self.present(alert, animated: true, completion: nil)
-        } else {
-            locationManager.requestLocation()
         }
     }
 }
