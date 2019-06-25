@@ -9,6 +9,7 @@
 import UIKit
 import TextFieldEffects
 import MapKit
+import AVFoundation
 
 class PostViewController: UIViewController {
 
@@ -100,11 +101,21 @@ class PostViewController: UIViewController {
     }
     
     @objc func cameraTap() {
-        let vc = UIImagePickerController()
-        vc.sourceType = .camera
-        vc.delegate = self
-        vc.cameraFlashMode = .auto
-        present(vc, animated: true)
+        if (AVCaptureDevice.authorizationStatus(for: .video) != .authorized) {
+            AVCaptureDevice.requestAccess(for: .video) { response in
+                let vc = UIImagePickerController()
+                vc.sourceType = .camera
+                vc.delegate = self
+                vc.cameraFlashMode = .auto
+                self.present(vc, animated: true)
+            }
+        } else {
+            let vc = UIImagePickerController()
+            vc.sourceType = .camera
+            vc.delegate = self
+            vc.cameraFlashMode = .auto
+            present(vc, animated: true)
+        }
     }
 }
 
