@@ -18,12 +18,12 @@ class ImageService {
     }
     
     public func fetchImage(urlString: String, defaultImage: UIImage, completion: @escaping (UIImage) -> ()) {
-        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) {
-            completion(imageFromCache)
-        }
-        
-        if let url = URL(string: urlString) {
-            DispatchQueue.global().async {
+        DispatchQueue.global().async {
+            if let imageFromCache = self.imageCache.object(forKey: urlString as AnyObject) {
+                completion(imageFromCache)
+            }
+            
+            if let url = URL(string: urlString) {
                 if let data = try? Data(contentsOf: url) {
                     if let image = UIImage(data: data) {
                         self.imageCache.setObject(image, forKey: urlString as AnyObject)

@@ -280,8 +280,7 @@ extension MKMapView {
     }
     
     func clearAnnotation() {
-        let userLocation = self.userLocation
         self.removeAnnotations(self.annotations)
-        self.addAnnotation(userLocation)
+        self.showsUserLocation = true
     }
 }
