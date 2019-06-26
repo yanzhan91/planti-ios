@@ -15,4 +15,5 @@ target 'planti' do
   pod 'ImageSlideshow', '~> 1.8'
   pod 'ImageSlideshow/Alamofire', '~> 1.8'
   pod 'Cluster'
+  pod 'NVActivityIndicatorView'
 end

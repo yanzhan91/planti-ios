@@ -12,6 +12,9 @@ PODS:
     - AlamofireImage (~> 3.0)
     - ImageSlideshow/Core
   - ImageSlideshow/Core (1.8.0)
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
   - ObjectMapper (3.4.2)
   - SideMenu (5.0.3)
   - TextFieldEffects (1.5.1)
@@ -22,6 +25,7 @@ DEPENDENCIES:
   - Cluster
   - ImageSlideshow (~> 1.8)
   - ImageSlideshow/Alamofire (~> 1.8)
+  - NVActivityIndicatorView
   - SideMenu
   - TextFieldEffects
 
@@ -32,6 +36,7 @@ SPEC REPOS:
     - AlamofireObjectMapper
     - Cluster
     - ImageSlideshow
+    - NVActivityIndicatorView
     - ObjectMapper
     - SideMenu
     - TextFieldEffects
@@ -42,10 +47,11 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
   Cluster: 47f0e962d94ea961cc336d2bf936fe4dc1f61cdb
   ImageSlideshow: 197130fe349aafa9446f54277c792551d41eadf9
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: f369649712cdf4c0ec2699410ec0c0267b64d3f5
+PODFILE CHECKSUM: e9ed50494d7297b44b8b60fa3fdd76174c2af1b4
 
 COCOAPODS: 1.6.0

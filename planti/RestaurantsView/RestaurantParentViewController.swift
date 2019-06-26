@@ -9,8 +9,9 @@
 import UIKit
 import SideMenu
 import MapKit
+import NVActivityIndicatorView
 
-class RestaurantParentViewController: UIViewController {
+class RestaurantParentViewController: UIViewController, NVActivityIndicatorViewable {
     
     private lazy var mapViewController: RestaurantMapViewController = {
         // Load Storyboard
@@ -161,11 +162,14 @@ class RestaurantParentViewController: UIViewController {
     }
     
     public func fetchRestaurants(coordinates: CLLocationCoordinate2D, minLat: Double, minLng: Double, maxLat: Double, maxLng: Double) {
+        self.startAnimating()
         RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, userLocation: self.mapViewController.getUserLocation()) { restaurants in
             
             self.restaurants = restaurants
             self.mapViewController.reload(restaurants: restaurants)
             self.listViewController.reload(restaurants: restaurants)
+            
+            self.stopAnimating()
         }
     }
     
