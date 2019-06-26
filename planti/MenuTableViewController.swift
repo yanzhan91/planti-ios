@@ -42,11 +42,11 @@ class MenuTableViewController: UITableViewController {
                 privacyVC.textviewText = Documents.shared().getDocument(type: "Privacy")
                 presenter.present(privacyVC, animated: true, completion: nil)
                 break
-            case 4:
-                let settingsVC = UIStoryboard(name: "Main", bundle:nil)
-                    .instantiateViewController(withIdentifier: "settingsVC") as! SettingsViewController
-                presenter.present(settingsVC, animated: true, completion: nil)
-                break
+//            case 4:
+//                let settingsVC = UIStoryboard(name: "Main", bundle:nil)
+//                    .instantiateViewController(withIdentifier: "settingsVC") as! SettingsViewController
+//                presenter.present(settingsVC, animated: true, completion: nil)
+//                break
             default:
                 break;
             }

@@ -117,30 +117,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="CNi-X2-zWM">
-                                        <rect key="frame" x="0.0" y="284" width="260" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CNi-X2-zWM" id="awe-yl-Ejb">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="49.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HC-2C-vu8">
-                                                    <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="ORe-wq-Ypy"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="0HC-2C-vu8" firstAttribute="centerY" secondItem="awe-yl-Ejb" secondAttribute="centerY" id="3GI-Rr-g24"/>
-                                                <constraint firstItem="0HC-2C-vu8" firstAttribute="leading" secondItem="awe-yl-Ejb" secondAttribute="leadingMargin" id="LI7-JC-QTi"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="0HC-2C-vu8" secondAttribute="trailing" id="ipC-MY-2Eg"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
