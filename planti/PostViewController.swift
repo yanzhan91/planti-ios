@@ -101,20 +101,16 @@ class PostViewController: UIViewController {
     }
     
     @objc func cameraTap() {
-        if (AVCaptureDevice.authorizationStatus(for: .video) != .authorized) {
-            AVCaptureDevice.requestAccess(for: .video) { response in
-                let vc = UIImagePickerController()
-                vc.sourceType = .camera
-                vc.delegate = self
-                vc.cameraFlashMode = .auto
-                self.present(vc, animated: true)
-            }
-        } else {
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways) {
+            
             let vc = UIImagePickerController()
             vc.sourceType = .camera
             vc.delegate = self
             vc.cameraFlashMode = .auto
             present(vc, animated: true)
+        } else {
+            let alert = AlertService.shared().createSettingsAlert(title: "Camera Is Disabled", message: "To enable, please go to Settings and turn on camera permission for this app.", buttonTitle: "Settings", viewController: self)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }
