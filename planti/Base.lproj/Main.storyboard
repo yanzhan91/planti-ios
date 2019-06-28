@@ -1621,6 +1621,38 @@ promotions</string>
                                 <rect key="frame" x="0.0" y="150" width="375" height="628"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9P-3Q-yFT">
+                                <rect key="frame" x="137.66666666666666" y="414" width="100" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqc-BA-5FP">
+                                        <rect key="frame" x="18" y="0.0" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="EOy-ut-iN6"/>
+                                            <constraint firstAttribute="width" constant="64" id="u0L-hd-SPd"/>
+                                        </constraints>
+                                        <state key="normal" image="camera_icon_white"/>
+                                        <connections>
+                                            <action selector="addPhoto:" destination="1Pe-L9-64f" eventType="touchUpInside" id="hTn-B4-bBA"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irR-as-Jxt">
+                                        <rect key="frame" x="0.0" y="79" width="100" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="irR-as-Jxt" secondAttribute="trailing" id="2fk-Nx-pZi"/>
+                                    <constraint firstAttribute="bottom" secondItem="irR-as-Jxt" secondAttribute="bottom" id="5jQ-Qc-bCJ"/>
+                                    <constraint firstItem="irR-as-Jxt" firstAttribute="leading" secondItem="a9P-3Q-yFT" secondAttribute="leading" id="LEo-tf-jlV"/>
+                                    <constraint firstItem="Vqc-BA-5FP" firstAttribute="top" secondItem="a9P-3Q-yFT" secondAttribute="top" id="MpT-ez-QSj"/>
+                                    <constraint firstAttribute="height" constant="100" id="Uik-iG-45u"/>
+                                    <constraint firstItem="Vqc-BA-5FP" firstAttribute="centerX" secondItem="a9P-3Q-yFT" secondAttribute="centerX" id="c41-e0-7Zr"/>
+                                    <constraint firstAttribute="width" constant="100" id="pVE-Y2-gBv"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-9H-TxW">
                                 <rect key="frame" x="315" y="44" width="40" height="40"/>
                                 <constraints>
@@ -1676,10 +1708,12 @@ promotions</string>
                             <constraint firstItem="NSa-KE-6MJ" firstAttribute="leading" secondItem="gl0-ea-F3x" secondAttribute="leading" constant="20" id="Qfu-Ih-3b7"/>
                             <constraint firstItem="EFA-RB-FBU" firstAttribute="top" secondItem="gl0-ea-F3x" secondAttribute="top" constant="150" id="XhX-S9-YfW"/>
                             <constraint firstItem="fnR-lC-sOQ" firstAttribute="bottom" secondItem="EFA-RB-FBU" secondAttribute="bottom" id="bE3-3c-4O6"/>
+                            <constraint firstItem="a9P-3Q-yFT" firstAttribute="centerY" secondItem="EFA-RB-FBU" secondAttribute="centerY" id="cT6-jT-eDW"/>
                             <constraint firstItem="4gN-6m-G8E" firstAttribute="leading" secondItem="gl0-ea-F3x" secondAttribute="leading" constant="20" id="mYD-JD-wpj"/>
                             <constraint firstItem="OsC-hW-OCg" firstAttribute="centerY" secondItem="4gN-6m-G8E" secondAttribute="centerY" id="oUS-sy-mdl"/>
                             <constraint firstItem="EFA-RB-FBU" firstAttribute="leading" secondItem="fnR-lC-sOQ" secondAttribute="leading" id="qtS-EQ-Igr"/>
                             <constraint firstItem="fnR-lC-sOQ" firstAttribute="trailing" secondItem="PMs-9H-TxW" secondAttribute="trailing" constant="20" id="rSo-2Q-Xd9"/>
+                            <constraint firstItem="a9P-3Q-yFT" firstAttribute="centerX" secondItem="EFA-RB-FBU" secondAttribute="centerX" id="whi-wp-FxH"/>
                             <constraint firstItem="6lo-eO-pfo" firstAttribute="centerY" secondItem="NSa-KE-6MJ" secondAttribute="centerY" id="ykq-iI-ahf"/>
                             <constraint firstItem="Zuk-R6-vgU" firstAttribute="top" secondItem="fnR-lC-sOQ" secondAttribute="top" id="zJf-S3-yAa"/>
                             <constraint firstItem="4gN-6m-G8E" firstAttribute="top" secondItem="Zuk-R6-vgU" secondAttribute="bottom" constant="5" id="zpf-O0-J2I"/>
@@ -1690,6 +1724,7 @@ promotions</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addPhotoView" destination="a9P-3Q-yFT" id="vjY-sS-vud"/>
                         <outlet property="containsText" destination="OsC-hW-OCg" id="jlE-b9-o0T"/>
                         <outlet property="menuName" destination="Zuk-R6-vgU" id="SBW-gw-J80"/>
                         <outlet property="postedText" destination="6lo-eO-pfo" id="NYq-LI-6Ha"/>
@@ -1705,6 +1740,7 @@ promotions</string>
         <image name="Menu_logo" width="300.66665649414062" height="180"/>
         <image name="back_icon" width="20" height="20"/>
         <image name="camera_icon" width="120" height="120"/>
+        <image name="camera_icon_white" width="128" height="128"/>
         <image name="close_icon" width="20" height="20"/>
         <image name="diary_icon" width="64" height="64"/>
         <image name="egg_icon" width="64" height="64"/>

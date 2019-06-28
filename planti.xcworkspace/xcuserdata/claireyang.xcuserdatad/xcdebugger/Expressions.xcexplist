@@ -3,14 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "SearchViewController.tableView(_:didSelectRowAt:):SearchViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "item.title">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in SearchViewController.tableView(_:didSelectRowAt:):SearchViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -22,10 +14,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
+         contextName = "MenuImageViewController.imageSlideshow(_:didChangeCurrentPageTo:):MenuImageViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "restaurant.getImageUrl()">
+               value = "!self.isDefaultImages[page]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -38,15 +30,31 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "SearchViewController.tableView(_:didSelectRowAt:):SearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "item.title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MKMapView.getCoordinateRanges():RestaurantMapViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "restaurant.getImageUrl()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in MenuImageViewController.viewDidLoad():MenuImageViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "$0.getImageUrl()">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MKMapView.getCoordinateRanges():RestaurantMapViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -101,7 +101,7 @@ class PostViewController: UIViewController {
     }
     
     @objc func cameraTap() {
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways) {
+        if (AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized) {
             
             let vc = UIImagePickerController()
             vc.sourceType = .camera

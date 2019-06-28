@@ -8,6 +8,7 @@
 
 import UIKit
 import ImageSlideshow
+import AVFoundation
 
 class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     
@@ -17,6 +18,9 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var menuName: UILabel!
     @IBOutlet weak var containsText: UILabel!
     @IBOutlet weak var postedText: UILabel!
+    @IBOutlet weak var addPhotoView: UIView!
+    
+    private var isDefaultImages: [Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +40,10 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         
         let images: [InputSource] = (self.menuItems?.map {
             if ($0.getImageUrl() != nil) {
+                self.isDefaultImages.append(false)
                 return AlamofireSource(urlString: $0.getImageUrl()!, placeholder: UIImage(named: "default_menu_item_full_image"))!
             } else {
+                self.isDefaultImages.append(true)
                 return ImageSource(image: UIImage(named: "default_menu_item_full_image")!)
             }
         }) ?? []
@@ -56,6 +62,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     
     func imageSlideshow(_ imageSlideshow: ImageSlideshow, didChangeCurrentPageTo page: Int) {
         setMenuTexts(index: page)
+        self.addPhotoView.isHidden = self.isDefaultImages[page]
     }
     
     func setMenuTexts(index: Int) {
@@ -69,4 +76,31 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func addPhoto(_ sender: Any) {
+        if (AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized) {
+            
+            let vc = UIImagePickerController()
+            vc.sourceType = .camera
+            vc.delegate = self
+            vc.cameraFlashMode = .auto
+            present(vc, animated: true)
+        } else {
+            let alert = AlertService.shared().createSettingsAlert(title: "Camera Is Disabled", message: "To enable, please go to Settings and turn on camera permission for this app.", buttonTitle: "Settings", viewController: self)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+}
+
+extension MenuImageViewController : UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+    }
+}
+
+extension MenuImageViewController : UINavigationControllerDelegate {
 }
