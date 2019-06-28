@@ -189,6 +189,39 @@ class RestService {
         }
     }
     
+    public func postMenuItemImage(id: String, image: UIImage?, completion: @escaping (Bool) -> Void) {
+        print("Rest: posting menu item image \(id)")
+        let url = buildUrl(path: "/planti-api/ui/menuItemImage/", queries: [])
+        
+        let parameters: [String : String] = ["id": id]
+        
+        let headers: HTTPHeaders = [
+            "Content-type": "multipart/form-data"
+        ]
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in parameters {
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
+            }
+            
+            if let data = image?.jpegData(compressionQuality: 0.01) {
+                multipartFormData.append(data, withName: "file", fileName: "image.jpeg", mimeType: "image/jpeg")
+            }
+            
+        }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
+            switch result{
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    print("Succesfully uploaded")
+                    completion(true)
+                }
+            case .failure(let error):
+                print("Error in upload: \(error.localizedDescription)")
+                completion(false)
+            }
+        }
+    }
+    
     public func reportError(menuItemId: String, chainId: String) {
         print("Rest: reporting error \(menuItemId)")
         let url = buildUrl(path: "/planti-api/ui/reportError", queries: [

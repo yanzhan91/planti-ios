@@ -96,8 +96,24 @@ extension MenuImageViewController : UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            print("No image found")
+            let alert = AlertService.shared().createOkAlert(title: "There was an error", message: "Please try again later", buttonTitle: "OK", viewController: self)
+            self.present(alert, animated: true)
             return
+        }
+        
+        if (self.menuItems != nil && self.menuItems!.count > self.slideView.currentPage) {
+            let id = self.menuItems![self.slideView.currentPage].id
+            RestService.shared().postMenuItemImage(id: id, image: image) { success in
+                if (success) {
+                    let alert = AlertService.shared().createOkAlert(title: "Success", message: "Thank you for your contribution. To help protect other users, your image will be displayed after our review process.", buttonTitle: "OK", viewController: self)
+                    self.present(alert, animated: true)
+                    return
+                } else {
+                    let alert = AlertService.shared().createOkAlert(title: "There was an error", message: "Please try again later", buttonTitle: "OK", viewController: self)
+                    self.present(alert, animated: true)
+                    return
+                }
+            }
         }
     }
 }
