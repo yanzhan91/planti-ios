@@ -20,7 +20,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var postedText: UILabel!
     @IBOutlet weak var addPhotoView: UIView!
     
-    private var isDefaultImages: [Bool] = []
+    public var isDefaultImages: [Int:Bool] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +39,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         self.slideView.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         
         let images: [InputSource] = (self.menuItems?.map {
-            if ($0.getImageUrl() != nil) {
-                self.isDefaultImages.append(false)
-                return AlamofireSource(urlString: $0.getImageUrl()!, placeholder: UIImage(named: "default_menu_item_full_image"))!
-            } else {
-                self.isDefaultImages.append(true)
-                return ImageSource(image: UIImage(named: "default_menu_item_full_image")!)
-            }
+            return AlamofireSource(urlString: $0.getImageUrl(), placeholder: UIImage(named: "default_menu_item_full_image"))!
         }) ?? []
         self.slideView.setImageInputs(images)
         
@@ -58,11 +52,13 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         } else {
             self.slideView.setCurrentPage(self.index, animated: false)
         }
+        
+        self.addPhotoView.isHidden = !(self.isDefaultImages[self.index] ?? true)
     }
     
     func imageSlideshow(_ imageSlideshow: ImageSlideshow, didChangeCurrentPageTo page: Int) {
         setMenuTexts(index: page)
-        self.addPhotoView.isHidden = self.isDefaultImages[page]
+        self.addPhotoView.isHidden = !(self.isDefaultImages[page] ?? true)
     }
     
     func setMenuTexts(index: Int) {

@@ -18,8 +18,8 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
         self.image.layer.cornerRadius = 10
     }
     
-    func loadImage(url: URL) {
-        ImageService.shared().fetchImage(urlString: url.absoluteString, defaultImage: UIImage(named: "default_menu_item_cell_image")!) { image in
+    func loadImage(url: URL, completion: @escaping (Bool) -> Void) {
+        ImageService.shared().fetchImage(urlString: url.absoluteString, defaultImage: UIImage(named: "default_menu_item_cell_image")!) { image, isDefaultImage in
             DispatchQueue.main.async {
                 if (image.size.width != image.size.height) {
                     
@@ -39,6 +39,7 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
                     self.image.image = image
                 }
             }
+            completion(isDefaultImage)
         }
     }
 }

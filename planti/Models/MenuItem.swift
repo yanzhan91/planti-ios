@@ -28,7 +28,7 @@ class MenuItem : Mappable {
         postedBy <- map["postedBy"]
     }
     
-    public func getImageUrl() -> String? {
+    public func getImageUrl() -> String {
         return "\(DefaultsKeys.S3_URL)\(id).jpeg"
     }
 }

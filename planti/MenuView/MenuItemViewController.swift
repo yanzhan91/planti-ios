@@ -23,6 +23,7 @@ class MenuItemViewController: UIViewController {
     var delegate: MenuItemViewControllerDelegate?
     
     private var menuItems: [MenuItem] = []
+    private var isDefaultImages: [Int:Bool] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,7 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
         let miVC = storyboard.instantiateViewController(withIdentifier: "MenuImageVC") as! MenuImageViewController
         miVC.menuItems = self.menuItems
         miVC.index = indexPath.row
+        miVC.isDefaultImages = self.isDefaultImages
         self.present(miVC, animated: true, completion: nil)
         
     }
@@ -82,10 +84,8 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuItemCell", for: indexPath) as! MenuItemCollectionViewCell
         let menuItem = self.menuItems[indexPath.row]
-        if (menuItem.getImageUrl() != nil) {
-            cell.loadImage(url: URL(string: menuItem.getImageUrl()!)!)
-        } else {
-            cell.image.image = UIImage(named: "default_menu_item_cell_image")
+        cell.loadImage(url: URL(string: menuItem.getImageUrl())!) { isDefault in
+            self.isDefaultImages[indexPath.row] = isDefault
         }
         cell.name.text = menuItem.menuItemName
         return cell
