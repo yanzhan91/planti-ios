@@ -98,10 +98,9 @@ class RestService {
         }
     }
     
-    public func getRestaurants(option: Options, minLat: Double, minLng: Double, maxLat: Double, maxLng: Double, userLocation: CLLocationCoordinate2D, completion: @escaping ([Restaurant]) -> Void) {
+    public func getRestaurants(option: Options, minLat: Double, minLng: Double, maxLat: Double, maxLng: Double, userLocation: CLLocationCoordinate2D, completion: @escaping ([Restaurant]?) -> ()) {
         print("Rest: getRestaurants \(option)")
         
-        print(userLocation)
         let url = buildUrl(path: "/planti-api/ui/getRestaurants", queries: [
             URLQueryItem(name: "option", value: String(option.number())),
             URLQueryItem(name: "minLatitude", value: String(minLat)),
@@ -112,12 +111,16 @@ class RestService {
             URLQueryItem(name: "userLongitude", value: String(userLocation.longitude))
         ])
         
-        Alamofire.request(url, method: .get, parameters: nil)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.timeoutInterval = 10
+        
+        Alamofire.request(request)
             .validate()
             .responseArray { (response: DataResponse<[Restaurant]>) in
                 guard response.result.isSuccess, let value = response.result.value else {
                     print("Error: \(String(describing: response.result.error))")
-                    completion([])
+                    completion(nil)
                     return
                 }
                 

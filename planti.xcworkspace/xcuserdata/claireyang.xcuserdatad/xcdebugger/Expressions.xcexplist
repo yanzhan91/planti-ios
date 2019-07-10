@@ -14,14 +14,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MenuImageViewController.imageSlideshow(_:didChangeCurrentPageTo:):MenuImageViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "!self.isDefaultImages[page]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "MenuItem.getImageUrl():MenuItem.swift">
          <PersistentStrings>
             <PersistentString
@@ -39,6 +31,14 @@
       </ContextState>
       <ContextState
          contextName = "MKMapView.getCoordinateRanges():RestaurantMapViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in RestService.getRestaurants(option:minLat:minLng:maxLat:maxLng:userLocation:completion:):RestService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "String(describing: response.result.error)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "RestaurantCollectionViewController.collectionView(_:cellForItemAt:):RestaurantCollectionViewController.swift">
