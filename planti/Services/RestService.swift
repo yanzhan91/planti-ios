@@ -14,9 +14,8 @@ import MapKit
 class RestService {
     
     private static var restService = RestService()
-    private final var scheme: String = "http"
-//    private final var host: String = "planti-env.er36yiu2yy.us-east-1.elasticbeanstalk.com"
-    private final var host: String = "planti-env-prod1.us-east-1.elasticbeanstalk.com"
+    private final var scheme: String = "https"
+    private final var host: String = "api.plantiapp.com"
 //    private final var host: String = "localhost"
     
     class func shared() -> RestService {
