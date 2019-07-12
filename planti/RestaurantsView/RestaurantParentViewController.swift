@@ -219,13 +219,17 @@ extension RestaurantParentViewController : SearchViewControllerDelegate {
 
 extension RestaurantParentViewController : PreferenceViewControllerDelegate {
     func optionDidChange(option: Options) {
-        self.optionScrollView.setPreference(option: option)
+        if option != self.optionScrollView.getPreference() {
+            self.optionScrollView.setPreference(option: option)
+        }
     }
 }
 
 extension RestaurantParentViewController :  MenuItemViewControllerDelegate {
     func optionDidChangeInMenuItem(option: Options) {
-        self.optionScrollView.setPreference(option: option)
+        if option != self.optionScrollView.getPreference() {
+            self.optionScrollView.setPreference(option: option)
+        }
     }
 }
 
