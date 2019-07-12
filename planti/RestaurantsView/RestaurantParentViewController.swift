@@ -162,23 +162,25 @@ class RestaurantParentViewController: UIViewController, NVActivityIndicatorViewa
     }
     
     public func fetchRestaurants(coordinates: CLLocationCoordinate2D, minLat: Double, minLng: Double, maxLat: Double, maxLng: Double) {
-        self.startAnimating()
-        RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, userLocation: self.mapViewController.getUserLocation()) { restaurants in
-            
-            if (restaurants == nil) {
-                let alert = AlertService.shared().createOkAlert(title: "Error", message: "Unable to connect. Check your internet connection and try again.", buttonTitle: "Retry", viewController: self) { _ in
-                    self.fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng)
+        if !self.isAnimating {
+            self.startAnimating()
+            RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, userLocation: self.mapViewController.getUserLocation()) { restaurants in
+                
+                if (restaurants == nil) {
+                    let alert = AlertService.shared().createOkAlert(title: "Error", message: "Unable to connect. Check your internet connection and try again.", buttonTitle: "Retry", viewController: self) { _ in
+                        self.fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng)
+                    }
+                    self.present(alert, animated: true)
+                    self.stopAnimating()
+                    return
                 }
-                self.present(alert, animated: true)
+                
+                self.restaurants = restaurants!
+                self.mapViewController.reload(restaurants: restaurants!)
+                self.listViewController.reload(restaurants: restaurants!)
+                
                 self.stopAnimating()
-                return
             }
-            
-            self.restaurants = restaurants!
-            self.mapViewController.reload(restaurants: restaurants!)
-            self.listViewController.reload(restaurants: restaurants!)
-            
-            self.stopAnimating()
         }
     }
     
