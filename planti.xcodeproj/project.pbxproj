@@ -12,6 +12,7 @@
 		B521830722476DF6004E7263 /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521830622476DF6004E7263 /* MapMarker.swift */; };
 		B5B4DDB62249DBF800937F78 /* RatingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5B4DDB52249DBF800937F78 /* RatingsView.xib */; };
 		B5B4DDB82249DC0900937F78 /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4DDB72249DC0900937F78 /* RatingsView.swift */; };
+		B5B9920422DAFAFE0047D8C9 /* Credits.txt in Resources */ = {isa = PBXBuildFile; fileRef = B5B9920322DAFAFE0047D8C9 /* Credits.txt */; };
 		B5BE0E06222A5E1B006328A4 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE0E05222A5E1B006328A4 /* PreferenceViewController.swift */; };
 		B5BE0E08222A7562006328A4 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE0E07222A7562006328A4 /* DefaultsKeys.swift */; };
 		B5C6A6B722214C7D007DE260 /* OptionsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */; };
@@ -55,6 +56,7 @@
 		B521830622476DF6004E7263 /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
 		B5B4DDB52249DBF800937F78 /* RatingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingsView.xib; sourceTree = "<group>"; };
 		B5B4DDB72249DC0900937F78 /* RatingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsView.swift; sourceTree = "<group>"; };
+		B5B9920322DAFAFE0047D8C9 /* Credits.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Credits.txt; sourceTree = "<group>"; };
 		B5BE0E05222A5E1B006328A4 /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		B5BE0E07222A7562006328A4 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		B5C6A6B622214C7D007DE260 /* OptionsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScrollView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				F752332E2284E3A6005E3625 /* Terms.txt */,
 				F7F639BC22ADA1340085C0EB /* Privacy.txt */,
+				B5B9920322DAFAFE0047D8C9 /* Credits.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				F752332F2284E3A6005E3625 /* Terms.txt in Resources */,
 				B5EAC3D52217EAE80080858E /* Main.storyboard in Resources */,
 				F7F639BD22ADA1340085C0EB /* Privacy.txt in Resources */,
+				B5B9920422DAFAFE0047D8C9 /* Credits.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +353,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Cluster/Cluster.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
@@ -363,6 +368,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cluster.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",

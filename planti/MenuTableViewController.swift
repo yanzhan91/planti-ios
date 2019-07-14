@@ -31,15 +31,22 @@ class MenuTableViewController: UITableViewController {
             case 2:
                 let termsVC = UIStoryboard(name: "Main", bundle:nil)
                     .instantiateViewController(withIdentifier: "textVC") as! TextViewController
-                termsVC.nameText = "Terms of Use"
-                termsVC.textviewText = Documents.shared().getDocument(type: "Terms")
+                termsVC.nameText = "About"
+                termsVC.markdownText = Documents.shared().getDocument(name: "Credits", type: "txt")
                 presenter.present(termsVC, animated: true, completion: nil)
                 break
             case 3:
+                let termsVC = UIStoryboard(name: "Main", bundle:nil)
+                    .instantiateViewController(withIdentifier: "textVC") as! TextViewController
+                termsVC.nameText = "Terms of Use"
+                termsVC.textviewText = Documents.shared().getDocument(name: "Terms", type: "txt")
+                presenter.present(termsVC, animated: true, completion: nil)
+                break
+            case 4:
                 let privacyVC = UIStoryboard(name: "Main", bundle:nil)
                     .instantiateViewController(withIdentifier: "textVC") as! TextViewController
                 privacyVC.nameText = "Privacy Policy"
-                privacyVC.textviewText = Documents.shared().getDocument(type: "Privacy")
+                privacyVC.textviewText = Documents.shared().getDocument(name: "Privacy", type: "txt")
                 presenter.present(privacyVC, animated: true, completion: nil)
                 break
 //            case 4:

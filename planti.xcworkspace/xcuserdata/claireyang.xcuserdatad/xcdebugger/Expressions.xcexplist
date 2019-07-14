@@ -49,10 +49,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TextViewController.viewDidLoad():TextViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in MenuImageViewController.viewDidLoad():MenuImageViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "$0.getImageUrl()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Documents.getDocument(name:type:):Documents.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Bundle.main.path(forResource: &quot;Credits&quot;, ofType: &quot;txt&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

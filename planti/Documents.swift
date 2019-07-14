@@ -15,8 +15,8 @@ class Documents {
         return documents
     }
     
-    public func getDocument(type: String) -> String {
-        if let filepath = Bundle.main.path(forResource: type, ofType: "txt") {
+    public func getDocument(name: String, type: String) -> String {
+        if let filepath = Bundle.main.path(forResource: name, ofType: type) {
             do {
                 return try String(contentsOfFile: filepath)
             } catch {

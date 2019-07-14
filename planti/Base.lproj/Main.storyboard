@@ -76,7 +76,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="260" height="49.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWQ-PD-ZuG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWQ-PD-ZuG">
                                                     <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="L5H-KB-s59"/>
@@ -100,7 +100,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="260" height="49.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyV-R5-Puy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyV-R5-Puy">
                                                     <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="eH7-f0-02K"/>
@@ -114,6 +114,30 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="cyV-R5-Puy" secondAttribute="trailing" id="egn-Xj-Gd5"/>
                                                 <constraint firstItem="cyV-R5-Puy" firstAttribute="centerY" secondItem="vuP-HC-DUO" secondAttribute="centerY" id="i0g-cA-0Wn"/>
                                                 <constraint firstItem="cyV-R5-Puy" firstAttribute="leading" secondItem="vuP-HC-DUO" secondAttribute="leadingMargin" id="xlg-YV-D2T"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="E34-jL-0dJ">
+                                        <rect key="frame" x="0.0" y="284" width="260" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E34-jL-0dJ" id="4DB-FF-bLD">
+                                            <rect key="frame" x="0.0" y="0.0" width="260" height="49.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbQ-AJ-ik0">
+                                                    <rect key="frame" x="16" y="14.333333333333336" width="228" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="2n9-r8-qU1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zbQ-AJ-ik0" firstAttribute="leading" secondItem="4DB-FF-bLD" secondAttribute="leadingMargin" id="3r8-6q-2WS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zbQ-AJ-ik0" secondAttribute="trailing" id="Qur-wh-GqE"/>
+                                                <constraint firstItem="zbQ-AJ-ik0" firstAttribute="centerY" secondItem="4DB-FF-bLD" secondAttribute="centerY" id="WE4-1s-5Iw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

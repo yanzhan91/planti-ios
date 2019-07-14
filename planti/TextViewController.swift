@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MarkdownKit
 
 class TextViewController: UIViewController {
 
@@ -15,11 +16,21 @@ class TextViewController: UIViewController {
     
     public var nameText: String?
     public var textviewText: String?
+    public var markdownText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.name.text = nameText
-        self.textView.text = textviewText
+        if textviewText != nil {
+            self.textView.text = textviewText
+        } else if markdownText != nil {
+            let markdownParser = MarkdownParser()
+            self.textView.attributedText = markdownParser.parse(markdownText!)
+        }
+        
+        self.textView.isEditable = false
+        self.textView.allowsEditingTextAttributes = false
+//        self.textView.isUserInteractionEnabled = false
     }
     
     @IBAction func back(_ sender: Any) {
