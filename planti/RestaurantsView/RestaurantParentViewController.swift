@@ -189,7 +189,7 @@ class RestaurantParentViewController: UIViewController, NVActivityIndicatorViewa
             clearSearchField()
             locationManager.requestLocation()
         } else {
-            let alert = AlertService.shared().createSettingsAlert(title: "Location Service Is Disabled", message: "To re-enable, please go to Settings and turn on Location Service for this app.", buttonTitle: "Settings", viewController: self)
+            let alert = AlertService.shared().createSettingsAlert(title: "Location Service Is Disabled", message: "To enable, click Settings and turn on location service for this app.", buttonTitle: "Settings", viewController: self)
             self.present(alert, animated: true, completion: nil)
         }
     }
