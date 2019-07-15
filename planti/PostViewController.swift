@@ -88,7 +88,7 @@ class PostViewController: UIViewController {
         } else {
             RestService.shared().postMenuItem(name: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
                 
-                let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "Your contribution will benefit millions of others.", buttonTitle: "OK", viewController: self) { _ in
+                let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "To help users get accurate details, your posting will be displayed after our review process.", buttonTitle: "OK", viewController: self) { _ in
                     self.dismiss(animated: true, completion: nil)
                 }
                 self.present(okAlert, animated: true, completion: nil)
