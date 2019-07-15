@@ -57,6 +57,7 @@ class PreferenceViewController: UIViewController {
     
     @IBAction func choose(_ sender: Any) {     
         let settings = Settings()
+        UserDefaults.standard.set(self.option.rawValue, forKey: DefaultsKeys.PREFERENCE)
         RestService.shared().postUser(option: self.option, settings: settings, completion: {})
         self.delegate?.optionDidChange(option: self.option)
         dismiss(animated: true, completion: nil)
