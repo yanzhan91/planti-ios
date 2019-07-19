@@ -40,7 +40,7 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         
         let restaurant = self.restaurants[indexPath.row]
         cell.loadImage(url: URL.init(string: restaurant.getImageUrl())!)
-        cell.name.text = restaurant.restaurantName
+        cell.name.text = restaurant.name
         cell.address.text = restaurant.address
         
         if (restaurant.distance < 0) {
@@ -70,7 +70,7 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let rmvc = storyboard.instantiateViewController(withIdentifier: "restaurantMenuVC") as! MenuItemViewController
         rmvc.option = (self.pvc?.optionScrollView.getPreference())!
-        rmvc.restaurantName = restaurant.restaurantName!
+        rmvc.restaurantName = restaurant.name!
         rmvc.chainId = restaurant.chainId
         rmvc.delegate = self.pvc
         self.present(rmvc, animated: true, completion: nil)

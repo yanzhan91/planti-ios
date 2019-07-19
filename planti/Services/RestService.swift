@@ -16,7 +16,6 @@ class RestService {
     private static var restService = RestService()
     private final var scheme: String = "https"
     private final var host: String = "api.plantiapp.com"
-//    private final var host: String = "localhost"
     
     class func shared() -> RestService {
         return restService
@@ -159,7 +158,7 @@ class RestService {
         let url = buildUrl(path: "/planti-api/ui/menuItem/", queries: [])
         
         let parameters: [String : String] = [
-            "restaurantName": name,
+            "name": name,
             "menuItemName": menuItemName,
             "diary": containsDiary ? "true" : "false",
             "egg": containsEgg ? "true" : "false"]
@@ -249,7 +248,6 @@ class RestService {
         url.scheme = self.scheme
         url.host = self.host
         url.path = path
-//        url.port = 5000
         url.queryItems = queries
         return try! url.asURL()
     }

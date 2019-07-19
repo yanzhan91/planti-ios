@@ -13,7 +13,7 @@ class Restaurant: Mappable {
     
     var id: String?
     var chainId: String = ""
-    var restaurantName: String?
+    var name: String?
     var address: String?
     var rating: Float = 0.0
     var numRatings: Int = 0
@@ -31,7 +31,7 @@ class Restaurant: Mappable {
     func mapping(map: Map) {
         id <- map["id"]
         chainId <- map["chainId"]
-        restaurantName <- map["restaurantName"]
+        name <- map["name"]
         address <- map["address"]
         latitude <- map["latitude"]
         longitude <- map["longitude"]

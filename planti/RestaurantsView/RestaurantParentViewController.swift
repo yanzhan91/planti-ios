@@ -145,7 +145,7 @@ class RestaurantParentViewController: UIViewController, NVActivityIndicatorViewa
         if (segue.destination is MenuItemViewController) {
             let dest = segue.destination as! MenuItemViewController
             let map = sender as? Dictionary<String, String>
-            dest.restaurantName = (map?["restaurantName"])!
+            dest.restaurantName = (map?["name"])!
             dest.chainId = (map?["chainId"])!
             dest.option = self.optionScrollView.getPreference()
         }
