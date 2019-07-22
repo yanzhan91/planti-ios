@@ -153,12 +153,12 @@ class RestService {
         }
     }
     
-    public func postMenuItem(name: String, menuItemName: String, containsDiary: Bool, containsEgg: Bool, image: UIImage?, completion: @escaping () -> Void) {
-        print("Rest: posting menu item \(name) \(menuItemName)")
+    public func postMenuItem(restaurantName: String, menuItemName: String, containsDiary: Bool, containsEgg: Bool, image: UIImage?, completion: @escaping () -> Void) {
+        print("Rest: posting menu item \(restaurantName) \(menuItemName)")
         let url = buildUrl(path: "/planti-api/ui/menuItem/", queries: [])
         
         let parameters: [String : String] = [
-            "name": name,
+            "restaurantName": restaurantName,
             "menuItemName": menuItemName,
             "diary": containsDiary ? "true" : "false",
             "egg": containsEgg ? "true" : "false"]
