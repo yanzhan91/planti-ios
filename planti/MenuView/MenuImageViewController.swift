@@ -92,7 +92,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
             }
             break
         case .restricted, .denied:
-            let alert = AlertService.shared().createSettingsAlert(title: "Camera Is Disabled", message: "To enable, please go to Settings and turn on camera permission for this app.", buttonTitle: "Settings", viewController: self)
+            let alert = AlertService.shared().createActionAlert(title: "Camera Is Disabled", message: "To enable, please go to Settings and turn on camera permission for this app.", buttonType: .SETTINGS, viewController: self)
             self.present(alert, animated: true, completion: nil)
             break
         default:

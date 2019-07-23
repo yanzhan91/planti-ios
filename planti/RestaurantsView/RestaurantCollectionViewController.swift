@@ -24,6 +24,11 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
     
     override func viewDidAppear(_ animated: Bool) {
         self.pvc = self.parent as? RestaurantParentViewController
+        if (restaurants.isEmpty) {
+            let alert = AlertService.shared().createActionAlert(title: "No restaurant here yet", message: "Click Post to help the community by adding new restaurants", buttonType: .POST, viewController: self
+            )
+            self.present(alert, animated: true)
+        }
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -83,9 +88,5 @@ class RestaurantCollectionViewController: UICollectionViewController, UICollecti
     public func reload(restaurants: [Restaurant]) {
         self.restaurants = restaurants
         self.collectionView.reloadData()
-        if (restaurants.isEmpty) {
-            let alert = AlertService.shared().createOkAlert(title: "No restaurant here yet", message: "Help the community by submitting new restaurants", buttonTitle: "Ok", viewController: self)
-            self.present(alert, animated: true)
-        }
     }
 }

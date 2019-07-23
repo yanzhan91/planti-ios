@@ -91,8 +91,11 @@ class RestaurantMapViewController: UIViewController {
         if (restaurants.count == 0) {
             if (self.noRestaurantNotice == nil) {
                 let x = self.view.frame.width / 2 - 116
-                self.noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: 10, width: 233, height: 32), title: "No restaurants yet in this area")
+                self.noRestaurantNotice = ThemeButton.init(frame: CGRect.init(x: x, y: 10, width: 233, height: 32), title: "No restaurants yet in this area\nClick to contribute")
+                self.noRestaurantNotice?.titleLabel?.lineBreakMode = .byWordWrapping
+                self.noRestaurantNotice?.titleLabel?.textAlignment = .center
                 self.noRestaurantNotice!.activate()
+                self.noRestaurantNotice?.addTarget(self, action: #selector(openPostView), for: .touchUpInside)
                 print(self.noRestaurantNotice!.frame)
                 self.view.addSubview(self.noRestaurantNotice!)
             }
@@ -103,6 +106,12 @@ class RestaurantMapViewController: UIViewController {
             self.noRestaurantNotice?.isHidden = true
             self.getMarkersAndDisplay(restaurants: restaurants)
         }
+    }
+    
+    @IBAction func openPostView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let rmvc = storyboard.instantiateViewController(withIdentifier: "postVC") as! PostViewController
+        self.present(rmvc, animated: true, completion: nil)
     }
     
     @IBAction func refresh(_ sender: Any) {

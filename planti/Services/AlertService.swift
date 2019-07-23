@@ -16,23 +16,49 @@ class AlertService {
         return alertService
     }
     
+    enum ButtonType {
+        case SETTINGS
+        case POST
+    }
+    
     func createOkAlert(title: String, message: String, buttonTitle: String, viewController: UIViewController, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
         let okAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         okAlert.addAction(UIAlertAction(title: buttonTitle, style: .cancel, handler: handler))
         return okAlert
     }
     
-    func createSettingsAlert(title: String, message: String, buttonTitle: String, viewController: UIViewController) -> UIAlertController {
+    func createActionAlert(title: String, message: String, buttonType: ButtonType, viewController: UIViewController) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: buttonTitle, style: .default) { _ in
+        
+        switch buttonType {
+        case .SETTINGS:
+            alert.addAction(createSettingsAction())
+            break
+        case .POST:
+            alert.addAction(createPostAction(viewController: viewController))
+            break
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        return alert
+    }
+    
+    func createSettingsAction() -> UIAlertAction {
+        return UIAlertAction(title: "Settings", style: .default) { _ in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
             }
             if UIApplication.shared.canOpenURL(settingsUrl) {
                 UIApplication.shared.open(settingsUrl, completionHandler: nil)
             }
-        })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        return alert
+        }
+    }
+    
+    func createPostAction(viewController: UIViewController) -> UIAlertAction {
+        return UIAlertAction(title: "Post", style: .default) { _ in
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let rmvc = storyboard.instantiateViewController(withIdentifier: "postVC") as! PostViewController
+            viewController.present(rmvc, animated: true, completion: nil)
+        }
     }
 }
