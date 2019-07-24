@@ -1,10 +1,48 @@
-## Special thanks to...
+Planti is a crowd-sourced restaurant directory service targeting vegan and vegetarian users. Our goal is to connect these users to local restaurants they might not be familiar with because of dietary restriction concerns.
 
-### Icons made by [Google](https://www.flaticon.com/authors/google) from [www.flaticon.com](www.flaticon.com)
-### Icons made by [Freepik](https://www.freepik.com/home) from [www.flaticon.com](www.flaticon.com)
-### Icons made by [Dave Gandy](https://www.flaticon.com/authors/dave-gandy) from [www.flaticon.com](www.flaticon.com)
-### Icons made by [Smashicons](https://www.flaticon.com/authors/smashicons) from [www.flaticon.com](www.flaticon.com)
-### Icons made by [Gregor Cresnar](https://www.flaticon.com/authors/gregor-cresnar) from [www.flaticon.com](www.flaticon.com)
-### Icons made by [Chanut](https://www.flaticon.com/authors/chanut) from [www.flaticon.com](www.flaticon.com)
-### Icons made by [Cole Bemis](https://www.flaticon.com/authors/cole-bemis) from [www.flaticon.com](www.flaticon.com)
-### Icons made by [Becris](https://www.flaticon.com/authors/becris) from [www.flaticon.com](www.flaticon.com)
+#### FEATURES
+
+* Select your food preference first time using the app
+
+*** Vegan: Fully plant based diet. No meat, dairy or Egg
+*** Ovo-Vegetarian: Eat mostly plants in addition to eggs. No meat or dairy
+*** Lacto-Vegetarian: Eat mostly plants in addition to dairy. No meat or eggs
+*** LactoOvo-Vegetarian: Eat plants based along with egg and dairy. No meat
+
+* Auto search for restaurants with your preferred food choice in your location
+* Search in a specific address or location
+* Map view with pins for all restaurants
+* Move map and refresh search to find in that specific location
+* List view of all restaurants and find route and navigation to a specific restaurant with default maps on the mobile device
+* Toggle between all four options in both map view and list view
+* Menu items view with photos  and easy navigation between menu items in a restaurant
+
+#### CONTRIBUTE OPTION
+
+* Help fellow vegetarians and vegans to discover more food choices by posting new restaurants with vegetarian / vegan options and photos for menu items
+* Post new items in both map view and list view, we will make these new options you contributed available to every app user after review
+* Add a new menu item for existing restaurant
+* Add photos for menu items with no photos
+
+#### LOCATION PERMISSION
+
+Planti app uses user location to find the restaurants with user preferred food choices only while using the app and never store location details
+
+#### CAMERA PERMISSION
+
+Planti app asks user to give permission to use device camera while user contributing new menu items to enable fellow users to discover more food choices and only uses camera when user performing actions within Planti app
+
+#### FEEDBACK
+
+Please share any feedback or questions you may have by sending email to team@plantiapp.com
+
+#### CREDITS
+
+Icons made by [Google](https://www.flaticon.com/authors/google) from [www.flaticon.com](www.flaticon.com)
+Icons made by [Freepik](https://www.freepik.com/home) from [www.flaticon.com](www.flaticon.com)
+Icons made by [Dave Gandy](https://www.flaticon.com/authors/dave-gandy) from [www.flaticon.com](www.flaticon.com)
+Icons made by [Smashicons](https://www.flaticon.com/authors/smashicons) from [www.flaticon.com](www.flaticon.com)
+Icons made by [Gregor Cresnar](https://www.flaticon.com/authors/gregor-cresnar) from [www.flaticon.com](www.flaticon.com)
+Icons made by [Chanut](https://www.flaticon.com/authors/chanut) from [www.flaticon.com](www.flaticon.com)
+Icons made by [Cole Bemis](https://www.flaticon.com/authors/cole-bemis) from [www.flaticon.com](www.flaticon.com)
+Icons made by [Becris](https://www.flaticon.com/authors/becris) from [www.flaticon.com](www.flaticon.com)

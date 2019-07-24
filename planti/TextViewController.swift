@@ -25,7 +25,7 @@ class TextViewController: UIViewController {
             self.textView.text = textviewText
         } else if markdownText != nil {
             let markdownParser = MarkdownParser()
-            self.textView.attributedText = markdownParser.parse(markdownText!)
+            self.textView.attributedText = markdownParser.parse(markdownText ?? "")
         }
         
         self.textView.isEditable = false
