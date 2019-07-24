@@ -58,7 +58,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
     
     func imageSlideshow(_ imageSlideshow: ImageSlideshow, didChangeCurrentPageTo page: Int) {
         setMenuTexts(index: page)
-        self.addPhotoView.isHidden = !(self.isDefaultImages[page] ?? true)
+        self.addPhotoView.isHidden = !(self.isDefaultImages[page] ?? false)
     }
     
     func setMenuTexts(index: Int) {
