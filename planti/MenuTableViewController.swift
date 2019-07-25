@@ -32,7 +32,7 @@ class MenuTableViewController: UITableViewController {
                 let termsVC = UIStoryboard(name: "Main", bundle:nil)
                     .instantiateViewController(withIdentifier: "textVC") as! TextViewController
                 termsVC.nameText = "About"
-                termsVC.markdownText = Documents.shared().getDocument(name: "Credits", type: "txt")
+                termsVC.htmlText = Documents.shared().getDocument(name: "Credits", type: "txt")
                 presenter.present(termsVC, animated: true, completion: nil)
                 break
             case 3:

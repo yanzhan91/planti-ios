@@ -6,9 +6,7 @@ target 'planti' do
   use_frameworks!
 
   # Pods for planti
-#  pod 'GoogleMaps'
   pod 'SideMenu'
-#  pod 'ALCameraViewController'
   pod 'TextFieldEffects'
   pod 'Alamofire', '~> 4.8.2'
   pod 'AlamofireObjectMapper', '~> 5.2.0'
@@ -16,5 +14,4 @@ target 'planti' do
   pod 'ImageSlideshow/Alamofire', '~> 1.8'
   pod 'Cluster'
   pod 'NVActivityIndicatorView'
-  pod 'MarkdownKit'
 end

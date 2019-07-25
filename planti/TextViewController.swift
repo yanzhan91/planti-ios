@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MarkdownKit
 
 class TextViewController: UIViewController {
 
@@ -16,21 +15,24 @@ class TextViewController: UIViewController {
     
     public var nameText: String?
     public var textviewText: String?
-    public var markdownText: String?
+    public var htmlText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.name.text = nameText
+        
+        let myAttribute = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0) ]
+        
         if textviewText != nil {
             self.textView.text = textviewText
-        } else if markdownText != nil {
-            let markdownParser = MarkdownParser()
-            self.textView.attributedText = markdownParser.parse(markdownText ?? "")
+        } else if htmlText != nil {
+            if let attributedString = try? NSAttributedString(data: Data(htmlText!.utf8), options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+                self.textView.attributedText = attributedString
+            }
         }
         
         self.textView.isEditable = false
         self.textView.allowsEditingTextAttributes = false
-//        self.textView.isUserInteractionEnabled = false
     }
     
     @IBAction func back(_ sender: Any) {
