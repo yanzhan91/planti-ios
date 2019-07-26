@@ -29,6 +29,6 @@ class MenuItem : Mappable {
     }
     
     public func getImageUrl() -> String {
-        return "\(DefaultsKeys.S3_URL)\(id).jpeg"
+        return "\(DefaultsKeys.S3_URL)menuItems/\(id).jpeg"
     }
 }

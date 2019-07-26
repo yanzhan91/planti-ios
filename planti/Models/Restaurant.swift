@@ -41,6 +41,6 @@ class Restaurant: Mappable {
     }
     
     public func getImageUrl() -> String {
-        return "\(DefaultsKeys.S3_URL)\(chainId).jpeg"
+        return "\(DefaultsKeys.S3_URL)restaurants/\(chainId).jpeg"
     }
 }
