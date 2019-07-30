@@ -15,6 +15,7 @@ class PostViewController: UIViewController {
 
     @IBOutlet weak var restaurantName: HoshiTextField!
     @IBOutlet weak var entreeName: HoshiTextField!
+    @IBOutlet weak var email: HoshiTextField!
     @IBOutlet weak var postButton: ThemeButton!
     @IBOutlet weak var cameraView: UIImageView!
     
@@ -86,7 +87,7 @@ class PostViewController: UIViewController {
             let okAlert = AlertService.shared().createOkAlert(title: "Error", message: "Please specify restaurant name and item name", buttonTitle: "OK", viewController: self)
             self.present(okAlert, animated: true)
         } else {
-            RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
+            RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", email: self.email.text, containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
                 
                 let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "To help users get accurate details, your posting will be displayed after our review process.", buttonTitle: "OK", viewController: self) { _ in
                     self.dismiss(animated: true, completion: nil)

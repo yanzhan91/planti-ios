@@ -1153,10 +1153,10 @@ promotions</string>
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="708"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="OmH-Bt-ucR">
-                                                <rect key="frame" x="10" y="205" width="131.33333333333334" height="168"/>
+                                                <rect key="frame" x="10" y="263" width="131.33333333333334" height="168"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igO-PV-Vzw" userLabel="ContainsView">
-                                                <rect key="frame" x="162.33333333333337" y="205" width="202.66666666666663" height="168"/>
+                                                <rect key="frame" x="162.33333333333337" y="263" width="202.66666666666663" height="168"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRs-QV-5c7">
                                                         <rect key="frame" x="0.0" y="0.0" width="202.66666666666666" height="30"/>
@@ -1302,6 +1302,26 @@ promotions</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
+                                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Email (Optional for Monthly Raffle)" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ss1-YF-yRn" userLabel="Email" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="10" y="200" width="355" height="43"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="43" id="6ue-fI-UEv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
                                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Restaurant Name" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="1dF-Aa-MvD" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                 <rect key="frame" x="10" y="84" width="355" height="43"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1330,7 +1350,7 @@ promotions</string>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7w-x8-aeY">
-                                                <rect key="frame" x="10" y="393" width="355" height="40"/>
+                                                <rect key="frame" x="10" y="451" width="355" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-cW-fVx" userLabel="Post" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="100" height="40"/>
@@ -1365,28 +1385,41 @@ promotions</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnJ-BJ-9FR">
-                                                <rect key="frame" x="151.33333333333334" y="205" width="1" height="168"/>
+                                                <rect key="frame" x="151.33333333333334" y="263" width="1" height="168"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="CUA-WO-lmg"/>
                                                 </constraints>
                                             </view>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T6j-W7-evr">
+                                                <rect key="frame" x="10" y="511" width="355" height="197"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <string key="text">Every menu item post will be eligible for an entry in our monthly raffle. Adding an image along with the menu item post will grant you two entries. Email is required for entry. All drawings will be held on the last day of each month and submissions for that month will be eligible. Winners will be notified via email for up to $50 Amazon gift card. NO PURCHASE NECESSARY. Must be 18+ to enter.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="igO-PV-Vzw" firstAttribute="top" secondItem="41p-Cj-yox" secondAttribute="bottom" constant="20" id="2GX-Gu-gfJ"/>
+                                            <constraint firstItem="igO-PV-Vzw" firstAttribute="top" secondItem="Ss1-YF-yRn" secondAttribute="bottom" constant="20" id="2GX-Gu-gfJ"/>
                                             <constraint firstItem="WnJ-BJ-9FR" firstAttribute="bottom" secondItem="OmH-Bt-ucR" secondAttribute="bottom" id="3gH-aq-LlH"/>
+                                            <constraint firstItem="Ss1-YF-yRn" firstAttribute="leading" secondItem="2lM-CW-iAy" secondAttribute="leading" constant="10" id="7lQ-0L-Ocr"/>
                                             <constraint firstItem="1dF-Aa-MvD" firstAttribute="leading" secondItem="2lM-CW-iAy" secondAttribute="leading" constant="10" id="98t-my-rvP"/>
                                             <constraint firstItem="I7w-x8-aeY" firstAttribute="top" secondItem="OmH-Bt-ucR" secondAttribute="bottom" constant="20" id="9od-01-z7W"/>
                                             <constraint firstItem="41p-Cj-yox" firstAttribute="leading" secondItem="2lM-CW-iAy" secondAttribute="leading" constant="10" id="AOj-tw-uXA"/>
                                             <constraint firstItem="WnJ-BJ-9FR" firstAttribute="top" secondItem="OmH-Bt-ucR" secondAttribute="top" id="BDO-ag-BdX"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ss1-YF-yRn" secondAttribute="trailing" constant="10" id="CAI-X4-iNq"/>
                                             <constraint firstItem="WnJ-BJ-9FR" firstAttribute="leading" secondItem="OmH-Bt-ucR" secondAttribute="trailing" constant="10" id="CJD-pB-NHU"/>
+                                            <constraint firstItem="T6j-W7-evr" firstAttribute="leading" secondItem="2lM-CW-iAy" secondAttribute="leading" constant="10" id="Efh-no-EO4"/>
                                             <constraint firstAttribute="trailing" secondItem="VcQ-CG-058" secondAttribute="trailing" constant="10" id="GxM-qd-KSo"/>
                                             <constraint firstAttribute="trailing" secondItem="I7w-x8-aeY" secondAttribute="trailing" constant="10" id="MA9-X8-kiA"/>
+                                            <constraint firstAttribute="bottom" secondItem="T6j-W7-evr" secondAttribute="bottom" id="SKp-cu-xOD"/>
                                             <constraint firstItem="VcQ-CG-058" firstAttribute="leading" secondItem="2lM-CW-iAy" secondAttribute="leading" constant="10" id="VJ5-mo-Qm2"/>
                                             <constraint firstItem="1dF-Aa-MvD" firstAttribute="top" secondItem="VcQ-CG-058" secondAttribute="bottom" constant="10" id="Z5J-mH-o0Z"/>
                                             <constraint firstItem="VcQ-CG-058" firstAttribute="top" secondItem="2lM-CW-iAy" secondAttribute="top" constant="10" id="cSp-mS-5Gs"/>
                                             <constraint firstItem="igO-PV-Vzw" firstAttribute="top" secondItem="OmH-Bt-ucR" secondAttribute="top" id="gzu-w5-RUC"/>
+                                            <constraint firstItem="Ss1-YF-yRn" firstAttribute="top" secondItem="41p-Cj-yox" secondAttribute="bottom" constant="15" id="hEW-pk-frd"/>
+                                            <constraint firstAttribute="trailing" secondItem="T6j-W7-evr" secondAttribute="trailing" constant="10" id="hTH-uk-DI1"/>
                                             <constraint firstItem="I7w-x8-aeY" firstAttribute="leading" secondItem="2lM-CW-iAy" secondAttribute="leading" constant="10" id="hg4-o6-PJ7"/>
                                             <constraint firstItem="igO-PV-Vzw" firstAttribute="bottom" secondItem="OmH-Bt-ucR" secondAttribute="bottom" id="kPu-1k-3Cr"/>
                                             <constraint firstAttribute="trailing" secondItem="41p-Cj-yox" secondAttribute="trailing" constant="10" id="lel-sO-rlt"/>
@@ -1395,6 +1428,7 @@ promotions</string>
                                             <constraint firstItem="OmH-Bt-ucR" firstAttribute="leading" secondItem="2lM-CW-iAy" secondAttribute="leading" constant="10" id="r9g-y6-Vzp"/>
                                             <constraint firstItem="OmH-Bt-ucR" firstAttribute="width" secondItem="2lM-CW-iAy" secondAttribute="width" multiplier="0.35" id="rFl-BR-bQg"/>
                                             <constraint firstItem="41p-Cj-yox" firstAttribute="top" secondItem="1dF-Aa-MvD" secondAttribute="bottom" constant="15" id="tKH-RK-j8b"/>
+                                            <constraint firstItem="T6j-W7-evr" firstAttribute="top" secondItem="I7w-x8-aeY" secondAttribute="bottom" constant="20" id="xQk-pc-6sR"/>
                                             <constraint firstAttribute="trailing" secondItem="igO-PV-Vzw" secondAttribute="trailing" constant="10" id="yyb-aO-UKL"/>
                                         </constraints>
                                     </view>
@@ -1464,6 +1498,7 @@ promotions</string>
                         <outlet property="cameraView" destination="OmH-Bt-ucR" id="Vbg-me-Ze3"/>
                         <outlet property="diarySwitch" destination="Qml-bz-ZI7" id="hyS-PL-BUH"/>
                         <outlet property="eggSwitch" destination="dB0-SF-3P1" id="c5y-i3-aZv"/>
+                        <outlet property="email" destination="Ss1-YF-yRn" id="EiN-pM-cjN"/>
                         <outlet property="entreeName" destination="41p-Cj-yox" id="xRZ-4P-7MT"/>
                         <outlet property="meatSwitch" destination="Khn-fS-ABN" id="bL7-t7-lbj"/>
                         <outlet property="postButton" destination="iFF-cW-fVx" id="suP-gJ-mD4"/>

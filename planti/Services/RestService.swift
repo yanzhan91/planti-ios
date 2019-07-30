@@ -153,7 +153,7 @@ class RestService {
         }
     }
     
-    public func postMenuItem(restaurantName: String, menuItemName: String, containsMeat:Bool, containsDiary: Bool, containsEgg: Bool, image: UIImage?, completion: @escaping () -> Void) {
+    public func postMenuItem(restaurantName: String, menuItemName: String, email: String?, containsMeat:Bool, containsDiary: Bool, containsEgg: Bool, image: UIImage?, completion: @escaping () -> Void) {
         print("Rest: posting menu item \(restaurantName) \(menuItemName)")
         
         if (containsMeat) {
@@ -163,11 +163,15 @@ class RestService {
         
         let url = buildUrl(path: "/planti-api/ui/menuItem/", queries: [])
         
-        let parameters: [String : String] = [
+        var parameters: [String : String] = [
             "restaurantName": restaurantName,
             "menuItemName": menuItemName,
             "diary": containsDiary ? "true" : "false",
             "egg": containsEgg ? "true" : "false"]
+        
+        if (email != nil) {
+            parameters["email"] = email!
+        }
         
         let headers: HTTPHeaders = [
             "Content-type": "multipart/form-data"
