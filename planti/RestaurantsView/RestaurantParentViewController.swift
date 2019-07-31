@@ -189,7 +189,7 @@ class RestaurantParentViewController: UIViewController, NVActivityIndicatorViewa
             clearSearchField()
             locationManager.requestLocation()
         } else {
-            let alert = AlertService.shared().createActionAlert(title: "Location Service Is Disabled", message: "To enable, click Settings and turn on location service for this app.", buttonType: .SETTINGS, viewController: self)
+            let alert = AlertService.shared().createActionAlert(title: "Location Permission Required", message: "Planti provides best experience when location is turned on. Your location will only be used when the app is in use. You can enable location permissions in phone settings at a later time.", buttonType: .SETTINGS, viewController: self)
             self.present(alert, animated: true, completion: nil)
         }
     }

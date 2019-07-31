@@ -84,12 +84,12 @@ class PostViewController: UIViewController {
     
     @IBAction func post(_ sender: Any) {
         if ((self.restaurantName.text ?? "").isEmpty || (self.entreeName.text ?? "").isEmpty) {
-            let okAlert = AlertService.shared().createOkAlert(title: "Error", message: "Please specify restaurant name and item name", buttonTitle: "OK", viewController: self)
+            let okAlert = AlertService.shared().createOkAlert(title: "Error", message: "Please enter restaurant name and item", buttonTitle: "OK", viewController: self)
             self.present(okAlert, animated: true)
         } else {
             RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", email: self.email.text, containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
                 
-                let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "To help users get accurate details, your posting will be displayed after our review process.", buttonTitle: "OK", viewController: self) { _ in
+                let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "To maintain accuracy, your posting will be verified before being displayed to all Planti users.", buttonTitle: "OK", viewController: self) { _ in
                     self.dismiss(animated: true, completion: nil)
                 }
                 self.present(okAlert, animated: true, completion: nil)
@@ -121,7 +121,7 @@ class PostViewController: UIViewController {
             }
             break
         case .restricted, .denied:
-            let alert = AlertService.shared().createActionAlert(title: "Camera Is Disabled", message: "To enable, please go to Settings and turn on camera permission for this app.", buttonType: .SETTINGS, viewController: self)
+            let alert = AlertService.shared().createActionAlert(title: "Camera Permission Required", message: "Allow Planti to access your phone camera to post menu item photos.", buttonType: .SETTINGS, viewController: self)
             self.present(alert, animated: true, completion: nil)
             break
         default:

@@ -1153,10 +1153,10 @@ promotions</string>
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="708"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="OmH-Bt-ucR">
-                                                <rect key="frame" x="10" y="263" width="131.33333333333334" height="168"/>
+                                                <rect key="frame" x="10" y="310.66666666666669" width="131.33333333333334" height="168"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igO-PV-Vzw" userLabel="ContainsView">
-                                                <rect key="frame" x="162.33333333333337" y="263" width="202.66666666666663" height="168"/>
+                                                <rect key="frame" x="162.33333333333337" y="310.66666666666669" width="202.66666666666663" height="168"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRs-QV-5c7">
                                                         <rect key="frame" x="0.0" y="0.0" width="202.66666666666666" height="30"/>
@@ -1177,12 +1177,12 @@ promotions</string>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlj-aQ-u82">
-                                                                <rect key="frame" x="62.000000000000007" y="9.6666666666666856" width="71.666666666666686" height="21"/>
+                                                                <rect key="frame" x="62.000000000000007" y="9.6666666666666288" width="71.666666666666686" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Khn-fS-ABN">
-                                                                <rect key="frame" x="143.66666666666666" y="4.6666666666666856" width="51" height="31"/>
+                                                                <rect key="frame" x="143.66666666666666" y="4.6666666666666288" width="51" height="31"/>
                                                                 <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             </switch>
                                                         </subviews>
@@ -1203,7 +1203,7 @@ promotions</string>
                                                         <rect key="frame" x="0.0" y="80" width="202.66666666666666" height="40"/>
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qml-bz-ZI7">
-                                                                <rect key="frame" x="143.66666666666666" y="4.6666666666666856" width="51" height="31"/>
+                                                                <rect key="frame" x="143.66666666666666" y="4.6666666666666288" width="51" height="31"/>
                                                                 <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             </switch>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary_icon" translatesAutoresizingMaskIntoConstraints="NO" id="jvI-cv-vjp">
@@ -1214,7 +1214,7 @@ promotions</string>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dairy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBk-Je-wsD">
-                                                                <rect key="frame" x="62.000000000000007" y="9.6666666666666856" width="71.666666666666686" height="21"/>
+                                                                <rect key="frame" x="62.000000000000007" y="9.6666666666666288" width="71.666666666666686" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1232,10 +1232,10 @@ promotions</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RsS-tp-ZPk">
-                                                        <rect key="frame" x="0.0" y="125" width="202.66666666666666" height="40"/>
+                                                        <rect key="frame" x="0.0" y="124.99999999999994" width="202.66666666666666" height="40"/>
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dB0-SF-3P1">
-                                                                <rect key="frame" x="143.66666666666666" y="4.6666666666666856" width="51" height="31"/>
+                                                                <rect key="frame" x="143.66666666666666" y="4.6666666666667425" width="51" height="31"/>
                                                                 <color key="onTintColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             </switch>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="egg_icon" translatesAutoresizingMaskIntoConstraints="NO" id="arx-ti-RsA">
@@ -1246,7 +1246,7 @@ promotions</string>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wC5-K6-zqN">
-                                                                <rect key="frame" x="62.000000000000007" y="9.6666666666666856" width="71.666666666666686" height="21"/>
+                                                                <rect key="frame" x="62.000000000000007" y="9.6666666666667425" width="71.666666666666686" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1283,7 +1283,7 @@ promotions</string>
                                                 </constraints>
                                             </view>
                                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Item Name" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="41p-Cj-yox" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="10" y="142" width="355" height="43"/>
+                                                <rect key="frame" x="10" y="189.66666666666669" width="355" height="43"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="43" id="23X-ZW-QBy"/>
@@ -1303,7 +1303,7 @@ promotions</string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Email (Optional for Monthly Raffle)" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ss1-YF-yRn" userLabel="Email" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="10" y="200" width="355" height="43"/>
+                                                <rect key="frame" x="10" y="247.66666666666669" width="355" height="43"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="43" id="6ue-fI-UEv"/>
@@ -1323,7 +1323,7 @@ promotions</string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Restaurant Name" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="1dF-Aa-MvD" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="10" y="84" width="355" height="43"/>
+                                                <rect key="frame" x="10" y="131.66666666666666" width="355" height="43"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="43" id="IVT-7o-1ao"/>
@@ -1342,15 +1342,15 @@ promotions</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="Contribute to help fellow users discover more food choices" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcQ-CG-058">
-                                                <rect key="frame" x="10" y="10" width="355" height="64"/>
+                                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="Thank you for choosing to contribute, your contribution will help so many vegans and vegetarians to discover more choices. " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcQ-CG-058">
+                                                <rect key="frame" x="10" y="10.000000000000007" width="355" height="111.66666666666669"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7w-x8-aeY">
-                                                <rect key="frame" x="10" y="451" width="355" height="40"/>
+                                                <rect key="frame" x="10" y="498.66666666666663" width="355" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-cW-fVx" userLabel="Post" customClass="ThemeButton" customModule="planti" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="100" height="40"/>
@@ -1385,14 +1385,14 @@ promotions</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnJ-BJ-9FR">
-                                                <rect key="frame" x="151.33333333333334" y="263" width="1" height="168"/>
+                                                <rect key="frame" x="151.33333333333334" y="310.66666666666669" width="1" height="168"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="CUA-WO-lmg"/>
                                                 </constraints>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T6j-W7-evr">
-                                                <rect key="frame" x="10" y="511" width="355" height="197"/>
+                                                <rect key="frame" x="10" y="558.66666666666663" width="355" height="149.33333333333337"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Every menu item post will be eligible for an entry in our monthly raffle. Adding an image along with the menu item post will grant you two entries. Email is required for entry. All drawings will be held on the last day of each month and submissions for that month will be eligible. Winners will be notified via email for up to $50 Amazon gift card. NO PURCHASE NECESSARY. Must be 18+ to enter.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
