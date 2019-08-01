@@ -1,55 +1,55 @@
 <html>
+
 <head>
 <style>
-body {font-size: 16px;}
+body {
+font-size: 16px;
+}
 </style>
 </head>
+
 <body>
 <p>
-Planti is a crowd-sourced restaurant directory service targeting vegan and vegetarian users. Our goal is to
-connect these users to local restaurants they might not be familiar with because of dietary restriction
-concerns.
+Planti is your dietary companion to find vegetarian and vegan restaurant menu Items around you and in any specific location. Planti also enables you to contribute new items to help many fellow vegans and vegetarians to
+discover more choices.
 </p>
-<h4>FEATURES</h4>
+<h4>Features</h4>
 <ul>
 <li> Selecting your dietary preference
 <ul>
-<li>Vegan: Fully plant based diet. No meat, dairy or Egg</li>
+<li>Vegan: Fully plant-based diet. No meat, dairy or Egg</li>
 <li>Ovo-Vegetarian: Eat mostly plants in addition to eggs. No meat or dairy</li>
 <li>Lacto-Vegetarian: Eat mostly plants in addition to dairy. No meat or eggs</li>
 <li>LactoOvo-Vegetarian: Eat plants based along with egg and dairy. No meat</li>
 </ul>
 </li>
-<li>Auto search for restaurants with your preferred food choice in your location</li>
+<li>Automatically search for restaurants with your preferred food preference in your location</li>
 <li>Search in a specific address or location</li>
-<li>Map view with pins for all restaurants</li>
+<li>Map view displays pins for all restaurants</li>
 <li>Move map and refresh search to find in that specific location</li>
 <li>List view of all restaurants and find route and navigation to a specific restaurant with default maps on the
-mobile device</li>
+mobile</li>
 <li>Toggle between all four options in both map view and list view</li>
 <li>Menu items view with photos and easy navigation between menu items in a restaurant</li>
 </ul>
 <br>
-<h4>CONTRIBUTE OPTION</h4>
+<h4>Contribution Option</h4>
 <ul>
-<li>Help fellow vegetarians and vegans to discover more food choices by posting new restaurants with vegetarian
-/ vegan options and photos for menu items</li>
-<li>Post new items in both map view and list view, we will make these new options you contributed available to
-every app user after review</li>
-<li>Add a new menu item for existing restaurant</li>
-<li>Add photos for menu items with no photos</li>
+<li>Help vegetarians and vegans to discover more food preferences by posting new restaurants menu items and
+photos</li>
+<li>Add new menu items for existing restaurants</li>
+<li>Add photos for menu items</li>
 </ul>
 <br>
-<h4>LOCATION PERMISSION</h4>
-<p>Planti app uses user location to find the restaurants with user preferred food choices only while using the app
-and never store location details</p>
-<h4>CAMERA PERMISSION</h4>
-<p>Planti app asks user to give permission to use device camera while user contributing new menu items to enable
-fellow users to discover more food choices and only uses camera when user performing actions within Planti app
+<h4>Location Permission</h4>
+<p>Planti app uses user's location to find the restaurants in their area. We will never store location details in
+any form</p>
+<h4>Camera Permission</h4>
+<p>Planti app asks users to give permission to use device camera while user contributes new menu items.
 </p>
-<h4>FEEDBACK</h4>
+<h4>Feedback</h4>
 <p>Please share any feedback or questions you may have by sending email to team@plantiapp.com</p>
-<h4>CREDITS</h4>
+<h4>Credits</h4>
 <ul>
 <li>Icons made by <a href="https://www.flaticon.com/authors/google">Google</a> from <a
 href="www.flaticon.com">www.flaticon.com</a></li>
