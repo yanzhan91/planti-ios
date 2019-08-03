@@ -3,15 +3,15 @@
 <head>
 <style>
 body {
-font-size: 16px;
+font-size: 15px;
+font-family: Helvetica Neue;
 }
 </style>
 </head>
 
 <body>
 <p>
-Planti is your dietary companion to find vegetarian and vegan restaurant menu Items around you and in any specific location. Planti also enables you to contribute new items to help many fellow vegans and vegetarians to
-discover more choices.
+Planti is your dietary companion to find vegetarian and vegan restaurant menu Items around you and in any specific location. Planti also enables you to contribute new items to help many fellow vegans and vegetarians to discover more choices.
 </p>
 <h4>Features</h4>
 <ul>
