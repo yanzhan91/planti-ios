@@ -21,7 +21,8 @@ class TextViewController: UIViewController {
         super.viewDidLoad()
         self.name.text = nameText
         
-        let myAttribute = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0) ]
+        self.textView.allowsEditingTextAttributes = false
+        self.textView.isEditable = false
         
         if textviewText != nil {
             self.textView.text = textviewText

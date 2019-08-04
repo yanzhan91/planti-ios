@@ -10,45 +10,63 @@ font-family: Helvetica Neue;
 </head>
 
 <body>
+<h4>About this app</h4>
 <p>
-Planti is your dietary companion to find vegetarian and vegan restaurant menu Items around you and in any specific location. Planti also enables you to contribute new items to help many fellow vegans and vegetarians to discover more choices.
+Do you like eating out but worried about your vegan and vegetarian preferences? We have that problem too! So we created the Planti app; the easiest and best way to discover more choices around your location.
 </p>
-<h4>Features</h4>
+<p>
+Rather than just showing the "vegetarian available" option for restaurants, we focus on specific items on the menu that fits to your preference.
+</p>
+<p>
+Every menu item contribution will be eligible for an entry into our monthly raffle and an additional entry will be given to menu item contributions with a photo for a gift card up to $50.
+</p>
+<p>
+If you like using our app, please consider contributing new menu items to help other users to discover more options.
+</p>
+<h4>Select Food Preference</h4>
 <ul>
-<li> Selecting your dietary preference
-<ul>
-<li>Vegan: Fully plant-based diet. No meat, dairy or Egg</li>
+<li>Vegan: Fully plant based diet. No meat or dairy or egg</li>
 <li>Ovo-Vegetarian: Eat mostly plants in addition to eggs. No meat or dairy</li>
 <li>Lacto-Vegetarian: Eat mostly plants in addition to dairy. No meat or eggs</li>
-<li>LactoOvo-Vegetarian: Eat plants based along with egg and dairy. No meat</li>
-</ul>
-</li>
-<li>Automatically search for restaurants with your preferred food preference in your location</li>
-<li>Search in a specific address or location</li>
-<li>Map view displays pins for all restaurants</li>
-<li>Move map and refresh search to find in that specific location</li>
-<li>List view of all restaurants and find route and navigation to a specific restaurant with default maps on the
-mobile</li>
-<li>Toggle between all four options in both map view and list view</li>
-<li>Menu items view with photos and easy navigation between menu items in a restaurant</li>
+<li>LactoOvo-Vegetarian: Eat plant based along with egg and dairy. No meat</li>
 </ul>
 <br>
-<h4>Contribution Option</h4>
+
+<h4>Search for restaurants</h4>
 <ul>
-<li>Help vegetarians and vegans to discover more food preferences by posting new restaurants menu items and
-photos</li>
-<li>Add new menu items for existing restaurants</li>
-<li>Add photos for menu items</li>
+<li>Nearby or a specific location</li>
+<li>Interactive map view</li>
+<li>List view with more restaurant details and option to navigate</li>
+<li>Menu item list that fits your preference</li>
 </ul>
 <br>
+
+<h4>Contribute</h4>
+<ul>
+<li>Help the vegan and vegetarian community to discover more food options</li>
+<li>Add restaurants and menu items with photos</li>
+</ul>
+<br>
+
 <h4>Location Permission</h4>
-<p>Planti app uses user's location to find the restaurants in their area. We will never store location details in
-any form</p>
+<ul>
+<li>Your location is only used while using the app to find near by restaurants with your food preferences</li>
+<li>We never store user location on our servers</li>
+</ul>
+<br>
+
 <h4>Camera Permission</h4>
-<p>Planti app asks users to give permission to use device camera while user contributes new menu items.
-</p>
+<ul>
+<li>Your camera permissions are required while contributing new menu item photos</li>
+<li>We access camera only within the app and only while contributing</li>
+</ul>
+<br>
+
 <h4>Feedback</h4>
-<p>Please share any feedback or questions you may have by sending email to team@plantiapp.com</p>
+<p>
+We hope you'll love using the Planti App. If you have any suggestions about how the app can be improved, please email us at team@plantiapp.com. We would love to hear from you!
+</p>
+
 <h4>Credits</h4>
 <ul>
 <li>Icons made by <a href="https://www.flaticon.com/authors/google">Google</a> from <a
