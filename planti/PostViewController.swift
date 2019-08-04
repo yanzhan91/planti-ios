@@ -62,6 +62,7 @@ class PostViewController: UIViewController {
     
     @objc private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         self.entreeName.resignFirstResponder()
+        self.email.resignFirstResponder()
     }
     
     private func getScrollViewContentSize(scrollView: UIScrollView) -> CGSize {
