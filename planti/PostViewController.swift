@@ -27,6 +27,7 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable {
     
     var coordinate: CLLocationCoordinate2D?
     var name: String?
+    var uploadImage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +91,9 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable {
             self.present(okAlert, animated: true)
         } else {
             self.startAnimating()
-            RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", email: self.email.text, containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
+            let image = uploadImage ? self.cameraView.image : nil
+            uploadImage = false
+            RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", email: self.email.text, containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: image) { () in
                 
                 self.stopAnimating()
                 let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "To maintain accuracy, your posting will be verified before being displayed to all Planti users.", buttonTitle: "OK", viewController: self) { _ in
@@ -144,6 +147,7 @@ extension PostViewController : UIImagePickerControllerDelegate {
         
         print(image.size)
         self.cameraView.image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        self.uploadImage = true
     }
 }
 
