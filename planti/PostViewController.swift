@@ -10,8 +10,9 @@ import UIKit
 import TextFieldEffects
 import MapKit
 import AVFoundation
+import NVActivityIndicatorView
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, NVActivityIndicatorViewable {
 
     @IBOutlet weak var restaurantName: HoshiTextField!
     @IBOutlet weak var entreeName: HoshiTextField!
@@ -88,8 +89,10 @@ class PostViewController: UIViewController {
             let okAlert = AlertService.shared().createOkAlert(title: "Error", message: "Please enter restaurant name and item", buttonTitle: "OK", viewController: self)
             self.present(okAlert, animated: true)
         } else {
+            self.startAnimating()
             RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", email: self.email.text, containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: self.cameraView.image) { () in
                 
+                self.stopAnimating()
                 let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "To maintain accuracy, your posting will be verified before being displayed to all Planti users.", buttonTitle: "OK", viewController: self) { _ in
                     self.dismiss(animated: true, completion: nil)
                 }
