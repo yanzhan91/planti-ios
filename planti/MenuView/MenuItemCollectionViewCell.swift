@@ -24,7 +24,16 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
                 if (image.size.width != image.size.height) {
                     
                     let length = min(image.size.width, image.size.height)
-                    let origin = CGPoint(x: (image.size.width - length)/2, y: (image.size.height - length)/2)
+                    var origin = CGPoint()
+                    switch image.imageOrientation {
+                        case .right, .left:
+                            origin = CGPoint(x: (image.size.height - length)/2, y: (image.size.width - length)/2)
+                            break
+                        default:
+                            origin = CGPoint(x: (image.size.width - length)/2, y: (image.size.height - length)/2)
+                            break
+                    }
+    
                     let size = CGSize(width: length, height: length)
                     
                     var rect = CGRect(origin: origin, size: size)
