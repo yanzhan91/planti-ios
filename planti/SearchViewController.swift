@@ -28,7 +28,6 @@ class SearchViewController: UIViewController {
         
         self.searchController.isActive = true
         self.tableView.tableHeaderView = searchController.searchBar
-        self.searchController.dimsBackgroundDuringPresentation = false
         
         self.searchController.searchBar.showsCancelButton = true
         

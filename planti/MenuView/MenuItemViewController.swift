@@ -77,6 +77,7 @@ extension MenuItemViewController : UICollectionViewDelegate, UICollectionViewDat
         miVC.menuItems = self.menuItems
         miVC.index = indexPath.row
         miVC.isDefaultImages = self.isDefaultImages
+        miVC.modalPresentationStyle = .overFullScreen
         self.present(miVC, animated: true, completion: nil)
         
     }
