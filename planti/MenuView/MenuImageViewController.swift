@@ -31,11 +31,17 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         self.slideView.contentScaleMode = .scaleAspectFit
         self.slideView.zoomEnabled = true
         
-        let pageIndicator = UIPageControl()
-        pageIndicator.currentPageIndicatorTintColor = Colors.themeGreen
-        pageIndicator.pageIndicatorTintColor = .white
-        pageIndicator.isUserInteractionEnabled = false
-        self.slideView.pageIndicator = pageIndicator
+        if (menuItems?.count ?? 0 <= 10) {
+            let pageIndicator = UIPageControl()
+            pageIndicator.currentPageIndicatorTintColor = Colors.themeGreen
+            pageIndicator.pageIndicatorTintColor = .white
+            pageIndicator.isUserInteractionEnabled = false
+            self.slideView.pageIndicator = pageIndicator
+        } else {
+            let labelPageIndicator = LabelPageIndicator()
+            labelPageIndicator.textColor = .white
+            self.slideView.pageIndicator = labelPageIndicator
+        }
         self.slideView.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         
         let images: [InputSource] = (self.menuItems?.map {
