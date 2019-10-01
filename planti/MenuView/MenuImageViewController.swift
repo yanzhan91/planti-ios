@@ -27,7 +27,7 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         
         self.slideView.slideshowInterval = 0
         self.slideView.circular = false
-        self.slideView.activityIndicator = DefaultActivityIndicator()
+        self.slideView.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
         self.slideView.contentScaleMode = .scaleAspectFit
         self.slideView.zoomEnabled = true
         
@@ -60,14 +60,6 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
         }
         
         self.addPhotoView.isHidden = !(self.isDefaultImages[self.index] ?? true)
-    }
-    
-    func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideshow) {
-        self.addPhotoView.isHidden = !(self.isDefaultImages[imageSlideshow.currentPage] ?? false)
-    }
-    
-    func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideshow) {
-        self.addPhotoView.isHidden = !(self.isDefaultImages[imageSlideshow.currentPage] ?? false)
     }
     
     func imageSlideshow(_ imageSlideshow: ImageSlideshow, didChangeCurrentPageTo page: Int) {
