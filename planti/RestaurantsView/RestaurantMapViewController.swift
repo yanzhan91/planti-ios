@@ -24,7 +24,7 @@ class RestaurantMapViewController: UIViewController {
         let manager = ClusterManager()
         manager.delegate = self
         manager.maxZoomLevel = 20
-        manager.minCountForClustering = 2
+        manager.minCountForClustering = 30
         manager.clusterPosition = .nearCenter
         manager.shouldRemoveInvisibleAnnotations = true
         return manager
@@ -193,18 +193,18 @@ extension RestaurantMapViewController : MKMapViewDelegate {
             return mapView.annotationView(annotation: annotation, reuseIdentifier: "clusterIdentifier")
         } else {
             let annotation = annotation as! MapAnnotation
-            let annotationView = mapView.annotationView(of: MKPinAnnotationView.self, annotation: annotation, reuseIdentifier: "mapIdentifier")
+            let annotationView = mapView.annotationView(of: MKMarkerAnnotationView.self, annotation: annotation, reuseIdentifier: "mapIdentifier")
             
-//            annotationView.animatesWhenAdded = false
-//            annotationView.markerTintColor = Colors.themeGreen
-//            annotationView.glyphImage = UIImage.init(named: "marker_icon")
-//            annotationView.canShowCallout = true
-//            annotationView.titleVisibility = .hidden
-//            annotationView.subtitleVisibility = .hidden
+            annotationView.animatesWhenAdded = false
+            annotationView.markerTintColor = Colors.themeGreen
+            annotationView.glyphImage = UIImage.init(named: "marker_icon")
+            annotationView.canShowCallout = true
+            annotationView.titleVisibility = .hidden
+            annotationView.subtitleVisibility = .hidden
             
             annotationView.canShowCallout = true
-            annotationView.pinTintColor = Colors.themeGreen
-            annotationView.animatesDrop = true
+//            annotationView.pinTintColor = Colors.themeGreen
+//            annotationView.animatesDrop = true
             
             let infoWindow = MapMarker.init(frame: CGRect(x: 0, y: 0, width: 180, height: 32))
             infoWindow.backgroundColor = .clear
