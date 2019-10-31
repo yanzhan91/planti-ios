@@ -271,8 +271,8 @@ extension MKMapView {
     func getCoordinateRanges() -> (Double, Double, Double, Double) {
         
         let center = self.centerCoordinate
-        let latDelta = self.region.span.latitudeDelta / 2
-        let lngDelta = self.region.span.longitudeDelta / 2
+        let latDelta = self.region.span.latitudeDelta / 2 * 0.9
+        let lngDelta = self.region.span.longitudeDelta / 2 * 0.9
         
         return (center.latitude - latDelta, center.longitude - lngDelta,
             center.latitude + latDelta, center.longitude + lngDelta)
