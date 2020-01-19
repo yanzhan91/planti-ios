@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eK5-Lo-FmN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eK5-Lo-FmN">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,10 +35,19 @@
                                                         <constraint firstAttribute="height" constant="120" id="JHa-nf-L71"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9e-RW-xRi">
+                                                    <rect key="frame" x="206.66666666666666" y="111" width="32.333333333333343" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="84T-Fh-mfc" secondAttribute="bottom" constant="20" id="4Su-9F-iva"/>
+                                                <constraint firstItem="X9e-RW-xRi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="opc-R9-CRR" secondAttribute="leading" constant="100" id="9Qo-f8-gwd"/>
                                                 <constraint firstItem="84T-Fh-mfc" firstAttribute="centerX" secondItem="opc-R9-CRR" secondAttribute="centerX" id="I5W-gx-BkL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="X9e-RW-xRi" secondAttribute="trailing" constant="5" id="s7b-EA-8uN"/>
+                                                <constraint firstItem="X9e-RW-xRi" firstAttribute="bottom" secondItem="opc-R9-CRR" secondAttribute="bottomMargin" constant="5" id="w4m-C6-dGs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1058823529" green="0.63137254899999995" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,6 +161,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="260" height="812"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="X9e-RW-xRi" id="ux0-es-gNj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GY3-BX-yU2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

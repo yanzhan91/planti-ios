@@ -11,10 +11,14 @@ import SideMenu
 
 class MenuTableViewController: UITableViewController {
 
+    @IBOutlet weak var versionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"]
+        self.versionLabel.text = "v\(version ?? "0.0")"
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
