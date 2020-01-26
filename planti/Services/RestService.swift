@@ -17,6 +17,7 @@ class RestService {
     private final var scheme: String = "https"
     private final var host: String = "api.plantiapp.com"
     
+    
     class func shared() -> RestService {
         return restService
     }
@@ -153,7 +154,7 @@ class RestService {
         }
     }
     
-    public func postMenuItem(restaurantName: String, menuItemName: String, email: String?, containsMeat:Bool, containsDiary: Bool, containsEgg: Bool, image: UIImage?, completion: @escaping () -> Void) {
+    public func postMenuItem(restaurantName: String, menuItemName: String, email: String?, containsMeat:Bool, containsDiary: Bool, containsEgg: Bool, image: UIImage?, zipCode: String?, completion: @escaping () -> Void) {
         print("Rest: posting menu item \(restaurantName) \(menuItemName)")
         
         if (containsMeat) {
@@ -167,10 +168,15 @@ class RestService {
             "restaurantName": restaurantName,
             "menuItemName": menuItemName,
             "diary": containsDiary ? "true" : "false",
-            "egg": containsEgg ? "true" : "false"]
+            "egg": containsEgg ? "true" : "false"
+        ]
         
         if (email != nil) {
             parameters["email"] = email!
+        }
+        
+        if (zipCode != nil) {
+            parameters["address"] = zipCode!
         }
         
         let headers: HTTPHeaders = [

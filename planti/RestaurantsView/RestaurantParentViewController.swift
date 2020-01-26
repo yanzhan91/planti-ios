@@ -206,14 +206,14 @@ extension RestaurantParentViewController : OptionsScrollViewDelegate {
 }
 
 extension RestaurantParentViewController : SearchViewControllerDelegate {
-    func selectingSearchResult() {
-        self.switchView(vc: self.mapViewController)
-    }
-    
-    func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D) {
+    func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D, zipCode: String?) {
         self.searchField.text = name
         let region: MKCoordinateRegion = self.mapViewController.moveMap(coordinate: coordinate)
         self.fetchRestaurants(coordinates: coordinate, region: region)
+    }
+    
+    func selectingSearchResult() {
+        self.switchView(vc: self.mapViewController)
     }
 }
 

@@ -28,6 +28,7 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable {
     var coordinate: CLLocationCoordinate2D?
     var name: String?
     var uploadImage = false
+    var zipCode: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +94,7 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable {
             self.startAnimating()
             let image = uploadImage ? self.cameraView.image : nil
             uploadImage = false
-            RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", email: self.email.text, containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: image) { () in
+            RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", email: self.email.text, containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: image, zipCode: zipCode) { () in
                 
                 self.stopAnimating()
                 let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "To maintain accuracy, your posting will be verified before being displayed to all Planti users.", buttonTitle: "OK", viewController: self) { _ in
@@ -156,8 +157,9 @@ extension PostViewController : UINavigationControllerDelegate {
 }
 
 extension PostViewController : SearchViewControllerDelegate {
-    func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D) {
+    func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D, zipCode: String?) {
         self.restaurantName.text = name
         self.coordinate = coordinate
+        self.zipCode = zipCode
     }
 }

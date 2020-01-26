@@ -80,7 +80,7 @@ extension SearchViewController: UITableViewDelegate{
             self.searchController.isActive = false
             self.dismiss(animated: true) {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.delegate?.didSelectSearchResult(name: item.title, coordinate: placemark.coordinate)
+                self.delegate?.didSelectSearchResult(name: item.title, coordinate: placemark.coordinate, zipCode: placemark.postalCode)
             }
         }
     }
@@ -111,5 +111,5 @@ extension SearchViewController: UISearchBarDelegate {
 
 @objc protocol SearchViewControllerDelegate {
     @objc optional func selectingSearchResult()
-    func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D)
+    func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D, zipCode: String?)
 }
