@@ -67,6 +67,11 @@ extension SearchViewController: UITableViewDelegate{
         self.delegate?.selectingSearchResult?()
         let item = places[indexPath.row]
         let request = MKLocalSearch.Request()
+        if #available(iOS 13.0, *) {
+            request.pointOfInterestFilter = MKPointOfInterestFilter.init(including: [.restaurant])
+        } else {
+            // Fallback on earlier versions
+        }
         request.naturalLanguageQuery = "\(item.title ) \(item.subtitle )"
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in

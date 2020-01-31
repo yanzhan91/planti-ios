@@ -153,22 +153,27 @@ class RestaurantParentViewController: UIViewController, NVActivityIndicatorViewa
     
     public func fetchRestaurants(coordinates: CLLocationCoordinate2D) {
         let (minLat, minLng, maxLat, maxLng) = self.mapViewController.getCoordinateRangesWithCenterCoordinate(center: coordinates)
-        fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng)
+        fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, name: nil)
     }
     
     public func fetchRestaurants(coordinates: CLLocationCoordinate2D, region: MKCoordinateRegion) {
         let (minLat, minLng, maxLat, maxLng) = self.mapViewController.getCoordinateRangesWithCenterCoordinate(center: coordinates, region: region)
-        fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng)
+        fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, name: nil)
+    }
+
+    public func fetchRestaurants(coordinates: CLLocationCoordinate2D, region: MKCoordinateRegion, name: String?) {
+        let (minLat, minLng, maxLat, maxLng) = self.mapViewController.getCoordinateRangesWithCenterCoordinate(center: coordinates, region: region)
+        fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, name: name)
     }
     
-    public func fetchRestaurants(coordinates: CLLocationCoordinate2D, minLat: Double, minLng: Double, maxLat: Double, maxLng: Double) {
+    public func fetchRestaurants(coordinates: CLLocationCoordinate2D, minLat: Double, minLng: Double, maxLat: Double, maxLng: Double, name: String?) {
         if !self.isAnimating {
             self.startAnimating()
-            RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, userLocation: self.mapViewController.getUserLocation()) { restaurants in
+            RestService.shared().getRestaurants(option: self.optionScrollView.getPreference(), minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, userLocation: self.mapViewController.getUserLocation(), name: name) { restaurants in
                 
                 if (restaurants == nil) {
                     let alert = AlertService.shared().createOkAlert(title: "Error", message: "Unable to connect. Check your internet connection and try again.", buttonTitle: "Retry", viewController: self) { _ in
-                        self.fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng)
+                        self.fetchRestaurants(coordinates: coordinates, minLat: minLat, minLng: minLng, maxLat: maxLat, maxLng: maxLng, name: name)
                     }
                     self.present(alert, animated: true)
                     self.stopAnimating()
@@ -209,7 +214,7 @@ extension RestaurantParentViewController : SearchViewControllerDelegate {
     func didSelectSearchResult(name: String, coordinate: CLLocationCoordinate2D, zipCode: String?) {
         self.searchField.text = name
         let region: MKCoordinateRegion = self.mapViewController.moveMap(coordinate: coordinate)
-        self.fetchRestaurants(coordinates: coordinate, region: region)
+        self.fetchRestaurants(coordinates: coordinate, region: region, name: name)
     }
     
     func selectingSearchResult() {

@@ -97,10 +97,10 @@ class RestService {
         }
     }
     
-    public func getRestaurants(option: Options, minLat: Double, minLng: Double, maxLat: Double, maxLng: Double, userLocation: CLLocationCoordinate2D, completion: @escaping ([Restaurant]?) -> ()) {
+    public func getRestaurants(option: Options, minLat: Double, minLng: Double, maxLat: Double, maxLng: Double, userLocation: CLLocationCoordinate2D, name: String?, completion: @escaping ([Restaurant]?) -> ()) {
         print("Rest: getRestaurants \(option)")
         
-        let url = buildUrl(path: "/planti-api/ui/getRestaurants", queries: [
+        var queries = [
             URLQueryItem(name: "option", value: String(option.number())),
             URLQueryItem(name: "minLatitude", value: String(minLat)),
             URLQueryItem(name: "minLongitude", value: String(minLng)),
@@ -108,7 +108,13 @@ class RestService {
             URLQueryItem(name: "maxLongitude", value: String(maxLng)),
             URLQueryItem(name: "userLatitude", value: String(userLocation.latitude)),
             URLQueryItem(name: "userLongitude", value: String(userLocation.longitude))
-        ])
+        ]
+        
+        if (name != nil) {
+            queries.append(URLQueryItem(name: "name", value: name))
+        }
+        
+        let url = buildUrl(path: "/planti-api/ui/getRestaurants", queries: queries)
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
