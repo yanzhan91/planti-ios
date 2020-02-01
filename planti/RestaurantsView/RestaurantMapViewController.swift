@@ -201,6 +201,7 @@ extension RestaurantMapViewController : MKMapViewDelegate {
             annotationView.canShowCallout = true
             annotationView.titleVisibility = .hidden
             annotationView.subtitleVisibility = .hidden
+            annotationView.displayPriority = .required
             
             annotationView.canShowCallout = true
 //            annotationView.pinTintColor = Colors.themeGreen
