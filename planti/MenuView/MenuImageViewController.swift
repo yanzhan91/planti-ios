@@ -90,11 +90,13 @@ class MenuImageViewController: UIViewController, ImageSlideshowDelegate {
             break
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { response in
-                let vc = UIImagePickerController()
-                vc.sourceType = .camera
-                vc.delegate = self
-                vc.cameraFlashMode = .auto
-                self.present(vc, animated: true)
+                DispatchQueue.main.async {
+                    let vc = UIImagePickerController()
+                    vc.sourceType = .camera
+                    vc.delegate = self
+                    vc.cameraFlashMode = .auto
+                    self.present(vc, animated: true)
+                }
             }
             break
         case .restricted, .denied:
