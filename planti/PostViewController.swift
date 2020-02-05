@@ -12,7 +12,7 @@ import MapKit
 import AVFoundation
 import NVActivityIndicatorView
 
-class PostViewController: UIViewController, NVActivityIndicatorViewable {
+class PostViewController: UIViewController, NVActivityIndicatorViewable, UITextFieldDelegate {
 
     @IBOutlet weak var restaurantName: HoshiTextField!
     @IBOutlet weak var entreeName: HoshiTextField!
@@ -42,6 +42,9 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable {
         }
         
         self.postButton.activate()
+        
+        self.entreeName.delegate = self
+        self.email.delegate = self
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
@@ -135,6 +138,12 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable {
         default:
             break
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.entreeName.resignFirstResponder()
+        self.email.resignFirstResponder()
+        return false;
     }
 }
 
