@@ -16,7 +16,6 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable, UITextF
 
     @IBOutlet weak var restaurantName: HoshiTextField!
     @IBOutlet weak var entreeName: HoshiTextField!
-    @IBOutlet weak var email: HoshiTextField!
     @IBOutlet weak var postButton: ThemeButton!
     @IBOutlet weak var cameraView: UIImageView!
     
@@ -44,7 +43,6 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable, UITextF
         self.postButton.activate()
         
         self.entreeName.delegate = self
-        self.email.delegate = self
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
@@ -68,7 +66,6 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable, UITextF
     
     @objc private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         self.entreeName.resignFirstResponder()
-        self.email.resignFirstResponder()
     }
     
     private func getScrollViewContentSize(scrollView: UIScrollView) -> CGSize {
@@ -97,7 +94,7 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable, UITextF
             self.startAnimating()
             let image = uploadImage ? self.cameraView.image : nil
             uploadImage = false
-            RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", email: self.email.text, containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: image, zipCode: zipCode) { () in
+            RestService.shared().postMenuItem(restaurantName: self.restaurantName.text ?? "", menuItemName: self.entreeName.text ?? "", email: "", containsMeat: self.meatSwitch.isOn, containsDiary: self.diarySwitch.isOn, containsEgg: self.eggSwitch.isOn, image: image, zipCode: zipCode) { () in
                 
                 self.stopAnimating()
                 let okAlert = AlertService.shared().createOkAlert(title: "Thank you!", message: "To maintain accuracy, your posting will be verified before being displayed to all Planti users.", buttonTitle: "OK", viewController: self) { _ in
@@ -142,7 +139,6 @@ class PostViewController: UIViewController, NVActivityIndicatorViewable, UITextF
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.entreeName.resignFirstResponder()
-        self.email.resignFirstResponder()
         return false;
     }
 }
